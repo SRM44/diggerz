@@ -10,10 +10,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_161353) do
+ActiveRecord::Schema.define(version: 2019_08_19_164809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "deals", force: :cascade do |t|
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "requester_record_id"
+    t.bigint "receiver_record_id"
+    t.index ["receiver_record_id"], name: "index_deals_on_receiver_record_id"
+    t.index ["requester_record_id"], name: "index_deals_on_requester_record_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.bigint "genre_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_preferences_on_genre_id"
+    t.index ["user_id"], name: "index_preferences_on_user_id"
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.string "condition"
+    t.boolean "swappable"
+    t.boolean "out"
+    t.bigint "user_id"
+    t.bigint "release_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["release_id"], name: "index_records_on_release_id"
+    t.index ["user_id"], name: "index_records_on_user_id"
+  end
+
+  create_table "releases", force: :cascade do |t|
+    t.string "image"
+    t.string "title"
+    t.string "artist"
+    t.string "label"
+    t.string "year"
+    t.bigint "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_releases_on_genre_id"
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.string "title"
+    t.integer "duration"
+    t.bigint "release_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["release_id"], name: "index_tracks_on_release_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +85,12 @@ ActiveRecord::Schema.define(version: 2019_08_19_161353) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "deals", "records", column: "receiver_record_id"
+  add_foreign_key "deals", "records", column: "requester_record_id"
+  add_foreign_key "preferences", "genres"
+  add_foreign_key "preferences", "users"
+  add_foreign_key "records", "releases"
+  add_foreign_key "records", "users"
+  add_foreign_key "releases", "genres"
+  add_foreign_key "tracks", "releases"
 end
