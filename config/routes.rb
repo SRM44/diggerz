@@ -23,5 +23,4 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:edit, :update]
-
 end
