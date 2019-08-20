@@ -6,8 +6,9 @@ class User < ApplicationRecord
   has_many :genres, through: :preferences
   
   devise :database_authenticatable, :registerable,
-
          :recoverable, :rememberable, :validatable, :omniauthable
+
+  mount_uploader :avatar, PhotoUploader
 
   def self.find_for_discogs_oauth(auth)
     user_params = {
