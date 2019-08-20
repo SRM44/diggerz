@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_165115) do
+ActiveRecord::Schema.define(version: 2019_08_19_171558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2019_08_19_165115) do
 
   create_table "records", force: :cascade do |t|
     t.string "condition"
-    t.boolean "swappable"
-    t.boolean "out"
+    t.boolean "swappable", default: false
+    t.boolean "out", default: false
     t.bigint "user_id"
     t.bigint "release_id"
     t.datetime "created_at", null: false
