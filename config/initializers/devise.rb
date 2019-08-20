@@ -9,7 +9,9 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '25c65b4715c91245fedcb2006142b4c6e062bd3b6a42e87dfdd52a4de5d72f7ae8120a5442c60622181ba8fceb60e2689642b526756c670bda3e9aa0ef0e7d90'
-
+  config.omniauth :discogs, ENV["DISCOGS_API_KEY"], ENV["DISCOGS_API_SECRET"],
+    scope: 'email',
+    info_fields: 'email, first_name, last_name'
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
