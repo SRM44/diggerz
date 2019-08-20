@@ -1,7 +1,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :records
+  has_many :preferences
+  has_many :genres, through: :preferences
+  
   devise :database_authenticatable, :registerable,
+
          :recoverable, :rememberable, :validatable, :omniauthable
 
   def self.find_for_discogs_oauth(auth)
@@ -25,5 +30,13 @@ class User < ApplicationRecord
       user.save!
     end
     return user
+
+
+  def received_deals
+    Deal.where(receiver_record_id: record_ids)
+  end
+
+  def requested_deals
+    Deal.where(requester_record_id: record_ids)
   end
 end
