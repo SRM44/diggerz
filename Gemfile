@@ -31,3 +31,10 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+#Owngems
+
+gem 'omniauth-oauth'
+gem 'omniauth-discogs'
+gem 'discogs-wrapper'
+gem 'activerecord-session_store'

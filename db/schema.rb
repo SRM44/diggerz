@@ -9,14 +9,13 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 2019_08_19_165115) do
+ActiveRecord::Schema.define(version: 2019_08_20_151158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "deals", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "requester_record_id"
@@ -42,8 +41,8 @@ ActiveRecord::Schema.define(version: 2019_08_19_165115) do
 
   create_table "records", force: :cascade do |t|
     t.string "condition"
-    t.boolean "swappable"
-    t.boolean "out"
+    t.boolean "swappable", default: false
+    t.boolean "out", default: false
     t.bigint "user_id"
     t.bigint "release_id"
     t.datetime "created_at", null: false
@@ -85,6 +84,9 @@ ActiveRecord::Schema.define(version: 2019_08_19_165115) do
     t.string "username"
     t.string "name"
     t.string "location"
+    t.string "provider"
+    t.string "discogs_id"
+    t.string "token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
