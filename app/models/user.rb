@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :records
   has_many :preferences
   has_many :genres, through: :preferences
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
@@ -31,6 +31,7 @@ class User < ApplicationRecord
       user.save!
     end
     return user
+  end
 
 
   def received_deals
