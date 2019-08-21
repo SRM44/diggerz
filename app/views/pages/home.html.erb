@@ -3,7 +3,14 @@
     <%= image_tag "logo_diggerz_full_white.png"%>
     <p>Hidden gems around you.</p>
     <div class="button-master">
-        S'inscrire avec Discogs
+      <% if user_signed_in? %>
+        <%= link_to "My records", myrecords_path %>
+      <% else %>
+        <%= link_to user_discogs_omniauth_authorize_path, method: :post do %>
+          <%= image_tag "logo_diggerz_icon_white.png"%>
+          S'inscrire avec Discogs
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
