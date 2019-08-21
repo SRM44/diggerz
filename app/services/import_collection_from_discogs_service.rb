@@ -9,12 +9,14 @@ class ImportCollectionFromDiscogsService
 
     @releases.each do |discogs_release|
       diggerz_release = Release.find_by(discogs_id: discogs_release.id)
+      binding.pry
 
       if diggerz_release.nil?
         diggerz_release = Release.new(
           title: discogs_release.basic_information.title,
           artist: discogs_release.basic_information.artists.first.name,
-          discogs_id: discogs_release.id
+          discogs_id: discogs_release.id,
+          genre: Genre.find
         )
         diggerz_release.save
       end
@@ -24,7 +26,7 @@ class ImportCollectionFromDiscogsService
         if record.nil?
           record = Record.new(
             user: @user,
-            release: diggerz_release,
+            release: diggerz_release
           )
           record.save
         end
