@@ -1,3 +1,24 @@
+
+<div class="container-discover-card">
 <% @discover.each do |record| %>
-  record.title
-<% end %>
+  <div class='swap-card'>
+    <div class="discover-card" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url('<%= cl_image_path record.release.image %>')">
+      <div class="discover-card-infos">
+        <div class="discover-card-infos-release">
+            <h3> <%= record.release.title %> </h3>
+            <p> <%= record.release.artist %> </p>
+            <span> <%= record.release.year %> - <%= record.release.genre.name %></span>
+        </div>
+        <div class="discover-card-infos-record">
+          <p> Proposé par <%= record.user.username %></p>
+        </div>
+      </div>
+    </div>
+    <div class="swap-choice">
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+    </div>
+  </div>
+  <% end %>
+</div>
+
