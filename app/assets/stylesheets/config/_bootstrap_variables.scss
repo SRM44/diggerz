@@ -18,8 +18,14 @@ $danger:     $red;
 $warning:    $orange;
 
 // Buttons & inputs' radius
-$border-radius:    2px;
-$border-radius-lg: 2px;
-$border-radius-sm: 2px;
+$border-radius:    4px;
+$border-radius-lg: 4px;
+$border-radius-sm: 4px;
 
 // Override other variables below!
+$h2-font-size: 24px;
+$h3-font-size: 18px;
+
+$btn-font-family: "Montserrat", "sans-serif";
+$btn-font-size: 16px;
+$btn-border-radius:  50px;
