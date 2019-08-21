@@ -33,7 +33,6 @@ class User < ApplicationRecord
     return user
   end
 
-
   def received_deals
     Deal.where(receiver_record_id: record_ids)
   end

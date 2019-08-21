@@ -1,1 +1,30 @@
-// Specific CSS for your home-page
+.homepage-banner {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://images.unsplash.com/photo-1488841714725-bb4c32d1ac94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80);
+}
+.homepage-banner .homepage-container {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: center;
+  margin: auto auto;
+}
+
+.homepage-container > img {
+  width: 90%;
+  max-width: 600px;
+  margin: auto auto;
+}
+
+.homepage-container > p {
+  width: 90%;
+  max-width: 800px;
+  margin: auto auto;
+  color: white;
+  text-align: center;
+}

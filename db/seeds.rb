@@ -1,5 +1,8 @@
 puts "Cleaning database..."
 
+Deal.destroy_all
+Record.destroy_all
+Preference.destroy_all
 User.destroy_all
 Track.destroy_all
 Release.destroy_all
@@ -848,4 +851,114 @@ track_rage_against_the_machine_B5 = Track.create!(
   duration: "6:06",
   release: rage_against_the_machine
 )
+
+puts "Create preferences..."
+
+preferences_steven = Preference.create!(
+  genre: rock,
+  user: steven
+)
+
+puts "Create records..."
+
+the_dark_side_of_the_moon_steven = Record.create!(
+  release: the_dark_side_of_the_moon,
+  user: steven,
+  condition: "Near mint",
+  swappable: true,
+  out: false
+)
+
+nevermind_steven = Record.create!(
+  release: nevermind,
+  user: steven,
+  condition: "Very good plus",
+  swappable: true,
+  out: false
+)
+
+nevermind_steven = Record.create!(
+  release: nevermind,
+  user: steven,
+  condition: "Very good plus",
+  swappable: true,
+  out: false
+)
+
+loaded_steven = Record.create!(
+  release: loaded,
+  user: steven,
+  condition: "Mint",
+  swappable: false,
+  out: false
+)
+
+hots_space_steven = Record.create!(
+  release: loaded,
+  user: steven,
+  condition: "Very good",
+  swappable: true,
+  out: false
+)
+
+hot_rats_steven = Record.create!(
+  release: hot_rats,
+  user: steven,
+  condition: "Very good plus",
+  swappable: false,
+  out: false
+)
+
+in_rainbows_steven = Record.create!(
+  release: hot_rats,
+  user: steven,
+  condition: "Mint",
+  swappable: false,
+  out: false
+)
+
+rage_against_the_machine_yanis = Record.create!(
+  release: rage_against_the_machine,
+  user: yanis,
+  condition: "Very good plus",
+  swappable: true,
+  out: false
+)
+
+born_in_the_usa_volodia = Record.create!(
+  release: born_in_the_usa,
+  user: volodia,
+  condition: "Mint",
+  swappable: true,
+  out: false
+)
+
+homesick_amelie = Record.create!(
+  release: homesick,
+  user: amelie,
+  condition: "Near Mint",
+  swappable: true,
+  out: false
+)
+
+puts "Create deals..."
+
+deal_steven_yanis = Deal.create!(
+  requester_record: the_dark_side_of_the_moon_steven,
+  receiver_record: rage_against_the_machine_yanis,
+  status: 'pending'
+)
+
+deal_volodia_steven = Deal.create!(
+  requester_record: born_in_the_usa_volodia,
+  receiver_record: nevermind_steven,
+  status: 'pending'
+)
+
+deal_steven_amelie = Deal.create!(
+  requester_record: hots_space_steven,
+  receiver_record: homesick_amelie,
+  status: 'pending'
+)
+
 puts "Finished!"
