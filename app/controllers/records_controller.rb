@@ -6,6 +6,5 @@ class RecordsController < ApplicationController
     @discover = @records.each do |record|
       return record if record.user != current_user && record.swappable && current_user.genres.include?(record.genre)
     end
-    raise
   end
 end
