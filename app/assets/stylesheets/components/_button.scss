@@ -1,23 +1,29 @@
 .button-master {
-  width: 100%;
-  max-width: 300px;
-  margin: 0px 0px;
-  padding: 10px 30px;
-  background: #F3B61F;
-  border-radius: 25px;
   display: flex;
   align-items: center;
-  vertical-align: text-bottom;
-  justify-content: space-around;
+  justify-content: center;
+  width: 300px;
+  border-radius: $btn-border-radius;
+  height: 60px;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+  line-height: 15px;
+  background: $yellow;
+  font-family: $btn-font-family;
+  font-size: $btn-font-size;
 }
 
-.button-master a {
-  text-decoration: none;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.button-master img {
-  height: 18px;
+.button-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  border-radius: $btn-border-radius;
+  height: 60px;
+  color: #2C5448;
+  font-weight: 600;
+  line-height: 15px;
+  background: rgba(0, 0, 0, 0.06);
+  font-family: $btn-font-family;
+  font-size: $btn-font-size;
 }
