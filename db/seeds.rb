@@ -749,7 +749,7 @@ track_the_dark_side_of_the_moon_A5 = Track.create!(
 
 track_the_dark_side_of_the_moon_B1 = Track.create!(
   title: "Money",
-  position: "track_silver_bullet_B1",
+  position: "B1",
   duration: "6:30",
   release: the_dark_side_of_the_moon
 )
