@@ -1,0 +1,5 @@
+<ul>
+  <% @record.release.tracks.each do |track| %>
+    <li><%= track.position %> - Title : <%= track.title %></li>
+  <% end %>
+</ul>

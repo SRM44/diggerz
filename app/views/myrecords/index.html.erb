@@ -1,0 +1,10 @@
+<ul>
+  <% @records.each do |record| %>
+  <%= link_to myrecord_path(record.id) do   %>
+    <li><%= record.release.title %> - Artist : <%= record.release.artist %> - Year : <%= record.release.year %> - Label : <%= record.release.label %> - Image : <%= cl_image_tag record.release.image, crop: :fill, width: 100, height: 100  %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to 'Synchroniser ma collection Discogs', import_from_discogs_myrecords_path %>
