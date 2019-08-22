@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2019_08_22_163735) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "discogs_id"
-    t.string "track"
     t.index ["genre_id"], name: "index_releases_on_genre_id"
   end
 
