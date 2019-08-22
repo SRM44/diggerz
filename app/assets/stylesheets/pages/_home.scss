@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   background-image: url(https://images.unsplash.com/photo-1488841714725-bb4c32d1ac94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .homepage-banner .homepage-container {
   width: 75%;
@@ -27,4 +28,53 @@
   margin: auto auto;
   color: white;
   text-align: center;
+}
+
+.arguments-grid {
+  display: grid;
+  grid-template-areas: ". reassurance reassurance ."
+                       ". arguments-sellers arguments-buyers ."
+                       ". arguments-genres arguments-genres ."
+                       ". arguments-stats arguments-stats .";
+
+  grid-template-rows: 150px auto auto 150px;
+  grid-template-columns:  100px 1fr 1fr 80px;
+  grid-gap: 20px;
+  overflow-wrap: break-word;
+  color: white;
+  background: linear-gradient(180deg, #44554F 11.72%, #121013 92.81%);
+}
+
+.reassurance {
+  grid-area: reassurance;
+  overflow-wrap: break-word;
+  padding-top: 50px;
+}
+
+.arguments-sellers {
+  grid-area: arguments-sellers;
+}
+
+.arguments-buyers {
+  grid-area: arguments-buyers;
+}
+
+.arguments-genres {
+  grid-area: arguments-genres;
+}
+
+.album-grid {
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.album > img {
+  height: 200px;
+  width: 200px;
+}
+
+.arguments-stats {
+  grid-area: arguments-stats;
 }
