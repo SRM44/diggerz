@@ -1,7 +1,0 @@
-<ul>
-  <% @records.each do |record| %>
-    <li><%= record.release.title %></li>
-  <% end %>
-</ul>
-
-<%= link_to 'Synchroniser ma collection Discogs', import_from_discogs_myrecords_path %>
