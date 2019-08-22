@@ -1,3 +1,35 @@
-<% @discover.each do |record| %>
-  record.title
-<% end %>
+
+<div class="container-discover-card">
+    <div class="swap-card">
+      <%= link_to  records_path do %>
+        <div class="rediscover-card" style="background-image: url('https://media0.giphy.com/media/l2YOzoTQ4s4Px1gWc/giphy.gif?cid=790b761105844d74a0f0076c6447405d3aafb677d52a5e68&rid=giphy.gif')">
+          <h3>
+            Reload <br/>
+            to discover more
+          </h3>
+        </div>
+      <% end %>
+    </div>
+  <% @discover.sample(20).each do |record| %>
+    <div class='swap-card'>
+      <div class="discover-card" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url('<%= cl_image_path record.release.image %>')">
+        <div class="discover-card-infos">
+          <div class="discover-card-infos-release">
+            <h3> <%= record.release.title %> </h3>
+            <p> <%= record.release.artist %> </p>
+            <span> <%= record.release.year %> - <%= record.release.genre.name %></span>
+          </div>
+          <div class="discover-card-infos-record">
+            <p> Proposé par <%= record.user.username %></p>
+          </div>
+        </div>
+      </div>
+      <div class="swap-choice">
+        <i class="fas fa-times-circle button-decline"></i>
+        <%= link_to root_path(record.id) do %>
+          <i class="fa fa-check-circle button-accept" aria-hidden="true"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

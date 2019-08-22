@@ -18,10 +18,13 @@ Rails.application.routes.draw do
   end
 
   resources :myrecords, only: [:index, :show, :new, :create] do
+    collection do
+      get :import_from_discogs
+    end
     member do
       patch :toggle_swappable
     end
   end
 
-  resource :profile, only: [:edit, :update]
+  resource :profile, only: [:show, :edit, :update]
 end

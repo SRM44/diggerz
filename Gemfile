@@ -35,6 +35,7 @@ end
 #Owngems
 
 gem 'omniauth-oauth'
+gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 gem 'omniauth-discogs'
 gem 'discogs-wrapper'
 gem 'activerecord-session_store'
