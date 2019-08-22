@@ -1,17 +1,14 @@
-.container-discover-card {
-  height:100vh;
-  display: flex;
-  justify-content: center;
-  background-image: linear-gradient(150deg, rgba(0,0,0,0.2),rgba(0,0,0,7));
-}
-
-.container-discover-card .swap-card {
+.swap-card {
   position: fixed;
   width: 90%;
   max-width: 450px;
   height: 70%;
   margin: 20px auto;
   margin-top: 6%;
+}
+
+.swap-card-undisplay {
+  display: none;
 }
 
 .swap-card .discover-card {
@@ -71,6 +68,17 @@
 }
 
 .swap-choice i {
-  font-size: 500%;
-  color: $yellow;
+  cursor: pointer;
+}
+
+.rediscover-card {
+  height: 90%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  font-size: 40px;
+  font-weight:800;
+  text-decoration: none;
+  cursor: pointer;
 }
