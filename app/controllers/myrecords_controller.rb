@@ -1,8 +1,15 @@
 class MyrecordsController < ApplicationController
   before_action :set_discogs, only: [:show, :import_from_discogs]
-
   def index
-    @records = current_user.records.includes(:release)
+    if params[:query].present?
+      sql_query = <<~SQL
+        title @@ :query
+        OR artist @@ :query
+      SQL
+      @myrecords = current_user.records.joins(:release).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @myrecords = current_user.records
+    end
   end
 
   def show
