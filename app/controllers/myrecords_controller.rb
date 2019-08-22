@@ -9,12 +9,12 @@ class MyrecordsController < ApplicationController
     @record = Record.find(params[:id])
 
     if @record.release.tracks.empty?
-      ImportReleaseDataFromDiscogs.new(@discogs, release: @record.release).import_release_data
+      ImportFromDiscogsService.new(@discogs, release: @record.release).import_record_data
     end
   end
 
   def import_from_discogs
-    imported = ImportCollectionFromDiscogsService.new(@discogs, user: current_user).import_collection
+    imported = ImportFromDiscogsService.new(@discogs, user: current_user).import_collection
 
     if imported
       redirect_to myrecords_path, notice: "Succesfully imported Discogs' collection"
