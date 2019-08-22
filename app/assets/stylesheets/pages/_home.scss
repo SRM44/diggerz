@@ -53,10 +53,14 @@
 
 .arguments-sellers {
   grid-area: arguments-sellers;
+  border: solid 4px $yellow;
+  border-radius: 4px;
 }
 
 .arguments-buyers {
   grid-area: arguments-buyers;
+  border: solid 4px $blue;
+  border-radius: 4px;
 }
 
 .arguments-genres {
