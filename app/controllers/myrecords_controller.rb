@@ -1,20 +1,27 @@
 class MyrecordsController < ApplicationController
   before_action :set_discogs, only: [:show, :import_from_discogs]
-
   def index
-    @records = current_user.records.includes(:release)
+    if params[:query].present?
+      sql_query = <<~SQL
+        title @@ :query
+        OR artist @@ :query
+      SQL
+      @myrecords = current_user.records.joins(:release).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @myrecords = current_user.records
+    end
   end
 
   def show
     @record = Record.find(params[:id])
 
     if @record.release.tracks.empty?
-      ImportReleaseDataFromDiscogs.new(@discogs, release: @record.release).import_release_data
+      ImportFromDiscogsService.new(@discogs, release: @record.release).import_record_data
     end
   end
 
   def import_from_discogs
-    imported = ImportCollectionFromDiscogsService.new(@discogs, user: current_user).import_collection
+    imported = ImportFromDiscogsService.new(@discogs, user: current_user).import_collection
 
     if imported
       redirect_to myrecords_path, notice: "Succesfully imported Discogs' collection"

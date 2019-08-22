@@ -1,13 +1,29 @@
-class ImportCollectionFromDiscogsService
+class ImportFromDiscogsService
   def initialize(discogs, params = {})
     @discogs = discogs
     @user = params[:user]
-    @release = params[:release]
+    @diggerz_release = params[:release]
   end
 
-  def import_release_data
+  def import_record_data
+    @discogs_release = @discogs.get_release(@diggerz_release.discogs_id)
+    @discogs_release.tracklist.each do |track|
+      track_params = {
+        position: track.position,
+        title: track.title
+      }
+      diggerz_track = @diggerz_release.tracks.new(track_params)
+      diggerz_track.save
+    end
 
-  end
+    genre = Genre.new(name: @discogs_release.genres.first)
+    if genre.save
+      @diggerz_release.genre = genre
+    else
+      @diggerz_release.genre = Genre.find_by(name: @discogs_release.genres.first)
+    end
+    @diggerz_release.save
+    end
 
   def import_collection
     @releases = @discogs.get_user_collection(@user.username).releases
@@ -21,7 +37,7 @@ class ImportCollectionFromDiscogsService
         discogs_id: discogs_release.id,
         genre: Genre.first,
         year: discogs_release.basic_information.year,
-        label: discogs_release.basic_information.labels.first.name
+        label: discogs_release.basic_information.labels.first.name,
       }
 
       diggerz_release = Release.find_by(discogs_id: discogs_release.id)
