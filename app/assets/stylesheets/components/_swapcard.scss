@@ -73,12 +73,20 @@
 
 .rediscover-card {
   height: 90%;
+  border-radius: 5px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.rediscover-card h3 {
+  margin: 10px 8px;
   color: white;
   font-size: 40px;
   font-weight:800;
   text-decoration: none;
-  cursor: pointer;
 }
