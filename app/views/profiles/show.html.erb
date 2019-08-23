@@ -1,9 +1,7 @@
-<h1>Mon profil</h1>
-
-<%= cl_image_tag   @user.avatar, class:"avatar-large"  %>
-
-<div> </div>
-<%= @user.location %>
-
-<%= @user.email %>
+<div class="container-profile-page">
+  <div class="profile-card">
+    <div class='profile-card-avatar'> <%= cl_image_tag  @user.avatar, class:"avatar-large"  %> </div>
+    <div class='profile-card-infos'><%= @user.location %></div>
+    <div class='profile-card-infos'> <%= @user.email %> </div>
+  </div>
 
