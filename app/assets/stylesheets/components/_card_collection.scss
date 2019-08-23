@@ -111,6 +111,13 @@
 }
 
 .card-product-collection p {
+  text-align: left;
+  width: 100%;
+  max-width: 45vw;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: white;
   font-family: Open Sans;
   color: white;
   font-size: 80%;
