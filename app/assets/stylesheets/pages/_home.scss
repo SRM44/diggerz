@@ -1,10 +1,35 @@
+h2 {
+  font-weight: 600;
+}
+
+p {
+
+font-size: 18px;
+}
+
+h2,
+p {
+  text-align: center;
+}
+
+
+.home_video {
+ width: 100%;
+ height: 100vh;
+ position: absolute;
+ display: flex;
+ justify-content: center;
+ object-fit: cover;
+ top: 0;
+ z-index: -2;
+}
 
 .homepage-banner {
   height: 100vh;
   background-size: cover;
   background-position: center;
-  background-image: linear-gradient(rgba(244,34,244,0.1),rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1488841714725-bb4c32d1ac94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80');
-  // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.9);
+  background: rgb(243,182,31);
+  background: linear-gradient(349deg, rgba(243,182,31,0.2945378835127801) 0%, rgba(243,182,31,0.32815132889093135) 41%, rgba(243,182,31,0.571848807882528) 100%);
 }
 
 .logo-homepage > img {
@@ -28,8 +53,8 @@
 .arguments-grid {
   display: grid;
   grid-template-areas: ". reassurance reassurance ."
-                       ". arguments-sellers arguments-buyers ."
                        ". arguments-genres arguments-genres ."
+                       ". arguments-sellers arguments-buyers ."
                        ". arguments-stats arguments-stats .";
 
   grid-template-rows: 150px auto auto 150px;
@@ -37,8 +62,8 @@
   grid-gap: 25px;
   overflow-wrap: break-word;
   color: white;
-  background: linear-gradient(180deg, #44554F 11.72%, #121013 92.81%);
-
+background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,0,0.8939776594231442) 60%, rgba(0,0,0,1) 100%);
   h2 {
     padding-bottom: 15px;
   }
@@ -48,36 +73,22 @@
   grid-area: reassurance;
   overflow-wrap: break-word;
   padding-top: 50px;
-}
+  max-width: 900px;
+  margin: auto auto;
 
-.arguments-sellers {
-  grid-area: arguments-sellers;
-  background-color: $yellow;
-  background-image: url('https://images.unsplash.com/photo-1535992165812-68d1861aa71e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=637&q=80');
-  background-image: cover;
-  background-position: center;
-  border-radius: 2px;
-  padding: 25px 60px;
-  color: rgba(0, 0, 0, 0.6);
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
+  p {
+    margin-bottom: 80px;
+  }
 
-}
-
-.arguments-buyers {
-  grid-area: arguments-buyers;
-  background-color: $blue;
-  border-radius: 2px;
-  padding: 25px 60px;
-  color: rgba(0, 0, 0, 0.6);
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
 }
 
 .arguments-genres {
   grid-area: arguments-genres;
+  padding-top: 50px;
 }
 
 .album-grid {
-  padding-top: 30px;
+  margin-top: 120px;
   display: grid;
   grid-gap: 16px;
 }
@@ -89,8 +100,10 @@
   flex-direction: column;
 
   img {
-  height: 200px;
-  width: 200px;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#004092, #020202, transparent)
+
   }
 
   h5 {
@@ -102,9 +115,56 @@
   }
 }
 
+.arguments-sellers {
+  grid-area: arguments-sellers;
+  border-radius: 2px;
+  padding: 25px 60px;
+  color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
+
+}
 
 .arguments-stats {
   grid-area: arguments-stats;
+}
+
+.arguments-buyers {
+  grid-area: arguments-buyers;
+  border-radius: 2px;
+  padding: 25px 60px;
+  color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
+}
+
+
+#hp-second-cta {
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+
+
+.hp-stats-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.hp-stats-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    margin-bottom: 50px;
+  }
+
+  h4 {
+    font-size: 29px;
+    font-weight: bold;
+  }
 }
 
 
@@ -128,9 +188,9 @@
   }
   .arguments-grid {
       grid-template-areas: "reassurance"
+                       "arguments-genres"
                        "arguments-sellers"
                        "arguments-buyers"
-                       "arguments-genres"
                        "arguments-stats";
     grid-template-columns:  1fr;
     grid-template-rows: auto auto auto auto auto;
@@ -140,7 +200,7 @@
 // Small devices (landscape phones, 576px and up)
 @media (max-width:  576px) {
   .album-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .arguments-grid {
