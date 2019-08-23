@@ -1,0 +1,180 @@
+.container-collection-card {
+  background: black;
+  height: 92vh;
+  display: flex;
+  justify-content: center;
+}
+
+.collection-card {
+  position: fixed;
+  margin-top: 10px;
+  height: 100%;
+  width: 100%;
+  max-width: 600px;
+}
+
+.collection-card-search {
+  display: flex;
+  height: 4%;
+  width:90%;
+
+  #query-input {
+    background: grey;
+    color: white;
+    padding: 5px  5px;
+    border-radius: 3px;
+    border: none;
+    width: 80%;
+    height: 90%;
+  }
+
+  .btn-search-dark {
+    background: black;
+    color: white;
+    border: none;
+  }
+
+  .fa-search {
+    font-size: 90%;
+  }
+}
+
+.vinyle-collection-card {
+  width: 90%;
+  overflow : scroll;
+}
+
+.card-product-collection {
+  overflow: hidden;
+  width: 200px;
+  height: 60px;
+  background: black;
+  display: flex;
+  align-items: center;
+  padding-left: 3px;
+}
+
+.card-product-collection img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+
+.card-product-collection h4 {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product-collection p {
+  color: white;
+  font-size: 8px;
+  margin-bottom: 0;
+}
+
+.card-product-collection .card-product-infos-collection{
+  padding: 16px;
+}
+
+.row-grid-collection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  height: 60px;
+  background: black;
+}
+
+.col-toogle-grid-collection {
+  position: relative;
+  height: 60px;
+  grid-column: 2;
+  grid-row: 1;
+
+  .onoffswitch {
+    position: relative;
+    width: 90px;
+    padding-top: 15px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select: none;
+  }
+  .onoffswitch-checkbox {
+    display: none;
+  }
+
+  .onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 20px;
+    position: relative;
+  }
+
+  .onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.1s ease-in 0s;
+  }
+
+  .onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+  }
+
+  .onoffswitch-inner:before {
+    content: "";
+    padding-left: 0px;
+    background-color: #F3B61F;
+  }
+
+  .onoffswitch-inner:after {
+    content: "";
+    padding-right: 10px;
+    background-color: #000000;
+    text-align: right;
+  }
+
+  .onoffswitch-switch {
+    display: block;
+    width: 30px;
+    margin: 0px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border: 2px solid white;
+    border-radius: 20px;
+    transition: all 0.1s ease-in 0s;
+  }
+
+  .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0px;
+  }
+
+  .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+  }
+}
+
+.col-card-grid-collection {
+  height: 60px;
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+
+
+
