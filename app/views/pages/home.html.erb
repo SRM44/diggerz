@@ -1,24 +1,30 @@
-<div class="homepage-banner">
+<div class="homepage-banner" >
   <div class="homepage-container">
-    <%= image_tag "logo_diggerz_full_white.png"%>
-    <p>Hidden gems around you.</p>
-    <div class="button-master"> <%= link_to root_path do %>
-        <%= image_tag "logo_diggerz_icon_white.png"%>
-        S'inscrire avec Discogs
+    <div class="logo-homepage">
+      <%= image_tag "logo_diggerz_full_white.png"%>
+    </div>
+    <div class="button-master">
+      <% if user_signed_in? %>
+        <%= link_to "My records", myrecords_path %>
+      <% else %>
+        <%= link_to user_discogs_omniauth_authorize_path, method: :post do %>
+          <%= image_tag "logo_diggerz_icon_white.png"%>
+          S'inscrire avec Discogs
+        <% end %>
       <% end %>
     </div>
   </div>
 </div>
 <div class="arguments-grid">
   <div class="reassurance">
-  <h2>Ce que vous faite avec Diggerz</h2>
+  <h2>Ce que vous faites avec Diggerz</h2>
   <p>Echangez les vinyles dont vous ne voulez plus avec ceux des diggerz autour de vous : les disques dont vous ne voulez plus sont ceux qui interessent un.e autre.
   </p>
   </div>
   <div class="arguments-sellers">
     <h2>Je veux vendre des vinyles </h2>
     <ul>
-      <li>Echangez vos vinyles à leurs justes valeur</li>
+      <li>Echangez vos vinyles à leur juste valeur</li>
       <li>sans perdre de temps ni d'argent</li>
       <li>plus besoin de brader le prix de vos disques à la revente</li>
     </ul>
@@ -27,21 +33,61 @@
     <h2>Je veux acheter des vinyles</h2>
     <ul>
       <li>Economisez les frais de port astronomiques à l'achat d'un vinyle sur internet</li>
-      <li>hinez dans les bacs des passionés du coin</li>
+      <li>chinez dans les bacs des passionés du coin</li>
       <li>accèder aux disques rendus disponible par la communauté de collectionneurs proche de chez vous</li>
     </ul>
   </div>
   <div class="arguments-genres">
     <h2>Actuellement sur Diggerz</h2>
     <div class="album-grid">
-        <div class="album"><img src="https://images-na.ssl-images-amazon.com/images/I/61R7gJadP7L._SX355_.jpg" alt="">The dark side of the moon</div>
-        <div class="album"><img src="https://m.media-amazon.com/images/I/71F5N72iabL._SS500_.jpg" alt="">American idiot</div>
-        <div class="album"><img src="https://images-na.ssl-images-amazon.com/images/I/81l6s4l-JZL._SL1500_.jpg" alt="">Nevermind</div>
-        <div class="album"><img src="https://m.media-amazon.com/images/I/71K1+8Xc7vL._SS500_.jpg" alt="">Highway To Hell</div>
-        <div class="album"><img src="https://images-na.ssl-images-amazon.com/images/I/81BqtUgg%2BgL._SL1500_.jpg" alt="">Drones</div>
-        <div class="album"><img src="https://img.discogs.com/I6WLon0NwqZPEEPrxsG63-OPajQ=/fit-in/573x509/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-523-1376073104-9918.jpeg.jpg" alt="">Crispy Bacon</div>
-        <div class="album"><img src="https://www.levinyleclub.com/wp-content/uploads/2019/02/71abRFYavYL._SL1200_.jpg" alt="">Labcabincalifornia</div>
-        <div class="album"><img src="https://static.fnac-static.com/multimedia/Images/FR/NR/59/2e/8d/9252441/1540-1/tsp20171206142909/Con-Todo-El-Mundo.jpg" alt="">Con Todo El Mundo</div>
+        <div class="album">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/61R7gJadP7L._SX355_.jpg" alt="">
+          <h5>The dark side of the moon</h5>
+          <p>Pink Floyd</p>
+        </div>
+
+        <div class="album">
+          <img src="https://m.media-amazon.com/images/I/71F5N72iabL._SS500_.jpg" alt="">
+          <h5>American idiot</h5>
+          <p>Green Day</p>
+        </div>
+
+        <div class="album">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/81l6s4l-JZL._SL1500_.jpg" alt="">
+          <h5>Nevermind</h5>
+          <p>Nirvana</p>
+        </div>
+
+        <div class="album">
+          <img src="https://m.media-amazon.com/images/I/71K1+8Xc7vL._SS500_.jpg" alt="">
+          <h5>Highway To Hell</h5>
+          <p>ACDC</p>
+        </div>
+
+        <div class="album">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/81BqtUgg%2BgL._SL1500_.jpg" alt="">
+          <h5>Drones</h5>
+          <p>Muse</p>
+        </div>
+
+        <div class="album">
+          <img src="https://img.discogs.com/I6WLon0NwqZPEEPrxsG63-OPajQ=/fit-in/573x509/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-523-1376073104-9918.jpeg.jpg" alt="">
+          <h5>Crispy Bacon</h5>
+          <p>Laurent Garnier</p>
+        </div>
+
+        <div class="album">
+          <img src="https://www.levinyleclub.com/wp-content/uploads/2019/02/71abRFYavYL._SL1200_.jpg" alt="">
+          <h5>Labcabincalifornia</h5>
+          <p>Pharcyde</p>
+        </div>
+
+        <div class="album">
+          <img src="https://static.fnac-static.com/multimedia/Images/FR/NR/59/2e/8d/9252441/1540-1/tsp20171206142909/Con-Todo-El-Mundo.jpg" alt="">
+          <h5>Con Todo El Mundo</h5>
+          <p>Krughanbin</p>
+        </div>
+
     </div>
   </div>
   <div class="arguments-stats">
