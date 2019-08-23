@@ -19,7 +19,7 @@
   <div class="row-grid-collection">
   <div class="col-toogle-grid-collection">
     <form id="swappable-vinyle" action="form-swappable">
-    <div class="custom-control custom-switch custom-switch-collection onoffswitch">
+    <div class="custom-control custom-switch custom-switch-collection onoffswitch" data-swappable="<%= myrecord.swappable %>">
       <% if myrecord.swappable %>
         <input type="checkbox" checked name="toogle-swappable" class="custom-control-input  onoffswitch-checkbox" id="record-swap-<%= index %>">
       <% else %>
@@ -46,11 +46,3 @@
     </div>
   </div>
 </div>
-<!-- <script>
- const labels = document.querySelectorAll('.onoffswitch');
-labels.forEach((label) => {
-   label.addEventListener('change', () => {
-    console.log("Salut");
-   })
-})
-</script> -->
