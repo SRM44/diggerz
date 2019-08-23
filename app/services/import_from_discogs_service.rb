@@ -5,6 +5,20 @@ class ImportFromDiscogsService
     @diggerz_release = params[:release]
   end
 
+  def import_user_data
+    @diggerz_user = @discogs.get_user(@user.username)
+    user_params = {
+      location: @diggerz_user.location,
+      discogs_id: @diggerz_user.id,
+      username: @diggerz_user.username,
+      name: @diggerz_user.name,
+      email: @diggerz_user.email
+    }
+    @user.update_attributes(user_params)
+    @user.remote_avatar_url = @diggerz_user.avatar_url
+    @user.save
+  end
+
   def import_record_data
     @discogs_release = @discogs.get_release(@diggerz_release.discogs_id)
     @discogs_release.tracklist.each do |track|
@@ -23,7 +37,7 @@ class ImportFromDiscogsService
       @diggerz_release.genre = Genre.find_by(name: @discogs_release.genres.first)
     end
     @diggerz_release.save
-    end
+  end
 
   def import_collection
     @releases = @discogs.get_user_collection(@user.username).releases

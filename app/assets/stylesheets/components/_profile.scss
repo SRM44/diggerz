@@ -1,0 +1,25 @@
+.profile-card {
+  height: 90%;
+  width: 80%;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-card-avatar {
+  margin: 10%;
+}
+
+.profile-card-infos {
+  margin-bottom: 5%;
+  background-color: white;
+  border-radius: 25px;
+  padding: 4% 0%;
+  width: 80%;
+  text-align: center;
+}
+
+.profile-card-infos p {
+  color: #9A9696;
+}
