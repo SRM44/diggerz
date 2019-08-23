@@ -1,34 +1,29 @@
+
 .homepage-banner {
   height: 100vh;
   background-size: cover;
   background-position: center;
-  background-image: url(https://images.unsplash.com/photo-1488841714725-bb4c32d1ac94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: linear-gradient(rgba(244,34,244,0.1),rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1488841714725-bb4c32d1ac94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80');
+  // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.9);
 }
-.homepage-banner .homepage-container {
+
+.logo-homepage > img {
+  max-width: 100%;
+  height: auto;
+  margin: auto auto;
+}
+.homepage-container {
   width: 75%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   vertical-align: middle;
-  justify-content: center;
+  justify-content:
+  center;
   margin: auto auto;
 }
 
-.homepage-container > img {
-  width: 90%;
-  max-width: 600px;
-  margin: auto auto;
-}
-
-.homepage-container > p {
-  width: 90%;
-  max-width: 800px;
-  margin: auto auto;
-  color: white;
-  text-align: center;
-}
 
 .arguments-grid {
   display: grid;
@@ -38,11 +33,15 @@
                        ". arguments-stats arguments-stats .";
 
   grid-template-rows: 150px auto auto 150px;
-  grid-template-columns:  100px 1fr 1fr 80px;
-  grid-gap: 20px;
+  grid-template-columns:  100px 1fr 1fr 100px;
+  grid-gap: 25px;
   overflow-wrap: break-word;
   color: white;
   background: linear-gradient(180deg, #44554F 11.72%, #121013 92.81%);
+
+  h2 {
+    padding-bottom: 15px;
+  }
 }
 
 .reassurance {
@@ -53,10 +52,24 @@
 
 .arguments-sellers {
   grid-area: arguments-sellers;
+  background-color: $yellow;
+  background-image: url('https://images.unsplash.com/photo-1535992165812-68d1861aa71e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=637&q=80');
+  background-image: cover;
+  background-position: center;
+  border-radius: 2px;
+  padding: 25px 60px;
+  color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
+
 }
 
 .arguments-buyers {
   grid-area: arguments-buyers;
+  background-color: $blue;
+  border-radius: 2px;
+  padding: 25px 60px;
+  color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
 }
 
 .arguments-genres {
@@ -66,15 +79,74 @@
 .album-grid {
   padding-top: 30px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
-.album > img {
+.album {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  img {
   height: 200px;
   width: 200px;
+  }
+
+  h5 {
+  padding-top: 10px;
+  }
+
+  p {
+  color: rgba(255, 255, 255, 0.6);
+  }
 }
+
 
 .arguments-stats {
   grid-area: arguments-stats;
 }
+
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 2000px) {
+  .album-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (max-width:  1024px) {
+  .album-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+// Medium devices (tablets, 768px and up)
+@media (max-width:  894px) {
+  .album-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .arguments-grid {
+      grid-template-areas: "reassurance"
+                       "arguments-sellers"
+                       "arguments-buyers"
+                       "arguments-genres"
+                       "arguments-stats";
+    grid-template-columns:  1fr;
+    grid-template-rows: auto auto auto auto auto;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width:  576px) {
+  .album-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .arguments-grid {
+    grid-template-columns:  1fr;
+    grid-template-rows: auto auto auto auto;
+  }
+
+}
+
