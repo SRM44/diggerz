@@ -1,50 +1,64 @@
 <div class="container-collection-card ">
-  <div class="collection-card">
-    <div class="collection-card-search">
-      <%= form_tag myrecords_path, method: :get do %>
-        <input id="query-input" name="query" placeholder="Titre, Artiste... " ><% params[:query] %></input>
-        <button class="btn-search-dark"><i class="fas fa-search"></i></button>
-      <% end %>
+  <% if @myrecords.empty? %>
+  <%= link_to import_from_discogs_myrecords_path do  %>
+    <div class="sync-grid-collection">
+      <%= image_tag "sync.svg", alt: "Sync your Discogs collection" %>
     </div>
-    <div class="vinyle-collection-card"></div>
-<div class="card-grid-collection">
-    <div class="card-product-collection">
-       <img src="/image/signe_plus.png">
-      <div class="card-product-infos-collection">
-        <h4>Ajouter un disque</h4>
+  <% end %>
+  <% else %>
+    <div class="collection-card">
+      <div class="collection-card-search">
+        <%= form_tag myrecords_path, method: :get do %>
+          <input id="query-input" name="query" placeholder="Titre, Artiste... " >
+            <% params[:query] %>
+          </input>
+          <button class="btn-search-dark"><i class="fas fa-search"></i></button>
+        <% end %>
+      </div>
+      <div class="vinyle-collection-card">
+        <div class="row-grid-collection">
+          <div class="col-card-grid-collection">
+            <div class="card-product-collection">
+              <%= image_tag "signe_plus.png", alt: "alttext" %>
+              <div class="card-product-infos-collection">
+                <h4>Ajouter un disque</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% @myrecords.each_with_index do |myrecord, index| %>
+        <div class="row-grid-collection">
+          <div class="col-toogle-grid-collection">
+            <form id="swappable-vinyle" action="form-swappable">
+              <div class="custom-control custom-switch custom-switch-collection onoffswitch">
+                <% if myrecord.swappable %>
+                  <input type="checkbox" checked name="toogle-swappable" class="custom-control-input  onoffswitch-checkbox" id="record-swap-<%= index %>">
+                <% else %>
+                  <input type="checkbox" name="toogle-swappable" class="custom-control-input  onoffswitch-checkbox" id="record-swap-<%= index %>">
+                <% end %>
+                <label class="custom-control-label onoffswitch-label" for="record-swap-<%= index %>">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class="col-card-grid-collection">
+            <%= link_to myrecord_path(myrecord) do %>
+              <div class="card-product-collection">
+                <%= cl_image_tag myrecord.release.image %>
+                <div class="card-product-infos-collection">
+                  <h4><%= myrecord.release.title %></h4>
+                  <p><%= myrecord.release.artist%></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
       </div>
     </div>
-
-<% @myrecords.each_with_index do |myrecord, index| %>
-  <div class="row-grid-collection">
-  <div class="col-toogle-grid-collection">
-    <form id="swappable-vinyle" action="form-swappable">
-    <div class="custom-control custom-switch custom-switch-collection onoffswitch">
-      <% if myrecord.swappable %>
-        <input type="checkbox" checked name="toogle-swappable" class="custom-control-input  onoffswitch-checkbox" id="record-swap-<%= index %>">
-      <% else %>
-        <input type="checkbox" name="toogle-swappable" class="custom-control-input  onoffswitch-checkbox" id="record-swap-<%= index %>">
-      <% end %>
-      <label class="custom-control-label onoffswitch-label" for="record-swap-<%= index %>">
-        <span class="onoffswitch-inner"></span>
-        <span class="onoffswitch-switch"></span>
-    </div>
-    </form>
-  </div>
-  <div class="col-card-grid-collection">
-    <div class="card-product-collection">
-      <%= cl_image_tag myrecord.release.image %>
-      <div class="card-product-infos-collection">
-        <h4><%= myrecord.release.title %></h4>
-        <p><%= myrecord.release.artist%></p>
-      </div>
-    </div>
-  </div>
-</div>
-      </label>
-    <% end %>
-    </div>
-  </div>
+  <% end %>
 </div>
 <!-- <script>
  const labels = document.querySelectorAll('.onoffswitch');
