@@ -94,17 +94,54 @@ background: linear-gradient(180deg, rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,
 }
 
 .album {
+  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+  cursor: pointer;
 
   img {
+  display: block;
   height: 100%;
   width: 100%;
-  background: linear-gradient(#004092, #020202, transparent)
 
   }
+
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+
+}
+
+.overlay:hover {
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.cards-infos-hp {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+
 
   h5 {
   padding-top: 10px;
@@ -112,6 +149,19 @@ background: linear-gradient(180deg, rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,
 
   p {
   color: rgba(255, 255, 255, 0.6);
+  }
+
+  a {
+    color: $yellow;
+    font-weight: 500;
+    min-width: 0;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  a:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
   }
 }
 
@@ -193,14 +243,13 @@ background: linear-gradient(180deg, rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,
                        "arguments-buyers"
                        "arguments-stats";
     grid-template-columns:  1fr;
-    grid-template-rows: auto auto auto auto auto;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (max-width:  576px) {
   .album-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .arguments-grid {
