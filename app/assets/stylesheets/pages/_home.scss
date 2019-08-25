@@ -52,18 +52,18 @@ p {
 
 .arguments-grid {
   display: grid;
-  grid-template-areas: ". reassurance reassurance ."
-                       ". arguments-genres arguments-genres ."
-                       ". arguments-sellers arguments-buyers ."
-                       ". arguments-stats arguments-stats .";
+  grid-template-areas: ". reassurance ."
+                       ". arguments-albums ."
+                       ". arguments-stats .";
 
-  grid-template-rows: 150px auto auto 150px;
-  grid-template-columns:  100px 1fr 1fr 100px;
+  grid-template-columns:  100px 1fr 100px;
   grid-gap: 25px;
   overflow-wrap: break-word;
   color: white;
-background: rgb(0,0,0);
-background: linear-gradient(180deg, rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,0,0.8939776594231442) 60%, rgba(0,0,0,1) 100%);
+  background: rgb(0,0,0);
+  background: -webkit-linear-gradient(rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,0,0.8939776594231442) 60%, rgba(0,0,0,1) 100%);
+  background: -o-linear-gradient(rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,0,0.8939776594231442) 60%, rgba(0,0,0,1) 100%);
+  background: linear-gradient(rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,0,0.8939776594231442) 60%, rgba(0,0,0,1) 100%);
   h2 {
     padding-bottom: 15px;
   }
@@ -75,22 +75,19 @@ background: linear-gradient(180deg, rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,
   padding-top: 50px;
   max-width: 900px;
   margin: auto auto;
-
-  p {
-    margin-bottom: 80px;
-  }
-
 }
 
-.arguments-genres {
-  grid-area: arguments-genres;
+.arguments-albums {
+  grid-area: arguments-albums;
   padding-top: 50px;
 }
 
 .album-grid {
-  margin-top: 120px;
+  margin-top: 50px;
   display: grid;
-  grid-gap: 16px;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, calc(50% - 40px));
+  grid-template-rows: minmax(150px, 1fr);
 }
 
 .album {
@@ -165,25 +162,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,
   }
 }
 
-.arguments-sellers {
-  grid-area: arguments-sellers;
-  border-radius: 2px;
-  padding: 25px 60px;
-  color: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
-
-}
 
 .arguments-stats {
   grid-area: arguments-stats;
-}
-
-.arguments-buyers {
-  grid-area: arguments-buyers;
-  border-radius: 2px;
-  padding: 25px 60px;
-  color: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
 }
 
 
@@ -192,8 +173,6 @@ background: linear-gradient(180deg, rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,
   margin-top: 80px;
   margin-bottom: 80px;
 }
-
-
 
 .hp-stats-grid {
   display: flex;
@@ -218,44 +197,37 @@ background: linear-gradient(180deg, rgba(0,0,0,0.7875350823923319) 0%, rgba(0,0,
 }
 
 
-// Large devices (desktops, 992px and up)
-@media (max-width: 2000px) {
+
+
+
+@media (max-width: 576px) {
+  .arguments-grid {
+    grid-template-columns:  1fr;
+  }
   .album-grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns:  1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width:  577px) {
+  .album-grid {
+    grid-template-columns: 1fr 1fr ;
   }
 }
 
 // Large devices (desktops, 992px and up)
-@media (max-width:  1024px) {
+@media (min-width: 992px) {
   .album-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-// Medium devices (tablets, 768px and up)
-@media (max-width:  894px) {
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
   .album-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .arguments-grid {
-      grid-template-areas: "reassurance"
-                       "arguments-genres"
-                       "arguments-sellers"
-                       "arguments-buyers"
-                       "arguments-stats";
-    grid-template-columns:  1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
-
 // Small devices (landscape phones, 576px and up)
-@media (max-width:  576px) {
-  .album-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .arguments-grid {
-    grid-template-columns:  1fr;
-    grid-template-rows: auto auto auto auto;
-  }
-
-}
 
