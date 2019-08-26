@@ -31,6 +31,24 @@ class MyrecordsController < ApplicationController
     # <%= link_to 'Importer ma collection', import_from_discogs_releases_path %>
   end
 
+  def toggle_swappable
+    @record = Record.find(params[:id])
+
+    @record.swappable = !@record.swappable
+
+    if @record.save
+      respond_to do |format|
+        format.html { redirect_to myrecords_path }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'myrecords/index' }
+        format.js  # <-- idem
+      end
+    end
+  end
+
   private
 
   def set_discogs
