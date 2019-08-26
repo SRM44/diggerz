@@ -17,17 +17,43 @@
   display:flex;
 }
 
+
 .vinyl-card-details .vinyl-card-details-infos {
   position: relative;
-  margin: auto 10%;
+  height: 88%;
+  max-height: 88%;
+  margin-top: 6%;
+  margin-left: 10%;
   margin-bottom: 6%;
+  width: 90%;
+}
+
+.vinyl-card-details-infos .vinyl-card-details-index-button a {
+  position: relative;
+  height: 15%;
+  text-decoration: none;
+  color: #F3F3F3;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.vinyl-card-details-index-button a:hover {
+  color: white;
+  font-weight: 800;
+}
+
+.vinyl-card-details-infos .vinyl-card-details-infos-release {
+  position:absolute;
+  height: 85%;
+  margin-top: auto;
+  display:flex;
+  align-items: flex-end;
 }
 
 .vinyl-card-details-infos-release h3 {
   font-size: 20px;
   font-weight: 600;
   line-height: 20px;
-  margin: 0px;
   margin-bottom: 6px;
   text-align: left;
 }
