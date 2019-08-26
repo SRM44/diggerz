@@ -29,19 +29,14 @@
       <% @myrecords.each_with_index do |myrecord, index| %>
         <div class="row-grid-collection">
           <div class="col-toogle-grid-collection">
-            <form id="swappable-vinyle" action="form-swappable">
-              <div class="custom-control custom-switch custom-switch-collection onoffswitch">
-                <% if myrecord.swappable %>
-                  <input type="checkbox" checked name="toogle-swappable" class="custom-control-input  onoffswitch-checkbox" id="record-swap-<%= index %>">
-                <% else %>
-                  <input type="checkbox" name="toogle-swappable" class="custom-control-input  onoffswitch-checkbox" id="record-swap-<%= index %>">
-                <% end %>
-                <label class="custom-control-label onoffswitch-label" for="record-swap-<%= index %>">
+            <div class="custom-control custom-switch custom-switch-collection onoffswitch" data-id="<%= myrecord.id %>">
+              <input type="checkbox" <%= 'checked' if myrecord.swappable %> name="record[swappable]" class="custom-control-input onoffswitch-checkbox" id="record-swap-<%= index %>">
+              <label class="custom-control-label onoffswitch-label" for="record-swap-<%= index %>">
                   <span class="onoffswitch-inner"></span>
                   <span class="onoffswitch-switch"></span>
-                </label>
-              </div>
-            </form>
+              </label>
+            </div>
+            <%= link_to "Lol", toggle_swappable_myrecord_path(myrecord), id: "submit-record-#{myrecord.id}", class: "hidden-button", method: :patch, remote: true %>
           </div>
           <div class="col-card-grid-collection">
             <%= link_to myrecord_path(myrecord) do %>
@@ -60,3 +55,5 @@
     </div>
   <% end %>
 </div>
+
+<%= javascript_pack_tag "swap" %>

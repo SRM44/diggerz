@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :deals, only: [:new, :create]
   end
 
-  resources :myrecords, only: [:index, :show, :new, :create] do
+  resources :myrecords, only: [:index, :show, :new, :create, :update] do
     collection do
       get :import_from_discogs
     end
