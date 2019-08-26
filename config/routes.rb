@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+
   get 'myrecords/index'
   root to: 'pages#home'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  resources :mydeals, only: [:index, :show]
 
   resources :deals, only: [:index, :show] do
     member do
