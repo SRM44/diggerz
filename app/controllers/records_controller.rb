@@ -7,4 +7,7 @@ class RecordsController < ApplicationController
       # && current_user.genres.include?(record.release.genre)
     end
   end
+
+  def collection
+  end
 end

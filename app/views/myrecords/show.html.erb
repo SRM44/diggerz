@@ -1,26 +1,30 @@
 <div class="container-vinyl-card">
-    <div class='vinyl-card'>
-      <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @record.release.image %>')">
-        <div class="vinyl-card-details-infos">
-          <div class="vinyl-card-details-index-button">
-            <%= link_to "< retour", myrecords_path  %>
-          </div>
-          <div class="vinyl-card-details-infos-release">
-            <div>
-              <h3> <%= @record.release.title %> </h3>
-              <p> <%= @record.release.artist %> </p>
-              <span> <%= @record.release.year %> - <%= @record.release.genre.name %></span>
-            </div>
+  <div class='vinyl-card'>
+    <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @record.release.image %>')">
+      <div class="vinyl-card-details-infos">
+        <div class="vinyl-card-details-index-button">
+          <%= link_to "< retour", myrecords_path  %>
+        </div>
+        <div class="vinyl-card-details-infos-release">
+          <div>
+            <h3> <%= @record.release.title %> </h3>
+            <p> <%= @record.release.artist %> </p>
+            <span> <%= @record.release.year %> - <%= @record.release.genre.name %></span>
           </div>
         </div>
       </div>
+    </div>
+    <div class="vinyl-card-more">
       <div class="vinyl-card-tracklist">
         <ul>
           <li><strong>TRACKLIST</strong></li>
           <% @record.release.tracks.sort_by {|track| track.position }.each do |track| %>
             <li><%= track.position %> - <%= track.title %></li>
           <% end %>
+          <br/>
+          <br/>
         </ul>
       </div>
     </div>
+  </div>
 </div>

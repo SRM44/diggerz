@@ -1,5 +1,8 @@
 .vinyl-card {
   position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
   max-width: 500px;
   height: 100%;
@@ -17,14 +20,11 @@
   display:flex;
 }
 
-
 .vinyl-card-details .vinyl-card-details-infos {
   position: relative;
-  height: 88%;
-  max-height: 88%;
-  margin-top: 6%;
+  height: 90%;
+  margin-top: 10%;
   margin-left: 10%;
-  margin-bottom: 6%;
   width: 90%;
 }
 
@@ -44,7 +44,7 @@
 
 .vinyl-card-details-infos .vinyl-card-details-infos-release {
   position:absolute;
-  height: 85%;
+  bottom: 5%;
   margin-top: auto;
   display:flex;
   align-items: flex-end;
@@ -86,21 +86,3 @@
   text-align: left;
 }
 
-.vinyl-card .vinyl-card-tracklist {
-  position:relative;
-  height:45%;
-  display:flex;
-  overflow: scroll;
-}
-
-.vinyl-card-tracklist ul {
-  width: 90%;
-}
-
-.vinyl-card-tracklist li {
-  font-size: 16px;
-  color: white;
-  list-style-type: none;
-  margin-top:15px;
-  margin-left: 10%;
-}

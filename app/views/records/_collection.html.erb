@@ -1,0 +1,12 @@
+<% @myrecords.each do |myrecord| %>
+  <div data-record-id="<%= myrecord.id %>" class="deal-myrecord">
+      <div class="deal-myrecord-image">
+        <%= cl_image_tag myrecord.release.image, class: "avatar-large" %>
+      </div>
+          <div class="deal-myrecord-infos">
+            <h4><%= myrecord.release.title %></h4>
+            <p><%= myrecord.release.artist%></p>
+          </div>
+        </div>
+      <% end %>
+    </div>

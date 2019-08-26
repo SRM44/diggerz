@@ -1,0 +1,92 @@
+.vinyl-card-more {
+  height: 45%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.vinyl-card-tracklist {
+  position:relative;
+  height:100%;
+  width: 100%;
+  display:flex;
+  overflow: scroll;
+}
+
+.vinyl-card-tracklist ul {
+  width: 90%;
+}
+
+.vinyl-card-tracklist li {
+  font-size: 16px;
+  color: white;
+  list-style-type: none;
+  margin-top:15px;
+}
+
+.vinyl-card-tracklist-blur {
+  position: absolute;
+  background-color: black;
+  height: 12vh;
+  width: 100vw;
+  bottom: 0px;
+  filter: blur(20px);
+}
+
+#vinyl-card-proposition-button {
+  position: absolute;
+  bottom: 2%;
+}
+
+.records-undisplay {
+  display: none;
+}
+
+.vinyl-card-input-button {
+  position: absolute;
+  bottom: 2%;
+}
+
+.vinyl-card-collection {
+  background-color: rgba(0,0,0,0.9);
+}
+
+.deal-myrecord {
+  width: 100%;
+  height: 10vh;
+  margin: 4% 4% 4% 4%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.deal-myrecord-image {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+
+.deal-myrecord-infos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 3%;
+}
+
+.deal-myrecord-infos h4 {
+  color: white;
+  font-size: 20px;
+  margin: 0px;
+}
+
+.deal-myrecord-infos p {
+  color: white;
+  font-size: 14px;
+  margin: 0px;
+}
+
+.deal-input{
+  display:none;
+}
