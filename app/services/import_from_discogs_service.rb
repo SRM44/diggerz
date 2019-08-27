@@ -24,7 +24,8 @@ class ImportFromDiscogsService
     @discogs_release.tracklist.each do |track|
       track_params = {
         position: track.position,
-        title: track.title
+        title: track.title.strip,
+        duration:track.duration
       }
       diggerz_track = @diggerz_release.tracks.new(track_params)
       diggerz_track.save

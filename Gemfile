@@ -12,6 +12,8 @@ gem 'redis'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 
+gem 'enumerize'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
@@ -39,3 +41,4 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 gem 'omniauth-discogs'
 gem 'discogs-wrapper'
 gem 'activerecord-session_store'
+gem 'simple_form'

@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+
   get 'myrecords/index'
   root to: 'pages#home'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  resources :mydeals, only: [:index, :show]
 
   resources :deals, only: [:index, :show] do
     member do
@@ -17,7 +20,7 @@ Rails.application.routes.draw do
     resources :deals, only: [:new, :create]
   end
 
-  resources :myrecords, only: [:index, :show, :new, :create] do
+  resources :myrecords, only: [:index, :show, :new, :create, :update] do
     collection do
       get :import_from_discogs
     end
@@ -26,5 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :profile, only: [:show, :edit, :update]
+  resource :profile, only: [:show, :edit, :update] do
+   resource :preferences, only: [:edit, :update]
+  end
 end
