@@ -970,7 +970,7 @@ puts "Create deals..."
 deal_steven_yanis = Deal.create!(
   requester_record: the_dark_side_of_the_moon_steven,
   receiver_record: rage_against_the_machine_yanis,
-  status: 'pending'
+  status: 'accepted'
 )
 
 deal_volodia_steven = Deal.create!(
@@ -988,7 +988,7 @@ deal_steven_amelie = Deal.create!(
 deal_steven_amelie = Deal.create!(
   requester_record: the_dark_side_of_the_moon_steven,
   receiver_record: homesick_amelie,
-  status: 'refused'
+  status: 'pending'
 )
 
 deal_yanis_steven = Deal.create!(
