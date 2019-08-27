@@ -1,0 +1,39 @@
+.genres {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.genre-card-category {
+  background-position: center;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: grid;
+  grid-template-columns: repeat(1fr, 1fr);
+  // grid-gap: 10px;
+  // grid-auto-rows: minmax(100px, auto);
+}
+
+.genre-img {
+  width: 120px;
+  display: flex;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+}
+
+.genre-img-active {
+  width: 120px;
+  display: flex;
+  filter: grayscale(10%);
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%)
+}

@@ -1,0 +1,31 @@
+<div class="genre-container">
+
+<%= link_to "Mon profil", profile_path %>
+
+      <div class="genre-card-category">
+        <%= simple_form_for(:preferences, method: :patch, url: profile_preferences_path) do |f| %>
+          <% @genres.each do |genre| %>
+            <div>
+
+              <input type="checkbox" class="d-none" name="genre_id[]" id="genre_input_<%= genre.id %>" value="<%= genre.id %>">
+              <label class="genre-card-label" for="genre_input_<%= genre.id %>">
+
+                <div class="genre-img" alt="">
+                  <img src="<%= image_path('rock.jpg') %>">
+                  <div class="cards-infos-hp">
+                    <%= genre.name %>
+                  </div>
+
+                </div>
+
+              </label>
+            </div>
+          <% end %>
+
+          <div>
+            <%= f.submit "Mise à jour de mon profil", :class => "button-master"%>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>

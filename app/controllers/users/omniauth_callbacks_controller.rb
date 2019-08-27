@@ -4,8 +4,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if user.persisted?
       session[:access_token] = request.env['omniauth.auth'].extra.access_token
-      sign_in_and_redirect user, event: :authentication
+      sign_in user
       set_flash_message(:notice, :success, kind: 'Discogs') if is_navigational_format?
+
+      redirect_to myrecords_path
     else
       session['devise.discogs_data'] = request.env['omniauth.auth']
       redirect_to new_user_registration_url
