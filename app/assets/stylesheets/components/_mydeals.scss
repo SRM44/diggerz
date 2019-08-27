@@ -1,15 +1,22 @@
 .main-container-md {
   min-height: calc(100vh - 60px);
-  background: linear-gradient(180deg, #44554F 11.72%, #121013 92.81%);
+  background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,0.8043418050814075) 0%, rgba(0,0,0,0.8463586118040967) 50%, rgba(0,0,0,0.8687675753895308) 100%);
 
 }
 
 #my-deals-submenu {
   display: flex;
+  width: 100wv;
   padding-top: 30px;
+  padding-bottom: 10px;
   padding-left: 20px;
   color: $gray;
-  font-size: 15px;
+
+  h2 {
+    font-weight: 600;
+    font-size: 27px;
+  }
 
   #md-sub-two {
     padding-left: 50px;
@@ -46,19 +53,26 @@
   h3 {
     color: white;
     font-weight: 600;
-    font-size: 25px;
+    font-size: 22px;
     padding-left: 20px;
-    margin-top: 70px;
+    margin-top: 40px;
+  }
+
+
+  p {
+    padding-left: 20px;
   }
 }
 
 .mydeals-received-grid {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 100%;
   margin-top: 50px;
+  padding-left: 20px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .deals-card {
@@ -81,6 +95,11 @@
   .md-received-album-infos {
     padding-left:20px;
     line-height: 0.5;
+  }
+
+  #md-release-requested {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
@@ -112,7 +131,7 @@
 .md-requested-album-infos {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 20px;
 
   div {
     color: white;
