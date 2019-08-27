@@ -6,11 +6,10 @@
 
 #my-deals-submenu {
   display: flex;
-  justify-content: space-between;
   padding-top: 30px;
+  padding-left: 20px;
   color: $gray;
-  width: 50%;
-  margin-left: 120px;
+  font-size: 15px;
 
   #md-sub-two {
     padding-left: 50px;
@@ -29,8 +28,8 @@
     color: white;
     font-weight: 600;
     font-size: 25px;
-    padding-left: 120px;
-    margin-top:30px;
+    padding-left: 20px;
+    margin-top: 70px;
   }
 }
 
@@ -52,13 +51,49 @@
   justify-content: center;
   flex-direction: column;
   margin: 5px;
-  text-overflow: ellipsis;
   transition: .3s cubic-bezier(.5, 0, .1, 1) transform;
 
   img {
     max-width: 300px;
     height: 300px;
   }
+}
+
+.md-cards-infos {
+  display: inline-block;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding-top: 15px;
+  white-space: nowrap;
+  width: 280px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  #md-album-title {
+    color: white;
+  }
+
+  #md-artist-card {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  #md-user-card {
+    color: white;
+  }
+
+.md-requester-infos {
+  display: flex;
+  justify-content: center;
+
+    #md-user-avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}
+
 }
 
 // .deals-card:hover {
