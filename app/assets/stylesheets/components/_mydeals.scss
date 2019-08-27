@@ -1,0 +1,124 @@
+.main-container-md {
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(180deg, #44554F 11.72%, #121013 92.81%);
+
+}
+
+#my-deals-submenu {
+  display: flex;
+  padding-top: 30px;
+  padding-left: 20px;
+  color: $gray;
+  font-size: 15px;
+
+  #md-sub-two {
+    padding-left: 50px;
+  }
+}
+
+.active-deals {
+  color: white;
+}
+
+.my-deals-container {
+  width: 100%;
+  height: 100%;
+
+  h3 {
+    color: white;
+    font-weight: 600;
+    font-size: 25px;
+    padding-left: 20px;
+    margin-top: 70px;
+  }
+}
+
+.mydeals-received-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  margin-top: 50px;
+  overflow-x: auto;
+
+
+}
+
+
+.deals-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5px;
+  transition: .3s cubic-bezier(.5, 0, .1, 1) transform;
+
+  img {
+    max-width: 300px;
+    height: 300px;
+  }
+}
+
+.md-cards-infos {
+  display: inline-block;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding-top: 15px;
+  white-space: nowrap;
+  width: 280px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  #md-album-title {
+    color: white;
+  }
+
+  #md-artist-card {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  #md-user-card {
+    color: white;
+  }
+
+.md-requester-infos {
+  display: flex;
+  justify-content: center;
+
+    #md-user-avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}
+
+}
+
+// .deals-card:hover {
+//   cursor: pointer;
+//   width: 500x;
+//   height: 500px;
+//   transform: scale;
+//   position: relative;
+// }
+
+#md-section-two {
+    display:none;
+}
+
+#md-sub-one:hover,
+#md-sub-two:hover {
+  cursor: pointer;
+}
+
+#md-sub-one:visited,
+#md-sub-two:visited {
+  color: #ccc;
+}
+
+#md-sub-one:focus,
+#md-sub-two:focus {
+  color: #ccc;
+}

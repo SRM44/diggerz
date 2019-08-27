@@ -25,6 +25,8 @@ classical           = Genre.create!(name: "Classical")
 children_s          = Genre.create!(name: "Children's")
 brass_military      = Genre.create!(name: "Brass & Military")
 
+puts "Create Users..."
+
 yanis = User.create!(
   email: "yanis@example.com",
   password: "azerty",
@@ -908,7 +910,7 @@ hot_rats_steven = Record.create!(
 )
 
 in_rainbows_steven = Record.create!(
-  release: hot_rats,
+  release: in_rainbows,
   user: steven,
   condition: "Mint",
   swappable: false,
@@ -931,10 +933,34 @@ born_in_the_usa_volodia = Record.create!(
   out: false
 )
 
+white_elephant_volodia = Record.create!(
+  release: white_elephant,
+  user: volodia,
+  condition: "Near Mint",
+  swappable: true,
+  out: false
+)
+
+loaded_volodia = Record.create!(
+  release: loaded,
+  user: volodia,
+  condition: "Very Good",
+  swappable: true,
+  out: false
+)
+
 homesick_amelie = Record.create!(
   release: homesick,
   user: amelie,
   condition: "Near Mint",
+  swappable: true,
+  out: false
+)
+
+nevermind_amelie = Record.create!(
+  release: nevermind,
+  user: amelie,
+  condition: "Good",
   swappable: true,
   out: false
 )
@@ -944,22 +970,59 @@ puts "Create deals..."
 deal_steven_yanis = Deal.create!(
   requester_record: the_dark_side_of_the_moon_steven,
   receiver_record: rage_against_the_machine_yanis,
-  status: 'pending'
+  status: 'accepted'
 )
 
 deal_volodia_steven = Deal.create!(
   requester_record: born_in_the_usa_volodia,
   receiver_record: nevermind_steven,
-  status: 'pending'
+  status: 'accepted'
 )
 
 deal_steven_amelie = Deal.create!(
   requester_record: hots_space_steven,
   receiver_record: homesick_amelie,
+  status: 'refused'
+)
+
+deal_steven_amelie = Deal.create!(
+  requester_record: the_dark_side_of_the_moon_steven,
+  receiver_record: homesick_amelie,
   status: 'pending'
 )
 
+deal_yanis_steven = Deal.create!(
+  requester_record: rage_against_the_machine_yanis,
+  receiver_record: nevermind_steven,
+  status: 'accepted'
+)
+
+deal_volodia_steven = Deal.create!(
+  requester_record: loaded_volodia,
+  receiver_record: hot_rats_steven,
+  status: 'accepted'
+)
+
+deal_volodia_steven = Deal.create!(
+  requester_record: white_elephant_volodia,
+  receiver_record: in_rainbows_steven,
+  status: 'accepted'
+)
+
+deal_amelie_steven = Deal.create!(
+  requester_record: homesick_amelie,
+  receiver_record: in_rainbows_steven,
+  status: 'accepted'
+)
+
+deal_amelie_steven = Deal.create!(
+  requester_record: nevermind_amelie,
+  receiver_record: hot_rats_steven,
+  status: 'pending'
+)
+
+
+
 puts "Finished!"
 
-puts "Genres created"
-puts "Database cleaned..."
+

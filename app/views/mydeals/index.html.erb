@@ -1,0 +1,69 @@
+<div class="main-container-md">
+  <div id="my-deals-submenu">
+       <h2 id="md-sub-one" class="active-deals">En attente</h2>
+       <h2 id="md-sub-two">En échange</h2>
+  </div>
+  <section id="md-section-one" class="my-deals-container">
+    <% if @received_deals.empty? %>
+      <p>Vous n'avez pas reçu de propositions.</p>
+    <% else  %>
+    <h3>Deals à valider</h3>
+      <div class="mydeals-received-grid">
+        <% @received_deals.each do |deal| %>
+          <div class="deals-card">
+            <img src="<%= cl_image_path deal.requester_record.release.image %>" alt="">
+              <div class="md-cards-infos">
+              <h5 id="md-album-title"><%= deal.requester_record.release.title %></h5>
+              <p id="md-artist-card"><%= deal.requester_record.release.artist %></p>
+                <div class="md-requester-infos">
+                  <img src="<%= cl_image_path deal.requester_record.user.avatar %>" id="md-user-avatar">
+                  <p id="md-user-card">Proposé par <%= deal.requester_record.user.name %></p>
+                </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @sended_deals.empty? %>
+      <p>Vous n’avez pas de deals en cours.</p>
+    <% else  %>
+    <h3>Deals envoyés</h3>
+      <div class="mydeals-received-grid">
+        <% @sended_deals.each do |deal| %>
+          <div class="deals-card">
+            <img src="<%= cl_image_path deal.receiver_record.release.image %>" alt="">
+            <div class="md-cards-infos">
+              <h5 id="md-album-title"><%= deal.receiver_record.release.title %></h5>
+              <p id="md-artist-card"><%= deal.receiver_record.release.artist %></p>
+                <div class="md-requester-infos">
+                  <i class="far fa-clock">  </i>
+                  <p id="md-user-card">Demandé à <%= deal.receiver_record.user.name %></p>
+                </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+
+  <section id="md-section-two" class="my-deals-container">
+    <% if @accepted_deals.empty? %>
+      <p>Vous n’avez pas encore échangé de disques.</p>
+      <p>N'oubliez pas de confirmer vos échanges ;)</p>
+    <% else  %>
+      <div class="mydeals-received-grid">
+        <% @accepted_deals.each do |deal| %>
+          <div class="deals-card">
+            <img src="<%= cl_image_path deal.requester_record.release.image %>" alt="">
+            <div class="md-cards-infos">
+              <h5 id="md-album-title"><%= deal.requester_record.release.title %></h5>
+              <p id="md-artist-card"><%= deal.requester_record.release.artist %></p>
+              <p id="md-user-card">Envoyé par <%= deal.requester_record.user.name %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+</div>
