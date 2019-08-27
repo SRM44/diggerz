@@ -11,14 +11,27 @@
       <div class="mydeals-received-grid">
         <% @received_deals.each do |deal| %>
           <div class="deals-card">
-            <img src="<%= cl_image_path deal.requester_record.release.image %>" alt="">
-              <div class="md-cards-infos">
-              <h5 id="md-album-title"><%= deal.requester_record.release.title %></h5>
-              <p id="md-artist-card"><%= deal.requester_record.release.artist %></p>
-                <div class="md-requester-infos">
-                  <img src="<%= cl_image_path deal.requester_record.user.avatar %>" id="md-user-avatar">
-                  <p id="md-user-card">Proposé par <%= deal.requester_record.user.name %></p>
+            <div class="md-received-album" style="background-image: linear-gradient(180deg, rgba(176,176,176,0.46540623085171573) 0%, rgba(69,68,68,0.7105263157894737) 50%, rgba(33,33,33,0.6810925053615196) 100%), url('<%= cl_image_path deal.requester_record.release.image %>')">
+              <div class="md-received-album-infos">
+                <div id="md-requester-profil">
+                  <img id="md-requester-avatar"src="<%= cl_image_path deal.requester_record.user.avatar %>">
+                  <p>Proposé par <%= deal.requester_record.user.name %></p>
                 </div>
+                <div id="md-release-infos">
+                  <h5> <%= deal.requester_record.release.title %> </h5>
+                  <p> <%= deal.requester_record.release.artist %> </p>
+                  <span> <%= deal.requester_record.release.year %> - <%= deal.requester_record.release.genre.name %></span>
+                </div>
+              </div>
+            </div>
+            <div class="md-requested-album-infos">
+              <div>
+                <h5><%= deal.receiver_record.release.title %></h5>
+                <p><%= deal.receiver_record.release.artist %></p>
+              </div>
+              <div>
+                <img class="avatar-square" src="<%= cl_image_path deal.receiver_record.release.image %>">
+              </div>
             </div>
           </div>
         <% end %>
