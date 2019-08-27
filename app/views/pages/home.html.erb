@@ -3,16 +3,18 @@
     <%= video_tag "Turntable - 8453.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
     <div class="logo-homepage">
       <%= image_tag "logo_diggerz_full_white.png"%>
-      <p>Troquer vos vinyles</p>
+      <p>Troquer vos vinyles.</p>
     </div>
-    <div class="button-master">
-      <% if user_signed_in? %>
-        <%= link_to "Mon compte", myrecords_path %>
-      <% else %>
-        <%= link_to  user_discogs_omniauth_authorize_path, method: :post do %>
-          Echanger des vinyles
+    <div class="hp-presentation">
+      <div class="hp-button button-master">
+        <% if user_signed_in? %>
+          <%= link_to "Mon compte", myrecords_path %>
+        <% else %>
+          <%= link_to  user_discogs_omniauth_authorize_path, method: :post do %>
+            Echanger des vinyles
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -126,22 +128,14 @@
       <% end %>
     </div>
   </div>
-  <div class="arguments-stats">
-    <h2>Communauté</h2>
-    <div class="hp-stats-grid">
-      <div class="hp-stats-card">
-        <h4>2413</h4>
-        <p>Diggerz</p>
-      </div>
-      <div class="hp-stats-card">
-        <h4>3624</h4>
-        <p>Vinyles dispos</p>
-      </div>
-      <div class="hp-stats-card">
-        <h4>956</h4>
-        <p>Vinyles échangés</p>
-      </div>
-    </div>
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
   </div>
 </div>
 

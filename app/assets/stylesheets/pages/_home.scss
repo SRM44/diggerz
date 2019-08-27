@@ -15,7 +15,7 @@ p {
 
 .home_video {
  width: 100%;
- height: 100vh;
+ height: 68vh;
  position: absolute;
  display: flex;
  justify-content: center;
@@ -25,18 +25,45 @@ p {
 }
 
 .homepage-banner {
-  height: 100vh;
+  height: 68vh;
   background-size: cover;
   background-position: center;
-  background: rgb(243,182,31);
-  background: linear-gradient(349deg, rgba(243,182,31,0.2945378835127801) 0%, rgba(243,182,31,0.32815132889093135) 41%, rgba(243,182,31,0.571848807882528) 100%);
+  background: rgb(221,221,221);
+  background: linear-gradient(180deg, rgba(221,221,221,0.46540623085171573) 0%, rgba(171,171,171,0.5242297602634804) 50%, rgba(33,33,33,0.6810925053615196) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
+
+
+.hp-presentation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 80px;
+
+}
+
+// .hp-button {
+
+// }
 
 .logo-homepage > img {
   max-width: 100%;
-  height: auto;
+  height: 200px;
   margin: auto auto;
+  padding-top: 30px;
 }
+
+.logo-homepage > p {
+    padding-top: 20px;
+    color: white;
+    opacity: 0.95;
+    font-size: 32px;
+  }
+
 .homepage-container {
   width: 75%;
   height: 100%;
@@ -196,8 +223,33 @@ p {
   }
 }
 
-
-
+.footer {
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100px;
+  padding: 0px 50px;
+  color: white;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-links a {
+  color: white;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #D23333;
+}
 
 
 @media (max-width: 576px) {
