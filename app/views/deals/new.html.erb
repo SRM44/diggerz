@@ -1,63 +1,48 @@
 <div class="container-vinyl-card">
-    <div class='vinyl-card'>
-      <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @record.release.image %>')">
-        <div class="vinyl-card-details-infos">
-          <div class="vinyl-card-details-index-button">
-            <%= link_to "< retour", records_path  %>
-          </div>
-          <div class="vinyl-card-details-infos-release">
-            <div>
-              <h3> <%= @record.release.title %> </h3>
-              <p> <%= @record.release.artist %> </p>
-              <span> <%= @record.release.year %> - <%= @record.release.genre.name %></span>
-            </div>
-          </div>
+  <div class='vinyl-card'>
+    <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @record.release.image %>')">
+      <div class="vinyl-card-details-infos">
+        <div class="vinyl-card-details-index-button">
+          <%= link_to "< retour", records_path  %>
         </div>
-      </div>
-      <div class="vinyl-card-more">
-        <div class="vinyl-card-tracklist">
-            <ul>
-              <li><strong>TRACKLIST</strong></li>
-              <% @record.release.tracks.sort_by {|track| track.position }.each do |track| %>
-                <li data-id="<%= track.id %>"><%= track.position %> - <%= track.title %></li>
-              <% end %>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-            </ul>
-        </div>
-        <div class="vinyl-card-tracklist-blur"></div>
-        <div id="vinyl-card-proposition-button" class="button-master">Faire une proposition</div>
-      </div>
-    </div>
-    <div class="vinyl-card vinyl-card-collection records-undisplay">
-          <%= render 'records/collection' %>
+        <div class="vinyl-card-details-infos-release">
+          <div>
+            <h3> <%= @record.release.title %> </h3>
+            <p> <%= @record.release.artist %> </p>
+            <span> <%= @record.release.year %> - <%= @record.release.genre.name %></span>
+          </div>
         </div>
       </div>
     </div>
     <div class="deal-input">
+      <div id="deal-myrecord-swapped" class="deal-myrecord-swapped">`
+      </div>
       <%= simple_form_for [@record, @deal] do |f| %>
         <%= f.input :requester_record_id, as: :hidden %>
-        <div class="vinyl-card-input-button button-master">
-        <%= f.submit %>
+        <div class="vinyl-card-input-button">
+          <%= f.submit 'Envoyer ce deal', :class => 'button-master' %>
         </div>
       <% end %>
     </div>
+    <div class="vinyl-card-more">
+        <div class="vinyl-card-tracklist">
+          <ul>
+            <li><strong>TRACKLIST</strong></li>
+            <% @record.release.tracks.sort_by {|track| track.position }.each do |track| %>
+              <li data-id="<%= track.id %>"><%= track.position %> - <%= track.title %></li>
+            <% end %>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+          </ul>
+        </div>
+        <div class="vinyl-card-tracklist-blur"></div>
+        <div id="vinyl-card-proposition-button" class="button-master">Ajouter un vinyl à échanger</div>
+    </div>
+  </div>
+  <div class="vinyl-card vinyl-card-collection records-undisplay">
+    <%= render 'records/collection' %>
+  </div>
 </div>
-
-<script>
-  const records = document.querySelectorAll('.deal-myrecord')
-  records.forEach((record) => {
-    record.addEventListener('click', () => {
-      const input = document.getElementById('deal_requester_record_id')
-      input.value = record.dataset.recordId
-    })
-  })
-  const displayButton = document.getElementById('vinyl-card-proposition-button')
-  displayButton.addEventListener('click', () => {
-    const records = document.querySelector('.records-undisplay')
-    records.classList.remove('records-undisplay')
-  })
-</script>

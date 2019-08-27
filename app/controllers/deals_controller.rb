@@ -11,7 +11,7 @@ class DealsController < ApplicationController
     @deal.receiver_record_id = @record.id
 
     if @deal.save # false si les validations ne passent pas
-      redirect_to root_path
+      redirect_to mydeals_path
     else
       render :new # template de views/reviews/new.html.erb
     end
