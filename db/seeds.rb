@@ -1026,5 +1026,3 @@ deal_amelie_steven = Deal.create!(
 puts "Finished!"
 
 
-puts "Genres created"
-puts "Database cleaned..."
