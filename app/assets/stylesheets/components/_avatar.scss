@@ -18,3 +18,32 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+.avatar-input {
+  display: none;
+}
+
+.avatar-label{
+  width: 80px;
+  height: 80px;
+  border: 1px dashed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius:5px;
+}
+
+.icone {
+    display: flex;
+    width: 100%;
+    align-items:center;
+    flex-direction: column;
+    justify-content: center;
+    color: #4494BB;
+    font-size: 15px;
+    margin: 20px;
+    margin-bottom: -5px;
+    padding: 10px;
+    text-align: center;
+}
