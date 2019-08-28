@@ -1,7 +1,8 @@
 <div class="container-collection-card ">
 
     <% if @myrecords.empty? %>
-    <div class="button-master">
+
+    <div class="button-master button-synchroniser">
       <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
     </div>
   <% else %>
