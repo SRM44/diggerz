@@ -1,15 +1,9 @@
 <div class="container-collection-card ">
-  <% if @myrecords.empty? %>
-  <%= link_to import_from_discogs_myrecords_path do  %>
-    <div class="sync-grid-collection">
-      <%= image_tag "sync.svg", alt: "Sync your Discogs collection" %>
-      <div class="progress">
-        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-        <span class="sr-only">40% effectué (success)</span>
-        </div>
-      </div>
+
+    <% if @myrecords.empty? %>
+    <div class="button-master">
+      <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
     </div>
-  <% end %>
   <% else %>
     <div class="collection-card">
       <div class="collection-card-search">
@@ -21,6 +15,10 @@
         <% end %>
       </div>
       <div class="vinyle-collection-card">
+
+ Identifiez au sein de votre collection de vinyles ceux que vous souhaitez échanger avec d'autres diggerz : vos vinyles à échanger seront en jaune !
+ <br>
+ <br>
       <% @myrecords.each_with_index do |myrecord, index| %>
         <div class="row-grid-collection">
           <div class="col-toogle-grid-collection">
