@@ -1,3 +1,15 @@
+.genre-container {
+  // width: 100%;
+  // height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  vertical-align: middle;
+  justify-content:
+  center;
+  margin: auto auto;
+}
+
 .genres {
   display: flex;
   justify-content: space-between;
@@ -5,13 +17,13 @@
 }
 
 .genre-card-category {
-  background-position: center;
-  height: 150px;
+  // background-position: center;
+  // height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 50px;
+  font-size: 80%;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
@@ -23,17 +35,61 @@
 }
 
 .genre-img {
-  width: 120px;
-  display: flex;
+  width: 250px;
+  // display: flex;
+  // justify-content: space-between;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
+  img {
+  max-width: 100%;
+  height: auto;
+  // padding-right: 5px;
+  // padding-left:5px;
+  padding: 5px;
+  border-radius: 5px;
+  }
 }
 
 .genre-img-active {
-  width: 120px;
-  display: flex;
+  // width: 120px;
+  // display: flex;
   filter: grayscale(10%);
   -webkit-filter: grayscale(0%);
   -moz-filter: grayscale(0%)
+}
+
+.arguments-genres {
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+
+  padding-top: 50px;
+  // width: 500px;
+
+}
+
+.genre-card-category form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+}
+
+.genres-grid {
+  // margin-top: 50px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(1fr, 1fr);
+  // grid-template-rows: minmax(150px, 1fr);
+}
+
+.genre-cards-infos-hp {
+  color: white;
+  // width: 20px;
+  // align-item: center;
+  position:center;
+  border-radius: 10px;
+}
+
+.submit-genre-button {
+  justify-content: center;
 }
