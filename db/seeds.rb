@@ -976,7 +976,7 @@ deal_steven_yanis = Deal.create!(
 deal_volodia_steven = Deal.create!(
   requester_record: born_in_the_usa_volodia,
   receiver_record: nevermind_steven,
-  status: 'accepted'
+  status: 'pending'
 )
 
 deal_steven_amelie = Deal.create!(
@@ -994,7 +994,7 @@ deal_steven_amelie = Deal.create!(
 deal_yanis_steven = Deal.create!(
   requester_record: rage_against_the_machine_yanis,
   receiver_record: nevermind_steven,
-  status: 'accepted'
+  status: 'pending'
 )
 
 deal_volodia_steven = Deal.create!(
