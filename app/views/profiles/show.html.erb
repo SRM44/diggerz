@@ -1,4 +1,5 @@
 <div class="container-profile-page">
+
   <div class="profile-card">
     <div class='profile-card-avatar'>
       <img src="<%= current_user_avatar_path %>" alt="" class="avatar-large">
@@ -6,9 +7,12 @@
     <div class='profile-card-infos'><%= @user.location %></div>
     <div class='profile-card-infos'> <%= @user.email %> </div>
 
-    <%= link_to  edit_profile_path, method: :get do %>
+    <div class='button-master'>
+      <%= link_to  edit_profile_path, method: :get do %>
       Editer mon profil
+    </div>
     <% end %>
+
   </div>
 
-
+</div>
