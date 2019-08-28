@@ -1,15 +1,21 @@
 .main-container-md {
   min-height: calc(100vh - 60px);
   background: linear-gradient(180deg, #44554F 11.72%, #121013 92.81%);
-
+  padding-top: 0;
 }
 
 #my-deals-submenu {
   display: flex;
-  padding-top: 30px;
+  padding-top: 8%;
+  width: 100wv;
+  padding-bottom: 10px;
   padding-left: 20px;
   color: $gray;
-  font-size: 15px;
+
+  h2 {
+    font-weight: 600;
+    font-size: 27px;
+  }
 
   #md-sub-two {
     padding-left: 50px;
@@ -19,90 +25,6 @@
 .active-deals {
   color: white;
 }
-
-.my-deals-container {
-  width: 100%;
-  height: 100%;
-
-  h3 {
-    color: white;
-    font-weight: 600;
-    font-size: 25px;
-    padding-left: 20px;
-    margin-top: 70px;
-  }
-}
-
-.mydeals-received-grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 100%;
-  margin-top: 50px;
-  overflow-x: auto;
-
-
-}
-
-
-.deals-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: 5px;
-  transition: .3s cubic-bezier(.5, 0, .1, 1) transform;
-
-  img {
-    max-width: 300px;
-    height: 300px;
-  }
-}
-
-.md-cards-infos {
-  display: inline-block;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  padding-top: 15px;
-  white-space: nowrap;
-  width: 280px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-
-  #md-album-title {
-    color: white;
-  }
-
-  #md-artist-card {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  #md-user-card {
-    color: white;
-  }
-
-.md-requester-infos {
-  display: flex;
-  justify-content: center;
-
-    #md-user-avatar {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-}
-
-}
-
-// .deals-card:hover {
-//   cursor: pointer;
-//   width: 500x;
-//   height: 500px;
-//   transform: scale;
-//   position: relative;
-// }
 
 #md-section-two {
     display:none;
@@ -121,4 +43,115 @@
 #md-sub-one:focus,
 #md-sub-two:focus {
   color: #ccc;
+}
+
+.my-deals-container {
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+
+  h3 {
+    color: white;
+    font-weight: 600;
+    font-size: 22px;
+    margin-top: 40px;
+  }
+
+
+}
+
+.mydeals-received-grid {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 100%;
+  margin-top: 50px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.deals-card {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  transition: .3s cubic-bezier(.5, 0, .1, 1) transform;
+}
+
+.md-received-album {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  width: 300px;
+  height: 300px;
+  float: left;
+  color: white;
+  border-radius: 4px;
+  padding-bottom: 30px;
+  cursor: pointer;
+
+  .md-container-requested-album {
+    display: flex;
+  }
+
+  .md-received-album-infos {
+    padding-left:20px;
+    line-height: 0.5;
+  }
+
+  #md-release-requested {
+    width: 90px;
+    display: flex;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+
+#md-requester-profil {
+  display: flex;
+  align-items: center;
+  padding-top:15px;
+  margin-bottom: 170px;
+
+  #md-requester-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 15px 5px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+#md-release-infos {
+  p {
+    color: rgba(255, 255, 255, 0.80);
+  }
+}
+
+
+.md-requested-album-infos {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  div {
+    color: white;
+    float: right;
+    padding-right: 15px;
+  }
+}
+
+.md-requester-infos {
+  display: flex;
+  align-items: center;
+
+  p {
+    padding-left: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 }

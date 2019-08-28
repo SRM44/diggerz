@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, PhotoUploader
 
+  # before_create :set_default_avatar
+
   def self.find_for_discogs_oauth(auth)
     user_params = {
       username:   auth.info.username,
@@ -41,4 +43,10 @@ class User < ApplicationRecord
   def requested_deals
     Deal.where(requester_record_id: record_ids)
   end
+
+  # def set_default_avatar
+  #   <% default_picture = (image_path 'default_profile.png') %>
+  #   <%= f.input :avatar, input_html: {value: '#{default_picture}'}, label: false %>
+  # end
+
 end
