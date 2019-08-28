@@ -49,19 +49,16 @@ background: linear-gradient(180deg, rgba(0,0,0,0.8043418050814075) 0%, rgba(0,0,
 .my-deals-container {
   width: 100%;
   height: 100%;
+  padding-left: 20px;
 
   h3 {
     color: white;
     font-weight: 600;
     font-size: 22px;
-    padding-left: 20px;
     margin-top: 40px;
   }
 
 
-  p {
-    padding-left: 20px;
-  }
 }
 
 .mydeals-received-grid {
@@ -70,7 +67,6 @@ background: linear-gradient(180deg, rgba(0,0,0,0.8043418050814075) 0%, rgba(0,0,
   justify-content: flex-start;
   min-width: 100%;
   margin-top: 50px;
-  padding-left: 20px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -90,7 +86,13 @@ background: linear-gradient(180deg, rgba(0,0,0,0.8043418050814075) 0%, rgba(0,0,
   height: 300px;
   float: left;
   color: white;
+  border-radius: 4px;
   padding-bottom: 30px;
+  cursor: pointer;
+
+  .md-container-requested-album {
+    display: flex;
+  }
 
   .md-received-album-infos {
     padding-left:20px;
@@ -98,8 +100,11 @@ background: linear-gradient(180deg, rgba(0,0,0,0.8043418050814075) 0%, rgba(0,0,
   }
 
   #md-release-requested {
+    width: 90px;
     display: flex;
-    justify-content: flex-end;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
   }
 }
 
@@ -107,7 +112,8 @@ background: linear-gradient(180deg, rgba(0,0,0,0.8043418050814075) 0%, rgba(0,0,
 #md-requester-profil {
   display: flex;
   align-items: center;
-  margin-bottom: 130px;
+  padding-top:15px;
+  margin-bottom: 170px;
 
   #md-requester-avatar {
     width: 40px;
@@ -140,3 +146,13 @@ background: linear-gradient(180deg, rgba(0,0,0,0.8043418050814075) 0%, rgba(0,0,
   }
 }
 
+.md-requester-infos {
+  display: flex;
+  align-items: center;
+
+  p {
+    padding-left: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
