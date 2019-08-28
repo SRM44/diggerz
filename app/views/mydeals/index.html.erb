@@ -12,28 +12,32 @@
       <div class="mydeals-received-grid">
         <% @received_deals.each do |deal| %>
           <div class="deals-card">
-            <div class="md-received-album" style="background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%), url('<%= cl_image_path deal.requester_record.release.image %>')">
-              <div class="md-received-album-infos">
-                <div id="md-requester-profil">
-                  <!-- <img id="md-requester-avatar" src="cl_image_path deal.requester_record.user.avatar "> -->
-                  <p>Proposé par <%= deal.requester_record.user.name %></p>
+            <%= link_to mydeal_path(deal) do %>
+              <div class="md-received-album" style="background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%), url('<%= cl_image_path deal.requester_record.release.image %>')">
+                <div class="md-received-album-infos">
+                  <div id="md-requester-profil">
+                    <!-- <img id="md-requester-avatar" src="cl_image_path deal.requester_record.user.avatar "> -->
+                    <p>Proposé par <%= deal.requester_record.user.name %></p>
+                  </div>
+                  <div id="md-release-infos">
+                    <h5> <%= deal.requester_record.release.title %> </h5>
+                    <p> <%= deal.requester_record.release.artist %> </p>
+                    <span> <%= deal.requester_record.release.year %> - <%= deal.requester_record.release.genre.name %></span>
+                  </div>
                 </div>
-                <div id="md-release-infos">
-                  <h5> <%= deal.requester_record.release.title %> </h5>
-                  <p> <%= deal.requester_record.release.artist %> </p>
-                  <span> <%= deal.requester_record.release.year %> - <%= deal.requester_record.release.genre.name %></span>
+              </div>
+            <% end%>
+              <div class="md-container-requested-album">
+                <div class="md-requested-album-infos">
+                  <div id="md-release-requested">
+                    <h5><%= deal.receiver_record.release.title %></h5>
+                    <p><%= deal.receiver_record.release.artist %></p>
+                  </div>
+                  <div>
+                    <img class="avatar-square" src="<%= cl_image_path deal.receiver_record.release.image %>">
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="md-requested-album-infos">
-              <div id="md-release-requested">
-                <h5><%= deal.receiver_record.release.title %></h5>
-                <p><%= deal.receiver_record.release.artist %></p>
-              </div>
-              <div>
-                <img class="avatar-square" src="<%= cl_image_path deal.receiver_record.release.image %>">
-              </div>
-            </div>
           </div>
         <% end %>
       </div>
@@ -52,8 +56,11 @@
               <h5 id="md-album-title"><%= deal.receiver_record.release.title %></h5>
               <p id="md-artist-card"><%= deal.receiver_record.release.artist %></p>
                 <div class="md-requester-infos">
-                  <i class="far fa-clock">  </i>
-                  <p id="md-user-card">Demandé à <%= deal.receiver_record.user.name %></p>
+                  <div class="far fa-clock">  </div>
+                  <div>
+                    <p id="md-user-card">Demandé à <%= deal.receiver_record.user.name %>
+                    </p>
+                  </div>
                 </div>
             </div>
           </div>
