@@ -22,15 +22,15 @@
     </div>
     <section class="md-show-section-two">
       <div class="md-show-card-tracklist">
-        <% if @proposed_record.release.tracks %>
+        <% if @proposed_record.release.tracks.empty? %>
+          <p>Oops ! Tracks indisponibles pour ce disque.</p>
+        <% else %>
           <ul>
             <li><strong>TRACKLIST</strong></li>
             <% @proposed_record.release.tracks.sort_by {|track| track.position }.each do |track| %>
               <li data-id="<%= track.id %>"><%= track.position %> - <%= track.title %></li>
             <% end %>
         </ul>
-        <% else %>
-          <p>Les tracks sont indisponibles pour cet album</p>
         <% end %>
       </div>
     </section>
