@@ -1,17 +1,9 @@
-.container-collection-card {
-  background: black;
-  height: 92vh;
-  width:100vw;
-  display: flex;
-  justify-content: center;
-}
-
 .collection-card {
-  position: fixed;
-  margin-top: 10px;
+  position: relative;
   height: 100%;
   width: 92%;
   max-width: 600px;
+  padding-top: 20%;
 }
 
 .hidden-button{
