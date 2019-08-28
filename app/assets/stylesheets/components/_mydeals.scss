@@ -1,14 +1,13 @@
 .main-container-md {
   min-height: calc(100vh - 60px);
-  background: rgb(0,0,0);
-background: linear-gradient(180deg, rgba(0,0,0,0.8043418050814075) 0%, rgba(0,0,0,0.8463586118040967) 50%, rgba(0,0,0,0.8687675753895308) 100%);
-
+  background: linear-gradient(180deg, #44554F 11.72%, #121013 92.81%);
+  padding-top: 0;
 }
 
 #my-deals-submenu {
   display: flex;
+  padding-top: 8%;
   width: 100wv;
-  padding-top: 30px;
   padding-bottom: 10px;
   padding-left: 20px;
   color: $gray;

@@ -1,13 +1,79 @@
-
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-brand img {
-  width: 150px;
-}
-
 .nav-link {
   font-family: $headers-font;
+  color: white;
+
+  a:hover {
+  color: gray;
 }
+}
+
+
+
+.nav-header .logo {
+  width: 20%;
+}
+
+.nav-header nav {
+  width: 100vw;
+  height:60px;
+}
+
+header {
+  position: absolute;
+  background-color: transparent;
+}
+
+.nav-header {
+  border-radius: 5px;
+}
+
+.logo {
+  padding-left: 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 30%;
+}
+
+.item {
+  padding: 12px 16px 13px;
+  font-size: 24px;
+  color: white;
+}
+
+header,
+nav {
+  font-size: 0;
+}
+
+.logo
+.item,
+.middle {
+  display: flex;
+  align-items: center;
+}
+
+.scroll {
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.scroll a {
+  height: 100%;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 765px) {
+  .item {
+    font-size: 14px;
+  }
+}
+

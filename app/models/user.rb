@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, PhotoUploader
 
-  before_create :set_default_avatar
+  # before_create :set_default_avatar
 
   def self.find_for_discogs_oauth(auth)
     user_params = {
