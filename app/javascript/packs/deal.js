@@ -26,8 +26,9 @@ const records = document.querySelectorAll('.deal-myrecord')
       resultDiv.insertAdjacentHTML('afterbegin', resultContent)
     })
   })
-  const displayButton = document.getElementById('vinyl-card-proposition-button')
-  displayButton.addEventListener('click', () => {
-    const records = document.querySelector('.vinyl-card-collection')
-    records.classList.remove('records-undisplay')
-  })
+
+  // const displayButton = document.getElementById('vinyl-card-proposition-button')
+  // displayButton.addEventListener('click', () => {
+  //   const records = document.querySelector('.vinyl-card-collection')
+  //   records.classList.remove('records-undisplay')
+  // })
