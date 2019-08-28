@@ -1,34 +1,27 @@
 <div class="container-discover-card">
-    <div class="swap-card">
-      <%= link_to  records_path do %>
-        <div class="rediscover-card" style="background-image: url('https://media0.giphy.com/media/l2YOzoTQ4s4Px1gWc/giphy.gif?cid=790b761105844d74a0f0076c6447405d3aafb677d52a5e68&rid=giphy.gif')">
-          <h3>
-            Reload <br/>
-            to discover more
-          </h3>
+  <div class="slider-wrap">
+    <div id="card-slider" class="slider">
+      <% @discover.sample(10).each do |record| %>
+      <div data-new-deal-url="<%= new_record_deal_path(record) %>" class="slider-item">
+        <div class="animation-card_image">
+            <img src="<%= record.release.image %>" alt="">
         </div>
+      </div>
       <% end %>
     </div>
-  <% @discover.sample(20).each do |record| %>
-    <div class='swap-card'>
-      <div class="discover-card" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url('<%= cl_image_path record.release.image %>')">
-        <div class="discover-card-infos">
-          <div class="discover-card-infos-release">
-            <h3> <%= record.release.title %> </h3>
-            <p> <%= record.release.artist %> </p>
-            <span> <%= record.release.year %> - <%= record.release.genre.name %></span>
-          </div>
-          <div class="discover-card-infos-record">
-            <p> Proposé par <%= record.user.username %></p>
-          </div>
-        </div>
-      </div>
-      <div class="swap-choice">
-        <i class="fas fa-times-circle button-decline"></i>
-        <%= link_to new_record_deal_path(record) do %>
-          <i class="fa fa-check-circle button-accept" aria-hidden="true"></i>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+  </div>
+  <div class="select-discover-card">
+    <i class="fas fa-fast-backward" id="previous"></i>
+    <%= link_to records_path do %>
+      <i class="fas fa-eject"></i>
+    <% end %>
+    <a id="create-deal-btn" href="">
+      <i class="fas fa-play" style="font-size: 350%;" id="new-deal"></i>
+    </a>
+    <i class="fas fa-fast-forward" id="next"></i>
+  </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/TimelineMax.min.js"></script>
