@@ -24,9 +24,9 @@ class MyrecordsController < ApplicationController
     imported = ImportFromDiscogsService.new(@discogs, user: current_user).import_collection
 
     if imported
-      redirect_to myrecords_path, notice: "Succesfully imported Discogs' collection"
+      redirect_to myrecords_path, notice: "L'importation de vos vinyles depuis Discogs est terminée ! Sélectionnez les vinyles que vous souhaitez échanger avec d'autres utilisateurs"
     else
-      redirect_to myrecords_path, alert: "Something went wrong"
+      redirect_to myrecords_path, alert: "L'importation de vos vinyles a échoué"
     end
     # <%= link_to 'Importer ma collection', import_from_discogs_releases_path %>
   end
