@@ -82,9 +82,14 @@ text-align: center;
 
 .reassurance {
   overflow-wrap: break-word;
-  padding-top: 40px;
-  max-width: 900px;
+  padding-top: 15px;
+  max-width: 800px;
   margin: auto auto;
+<<<<<<< HEAD
+=======
+  text-align: center;
+  justify-content:center;
+>>>>>>> 0bab6a4ab2f712da411117c3c67c4a23beb98ef1
 
   h2 {
   font-weight: 600;
@@ -250,3 +255,32 @@ text-align: center;
   color: #D23333;
 }
 
+.keywords_grid {
+  display:flex;
+  width: 80%;
+  flex-wrap: wrap;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: space-between;
+  margin: 0 auto;
+  // margin-top: 10px;
+}
+
+.keyword_bloc {
+  width: 50px;
+  height: 50px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+  // flex-direction: column;
+  img {
+  width:100%;
+  height:100%;
+  }
+}
+
+// .keywords_grid-color {
+//   justify-content: center;
+//   font-color:yellow;
+// }
