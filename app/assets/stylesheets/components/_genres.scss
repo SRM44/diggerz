@@ -47,7 +47,7 @@
   // padding-right: 5px;
   // padding-left:5px;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 15px;
   }
 }
 
@@ -92,4 +92,18 @@
 
 .submit-genre-button {
   justify-content: center;
+}
+
+.submit-button-div {
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.genre-cards-infos-div {
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
