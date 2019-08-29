@@ -44,10 +44,6 @@ function previousArray(array) {
   array.unshift(firstElem);
 }
 
-const dealButton = document.getElementById('create-deal-btn')
-if (dealButton) {
-  dealButton.href = cards[2].dataset.newDealUrl
-}
 
 const nextButton = document.getElementById('next')
 if (nextButton) {
@@ -67,4 +63,31 @@ if (previousButton) {
     console.log(cards[2].dataset)
     dealButton.href = cards[2].dataset.newDealUrl
   });
+}
+
+const recordCover = cards[2]
+  if (recordCover) {
+    recordCover.addEventListener('click', (event) => {
+    console.log('hello')
+    const record = document.querySelector('.discover-vinyl-card')
+    const navbar = document.querySelector('.nav-header')
+    navbar.classList.add('undisplay')
+    record.classList.remove('undisplay')
+    })
+  }
+
+const recordDetails = document.querySelector('.vinyl-card-details-index-button')
+  if (recordDetails) {
+    recordDetails.addEventListener('click', (event) => {
+    console.log('hello')
+    const record = document.querySelector('.discover-vinyl-card')
+    const navbar = document.querySelector('.nav-header')
+    navbar.classList.remove('undisplay')
+    record.classList.add('undisplay')
+    })
+  }
+
+const dealButton = document.getElementById('create-deal-btn')
+if (dealButton) {
+  dealButton.href = cards[2].dataset.newDealUrl
 }

@@ -10,4 +10,7 @@ class RecordsController < ApplicationController
 
   def collection
   end
+
+  def show
+  end
 end

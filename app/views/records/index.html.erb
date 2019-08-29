@@ -2,11 +2,44 @@
   <div class="slider-wrap">
     <div id="card-slider" class="slider">
       <% @discover.sample(10).each do |record| %>
-      <div data-new-deal-url="<%= new_record_deal_path(record) %>" class="slider-item">
-        <div class="animation-card_image">
-            <img src="<%= record.release.image %>" alt="">
-        </div>
-      </div>
+        <div data-new-deal-url="<%= new_record_deal_path(record) %>" class="slider-item">
+          <div class="animation-card_image">
+              <img src="<%= record.release.image %>" alt="">
+          </div>
+          </div>
+          <div class="discover-vinyl-card undisplay">
+            <div class='vinyl-card'>
+              <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path record.release.image %>')">
+                <div class="vinyl-card-details-infos">
+                  <div class="vinyl-card-details-index-button">
+                    <p>X</p>
+                  </div>
+                  <div class="vinyl-card-details-infos-release">
+                    <div>
+                      <h3> <%= record.release.title %> </h3>
+                      <p> <%= record.release.artist %> </p>
+                      <span> <%= record.release.year %> - <%= record.release.genre.name %></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vinyl-card-more">
+                <div class="vinyl-card-tracklist">
+                  <ul>
+                    <li><strong>TRACKLIST</strong></li>
+                    <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
+                      <li><%= track.position %> - <%= track.title %></li>
+                    <% end %>
+                    <br/>
+                    <br/>
+                  </ul>
+                </div>
+                <div id="vinyl-card-proposition-button" class="button-master">
+                  <a id="create-deal-btn" href="">Lancer un deal pour ce vinyl</a>
+                </div>
+              </div>
+            </div>
+          </div>
       <% end %>
     </div>
   </div>
@@ -15,9 +48,6 @@
     <%= link_to records_path do %>
       <i class="fas fa-eject"></i>
     <% end %>
-    <a id="create-deal-btn" href="">
-      <i class="fas fa-play" style="font-size: 350%;" id="new-deal"></i>
-    </a>
     <i class="fas fa-fast-forward" id="next"></i>
   </div>
 </div>
