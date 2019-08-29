@@ -1,7 +1,7 @@
 <div class="container-discover-card">
   <div class="slider-wrap">
     <div id="card-slider" class="slider">
-      <% @discover_all.each do |record| %>
+      <% @discover.sample(20).each do |record| %>
         <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="slider-item">
           <div class="animation-card_image">
               <img src="<%= record.release.image %>">
@@ -32,10 +32,15 @@
                     <% end %>
                     <br/>
                     <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                   </ul>
                 </div>
                 <div class="button-master vinyl-card-proposition-button">
-                  <%= link_to 'Lancer un deal pour ce vinyl', new_record_deal_path(record) %>
+                  <%= link_to 'Lancer un deal pour ce vinyle', new_record_deal_path(record) %>
                 </div>
               </div>
             </div>
@@ -45,8 +50,10 @@
   </div>
   <div class="select-discover-card">
     <i class="fas fa-fast-backward" id="previous"></i>
-    <%= link_to records_path do %>
-      <i class="fas fa-eject"></i>
+    <%= link_to  edit_profile_preferences_path do %>
+      <div id="vinyl-card-proposition-button" class="vinyl-card-add-button button-master-nemesis">
+        <div>modifier mes genres</div>
+      </div>
     <% end %>
     <i class="fas fa-fast-forward" id="next"></i>
   </div>

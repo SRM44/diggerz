@@ -20,13 +20,14 @@
       <%= simple_form_for [@record, @deal] do |f| %>
         <%= f.input :requester_record_id, as: :hidden %>
         <div class="vinyl-card-input-button">
-          <%= f.submit 'Envoyer ce deal', :class => 'button-master-nemesis' %>
+          <%= f.submit '>> Envoyer ce deal', :class => 'button-master-nemesis' %>
         </div>
       <% end %>
     </div>
     <div class="vinyl-card-more">
       <div id="vinyl-card-proposition-button" class="vinyl-card-add-button button-master-nemesis">
-        <i class="fas fa-plus"></i> Ajouter un vinyl à échanger
+        <i class="fas fa-plus"></i>
+        <div>Choisir un vinyle de votre collection</div>
       </div>
     </div>
   </div>
