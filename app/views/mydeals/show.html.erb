@@ -80,9 +80,11 @@
       </div>
     </section>
     <div class="md-show-actions-btn">
+      <%= link_to accept_deal_path(@asked_record), method: :patch do %>
       <div class="button-master md-show-accept">
         Accepter l'échange
       </div>
+      <% end %>
       <div class="button-secondary md-show-decline">
         Nope !
       </div>
