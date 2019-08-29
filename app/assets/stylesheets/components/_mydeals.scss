@@ -8,7 +8,7 @@
 }
 
 .my-deals-submenu {
-  padding-top: 15px;
+  padding-top: 60px;
   width: 100wv;
   padding-bottom: 10px;
   padding-left: 20px;
@@ -28,6 +28,18 @@
   }
 
   #validated-tab {
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 27px;
+    color: $gray;
+
+    &.active {
+      color: white;
+    }
+  }
+
+  #accepted-tab {
     background: none;
     border: none;
     font-weight: 600;
