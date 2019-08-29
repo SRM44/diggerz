@@ -9,7 +9,7 @@
       <span class="item"><%= link_to "Découvrir", records_path, class: "nav-link" %></span>
       <span class="item"><%= link_to "Ma collection", myrecords_path, class: "nav-link" %></span>
       <span class="item"><%= link_to "Deals", mydeals_path, class: "nav-link" %></span>
-      <span class="item"><%= cl_image_tag current_user_avatar_path , class: "avatar dropdown-toggle", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></span>
+      <span class="item"><%= cl_image_tag current_user.avatar, class: "avatar dropdown-toggle", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></span>
       <% else %>
       <span class="item">%= link_to "Login", new_user_session_path, class: "nav-link" %></span>
       <% end %>
