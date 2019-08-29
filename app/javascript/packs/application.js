@@ -11,3 +11,5 @@ document.querySelectorAll(".genre-card-label").forEach((label) => {
     event.currentTarget.querySelector(".genre-img").classList.toggle("genre-img-active");
   });
 });
+
+$(".alert" ).fadeOut(3000);
