@@ -13,8 +13,12 @@
   align-items: center;
 }
 
+.select-discover-card a:active {
+  text-decoration: none;
+}
+
 .select-discover-card i {
-  font-size: 250%;
+  font-size: 150%;
   color: white;
   cursor: pointer;
 }
