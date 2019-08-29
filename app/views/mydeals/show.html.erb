@@ -6,7 +6,7 @@
       </div>
       <% if current_user == @asked_record.user %>
         <div class="md-show-requester-profil">
-          <span>Vous proposez à <%= @asked_record .user.name %>  </span>
+          <span>Vous proposez à <%= @asked_record.user.name %>  </span>
           <img class="md-avatar-show" src="<%= cl_image_path @asked_record.user.avatar %>">
         </div>
         <div class="md-show-container-album-pending">
