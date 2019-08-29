@@ -1,7 +1,6 @@
 import "bootstrap";
 import "./discover";
 import "./deal";
-import "./mydeals";
 import "./swap";
 
 
