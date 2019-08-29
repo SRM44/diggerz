@@ -49,8 +49,6 @@ const nextButton = document.getElementById('next')
 if (nextButton) {
   nextButton.addEventListener('click', (event) => {
     nextArray(cards)
-    console.log(cards[2].dataset)
-    dealButton.href = cards[2].dataset.newDealUrl
     startAnim(cards);
   });
 }
@@ -60,34 +58,22 @@ if (previousButton) {
   previousButton.addEventListener('click', (event) => {
     reverseAnim(cards);
     previousArray(cards)
-    console.log(cards[2].dataset)
-    dealButton.href = cards[2].dataset.newDealUrl
   });
 }
 
-const recordCover = cards[2]
-  if (recordCover) {
-    recordCover.addEventListener('click', (event) => {
-    console.log('hello')
-    const record = document.querySelector('.discover-vinyl-card')
-    const navbar = document.querySelector('.nav-header')
+cards.forEach(recordCard => {
+  const recordModal = document.getElementById('discover-record-modal-' + recordCard.dataset.recordId)
+  const navbar      = document.querySelector('.nav-header')
+
+  recordCard.addEventListener('click', (event) => {
     navbar.classList.add('undisplay')
-    record.classList.remove('undisplay')
-    })
-  }
-
-const recordDetails = document.querySelector('.vinyl-card-details-index-button')
-  if (recordDetails) {
-    recordDetails.addEventListener('click', (event) => {
-    console.log('hello')
-    const record = document.querySelector('.discover-vinyl-card')
-    const navbar = document.querySelector('.nav-header')
+    recordModal.classList.remove('undisplay')
+  })
+  const close = recordModal.querySelector('#record-close-modal-' + recordCard.dataset.recordId)
+  close.addEventListener('click', () => {
     navbar.classList.remove('undisplay')
-    record.classList.add('undisplay')
-    })
-  }
+    recordModal.classList.add('undisplay')
+  })
 
-const dealButton = document.getElementById('create-deal-btn')
-if (dealButton) {
-  dealButton.href = cards[2].dataset.newDealUrl
-}
+})
+

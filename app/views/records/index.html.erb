@@ -1,18 +1,18 @@
 <div class="container-discover-card">
   <div class="slider-wrap">
     <div id="card-slider" class="slider">
-      <% @discover.sample(10).each do |record| %>
-        <div data-new-deal-url="<%= new_record_deal_path(record) %>" class="slider-item">
+      <% @discover_all.each do |record| %>
+        <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="slider-item">
           <div class="animation-card_image">
-              <img src="<%= record.release.image %>" alt="">
+              <img src="<%= record.release.image %>">
           </div>
           </div>
-          <div class="discover-vinyl-card undisplay">
+          <div class="discover-vinyl-card undisplay" id="discover-record-modal-<%= record.id %>">
             <div class='vinyl-card'>
               <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path record.release.image %>')">
                 <div class="vinyl-card-details-infos">
-                  <div class="vinyl-card-details-index-button">
-                    <p>X</p>
+                  <div class="vinyl-card-details-index-button" id="record-close-modal-<%= record.id %>">
+                    <i class="fas fa-times"></i>
                   </div>
                   <div class="vinyl-card-details-infos-release">
                     <div>
@@ -34,8 +34,8 @@
                     <br/>
                   </ul>
                 </div>
-                <div id="vinyl-card-proposition-button" class="button-master">
-                  <a id="create-deal-btn" href="">Lancer un deal pour ce vinyl</a>
+                <div class="button-master vinyl-card-proposition-button">
+                  <%= link_to 'Lancer un deal pour ce vinyl', new_record_deal_path(record) %>
                 </div>
               </div>
             </div>
