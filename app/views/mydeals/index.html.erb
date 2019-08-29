@@ -18,7 +18,6 @@
       <% if @sended_deals.empty? %>
           <p>Vous n’avez pas de deals en cours.</p>
         <% else  %>
-        <h3>Deals envoyés</h3>
         <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
           <div class="mydeals-received-grid">
             <% @sended_deals.each do |deal| %>
@@ -49,8 +48,7 @@
       <section>
         <% if @received_deals.empty? %>
           <p>Vous n'avez pas reçu de propositions.</p>
-        <% else  %>
-        <h3>Deals à valider</h3>
+        <% else %>
         <p>Consultez et validez les propositions d'autres Diggerz.</p>
           <div class="mydeals-received-grid">
             <% @received_deals.each do |deal| %>
