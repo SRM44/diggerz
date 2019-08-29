@@ -85,9 +85,11 @@
         Accepter l'échange
       </div>
       <% end %>
+      <%= link_to accept_deal_path(@deal), method: :patch do %>
       <div class="button-secondary md-show-decline">
         Nope !
       </div>
+      <% end %>
     </div>
     <% else %>
     <% end %>
