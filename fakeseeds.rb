@@ -1,3 +1,30 @@
+puts "Cleaning database..."
+
+Deal.destroy_all
+Record.destroy_all
+Preference.destroy_all
+User.destroy_all
+Track.destroy_all
+Release.destroy_all
+Genre.destroy_all
+
+puts "Create Genres..."
+
+electronic          = Genre.create!(name: "Electronic")
+funk_soul           = Genre.create!(name: "Funk / Soul")
+pop                 = Genre.create!(name: "Pop")
+rock                = Genre.create!(name: "Rock")
+reggae              = Genre.create!(name: "Reggae")
+jazz                = Genre.create!(name: "Jazz")
+latin               = Genre.create!(name: "Latin")
+folk_world_country  = Genre.create!(name: "Folk, World, & Country")
+stage_screen        = Genre.create!(name: "Stage & Screen")
+blues               = Genre.create!(name: "Blues")
+non_music           = Genre.create!(name: "Non-Music")
+classical           = Genre.create!(name: "Classical")
+children_s          = Genre.create!(name: "Children's")
+brass_military      = Genre.create!(name: "Brass & Military")
+
 puts "Create Users..."
 
 yanis = User.create!(
@@ -35,23 +62,6 @@ steven = User.create!(
   name: "Steven",
   avatar: File.open(Rails.root.join('db/fixtures/users/steven.jpg'))
 )
-
-puts "Create Genres..."
-
-electronic          = Genre.create!(name: "Electronic")
-funk_soul           = Genre.create!(name: "Funk / Soul")
-pop                 = Genre.create!(name: "Pop")
-rock                = Genre.create!(name: "Rock")
-reggae              = Genre.create!(name: "Reggae")
-jazz                = Genre.create!(name: "Jazz")
-latin               = Genre.create!(name: "Latin")
-folk_world_country  = Genre.create!(name: "Folk, World, & Country")
-stage_screen        = Genre.create!(name: "Stage & Screen")
-blues               = Genre.create!(name: "Blues")
-non_music           = Genre.create!(name: "Non-Music")
-classical           = Genre.create!(name: "Classical")
-children_s          = Genre.create!(name: "Children's")
-brass_military      = Genre.create!(name: "Brass & Military")
 
 puts "Create Releases..."
 
@@ -900,7 +910,7 @@ hot_rats_steven = Record.create!(
 )
 
 in_rainbows_steven = Record.create!(
-  release: hot_rats,
+  release: in_rainbows,
   user: steven,
   condition: "Mint",
   swappable: false,
@@ -923,10 +933,34 @@ born_in_the_usa_volodia = Record.create!(
   out: false
 )
 
+white_elephant_volodia = Record.create!(
+  release: white_elephant,
+  user: volodia,
+  condition: "Near Mint",
+  swappable: true,
+  out: false
+)
+
+loaded_volodia = Record.create!(
+  release: loaded,
+  user: volodia,
+  condition: "Very Good",
+  swappable: true,
+  out: false
+)
+
 homesick_amelie = Record.create!(
   release: homesick,
   user: amelie,
   condition: "Near Mint",
+  swappable: true,
+  out: false
+)
+
+nevermind_amelie = Record.create!(
+  release: nevermind,
+  user: amelie,
+  condition: "Good",
   swappable: true,
   out: false
 )
@@ -936,7 +970,7 @@ puts "Create deals..."
 deal_steven_yanis = Deal.create!(
   requester_record: the_dark_side_of_the_moon_steven,
   receiver_record: rage_against_the_machine_yanis,
-  status: 'pending'
+  status: 'accepted'
 )
 
 deal_volodia_steven = Deal.create!(
@@ -948,7 +982,45 @@ deal_volodia_steven = Deal.create!(
 deal_steven_amelie = Deal.create!(
   requester_record: hots_space_steven,
   receiver_record: homesick_amelie,
+  status: 'refused'
+)
+
+deal_steven_amelie = Deal.create!(
+  requester_record: the_dark_side_of_the_moon_steven,
+  receiver_record: homesick_amelie,
   status: 'pending'
 )
+
+deal_yanis_steven = Deal.create!(
+  requester_record: rage_against_the_machine_yanis,
+  receiver_record: nevermind_steven,
+  status: 'pending'
+)
+
+deal_volodia_steven = Deal.create!(
+  requester_record: loaded_volodia,
+  receiver_record: hot_rats_steven,
+  status: 'accepted'
+)
+
+deal_volodia_steven = Deal.create!(
+  requester_record: white_elephant_volodia,
+  receiver_record: in_rainbows_steven,
+  status: 'accepted'
+)
+
+deal_amelie_steven = Deal.create!(
+  requester_record: homesick_amelie,
+  receiver_record: in_rainbows_steven,
+  status: 'accepted'
+)
+
+deal_amelie_steven = Deal.create!(
+  requester_record: nevermind_amelie,
+  receiver_record: hot_rats_steven,
+  status: 'pending'
+)
+
+
 
 puts "Finished!"

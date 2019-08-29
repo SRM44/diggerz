@@ -28,6 +28,13 @@ class DealsController < ApplicationController
     redirect_to mydeals_path
   end
 
+  def decline
+    @deal = Deal.find(params[:id])
+    @deal.status = 'declined'
+    @deal.save
+    redirect_to mydeals_path
+  end
+
   private
 
   def deal_params

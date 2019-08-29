@@ -42,7 +42,7 @@
           <% end %>
       </div>
 
-      <% @myrecords.each_with_index do |myrecord, index| %>
+      <% @myrecords.sort_by {|myrecord| myrecord.created_at }.reverse.each_with_index do |myrecord, index| %>
         <div class="row-grid-collection">
           <div class="col-toogle-grid-collection">
             <div class="custom-control custom-switch custom-switch-collection onoffswitch" data-id="<%= myrecord.id %>">

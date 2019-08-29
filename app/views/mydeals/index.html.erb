@@ -20,7 +20,7 @@
         <% else  %>
         <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
           <div class="mydeals-received-grid">
-            <% @sended_deals.each do |deal| %>
+            <% @sended_deals.sort_by {|track| track.created_at }.reverse.each do |deal| %>
               <div class="deals-card">
                 <%= link_to mydeal_path(deal) do %>
                   <div class="md-received-album" style="background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%), url('<%= cl_image_path deal.receiver_record.release.image %>')">
@@ -51,7 +51,7 @@
         <% else  %>
         <p>Consultez et validez les propositions d'autres Diggerz.</p>
           <div class="mydeals-received-grid">
-            <% @received_deals.each do |deal| %>
+            <% @received_deals.sort_by {|track| track.created_at }.reverse.each do |deal| %>
               <div class="deals-card">
                 <%= link_to mydeal_path(deal) do %>
                   <div class="md-received-album" style="background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%), url('<%= cl_image_path deal.requester_record.release.image %>')">
@@ -93,7 +93,7 @@
         <% else  %>
         <p>Félicitations ! Voici vos échanges validés ! </p>
           <div class="mydeals-received-grid">
-            <% @accepted_deals.each do |deal| %>
+            <% @accepted_deals.sort_by {|track| track.created_at }.reverse.each do |deal| %>
               <div class="deals-card">
                 <%= link_to mydeal_path(deal) do %>
                   <div class="md-received-album" style="background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%), url('<%= cl_image_path deal.requester_record.release.image %>')">
