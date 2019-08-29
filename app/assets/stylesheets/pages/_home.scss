@@ -83,10 +83,11 @@ text-align: center;
 
 .reassurance {
   overflow-wrap: break-word;
-  padding-top: 40px;
+  padding-top: 25px;
   max-width: 900px;
   margin: auto auto;
   text-align: center;
+  justify-content:center;
 
   h2 {
   font-weight: 600;
@@ -250,3 +251,27 @@ text-align: center;
   color: #D23333;
 }
 
+.keywords_grid {
+  display:flex;
+  width: 80%;
+  flex-wrap: wrap;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.keyword_bloc {
+  width: 40px;
+  height: 40px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  // flex-direction: column;
+}
+
+.keywords_grid-color {
+  justify-content: center;
+  font-color:yellow;
+}
