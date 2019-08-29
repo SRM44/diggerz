@@ -20,30 +20,14 @@
       <%= simple_form_for [@record, @deal] do |f| %>
         <%= f.input :requester_record_id, as: :hidden %>
         <div class="vinyl-card-input-button">
-          <%= f.submit 'Envoyer ce deal', :class => 'button-master' %>
+          <%= f.submit 'Envoyer ce deal', :class => 'button-master-nemesis' %>
         </div>
       <% end %>
     </div>
     <div class="vinyl-card-more">
-        <div class="vinyl-card-tracklist">
-        <% if @record.release.tracks.empty? %>
-          <p>Oops ! Tracks indisponibles pour ce disque.</p>
-        <% else %>
-          <ul>
-            <li><strong>TRACKLIST</strong></li>
-            <% @record.release.tracks.sort_by {|track| track.position }.each do |track| %>
-              <li data-id="<%= track.id %>"><%= track.position %> - <%= track.title %></li>
-            <% end %>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-          </ul>
-        <% end %>
-        </div>
-        <div class="vinyl-card-tracklist-blur"></div>
-        <div id="vinyl-card-proposition-button" class="button-master">Ajouter un vinyl à échanger</div>
+      <div id="vinyl-card-proposition-button" class="vinyl-card-add-button button-master-nemesis">
+        <i class="fas fa-plus"></i> Ajouter un vinyl à échanger
+      </div>
     </div>
   </div>
   <div class="vinyl-card vinyl-card-collection records-undisplay">
