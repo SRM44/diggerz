@@ -4,45 +4,37 @@
   padding-top: 0;
 }
 
-#my-deals-submenu {
-  display: flex;
+.my-deals-submenu {
   padding-top: 15px;
   width: 100wv;
   padding-bottom: 10px;
   padding-left: 20px;
   color: $gray;
+  border: none;
 
-  h2 {
+  #pending-tab {
+    background: none;
+    border: none;
     font-weight: 600;
     font-size: 27px;
+    color: $gray;
+    padding-left: 0;
+    &.active {
+      color: white;
+    }
   }
 
-  #md-sub-two {
-    padding-left: 50px;
+  #validated-tab {
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 27px;
+    color: $gray;
+
+    &.active {
+      color: white;
+    }
   }
-}
-
-.active-deals {
-  color: white;
-}
-
-#md-section-two {
-    display:none;
-}
-
-#md-sub-one:hover,
-#md-sub-two:hover {
-  cursor: pointer;
-}
-
-#md-sub-one:visited,
-#md-sub-two:visited {
-  color: #ccc;
-}
-
-#md-sub-one:focus,
-#md-sub-two:focus {
-  color: #ccc;
 }
 
 .my-deals-container {
@@ -56,8 +48,6 @@
     font-size: 22px;
     margin-top: 40px;
   }
-
-
 }
 
 .mydeals-received-grid {
