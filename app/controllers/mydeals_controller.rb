@@ -13,6 +13,12 @@ class MydealsController < ApplicationController
     @asked_record = @deal.receiver_record
   end
 
+  def accept
+    @deal.status = 'accepted'
+    @deal.save
+    redirect_to mydeals_path
+  end
+
   private
 
   def set_deal
