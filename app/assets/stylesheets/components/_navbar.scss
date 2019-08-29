@@ -25,6 +25,7 @@ header {
 
 .nav-header {
   border-radius: 5px;
+  padding-top: 5px;
   position: relative;
   z-index: 999;
 }
@@ -61,6 +62,7 @@ nav {
 .scroll {
   white-space: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
@@ -75,7 +77,7 @@ nav {
 
 @media (max-width: 765px) {
   .item {
-    font-size: 14px;
+    font-size: 25px;
   }
 }
 
