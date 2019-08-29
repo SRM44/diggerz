@@ -21,6 +21,13 @@ class DealsController < ApplicationController
     end
   end
 
+  def accept
+    @deal = Deal.find(params[:id])
+    @deal.status = 'accepted'
+    @deal.save
+    redirect_to mydeals_path
+  end
+
   private
 
   def deal_params
