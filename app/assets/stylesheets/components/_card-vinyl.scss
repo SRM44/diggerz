@@ -115,6 +115,11 @@
   width: 100%;
   display:flex;
   overflow: scroll;
+
+  p {
+    color: white;
+    margin: 70px auto;
+  }
 }
 
 .vinyl-card-tracklist ul {
