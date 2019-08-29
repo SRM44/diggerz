@@ -90,6 +90,11 @@
   -webkit-overflow-scrolling: touch;
   box-shadow: inset 0px -18px 47px -6px rgba(0,0,0,0.45);
   border-radius: 0 0 4px 4px;
+
+  p {
+    color: white;
+    margin: 70px auto;
+  }
 }
 
 .md-show-card-tracklist li {

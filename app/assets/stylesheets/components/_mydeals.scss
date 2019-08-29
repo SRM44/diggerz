@@ -9,7 +9,7 @@
 
 #my-deals-submenu {
   display: flex;
-  padding-top: 100px;
+  padding-top: 15px;
   width: 100wv;
   padding-bottom: 10px;
   padding-left: 20px;
@@ -133,6 +133,10 @@
   p {
     color: rgba(255, 255, 255, 0.80);
   }
+}
+
+.md-release-infos-received {
+  align-content: flex-end;
 }
 
 

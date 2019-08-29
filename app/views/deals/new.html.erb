@@ -26,6 +26,9 @@
     </div>
     <div class="vinyl-card-more">
         <div class="vinyl-card-tracklist">
+        <% if @record.release.tracks.empty? %>
+          <p>Oops ! Tracks indisponibles pour ce disque.</p>
+        <% else %>
           <ul>
             <li><strong>TRACKLIST</strong></li>
             <% @record.release.tracks.sort_by {|track| track.position }.each do |track| %>
@@ -37,6 +40,7 @@
             <br/>
             <br/>
           </ul>
+        <% end %>
         </div>
         <div class="vinyl-card-tracklist-blur"></div>
         <div id="vinyl-card-proposition-button" class="button-master">Ajouter un vinyl à échanger</div>

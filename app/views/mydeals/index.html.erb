@@ -51,22 +51,26 @@
       <div class="mydeals-received-grid">
         <% @sended_deals.each do |deal| %>
           <div class="deals-card">
-            <img src="<%= cl_image_path deal.receiver_record.release.image %>" alt="">
-            <div class="md-cards-infos">
-              <h5 id="md-album-title"><%= deal.receiver_record.release.title %></h5>
-              <p id="md-artist-card"><%= deal.receiver_record.release.artist %></p>
-                <div class="md-requester-infos">
-                  <div class="far fa-clock">  </div>
-                  <div>
-                    <p id="md-user-card">Demandé à <%= deal.receiver_record.user.name %>
-                    </p>
+            <%= link_to mydeal_path(deal) do %>
+              <div class="md-received-album" style="background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%), url('<%= cl_image_path deal.receiver_record.release.image %>')">
+                <div class="md-received-album-infos">
+                  <div class="md-release-infos-received">
+                    <h5> <%= deal.receiver_record.release.title %> </h5>
+                    <p> <%= deal.receiver_record.release.artist %> </p>
+                  </div>
+                  <div class="md-requester-infos">
+                    <div class="far fa-clock"> </div>
+                    <div>
+                      <p id="md-user-card">Demandé à <%= deal.receiver_record.user.name %></p>
+                    </div>
                   </div>
                 </div>
-            </div>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
-    <% end %>
+    <%end %>
   </section>
 
   <section id="md-section-two" class="my-deals-container">
