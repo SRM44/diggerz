@@ -8,18 +8,26 @@
 }
 
 .my-deals-submenu {
-  padding-top: 60px;
-  width: 100wv;
+  padding-top: 70px;
   padding-bottom: 10px;
   padding-left: 20px;
   color: $gray;
   border: none;
+  overflow-x: scroll;
+
+    ul {
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+    li {
+      display: flex;
+    }
 
   #pending-tab {
     background: none;
     border: none;
     font-weight: 600;
-    font-size: 27px;
+    font-size: 22px;
     color: $gray;
     padding-left: 0;
     &.active {
@@ -31,7 +39,7 @@
     background: none;
     border: none;
     font-weight: 600;
-    font-size: 27px;
+    font-size: 22px;
     color: $gray;
 
     &.active {
@@ -43,7 +51,7 @@
     background: none;
     border: none;
     font-weight: 600;
-    font-size: 27px;
+    font-size: 22px;
     color: $gray;
 
     &.active {
@@ -60,8 +68,12 @@
   h3 {
     color: white;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 19px;
     margin-top: 40px;
+  }
+
+  p {
+    color: white;
   }
 }
 
