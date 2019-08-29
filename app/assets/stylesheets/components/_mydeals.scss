@@ -177,3 +177,16 @@
     padding-bottom: 0;
   }
 }
+
+.md-requester-waiting {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 40px 0px 60px 0px;
+  text-align: center;
+
+  p {
+    font-size: 20px;
+    color: white;
+  }
+}
