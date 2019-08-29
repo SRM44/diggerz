@@ -1,11 +1,23 @@
 <div class="container-collection-card ">
 
-    <% if @myrecords.empty? %>
-    <div class="button-master button-synchroniser">
-      <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
+  <% if @myrecords.empty? %>
+    <div>
+      <div class="page-title">
+        <h3> Importer ma collection de vinyles</h3>
+        <br>
+      </div>
+      <div class="sync-button-div">
+        <div class="button-master button-synchroniser">
+          <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
+        </div>
+      </div>
     </div>
   <% else %>
     <div class="collection-card">
+      <div class="page-title">
+        <h3> Mes vinyles à échanger </h3>
+        <br>
+      </div>
       <div class="collection-card-search">
         <%= form_tag myrecords_path, method: :get do %>
           <input id="query-input" name="query" placeholder="Titre, Artiste... " >
@@ -13,6 +25,7 @@
           </input>
           <button class="btn-search-dark"><i class="fas fa-search"></i></button>
         <% end %>
+        <br>
       </div>
 
       <div class="vinyle-collection-card">
