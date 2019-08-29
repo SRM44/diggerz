@@ -2,15 +2,16 @@
   width: 100%;
   max-width: 300px;
   margin: 0px 0px;
-  padding: 15px 0;
+  padding: 10px 0;
   background: #F3B61F;
   border-radius: 25px;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 300px;
   border-radius: $btn-border-radius;
-  height: 60px;
+  height: 45px;
   color: rgba(0, 0, 0, 0.8);
   font-weight: 600;
   line-height: 15px;
@@ -47,12 +48,14 @@
   max-width: 300px;
   border-radius: 25px;
   display: flex;
+  background: none;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   border: 1px solid $yellow;
+  background: $yellow;
   border-radius: $btn-border-radius;
-  height: 100%;
-  color: $yellow;
+  padding: 10px 20px;
+  color: black;
   font-weight: 600;
   line-height: 15px;
   font-family: $btn-font-family;
@@ -70,6 +73,30 @@
   margin-right: 8%;
 }
 
+.button-white-transparency {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 25px;
+  display: flex;
+  background: none;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  background: none;
+  border-radius: $btn-border-radius;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 600;
+  line-height: 15px;
+  font-family: $btn-font-family;
+  font-size: 100%;
+  transition: all 0.3s ease-in-out;
+
+  i {
+    font-size: 200px;
+  }
+}
+
 .button-decline {
   font-size: 500%;
   color: $red;
@@ -84,5 +111,16 @@
 }
 
 .button-synchroniser {
-  margin-top: 100px;
+  margin-top: 20px;
+  display: flex;
+  justify-content:center;
+
 }
+
+.sync-button-div {
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+

@@ -1,91 +1,138 @@
 <div class="main-container-md">
-  <div id="my-deals-submenu">
-       <h2 id="md-sub-one" class="active-deals">En attente</h2>
-       <h2 id="md-sub-two">Validés</h2>
+
+  <ul class="nav nav-tabs my-deals-tabs my-deals-submenu" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Envoyés</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="validated-tab" data-toggle="tab" href="#validated" role="tab" aria-controls="validated" aria-selected="false">Reçus</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="accepted-tab" data-toggle="tab" href="#accepted" role="tab" aria-controls="accepted" aria-selected="false">Acceptés</a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+      <section id="md-section-one" class="my-deals-container">
+      <% if @sended_deals.empty? %>
+          <p>Vous n’avez pas de deals en cours.</p>
+        <% else  %>
+        <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
+          <div class="mydeals-received-grid">
+            <% @sended_deals.each do |deal| %>
+              <div class="deals-card">
+                <%= link_to mydeal_path(deal) do %>
+                  <div class="md-received-album" style="background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%), url('<%= cl_image_path deal.receiver_record.release.image %>')">
+                    <div class="md-received-album-infos">
+                      <div class="md-release-infos-received">
+                        <h5> <%= deal.receiver_record.release.title %> </h5>
+                        <p> <%= deal.receiver_record.release.artist %> </p>
+                      </div>
+                      <div class="md-requester-infos">
+                        <div class="far fa-clock"> </div>
+                        <div>
+                          <p id="md-user-card">Demandé à <%= deal.receiver_record.user.name %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <%end %>
+      </section>
+    </div>
+    <div class="tab-pane fade show" id="validated" role="tabpanel" aria-labelledby="validated-tab">
+      <section class="my-deals-container">
+        <% if @received_deals.empty? %>
+          <p>Vous n'avez pas reçu de propositions.</p>
+        <% else  %>
+        <p>Consultez et validez les propositions d'autres Diggerz.</p>
+          <div class="mydeals-received-grid">
+            <% @received_deals.each do |deal| %>
+              <div class="deals-card">
+                <%= link_to mydeal_path(deal) do %>
+                  <div class="md-received-album" style="background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%), url('<%= cl_image_path deal.requester_record.release.image %>')">
+                    <div class="md-received-album-infos">
+                      <div id="md-requester-profil">
+                        <img id="md-requester-avatar" src=" <%= cl_image_path deal.requester_record.user.avatar%> ">
+                        <p>Proposé par <%= deal.requester_record.user.name %></p>
+                      </div>
+                      <div id="md-release-infos">
+                        <h5> <%= deal.requester_record.release.title %> </h5>
+                        <p> <%= deal.requester_record.release.artist %> </p>
+                        <span> <%= deal.requester_record.release.year %> - <%= deal.requester_record.release.genre.name %></span>
+                      </div>
+                    </div>
+                  </div>
+                <% end%>
+                  <div class="md-container-requested-album">
+                    <div class="md-requested-album-infos">
+                      <div id="md-release-requested">
+                        <h5><%= deal.receiver_record.release.title %></h5>
+                        <p><%= deal.receiver_record.release.artist %></p>
+                      </div>
+                      <div>
+                        <img class="avatar-square" src="<%= cl_image_path deal.receiver_record.release.image %>">
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </section>
+    </div>
+    <div class="tab-pane fade" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
+      <section id="md-section-three" class="my-deals-container">
+        <% if @accepted_deals.empty? %>
+          <p>Vous n’avez pas encore accepté d'échanges !</p>
+          <p>Allez donc échanger des disques ;)</p>
+        <% else  %>
+        <p>Félicitations ! Voici vos échanges validés ! </p>
+          <div class="mydeals-received-grid">
+            <% @accepted_deals.each do |deal| %>
+              <div class="deals-card">
+                <%= link_to mydeal_path(deal) do %>
+                  <div class="md-received-album" style="background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%), url('<%= cl_image_path deal.requester_record.release.image %>')">
+                    <div class="md-received-album-infos">
+                      <div id="md-requester-profil">
+                        <% if deal.requester_record.user == current_user %>
+                          <div class="md-show-requester-profil">
+                            <span>Vous proposez à <%= deal.requester_record.user.name %>  </span>
+                          </div>
+                        <% else%>
+                          <div class="md-show-requester-profil">
+                            <img class="avatar" src="<%= cl_image_path deal.requester_record.user.avatar %>">
+                            <p><%= deal.requester_record.user.name %> vous propose</p>
+                          </div>
+                        <% end %>
+                      </div>
+                      <div id="md-release-infos">
+                        <h5> <%= deal.requester_record.release.title %> </h5>
+                        <p> <%= deal.requester_record.release.artist %> </p>
+                        <span> <%= deal.requester_record.release.year %> - <%= deal.requester_record.release.genre.name %></span>
+                      </div>
+                    </div>
+                  </div>
+                <% end%>
+                  <div class="md-container-requested-album">
+                    <div class="md-requested-album-infos">
+                      <div id="md-release-requested">
+                        <h5><%= deal.receiver_record.release.title %></h5>
+                        <p><%= deal.receiver_record.release.artist %></p>
+                      </div>
+                      <div>
+                        <img class="avatar-square" src="<%= cl_image_path deal.receiver_record.release.image %>">
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </section>
+    </div>
   </div>
-  <section id="md-section-one" class="my-deals-container">
-    <% if @received_deals.empty? %>
-      <p>Vous n'avez pas reçu de propositions.</p>
-    <% else  %>
-    <h3>Deals à valider</h3>
-    <p>Consultez et validez les propositions d'autres Diggerz.</p>
-      <div class="mydeals-received-grid">
-        <% @received_deals.each do |deal| %>
-          <div class="deals-card">
-            <%= link_to mydeal_path(deal) do %>
-              <div class="md-received-album" style="background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%), url('<%= cl_image_path deal.requester_record.release.image %>')">
-                <div class="md-received-album-infos">
-                  <div id="md-requester-profil">
-                    <!-- <img id="md-requester-avatar" src="cl_image_path deal.requester_record.user.avatar "> -->
-                    <p>Proposé par <%= deal.requester_record.user.name %></p>
-                  </div>
-                  <div id="md-release-infos">
-                    <h5> <%= deal.requester_record.release.title %> </h5>
-                    <p> <%= deal.requester_record.release.artist %> </p>
-                    <span> <%= deal.requester_record.release.year %> - <%= deal.requester_record.release.genre.name %></span>
-                  </div>
-                </div>
-              </div>
-            <% end%>
-              <div class="md-container-requested-album">
-                <div class="md-requested-album-infos">
-                  <div id="md-release-requested">
-                    <h5><%= deal.receiver_record.release.title %></h5>
-                    <p><%= deal.receiver_record.release.artist %></p>
-                  </div>
-                  <div>
-                    <img class="avatar-square" src="<%= cl_image_path deal.receiver_record.release.image %>">
-                  </div>
-                </div>
-              </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-
-    <% if @sended_deals.empty? %>
-      <p>Vous n’avez pas de deals en cours.</p>
-    <% else  %>
-    <h3>Deals envoyés</h3>
-    <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
-      <div class="mydeals-received-grid">
-        <% @sended_deals.each do |deal| %>
-          <div class="deals-card">
-            <img src="<%= cl_image_path deal.receiver_record.release.image %>" alt="">
-            <div class="md-cards-infos">
-              <h5 id="md-album-title"><%= deal.receiver_record.release.title %></h5>
-              <p id="md-artist-card"><%= deal.receiver_record.release.artist %></p>
-                <div class="md-requester-infos">
-                  <div class="far fa-clock">  </div>
-                  <div>
-                    <p id="md-user-card">Demandé à <%= deal.receiver_record.user.name %>
-                    </p>
-                  </div>
-                </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </section>
-
-  <section id="md-section-two" class="my-deals-container">
-    <% if @accepted_deals.empty? %>
-      <p>Vous n’avez pas encore échangé de disques.</p>
-      <p>N'oubliez pas de confirmer vos échanges ;)</p>
-    <% else  %>
-      <div class="mydeals-received-grid">
-        <% @accepted_deals.each do |deal| %>
-          <div class="deals-card">
-            <img src="<%= cl_image_path deal.requester_record.release.image %>" alt="">
-            <div class="md-cards-infos">
-              <h5 id="md-album-title"><%= deal.requester_record.release.title %></h5>
-              <p id="md-artist-card"><%= deal.requester_record.release.artist %></p>
-              <p id="md-user-card">Envoyé par <%= deal.requester_record.user.name %></p>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </section>
-</div>

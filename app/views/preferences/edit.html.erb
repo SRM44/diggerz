@@ -8,21 +8,25 @@ Récupérer le code de la page Deals
     <div class="genre-card-category">
       <%= simple_form_for(:preferences, method: :patch, url: profile_preferences_path) do |f| %>
         <% @genres.each do |genre| %>
-          <div>
-            <input type="checkbox" class="d-none" name="genre_id[]" id="genre_input_<%= genre.id %>" value="<%= genre.id %>">
+          <div class="genre-card">
+            <input type="checkbox" class="d-none" name="genre_id[]" id="genre_input_<%= genre.id %>" value="<%= genre.id  %>" <%= "checked" if @user_genres.include?(genre) %>>
             <label class="genre-card-label" for="genre_input_<%= genre.id %>">
-              <div class="genre-img" alt="">
+              <div class="genre-img <%= "genre-img-active" if @user_genres.include?(genre) %>" alt="">
                 <img src="<%=  default_genre_image_path(genre) %>", width: 120px>
+                <div class="genre-cards-infos-div">
                 <div class="genre-cards-infos-hp">
                   <%= genre.name %>
+                </div>
                 </div>
               </div>
             </label>
           </div>
         <% end %>
-        <div class="submit-genre-button">
-          <%= f.submit "Sauvegarder mes préférences", :class => "button-master"%>
+        <div class="submit-button-div">
+          <div class="submit-genre-button">
+            <%= f.submit "Sauvegarder mes préférences", :class => "button-master"%>
         </div>
+          </div>
       <% end %>
     </div>
   </div>

@@ -10,7 +10,7 @@
 
 .vinyl-card .vinyl-card-details {
   width: 100%;
-  height: 55%;
+  height: 40%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-size: cover;
   background-position: center;
@@ -37,6 +37,20 @@
 }
 
 .vinyl-card-details-index-button a:hover {
+  color: white;
+  font-weight: 800;
+}
+
+.vinyl-card-details-index-button i {
+  position: relative;
+  height: 15%;
+  text-decoration: none;
+  color: #A9A9A9;
+  font-size: 150%;
+  cursor: pointer;
+}
+
+.vinyl-card-details-index-button i:hover {
   color: white;
   font-weight: 800;
 }
@@ -86,11 +100,12 @@
 }
 
 .vinyl-card-more {
-  height: 45%;
+  height: 60%;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   box-shadow: inset 0 0 10px #000000;
 }
 
@@ -100,6 +115,11 @@
   width: 100%;
   display:flex;
   overflow: scroll;
+
+  p {
+    color: white;
+    margin: 70px auto;
+  }
 }
 
 .vinyl-card-tracklist ul {
@@ -122,9 +142,19 @@
   filter: blur(20px);
 }
 
-#vinyl-card-proposition-button {
+.vinyl-card-proposition-button {
   position: absolute;
-  bottom: 7%;
+  bottom: 14%;
+  z-index: 200;
+}
+
+.vinyl-card-add-button {
+  z-index: 200;
+}
+
+.vinyl-card-add-button i {
+  font-size: 100%;
+  margin-right: 35px;
 }
 
 .records-undisplay {
@@ -133,7 +163,7 @@
 
 .vinyl-card-input-button {
   position: absolute;
-  bottom: 2%;
+  bottom: 14%;
 }
 
 .vinyl-card-collection {

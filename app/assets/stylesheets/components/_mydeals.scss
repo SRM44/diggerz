@@ -7,45 +7,57 @@
   padding-top: 0;
 }
 
-#my-deals-submenu {
-  display: flex;
-  padding-top: 100px;
-  width: 100wv;
+.my-deals-submenu {
+  padding-top: 70px;
   padding-bottom: 10px;
   padding-left: 20px;
   color: $gray;
+  border: none;
+  overflow-x: scroll;
 
-  h2 {
+    ul {
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+    li {
+      display: flex;
+    }
+
+  #pending-tab {
+    background: none;
+    border: none;
     font-weight: 600;
-    font-size: 27px;
+    font-size: 22px;
+    color: $gray;
+    padding-left: 0;
+    &.active {
+      color: white;
+    }
   }
 
-  #md-sub-two {
-    padding-left: 50px;
+  #validated-tab {
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 22px;
+    color: $gray;
+
+    &.active {
+      color: white;
+    }
   }
-}
 
-.active-deals {
-  color: white;
-}
+  #accepted-tab {
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 22px;
+    color: $gray;
 
-#md-section-two {
-    display:none;
-}
-
-#md-sub-one:hover,
-#md-sub-two:hover {
-  cursor: pointer;
-}
-
-#md-sub-one:visited,
-#md-sub-two:visited {
-  color: #ccc;
-}
-
-#md-sub-one:focus,
-#md-sub-two:focus {
-  color: #ccc;
+    &.active {
+      color: white;
+    }
+  }
 }
 
 .my-deals-container {
@@ -56,11 +68,14 @@
   h3 {
     color: white;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 19px;
     margin-top: 40px;
   }
 
-
+  p {
+    color: white;
+    padding-right: 15px;
+  }
 }
 
 .mydeals-received-grid {
@@ -83,7 +98,7 @@
 .md-received-album {
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+  justify-content: flex-end;
   width: 300px;
   height: 300px;
   float: left;
@@ -98,15 +113,22 @@
 
   .md-received-album-infos {
     padding-left:20px;
-    line-height: 0.5;
+    padding-top: 20px;
   }
 
   #md-release-requested {
-    width: 90px;
+    width: 100%;
     display: flex;
     overflow:hidden;
     white-space:nowrap;
     text-overflow: ellipsis;
+
+    h5 {
+      max-width: 90px;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow: ellipsis;
+    }
   }
 }
 
@@ -115,7 +137,7 @@
   display: flex;
   align-items: center;
   padding-top:15px;
-  margin-bottom: 170px;
+  margin-bottom: 60px;
 
   #md-requester-avatar {
     width: 40px;
@@ -133,6 +155,10 @@
   p {
     color: rgba(255, 255, 255, 0.80);
   }
+}
+
+.md-release-infos-received {
+  align-content: flex-end;
 }
 
 
@@ -156,5 +182,18 @@
     padding-left: 10px;
     margin-bottom: 0;
     padding-bottom: 0;
+  }
+}
+
+.md-requester-waiting {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 40px 0px 60px 0px;
+  text-align: center;
+
+  p {
+    font-size: 20px;
+    color: white;
   }
 }

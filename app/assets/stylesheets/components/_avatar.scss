@@ -4,6 +4,7 @@
 }
 .avatar-large {
   width: 56px;
+  height: 56px;
   border-radius: 50%;
 }
 .avatar-bordered {
@@ -32,6 +33,12 @@
   flex-direction: column;
   justify-content: center;
   border-radius:5px;
+}
+
+.md-avatar-show {
+  width: 50px;
+  border-radius: 50%;
+  padding-left: 5px;
 }
 
 .icone {

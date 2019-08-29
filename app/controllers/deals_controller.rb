@@ -1,7 +1,11 @@
 class DealsController < ApplicationController
   def new
     @record = Record.find(params[:record_id])
-    @myrecords = current_user.records
+    @myrecords_all = current_user.records
+    @myrecords = []
+    @myrecords_all.each do |myrecord|
+      @myrecords << myrecord if myrecord.swappable
+    end
     @deal = Deal.new
   end
 

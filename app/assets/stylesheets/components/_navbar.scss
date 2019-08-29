@@ -1,11 +1,8 @@
 .nav-link {
   font-family: $headers-font;
   color: white;
+}
 
-  a:hover {
-  color: gray;
-}
-}
 
 
 
@@ -25,6 +22,7 @@ header {
 
 .nav-header {
   border-radius: 5px;
+  padding-top: 5px;
   position: relative;
   z-index: 999;
 }
@@ -44,6 +42,10 @@ header {
   padding: 12px 12px 13px;
   font-size: 24px;
   color: white;
+
+  a:hover {
+  color: gray;
+  }
 }
 
 header,
@@ -61,6 +63,7 @@ nav {
 .scroll {
   white-space: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
@@ -75,7 +78,7 @@ nav {
 
 @media (max-width: 765px) {
   .item {
-    font-size: 14px;
+    font-size: 17px;
   }
 }
 

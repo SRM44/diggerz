@@ -2,12 +2,45 @@
   <div class="md-show-card">
     <div>
       <div class="md-show-card-back-button">
-        <%= link_to "< retour", mydeals_path  %>
+        <%= link_to "< Mes deals", mydeals_path  %>
       </div>
-      <div class="md-show-requester-profil">
-        <img id="md-requester-avatar" src="cl_image_path @proposed_record.user.avatar ">
-        <p><%= @proposed_record.user.name %> vous propose</p>
+      <% if current_user == @asked_record.user %>
+        <div class="md-show-requester-profil">
+          <span>Vous proposez à <%= @asked_record .user.name %>  </span>
+          <img class="md-avatar-show" src="<%= cl_image_path @asked_record.user.avatar %>">
+        </div>
+        <div class="md-show-container-album-pending">
+        <div class="md-show-proposed-record-pending" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @asked_record.release.image %>')">
+          <div class="md-show-details">
+            <div class="md-show-proposed-record-details">
+              <h3> <%= @asked_record.release.title %> </h3>
+              <p> <%= @asked_record.release.artist %> </p>
+              <span> <%= @asked_record.release.year %> - <%= @asked_record.release.genre.name %></span>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    <section class="md-show-section-one">
+      <div class="md-requested-album-infos">
+        <div id="md-release-requested">
+          <p>En échange de :</p>
+          <h5><%= @proposed_record.release.title %></h5>
+          <p><%= @proposed_record.release.artist %></p>
+        </div>
+        <div>
+          <img class="avatar-square" src="<%= cl_image_path @proposed_record.release.image %>">
+        </div>
+      </div>
+    </section>
+    <div class="md-requester-waiting">
+      <p>En attente de réponse</p>
+    </div>
+      <% elsif current_user == @proposed_record.user %>
+        <div class="md-show-requester-profil">
+          <img class="avatar" src="<%= cl_image_path @proposed_record.user.avatar %>">
+          <p><%= @proposed_record.user.name %> vous propose</p>
+        </div>
       <div class="md-show-container-album">
         <div class="md-show-proposed-record" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @proposed_record.release.image %>')">
           <div class="md-show-details">
@@ -22,15 +55,15 @@
     </div>
     <section class="md-show-section-two">
       <div class="md-show-card-tracklist">
-        <% if @proposed_record.release.tracks %>
+        <% if @proposed_record.release.tracks.empty? %>
+          <p>Oops ! Tracks indisponibles pour ce disque.</p>
+        <% else %>
           <ul>
             <li><strong>TRACKLIST</strong></li>
             <% @proposed_record.release.tracks.sort_by {|track| track.position }.each do |track| %>
               <li data-id="<%= track.id %>"><%= track.position %> - <%= track.title %></li>
             <% end %>
         </ul>
-        <% else %>
-          <p>Les tracks sont indisponibles pour cet album</p>
         <% end %>
       </div>
     </section>
@@ -47,12 +80,16 @@
       </div>
     </section>
     <div class="md-show-actions-btn">
+      <%= link_to accept_deal_path(@asked_record), method: :patch do %>
       <div class="button-master md-show-accept">
         Accepter l'échange
       </div>
+      <% end %>
       <div class="button-secondary md-show-decline">
         Nope !
       </div>
     </div>
+    <% else %>
+    <% end %>
   </div>
 </div>
