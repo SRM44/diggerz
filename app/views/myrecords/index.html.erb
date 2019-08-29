@@ -26,23 +26,20 @@
           </input>
           <button class="btn-search-dark"><i class="fas fa-search"></i></button>
         <% end %>
-        <br>
       </div>
 
       <div class="vinyle-collection-card">
 
 
-      <div class="row-grid-collection">
-        <div class="col-card-grid-collection">
+      <div class="sync-bar">
           <%= link_to import_from_discogs_myrecords_path do %>
-            <div class="card-product-sync">
-              <%= image_tag "sync.svg", alt: "Sync" %>
+            <div class="card-product-sync vinyl-card-add-button">
+              <i class="fas fa-sync-alt"></i>
               <div class="card-product-infos-collection">
-                <h4> Synchroniser avec Discogs</h4>
+                <h4> Synchroniser</h4>
               </div>
             </div>
           <% end %>
-        </div>
       </div>
 
       <% @myrecords.each_with_index do |myrecord, index| %>
