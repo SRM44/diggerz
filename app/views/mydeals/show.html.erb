@@ -4,9 +4,9 @@
       <div class="md-show-card-back-button">
         <%= link_to "< Mes deals", mydeals_path  %>
       </div>
-      <% if current_user == @proposed_record.user %>
+      <% if current_user == @asked_record.user %>
         <div class="md-show-requester-profil">
-          <span>Vous proposez à <%= @asked_record.user.name %>  </span>
+          <span>Vous proposez à <%= @asked_record .user.name %>  </span>
           <img class="md-avatar-show" src="<%= cl_image_path @asked_record.user.avatar %>">
         </div>
         <div class="md-show-container-album-pending">
@@ -36,7 +36,7 @@
     <div class="md-requester-waiting">
       <p>En attente de réponse</p>
     </div>
-      <% elsif current_user == @asked_record.user %>
+      <% elsif current_user == @proposed_record.user %>
         <div class="md-show-requester-profil">
           <img class="avatar" src="<%= cl_image_path @proposed_record.user.avatar %>">
           <p><%= @proposed_record.user.name %> vous propose</p>

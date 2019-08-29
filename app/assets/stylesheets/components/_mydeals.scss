@@ -74,6 +74,7 @@
 
   p {
     color: white;
+    padding-right: 15px;
   }
 }
 
@@ -97,7 +98,7 @@
 .md-received-album {
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+  justify-content: flex-end;
   width: 300px;
   height: 300px;
   float: left;
@@ -112,14 +113,22 @@
 
   .md-received-album-infos {
     padding-left:20px;
+    padding-top: 20px;
   }
 
   #md-release-requested {
-    width: 90px;
+    width: 100%;
     display: flex;
     overflow:hidden;
     white-space:nowrap;
     text-overflow: ellipsis;
+
+    h5 {
+      max-width: 90px;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow: ellipsis;
+    }
   }
 }
 
