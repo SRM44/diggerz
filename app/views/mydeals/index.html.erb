@@ -101,7 +101,7 @@
                       <div id="md-requester-profil">
                         <% if deal.requester_record.user == current_user %>
                           <div class="md-show-requester-profil">
-                            <span>Vous proposez à <%= deal.requester_record.user.name %>  </span>
+                            <span>Vous proposez à <%= deal.receiver_record.user.name %>  </span>
                           </div>
                         <% else%>
                           <div class="md-show-requester-profil">
