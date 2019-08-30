@@ -28,6 +28,11 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+
+  p {
+    margin-bottom: 0px;
+    padding-left: 10px;
+  }
 }
 
 .md-show-requester-profil span {
@@ -116,7 +121,7 @@
   display:flex;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-  box-shadow: inset 0px -18px 47px -6px rgba(0,0,0,0.45);
+  border-bottom: 1px solid white;
   border-radius: 0 0 4px 4px;
 
   p {

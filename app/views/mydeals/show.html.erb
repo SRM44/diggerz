@@ -41,8 +41,8 @@
           <img class="avatar" src="<%= cl_image_path @proposed_record.user.avatar %>">
           <p><%= @proposed_record.user.name %> vous propose</p>
         </div>
-      <div class="md-show-container-album">
-        <div class="md-show-proposed-record" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @proposed_record.release.image %>')">
+      <div class="md-show-container-album-pending">
+        <div class="md-show-proposed-record-pending" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @proposed_record.release.image %>')">
           <div class="md-show-details">
             <div class="md-show-proposed-record-details">
               <h3> <%= @proposed_record.release.title %> </h3>
