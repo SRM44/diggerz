@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-ruby '2.6.3'
+ruby '2.6.5'
 
 gem 'bootsnap', require: false
-gem 'devise'
+gem 'devise', ">= 4.7.1"
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
-gem 'puma'
-gem 'rails', '5.2.3'
+gem 'puma', ">= 4.3.3"
+gem 'rails', '~> 5.2.4'
 gem 'redis'
 
 gem 'cloudinary', '~> 1.9.1'
@@ -18,7 +18,7 @@ gem 'pundit'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
-gem 'simple_form'
+gem "simple_form", ">= 5.0.0"
 gem 'uglifier'
 gem 'webpacker'
 
