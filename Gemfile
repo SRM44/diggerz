@@ -7,6 +7,7 @@ gem 'pg', '~> 0.21'
 gem 'puma', ">= 4.3.3"
 gem 'rails', '~> 5.2.4'
 gem 'redis'
+gem 'webpacker', '~> 3.0', '>= 3.0.1'
 
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
@@ -18,7 +19,6 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
 gem 'uglifier'
-gem 'webpacker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

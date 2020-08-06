@@ -3,4 +3,6 @@ class NewAppDesignController < ApplicationController
     end
     def registration
     end
+    def localisation
+    end
 end

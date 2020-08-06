@@ -5,19 +5,23 @@
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family: $headers-font;
-$body-bg: $tech-house-gray-7;
+$body-bg: $white;
 $font-size-base: 1rem;
 // Colors
-$body-color: $gray;
+$body-color: $tech-house-gray-7;
 $primary: $blue;
 $success: $green;
 $info: $yellow;
 $danger: $red;
 $warning: $orange;
 // Buttons & inputs' radius
-$border-radius: 4px;
-$border-radius-lg: 4px;
-$border-radius-sm: 4px;
+$btn-height: 50px;
+$border-radius: 50px;
+$border-radius-lg: 50px;
+$border-radius-sm: 50px;
+$piled-btn-padding: 0.35em 1.2em;
+$lined-btn-radius: 5px;
+$lined-btn-padding: 0.35em 1.2em;
 // Override other variables below!
 $h2-font-size: 36px;
 $h3-font-size: 18px;
