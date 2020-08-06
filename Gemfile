@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.6.5'
+ruby '2.7.0'
 
-gem 'bootsnap', require: false
 gem 'devise', ">= 4.7.1"
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'

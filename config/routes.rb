@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'connexion', to: 'new_app_design#connexion'
+
+
+
+
+
   get 'myrecords/index'
   root to: 'pages#home'
 

@@ -12,6 +12,15 @@ class MyrecordsController < ApplicationController
     end
   end
 
+  def new 
+    @release = Release.new
+  end
+
+  def create
+    @release = Release.new(params[:release])
+    @release.save
+  end
+
   def show
     @record = Record.find(params[:id])
 
@@ -54,4 +63,9 @@ class MyrecordsController < ApplicationController
   def set_discogs
     @discogs = Discogs::Wrapper.new("Diggerz", access_token: session[:access_token])
   end
+
+  def release_params
+    params.require(:release).permit(:title, :image, :artist, :label, :year, :genre)
+  end  
+
 end
