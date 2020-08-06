@@ -7,13 +7,13 @@
                     <%= image_tag "logo_diggerz_icon.png", height: 70 %>
                 </div>
                 <div class="connexion-menu-links">
-                    <div>Connexion</div>
-                    <div>Inscription</div>
+                    <div><a href ="#" id="disabled-link">Connexion</a></div>
+                    <div><a href ="#" id="disabled-link">Inscription</a></div>
                 </div>
             </div>
             <div class="connexion-form">
                 <h1>Connexion</h1>
-                <h3>Hey coucou jeune padawan ! Qui es-tu ? </h3>
+                <h3>Salut toi, on se connaît non ? </h3>
                 <form action="post">
                     <div> 
                         <input type="text" id="email" placeholder="Email">
@@ -22,8 +22,8 @@
                         <input type="text" id="password" placeholder="Mot de passe">
                     </div>
                     <div class="connexion-form-ctas">
-                        <div>J'ai zappé mon mot de passe</div>
-                        <div class="button-master">Go !</div>
+                        <div class="button-master" id="connexion-cta-btn">Go !</div>
+                        <div id="connexion-cta-forgot"><a href="" id="disabled-link">J'ai zappé mon mot de passe.</a></div>
                     </div>
                 </form>
             </div>

@@ -1,0 +1,42 @@
+<div class="connexion-container">
+    <div class="connexion-content">
+
+        <div class="connexion-content-wrapper">
+            <div class="connexion-menu">
+                <div>
+                    <%= image_tag "logo_diggerz_icon.png", height: 70 %>
+                </div>
+                <div class="connexion-menu-links">
+                    <div><a href ="#" id="disabled-link">Connexion</a></div>
+                    <div><a href ="#" id="disabled-link">Inscription</a></div>
+                </div>
+            </div>
+            <div class="connexion-form">
+                <h1>Inscription</h1>
+                <h3>Hey coucou jeune padawan ! <br> Qui es-tu ? </h3>
+                <form action="post">
+                    <div id="registration-identity"> 
+                        <input type="text" id="name" placeholder="Prénom">
+                        <input type="text" id="email" placeholder="Email">
+                    </div>
+                    <div> 
+                        <input type="text" id="password" placeholder="Mot de passe">
+                    </div>
+                    <div> 
+                        <input type="text" id="confirm" placeholder="Confirmes ton mot de passe">
+                    </div>
+                    <div class="registration-form-ctas">
+                        <div id="registration-agreement">
+                            <input type="checkbox" id="registration-agreed" name="agreed">
+                            <label for="agreed">J’accèpte <a href="#" id="disabled-link">les conditions générales d’utilisations</a> et autorise Diggerz à m’envoyer des emails (sans me spamer <i class="fas fa-heart"></i>).</label>
+                        </div>
+                        <div class="button-master" id="connexion-cta-btn">Oui, je le veux.</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="connexion-image">
+       
+    </div>
+</div>

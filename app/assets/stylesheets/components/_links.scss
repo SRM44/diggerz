@@ -1,0 +1,11 @@
+#disabled-link {
+    text-decoration: none;
+    color: $tech-house-gray-7;
+}
+
+#disabled-link:hover {
+    text-decoration: none;
+    color: $black;
+    font-weight: 500;
+    transition: 0.3s ease-in-out, ;
+}

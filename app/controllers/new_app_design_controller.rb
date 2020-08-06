@@ -1,4 +1,6 @@
 class NewAppDesignController < ApplicationController
-    def connexion 
+    def session
+    end
+    def registration
     end
 end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'connexion', to: 'new_app_design#connexion'
+  get 'connexion', to: 'new_app_design#session'
+  get 'inscription', to: 'new_app_design#registration'
 
 
 
