@@ -5,4 +5,6 @@ class NewAppDesignController < ApplicationController
     end
     def localisation
     end
+    def home
+    end
 end

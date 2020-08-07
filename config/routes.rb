@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'connexion', to: 'new_app_design#session'
   get 'inscription', to: 'new_app_design#registration'
   get 'localisation', to: 'new_app_design#localisation'
+  get 'home', to: 'new_app_design#home'
 
 
 
