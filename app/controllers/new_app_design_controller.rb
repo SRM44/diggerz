@@ -7,4 +7,6 @@ class NewAppDesignController < ApplicationController
     end
     def home
     end
+    def deals_page
+    end
 end
