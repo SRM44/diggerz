@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get 'localisation', to: 'new_app_design#localisation'
   get 'home', to: 'new_app_design#home'
   get 'deals', to: 'new_app_design#deals_page'
-
-
+  get 'deal-envoye', to: 'new_app_design#show_deal_sent'
+  get 'deal-recu', to: 'new_app_design#show_deal_pending'
+  get 'deal-valide', to: 'new_app_design#show_deal_validated'
+  get 'deal-termine', to: 'new_app_design#show_deal_over'
 
 
 

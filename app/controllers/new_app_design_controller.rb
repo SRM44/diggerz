@@ -9,4 +9,13 @@ class NewAppDesignController < ApplicationController
     end
     def deals_page
     end
+    def show_deal_sent
+    end
+    def show_deal_pending
+    end
+    def show_deal_validated
+    end
+    def show_deal_over
+    end
+
 end

@@ -1,0 +1,40 @@
+.container-deal {
+    background: linear-gradient(115deg, #4b6866 40%, #f8ece0 40%);
+    height: 100vh;
+}
+
+.md-show-card {}
+
+.md-show-requester-img {
+    margin: 1em;
+    >img {
+        height: 30px;
+        border-radius: 50%;
+    }
+}
+
+.md-show-album {
+    height: 150px;
+    width: 150px;
+    border: none;
+    border-radius: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    -webkit-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.68);
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.68);
+}
+
+.md-show-album-infos {
+    color: $rich-black;
+    margin: 0.5em 0 1.5em 0;
+}
+
+.md-show-card-proposed {
+    display: flex;
+    >img {
+        height: 100px;
+        width: 100px;
+        margin: 0.5em;
+    }
+}
