@@ -15,6 +15,8 @@ class NewAppDesignController < ApplicationController
     end
     def show_deal_validated
     end
+    def show_deal_validated_one_confirmation
+    end
     def show_deal_over
     end
 
