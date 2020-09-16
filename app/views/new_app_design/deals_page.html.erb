@@ -1,29 +1,99 @@
 <h1>Deals</h1>
 <ul class="nav nav-tabs my-deals-tabs my-deals-submenu" id="myTab" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" id="deals-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">A valider</a>
+        <a class="nav-link active" id="deals-tab" data-toggle="tab" href="#tovalidate" role="tab" aria-controls="tovalidate" aria-selected="true">A valider</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="deals-tab" data-toggle="tab" href="#validated" role="tab" aria-controls="validated" aria-selected="false">En attente</a>
+        <a class="nav-link" id="deals-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="false">En attente</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" id="deals-tab" data-toggle="tab" href="#accepted" role="tab" aria-controls="accepted" aria-selected="false">En cours</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="deals-tab" data-toggle="tab" href="#accepted" role="tab" aria-controls="accepted" aria-selected="false">Terminé</a>
+        <a class="nav-link" id="deals-tab" data-toggle="tab" href="#terminated" role="tab" aria-controls="terminated" aria-selected="false">Terminé</a>
     </li>
 </ul>
-<div class="mydeals-received-grid">
-    <div class="deals-card">
-        <div class="md-release" style="background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%), url('https://img.discogs.com/UoDAnoi3Cbp_JvOrz4CRgZBBSfg=/fit-in/600x592/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-367084-1263095553.jpeg.jpg')">
-            <div class="md-release-infos">
-                <h5> RELEASE TITLE</h5>
-                <p> ARTIST </p>
+
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="tovalidate" role="tabpanel" aria-labelledby="pending-tab">
+        <section class="my-deals-container">
+            <div class="card-list-container">
+                <img src="https://img.discogs.com/Yzw6YXtFQNw6ijV8Sj10eHSPIKA=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-367084-1263095553.jpeg.jpg" alt="">
+                <div class="card-list-infos">
+                    <div>{PROPOSED ALBUM TITLE}</div>
+                    <div>{ARTIST}</div>
+                    <div>Proposé par {REQUESTER} </div>
+                </div>
             </div>
-            <div class="md-requester-infos">
-                <div class="far fa-clock"></div>
-                <div><p id="md-user-card">Demandé à USERNAME</p></div>
+            <div class="card-list-container">
+                <img src="https://img.discogs.com/Yzw6YXtFQNw6ijV8Sj10eHSPIKA=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-367084-1263095553.jpeg.jpg" alt="">
+                <div class="card-list-infos">
+                    <div>{PROPOSED ALBUM TITLE}</div>
+                    <div>{ARTIST}</div>
+                    <div>Proposé par {REQUESTER} </div>
+                </div>
             </div>
-        </div>
+            <div class="card-list-container">
+                <img src="https://img.discogs.com/Yzw6YXtFQNw6ijV8Sj10eHSPIKA=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-367084-1263095553.jpeg.jpg" alt="">
+                <div class="card-list-infos">
+                    <div>{PROPOSED ALBUM TITLE}</div>
+                    <div>{ARTIST}</div>
+                    <div>Proposé par {REQUESTER} </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="tab-pane fade show" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+        <section class="my-deals-container">
+            <div class="card-list-container">
+                <img src="https://img.discogs.com/raerCXMa8MbRH7ftRn1xX3NUHgY=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3676112-1343506550-1828.jpeg.jpg" alt="">
+                <div class="card-list-infos">
+                    <div>{PROPOSED ALBUM TITLE}</div>
+                    <div>{ARTIST}</div>
+                    <div>Proposé à {USER} </div>
+                </div>
+            </div>
+            <div class="card-list-container">
+                <img src="https://img.discogs.com/raerCXMa8MbRH7ftRn1xX3NUHgY=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3676112-1343506550-1828.jpeg.jpg" alt="">
+                <div class="card-list-infos">
+                    <div>{PROPOSED ALBUM TITLE}</div>
+                    <div>{ARTIST}</div>
+                    <div>Proposé à {USER} </div>
+                </div>
+            </div>
+            <div class="card-list-container">
+                <img src="https://img.discogs.com/raerCXMa8MbRH7ftRn1xX3NUHgY=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3676112-1343506550-1828.jpeg.jpg" alt="">
+                <div class="card-list-infos">
+                    <div>{PROPOSED ALBUM TITLE}</div>
+                    <div>{ARTIST}</div>
+                    <div>Proposé à {USER} </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="tab-pane fade show" id="accepted" role="tabpanel" aria-labelledby="pending-tab">
+        <section class="my-deals-container">
+            <h2>Oupsy ! Vous n'avez pas d'échange en cours !</h2>
+        </section>
+    </div>
+    <div class="tab-pane fade show" id="terminated" role="tabpanel" aria-labelledby="pending-tab">
+        <section class="my-deals-container">
+            <div class="card-list-container">
+                <img src="https://img.discogs.com/bnb9k0lhqeLXcDYxowMyQeo2bcE=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3924235-1532275677-6677.jpeg.jpg" alt="">
+                <div class="card-list-infos">
+                    <div>{PROPOSED ALBUM TITLE}</div>
+                    <div>{ARTIST}</div>
+                    <div>Proposé par {REQUESTER} </div>
+                </div>
+            </div>
+            <div class="card-list-container">
+                <img src="https://img.discogs.com/bnb9k0lhqeLXcDYxowMyQeo2bcE=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3924235-1532275677-6677.jpeg.jpg" alt="">
+                <div class="card-list-infos">
+                    <div>{PROPOSED ALBUM TITLE}</div>
+                    <div>{ARTIST}</div>
+                    <div>Proposé à {USER} </div>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
