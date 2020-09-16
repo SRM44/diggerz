@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'deal-valide', to: 'new_app_design#show_deal_validated'
   get 'deal-valide-une-confirmation', to: 'new_app_design#show_deal_validated_one_confirmation'
   get 'deal-termine', to: 'new_app_design#show_deal_over'
-
+  get 'deal-annule', to: 'new_app_design#show_deal_cancelled'
 
 
   get 'myrecords/index'

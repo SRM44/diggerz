@@ -19,5 +19,7 @@ class NewAppDesignController < ApplicationController
     end
     def show_deal_over
     end
+    def show_deal_cancelled
+    end
 
 end
