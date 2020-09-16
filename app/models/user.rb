@@ -9,7 +9,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
+  devise :omniauthable, omniauth_providers: [:discogs]
+
   mount_uploader :avatar, PhotoUploader
+
+  validates :accepts_tos,
+    inclusion: { in: [true], message: ->(_, _) { "Accepter les conditions d'utilisation est obligatoire" }},
+    on:        :create
 
   # before_create :set_default_avatar
 
@@ -48,5 +54,4 @@ class User < ApplicationRecord
   #   <% default_picture = (image_path 'default_profile.png') %>
   #   <%= f.input :avatar, input_html: {value: '#{default_picture}'}, label: false %>
   # end
-
 end

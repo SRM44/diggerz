@@ -9,7 +9,7 @@
         <% if user_signed_in? %>
           <%= link_to "Mon compte", myrecords_path %>
         <% else %>
-          <%= link_to  user_discogs_omniauth_authorize_path, method: :post do %>
+          <%= link_to user_discogs_omniauth_authorize_path, method: :post do %>
             Echanger des vinyles
           <% end %>
         <% end %>

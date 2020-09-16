@@ -3,15 +3,15 @@
         background-color: white;
         display: flex;
     }
-    
+
     .connexion-content {
         flex: 1;
     }
-    
+
     .connexion-content-wrapper {
         padding: 112px;
     }
-    
+
     .connexion-image {
         flex: 1;
         background-image: linear-gradient(to bottom, rgba(52, 50, 50, 0.40), rgba(141, 139, 139, 0.50)), url(https://source.unsplash.com/random/?record,vinyl);
@@ -19,23 +19,23 @@
         background-size: cover;
         background-repeat: no-repeat;
     }
-    
+
     .localisation-image {
-        // TO DELETE WHEN MAPBOX INCLUDED 
+        // TO DELETE WHEN MAPBOX INCLUDED
         flex: 1;
         background-image: url(https://le-velo-urbain.com/wp-content/uploads/2015/03/google-map-repertorie-piste-cyclable-france.jpg);
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
     }
-    
+
     .connexion-menu {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 50px;
     }
-    
+
     .connexion-menu-links {
         display: flex;
         justify-content: space-between;
@@ -44,7 +44,7 @@
             padding: 8px;
         }
     }
-    
+
     .connexion-separator {
         width: 100%;
         padding-bottom: 48px;
@@ -58,7 +58,7 @@
             border: solid 0.1px;
         }
     }
-    
+
     .connexion-form {
         h1 {
             margin-bottom: 32px;
@@ -75,7 +75,7 @@
             }
         }
     }
-    
+
     .connexion-form>form {
         #registration-identity {
             display: flex;
@@ -114,10 +114,11 @@
             flex-direction: column;
             height: 112px;
             #registration-agreement {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding-bottom: 32px;
+                display:        flex;
+                padding-bottom: 1em;
+                fieldset {
+                  margin-bottom: 0;
+                }
             }
             #registration-agreed {
                 width: 5%;
