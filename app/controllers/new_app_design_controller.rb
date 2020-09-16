@@ -21,5 +21,7 @@ class NewAppDesignController < ApplicationController
     end
     def show_deal_cancelled
     end
+    def forgot_password
+    end
 
 end
