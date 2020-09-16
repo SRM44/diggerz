@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'deal-termine', to: 'new_app_design#show_deal_over'
   get 'deal-annule', to: 'new_app_design#show_deal_cancelled'
   get 'forgot', to: 'new_app_design#forgot_password'
+  get 'discotheque', to: 'new_app_design#discotheque'
 
 
   get 'myrecords/index'

@@ -23,5 +23,4 @@ class NewAppDesignController < ApplicationController
     end
     def forgot_password
     end
-
 end

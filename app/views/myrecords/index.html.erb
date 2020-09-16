@@ -19,9 +19,7 @@
     <div class="collection-card">
       <div class="page-title">
         <h3> Mes vinyles à échanger </h3>
-        <p></p>
       </div>
-<!--  <p> Identifiez au sein de votre collection de vinyles ceux que vous souhaitez échanger avec d'autres diggerz ! </p> -->
       <div class="collection-card-search">
         <%= form_tag myrecords_path, method: :get do %>
           <input id="query-input" name="query" placeholder="Titre, Artiste... " >
@@ -30,9 +28,6 @@
           <button class="btn-search-dark"><i class="fas fa-search"></i></button>
         <% end %>
       </div>
-
-      <div class="vinyle-collection-card">
-
 
       <div class="sync-bar">
           <%= link_to import_from_discogs_myrecords_path do %>
@@ -44,6 +39,9 @@
             </div>
           <% end %>
       </div>
+      <div class="vinyle-collection-card">
+
+
 
       <% @myrecords.sort_by {|myrecord| myrecord.created_at }.reverse.each_with_index do |myrecord, index| %>
         <div class="row-grid-collection">
