@@ -24,6 +24,10 @@ Rails.application.routes.draw do
 
   resources :mydeals, only: [:index, :show]
 
+  resource :account, only: [] do
+    resource :location, only: [:edit, :update], controller: 'account/location'
+  end
+
   resources :deals, only: [:index, :show] do
     member do
       patch :confirm

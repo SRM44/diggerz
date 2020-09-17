@@ -1,0 +1,38 @@
+<div class="connexion-container">
+  <div class="connexion-content">
+    <div class="connexion-content-wrapper">
+      <div class="connexion-menu">
+        <div>
+          <%= image_tag "logo_diggerz_icon.png", height: 70 %>
+        </div>
+      </div>
+      <div class="connexion-form">
+        <div id="connexion-form--registration-header">
+          <h1>Où-es tu, <%= current_user.first_name %> ?! </h1>
+          <h3>Localises ta collection et commences à échanger des disques près de chez toi ! </h3>
+        </div>
+        <%= simple_form_for current_user,
+          url:    account_location_path(just_registered: params[:just_registered]),
+          method: :patch do |f| %>
+
+          <div>
+            <%= f.input :location,
+              collection: @available_locations,
+              selected:   @location %>
+          </div>
+
+          <p>
+            Un petit conseil : choisis le nom de la grande ville la plus proche si tu habites un petit bled paumé. On n’a pas encore la géolocalisation, mais ça va venir <3
+          </p>
+          <div class="connexion-form-ctas">
+            <%= f.submit 'Localiser', class: 'button-master', id: 'connexion-cta-btn' %>
+          </div>
+        <% end %>
+
+        <%= link_to "Passer à la suite", new_myrecord_path %>
+      </div>
+    </div>
+  </div>
+  <div class="localisation-image">
+  </div>
+</div>
