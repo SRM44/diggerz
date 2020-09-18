@@ -7,12 +7,19 @@
         <br>
       </div>
       <div class="sync-button-div">
-        <div class="button-master button-synchroniser">
-          <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
-        </div>
-        <div>
-          <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
-        </div>
+
+        <% if current_user.discogs_id.blank? %>
+          <form action="<%= user_discogs_omniauth_authorize_path %>" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+            <input type="submit" value="Connecter mon compte" class="button-master button-synchroniser">
+          </form>
+        <% else %>
+          <div class="button-master button-synchroniser">
+            <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
+          </div>
+        <% end %>
+
       </div>
     </div>
   <% else %>
