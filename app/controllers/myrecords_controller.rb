@@ -14,15 +14,6 @@ class MyrecordsController < ApplicationController
     end
   end
 
-  def new
-    @release = Release.new
-  end
-
-  def create
-    @release = Release.new(params[:release])
-    @release.save
-  end
-
   def show
     @record = Record.find(params[:id])
 

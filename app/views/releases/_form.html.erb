@@ -1,0 +1,21 @@
+<%= simple_form_for(@release) do |f| %>
+
+  <h3>Release data</h3>
+  <%= f.input :title %>
+
+  <%= f.input :artist %>
+  <%# f.input :artist, collection: Release.pluck(:artist) %>
+
+  <%= f.input :label %>
+  <%# f.input :label, collection: Release.pluck(:label) %>
+
+  <%= f.input :year, collection: (1900..DateTime.now.year).map(&:to_s) %>
+  <%= f.association :genre %>
+
+  <h3>My disk data</h3>
+  <div class="form-group string optional record_condition">
+    <label class="form-control-label string optional" for="record_condition">Dans quel état est votre disque ?</label><input class="form-control string optional" type="text" name="record[condition]" id="record_condition" placeholder="Plutôt bon état">
+  </div>
+
+  <%= f.submit 'Ajouter mon disque' %>
+<% end %>

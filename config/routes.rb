@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
 
-  get 'connexion', to: 'new_app_design#session'
-  get 'inscription', to: 'new_app_design#registration'
-  get 'localisation', to: 'new_app_design#localisation'
-  get 'home', to: 'new_app_design#home'
-  get 'deals', to: 'new_app_design#deals_page'
-  get 'deal-envoye', to: 'new_app_design#show_deal_sent'
-  get 'deal-recu', to: 'new_app_design#show_deal_pending'
-  get 'deal-valide', to: 'new_app_design#show_deal_validated'
+  get 'connexion',                    to: 'new_app_design#session'
+  get 'inscription',                  to: 'new_app_design#registration'
+  get 'localisation',                 to: 'new_app_design#localisation'
+  get 'home',                         to: 'new_app_design#home'
+  get 'deals',                        to: 'new_app_design#deals_page'
+  get 'deal-envoye',                  to: 'new_app_design#show_deal_sent'
+  get 'deal-recu',                    to: 'new_app_design#show_deal_pending'
+  get 'deal-valide',                  to: 'new_app_design#show_deal_validated'
   get 'deal-valide-une-confirmation', to: 'new_app_design#show_deal_validated_one_confirmation'
-  get 'deal-termine', to: 'new_app_design#show_deal_over'
-  get 'deal-annule', to: 'new_app_design#show_deal_cancelled'
-  get 'forgot', to: 'new_app_design#forgot_password'
-  get 'discotheque', to: 'new_app_design#discotheque'
+  get 'deal-termine',                 to: 'new_app_design#show_deal_over'
+  get 'deal-annule',                  to: 'new_app_design#show_deal_cancelled'
+  get 'forgot',                       to: 'new_app_design#forgot_password'
+  get 'discotheque',                  to: 'new_app_design#discotheque'
 
   get 'myrecords/index'
   root to: 'pages#home'
@@ -41,7 +41,10 @@ Rails.application.routes.draw do
   end
 
   resources :myrecords, only: [:index, :show, :new, :create, :update] do
+
     collection do
+      resources :releases, only: [:new, :create]
+
       get :import_from_discogs
     end
     member do
