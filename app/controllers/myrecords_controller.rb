@@ -1,5 +1,7 @@
 class MyrecordsController < ApplicationController
   before_action :set_discogs, only: [:show, :import_from_discogs]
+  skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :import_from_discogs]
+
   def index
     if params[:query].present?
       sql_query = <<~SQL
@@ -12,7 +14,7 @@ class MyrecordsController < ApplicationController
     end
   end
 
-  def new 
+  def new
     @release = Release.new
   end
 
@@ -66,6 +68,6 @@ class MyrecordsController < ApplicationController
 
   def release_params
     params.require(:release).permit(:title, :image, :artist, :label, :year, :genre)
-  end  
+  end
 
 end

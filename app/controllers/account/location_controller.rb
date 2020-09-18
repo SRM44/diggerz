@@ -1,5 +1,7 @@
 module Account
   class LocationController < ApplicationController
+    skip_before_action :redirect_user_without_confirmed_email!
+
     def edit
       @location            = current_user.location
       @available_locations = User::Location.available

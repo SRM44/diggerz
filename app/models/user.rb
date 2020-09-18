@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :genres, through: :preferences
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable
+         :recoverable, :rememberable, :validatable, :omniauthable, :confirmable
 
   devise :omniauthable, omniauth_providers: [:discogs]
 
@@ -30,7 +30,7 @@ class User < ApplicationRecord
     }
 
     user = User.find_by(provider: auth.provider, discogs_id: auth.uid)
-    user ||= User.find_by(email: user_params["email"]) # User did a regular sign up in the past.
+    user ||= User.find_by(email: user_params["email"])
 
     if user
       user.update(user_params)
