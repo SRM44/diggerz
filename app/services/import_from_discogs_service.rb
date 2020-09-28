@@ -25,7 +25,6 @@ class ImportFromDiscogsService
       track_params = {
         position: track.position,
         title: track.title.strip,
-        duration:track.duration
       }
       diggerz_track = @diggerz_release.tracks.new(track_params)
       diggerz_track.save
