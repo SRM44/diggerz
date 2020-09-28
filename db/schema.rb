@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_161500) do
+ActiveRecord::Schema.define(version: 2020_09_28_130759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 2020_09_17_161500) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string "photo"
+    t.bigint "record_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_id"], name: "index_pictures_on_record_id"
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -113,6 +121,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_161500) do
 
   add_foreign_key "deals", "records", column: "receiver_record_id"
   add_foreign_key "deals", "records", column: "requester_record_id"
+  add_foreign_key "pictures", "records"
   add_foreign_key "preferences", "genres"
   add_foreign_key "preferences", "users"
   add_foreign_key "records", "releases"

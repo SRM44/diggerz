@@ -10,6 +10,7 @@ class ReleasesController < ApplicationController
     build_user_record
 
     if @release.save && @record.save
+      save_pictures
       redirect_to myrecords_path
     else
       render :new
@@ -29,6 +30,13 @@ class ReleasesController < ApplicationController
       condition: params[:record][:condition],
       swappable: true
     )
+  end
+
+  def save_pictures
+    photos = params.dig(:release, :pictures) || []
+    photos.each do |photo|
+      @record.pictures.create(photo: photo)
+    end
   end
 
   def release_params
