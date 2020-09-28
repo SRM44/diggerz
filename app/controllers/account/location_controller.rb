@@ -15,7 +15,7 @@ module Account
     private
 
     def redirection_path
-      params[:just_registered].present? ? new_myrecord_path : root_path
+      params[:just_registered].present? ? new_myrecord_path(just_registered: true) : root_path
     end
   end
 end

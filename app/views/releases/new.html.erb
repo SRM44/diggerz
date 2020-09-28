@@ -1,2 +1,6 @@
+<% if params[:just_registered].present?  %>
+  <%= link_to 'Passer cette étape', root_path %>
+<% end %>
+
 <h1>Ajouter un disque</h1>
 <%= render "form", release: @release %>
