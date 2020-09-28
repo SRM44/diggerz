@@ -40,6 +40,6 @@ class ReleasesController < ApplicationController
   end
 
   def release_params
-    params.require(:release).permit(:title, :artist, :label, :year, :genre_id)
+    params.require(:release).permit(:title, :artist, :label, :year, :genre_id, tracks_attributes: [:title, :position, :duration, :_destroy])
   end
 end

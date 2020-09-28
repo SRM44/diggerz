@@ -14,7 +14,13 @@
 
   <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
 
-
+  <h3>Tracks</h3>
+  <div class="fields">
+    <%= link_to_add_row('Add Track', f, :tracks, class: 'btn btn-primary') %>
+    <%= f.simple_fields_for :tracks do |builder| %>
+      <%= render 'track', f: builder %>
+    <% end %>
+  </div>
 
 
   <h3>My disk data</h3>
