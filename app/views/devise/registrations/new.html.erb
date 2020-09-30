@@ -1,6 +1,6 @@
 <div class="connexion-container">
   <div class="connexion-content">
-    <div class="connexion-content-wrapper">
+    <div>
         <div class="connexion-menu">
           <div>
             <%= image_tag "logo_diggerz_icon.png", height: 70 %>
@@ -14,23 +14,23 @@
             </div>
           </div>
         </div>
-        <div class="connexion-form">
+        <div class="connexion-form-container">
           <div id="connexion-form--registration-header">
-            <h1>Inscription</h1>
-            <h3>Hey coucou jeune padawan ! <br> Qui es-tu ? </h3>
-            [ORIGINAL DESIGN]
-            <button class="rounded-lined-btn">Syncroniser avec Discogs</button>
-
-            [AFTER PLUG WITH BACKEND]
+            <div>
+              <h1>Inscription</h1>
+              <h3>Hey jeune padawan ! <br> Qui es-tu ? </h3>
+            </div>
+            <div>
             <% if devise_mapping.omniauthable? %>
               <% resource_class.omniauth_providers.each do |provider| %>
                 <form action="<%= omniauth_authorize_path(resource_name, provider) %>" method="POST">
                   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-                  <input type="submit" value="Syncroniser avec Discogs">
+                  <input type="submit" class="rounded-lined-btn" value="Syncroniser avec Discogs">
                 </form>
               <% end %>
             <% end %>
+            </div>
           </div>
           <div class="connexion-separator">
             <div id="connexion-separator-border"></div>
@@ -38,7 +38,7 @@
             <div id="connexion-separator-border"></div>
           </div>
 
-          [ORIGINAL DESIGN]
+<!--           [ORIGINAL DESIGN]
           <form action="post">
               <div id="registration-identity">
                   <input type="text" id="name" placeholder="Prénom">
@@ -57,37 +57,44 @@
                   </div>
                   <button class="button-master" id="connexion-cta-btn">Commencer</button>
               </div>
-          </form>
+          </form> -->
 
-          [AFTER PLUG WITH BACKEND]
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
-
-            <div id="registration-identity">
+            <div class="registration-identity">
               <%= f.input :first_name,
                           required: true,
                           autofocus: true,
+                          placeholder: 'Prénom',
+                          label:false,
                           input_html: { autocomplete: "email" } %>
               <%= f.input :email,
                         required: true,
                         autofocus: true,
+                        placeholder: 'Email',
+                        label:false,
                         input_html: { autocomplete: "email" }%>
             </div>
-            <div>
+            <div class="registration-identity">
               <%= f.input :password,
                         required: true,
+                        placeholder: 'Mot de passe',
+                        label:false,
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" } %>
             </div>
-            <div>
+            <div class="registration-identity">
               <%= f.input :password_confirmation,
                           required: true,
+                          placeholder: 'Confirmes ton mot de passe',
+                          label:false,
                           input_html: { autocomplete: "new-password" } %>
             </div>
             <div class="registration-form-ctas">
               <div id="registration-agreement">
                 <%= f.input :accepts_tos, as: :boolean, label: false, error: "Accepter les conditions d'utilisation est obligatoire" %>
                 <%= f.label :accepts_tos, style: "margin-bottom: 0;
+
     margin-left: 0.4em;"  do %>
                   J’accepte <a href="#" id="disabled-link">les conditions générales d’utilisation</a>
                 <% end %>
