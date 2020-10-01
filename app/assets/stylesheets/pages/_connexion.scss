@@ -13,6 +13,11 @@
     margin: 2.5em 0 2.5em;
 }
 
+.connexion-content-wrapper {
+  min-width: 500px;
+  padding: 8px;
+}
+
 
 .connexion-image {
     flex: 1;
@@ -41,9 +46,8 @@
 .connexion-menu-links {
     display: flex;
     justify-content: space-between;
-    padding: 8px;
     div {
-        padding: 8px;
+      margin-left: 16px;
     }
 }
 
@@ -98,19 +102,14 @@ hr.divider::after {
   }
 }
 
-.connexion-form-ctas {
-    display: flex;
-    justify-content: space-between;
-    height: 112px;
-    #connexion-cta-btn {
-        align-self: flex-end;
-        padding-top: 1em;
-    }
-    #connexion-cta-forgot {
-        align-self: start;
-        color: $tech-house-gray-7;
-        font-size: $micro-text;
-    }
+.connexion-password {
+  display: flex;
+  justify-content: space-between;
+  #connexion-cta-forgot {
+      align-self: start;
+      color: $tech-house-gray-7;
+      font-size: $micro-text;
+  }
 }
 
 .registration-form-ctas {
