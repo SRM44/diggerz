@@ -48,46 +48,49 @@
 }
 
 .connexion-form-container {
-    h1 {
-        margin-bottom: 32px;
-    }
-    h3 {
-        margin-bottom: 48px;
-        width: 100%;
-    }
-    #connexion-form--registration-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        button {
-            align-self: center;
-        }
-    }
-
-.connexion-separator {
+h1 {
+    margin-bottom: 32px;
+}
+h3 {
+    margin-bottom: 48px;
     width: 100%;
-    padding-bottom: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    #connexion-separator-border {
-        width: 10%;
-        margin: 16px;
-        height: 0;
-        border: solid 0.1px;
-    }
 }
 
-.registration-identity {
-  display: flex;
-  width: 100%;
+hr.divider {
+    overflow: visible;
+    padding: 0;
+    margin: 3.5em 0 3.5em 0;
+    border: none;
+        border-top-color: currentcolor;
+        border-top-style: none;
+        border-top-width: medium;
+    border-top: 1px solid #e0e0e0;
+    color: #6e6d7a;
+    text-align: center;
+}
 
+hr.divider::after {
+    content: 'Ou';
+    display: inline-block;
+    position: relative;
+    top: -14px;
+    font: normal 14px/14px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0 16px;
+    background: #fff;
+}
+
+  .form-field-group {
+    display: flex;
+    justify-content: space-between;
+    }
+
+  .form-field {
     input {
-        width: 100%;
-        margin-bottom: 32px;
-        outline: 0;
-        border-width: 0 0 0.5px;
-        border-radius: 0px;
+    width: 100%;
+    margin-bottom: 0.5em;
+    outline: 0;
+    border-width: 0 0 0.5px;
+    border-radius: 0px;
     }
     input:focus {
         border-color: $deep-green-3
@@ -101,6 +104,7 @@
     height: 112px;
     #connexion-cta-btn {
         align-self: flex-end;
+        padding-top: 1em;
     }
     #connexion-cta-forgot {
         align-self: start;
@@ -112,7 +116,7 @@
 .registration-form-ctas {
     display: flex;
     flex-direction: column;
-    height: 112px;
+    margin: 2.5em 0 2.5em 0;
     #registration-agreement {
         display:        flex;
         padding-bottom: 1em;
@@ -123,5 +127,6 @@
     #registration-agreed {
         width: 5%;
     }
+
 }
 

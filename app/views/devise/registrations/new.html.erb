@@ -14,54 +14,27 @@
             </div>
           </div>
         </div>
+
         <div class="connexion-form-container">
           <div id="connexion-form--registration-header">
-            <div>
-              <h1>Inscription</h1>
-              <h3>Hey jeune padawan ! <br> Qui es-tu ? </h3>
-            </div>
-            <div>
+            <h1>Inscription</h1>
             <% if devise_mapping.omniauthable? %>
               <% resource_class.omniauth_providers.each do |provider| %>
                 <form action="<%= omniauth_authorize_path(resource_name, provider) %>" method="POST">
                   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-                  <input type="submit" class="rounded-lined-btn" value="Syncroniser avec Discogs">
+                  <input type="submit" class="rounded-lined-btn" value="Inscription avec Discogs">
                 </form>
               <% end %>
             <% end %>
-            </div>
-          </div>
-          <div class="connexion-separator">
-            <div id="connexion-separator-border"></div>
-            <div>ou</div>
-            <div id="connexion-separator-border"></div>
           </div>
 
-<!--           [ORIGINAL DESIGN]
-          <form action="post">
-              <div id="registration-identity">
-                  <input type="text" id="name" placeholder="Prénom">
-                  <input type="text" id="email" placeholder="Email">
-              </div>
-              <div>
-                  <input type="text" id="password" placeholder="Mot de passe">
-              </div>
-              <div>
-                  <input type="text" id="confirm" placeholder="Confirmes ton mot de passe">
-              </div>
-              <div class="registration-form-ctas">
-                  <div id="registration-agreement">
-                      <input type="checkbox" id="registration-agreed-original" name="agreed">
-                      <label for="registration-agreed-original">J’accepte <a href="#" id="disabled-link">les conditions générales d’utilisations</a> et autorise Diggerz à m’envoyer des emails (sans me spamer <i class="fas fa-heart"></i>).</label>
-                  </div>
-                  <button class="button-master" id="connexion-cta-btn">Commencer</button>
-              </div>
-          </form> -->
+          <hr class="divider">
+          </hr>
 
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
-            <div class="registration-identity">
+            <div class="form-field-group form-field ">
               <%= f.input :first_name,
                           required: true,
                           autofocus: true,
@@ -75,15 +48,14 @@
                         label:false,
                         input_html: { autocomplete: "email" }%>
             </div>
-            <div class="registration-identity">
+            <div class="form-field">
               <%= f.input :password,
                         required: true,
-                        placeholder: 'Mot de passe',
+                        placeholder: 'Mot de passe (+6 caractères)',
                         label:false,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" } %>
             </div>
-            <div class="registration-identity">
+            <div class="form-field">
               <%= f.input :password_confirmation,
                           required: true,
                           placeholder: 'Confirmes ton mot de passe',
@@ -112,5 +84,7 @@
         </div>
     </div>
   </div>
-  <div class="connexion-image"></div>
+  <div class="connexion-image">
+
+  </div>
 </div>
