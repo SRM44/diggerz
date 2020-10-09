@@ -1,10 +1,10 @@
-<div class="container-collection-card ">
+<div class="myrecords-container">
 
+  <!--CONNEXION DISCOGS ><!-->
   <% if @myrecords.empty? %>
     <div>
       <div class="page-title">
         <h3> Importer ma collection de vinyles</h3>
-        <br>
       </div>
       <div class="sync-button-div">
 
@@ -23,71 +23,49 @@
       </div>
     </div>
   <% else %>
-    <div class="collection-card">
-      <div class="page-title">
-        <h3> Mes vinyles à échanger </h3>
-      </div>
-      <div class="collection-card-search">
-        <%= form_tag myrecords_path, method: :get do %>
-          <input id="query-input" name="query" placeholder="Titre, Artiste... " >
-            <% params[:query] %>
-          </input>
-          <button class="btn-search-dark"><i class="fas fa-search"></i></button>
-        <% end %>
-      </div>
 
-      <div class="sync-bar">
-          <%= link_to import_from_discogs_myrecords_path do %>
-            <div class="card-product-sync vinyl-card-add-button">
-              <i class="fas fa-sync-alt"></i>
-              <div class="card-product-infos-collection">
-                <h4> Synchroniser</h4>
-              </div>
-            </div>
-          <% end %>
+  <!-- SEARCH BAR><!-->
+    <div class="myrecords-wrapper">
+      <div>
+        <h1> Mes vinyles </h1>
       </div>
-      <div class="vinyle-collection-card">
+      <%= form_tag myrecords_path, method: :get, class: "myrecords-form-field"  do %>
+        <input id="query-input" name="query" placeholder="Titre, Artiste... " >
+          <% params[:query] %></input>
+        <button><i class="fas fa-search fa-lg"></i></button>
+      <% end %>
 
 
+      <%= link_to import_from_discogs_myrecords_path do %>
+      <div class="myrecords-discog-sync-btn">
+        <i class="fas fa-sync-alt"></i>
+        <p> Synchroniser avec Discogs</p>
+      </div>
+      <% end %>
+
+      <div class="myrecords-cards-container">
 
       <% @myrecords.sort_by {|myrecord| myrecord.created_at }.reverse.each_with_index do |myrecord, index| %>
-        <div class="row-grid-collection">
-          <div class="col-toogle-grid-collection">
-            <div class="custom-control custom-switch custom-switch-collection onoffswitch" data-id="<%= myrecord.id %>">
-              <input type="checkbox" <%= 'checked' if myrecord.swappable %> name="record[swappable]" class="custom-control-input onoffswitch-checkbox" id="record-swap-<%= index %>">
-              <label class="custom-control-label onoffswitch-label" for="record-swap-<%= index %>">
-                  <span class="onoffswitch-inner"></span>
-                  <span class="onoffswitch-switch"></span>
-              </label>
+        <div class="myrecords-card">
+        <%= link_to myrecord_path(myrecord) do %>
+          <div id="my-records-infos">
+            <%= cl_image_tag myrecord.release.image %>
+            <div>
+              <h4><%= myrecord.release.title %></h4>
+              <p><%= myrecord.release.artist%></p>
             </div>
-            <%= link_to "Lol", toggle_swappable_myrecord_path(myrecord), id: "submit-record-#{myrecord.id}", class: "hidden-button", method: :patch, remote: true %>
           </div>
-          <div class="col-card-grid-collection">
-            <%= link_to myrecord_path(myrecord) do %>
-              <div class="card-product-collection">
-                <%= cl_image_tag myrecord.release.image %>
-                <div class="card-product-infos-collection">
-                  <h4><%= myrecord.release.title %></h4>
-                  <p><%= myrecord.release.artist%></p>
-                </div>
-              </div>
-            <% end %>
+        <% end %>
+          <div id="myrecords-toggle" class="custom-control custom-switch custom-switch-collection onoffswitch" data-id="<%= myrecord.id %>">
+            <input type="checkbox" <%= 'checked' if myrecord.swappable %> name="record[swappable]" class="custom-control-input onoffswitch-checkbox" id="record-swap-<%= index %>">
+            <label class="custom-control-label onoffswitch-label" for="record-swap-<%= index %>">
+              <span class="onoffswitch-inner"></span>
+              <span class="onoffswitch-switch"></span>
+            </label>
           </div>
         </div>
       <% end %>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      </div>
     </div>
-      <div class="collection-card-discover-button">
-        <%= link_to records_path do %>
-        <div class="button-master md-show-accept" id="myrecords-btn-collection">
-          Echanger des disques
-        </div>
-        <% end %>
-      </div>
   <% end %>
 </div>
 
