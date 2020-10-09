@@ -16,6 +16,8 @@ yanis = User.create!(
   username: "Sinay",
   location: "Nantes",
   name: "Yanis",
+  accepts_tos: true,
+  confirmation_token: @token,
   avatar: File.open(Rails.root.join('db/fixtures/users/yanis.jpg'))
 )
 
@@ -25,6 +27,8 @@ volodia = User.create!(
   username: "Dzatoem",
   location: "Nantes",
   name: "Volodia",
+  accepts_tos: true,
+  confirmation_token: @token,
   avatar: File.open(Rails.root.join('db/fixtures/users/volodia.jpg'))
 )
 
@@ -34,6 +38,8 @@ amelie = User.create!(
   location: "Nantes",
   password: "azerty",
   name: "Amelie",
+  accepts_tos: true,
+  confirmation_token: @token,
   avatar: File.open(Rails.root.join('db/fixtures/users/amelie.jpg'))
 )
 
@@ -43,6 +49,8 @@ steven = User.create!(
   username: "YoupiMoriconi",
   location: "Nantes",
   name: "Steven",
+  accepts_tos: true,
+  confirmation_token: @token,
   avatar: File.open(Rails.root.join('db/fixtures/users/steven.jpg'))
 )
 

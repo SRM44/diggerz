@@ -1,0 +1,37 @@
+.container-show-record {
+    background: linear-gradient(115deg, #4b6866 40%, #f8ece0 40%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.record-show-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: 1000px;
+
+    #record-show-content {
+        display: flex;
+    }
+
+
+    img {
+        width: 350px;
+        height: 350px;
+    }
+
+    
+    div>ul { 
+        list-style-type: none;
+        padding: 0
+    }
+}
+
+.record-show-element {
+    margin: 2em;
+}
