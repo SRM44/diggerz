@@ -1,0 +1,29 @@
+.records-index-container {
+    padding: 1em;
+}
+
+.records-index-grid {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.records-index-card {
+    display: flex;
+    width: 100%;
+    margin: 0.5em;
+    border-radius: 1em;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    
+    img {
+        border-radius: 1em;
+        width: 8em;
+        height: 8em;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+
+    .records-index-infos {
+        padding: 1em;
+
+    }
+}

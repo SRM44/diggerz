@@ -1,17 +1,11 @@
-<header class="nav-header">
+<nav class="navbar fixed-bottom navbar-expand-sm">
     <nav class="middle scroll">
-      <%= link_to records_path do %>
-        <span class="logo">
-          <%= image_tag "logo_diggerz_icon_white.png" %>
-        </span>
-      <% end %>
       <% if user_signed_in? %>
-      <span class="item"><%= link_to "Découvrir", records_path, class: "nav-link" %></span>
+      <span class="item"><%= link_to "Découvrir", records_path, class: "nav-link" %></i></span>
       <span class="item"><%= link_to "Ma collection", myrecords_path, class: "nav-link" %></span>
       <span class="item"><%= link_to "Deals", mydeals_path, class: "nav-link" %></span>
-      <span class="item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %><span>
       <% else %>
       <span class="item">%= link_to "Login", new_user_session_path, class: "nav-link" %></span>
       <% end %>
     </nav>
-</header>
+</nav>

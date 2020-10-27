@@ -1,6 +1,11 @@
-.nav-link {
-  font-family: $headers-font;
-  color: white;
+.navbar .fixed-bottom .navbar-expand-sm .nav-link a { 
+  color: $rich-black;
+  text-decoration: none;
+}
+
+
+.item {
+  font-size: 24px;
 }
 
 
@@ -14,7 +19,7 @@
 }
 
 header {
-  position: absolute;
+  position: relative;
   background-color: transparent;
 }
 
@@ -36,15 +41,7 @@ header {
   height: 30%;
 }
 
-.item {
-  padding: 12px 12px 13px;
-  font-size: 24px;
-  color: white;
 
-  a:hover {
-  color: gray;
-  }
-}
 
 header,
 nav {
