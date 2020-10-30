@@ -1,18 +1,33 @@
 <%= simple_form_for(@release) do |f| %>
 
-  <h3>Release data</h3>
-  <%= f.input :title %>
+  <%= f.input :title, 
+  placeholder: 'Album', 
+  label:false %>
 
-  <%= f.input :artist %>
+  <%= f.input :artist, 
+  placeholder: 'Artiste(s)', 
+  label:false %>
   <%# f.input :artist, collection: Release.pluck(:artist) %>
 
-  <%= f.input :label %>
+  <%= f.input :label, 
+  placeholder: 'Label', 
+  label:false %>
   <%# f.input :label, collection: Release.pluck(:label) %>
 
-  <%= f.input :year, collection: (1900..DateTime.now.year).map(&:to_s) %>
-  <%= f.association :genre %>
+  <%= f.input :year, 
+  collection: (1900..DateTime.now.year).map(&:to_s).reverse,
+  prompt: 'Date de sortie', 
+  label:false
+   %>
+  <%= f.association :genre, 
+  prompt: 'Genre', 
+  label:false %>
 
-  <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
+  <div>
+  <%= f.input :pictures, 
+  as: :file,
+  input_html: { multiple: true } %>
+  </div>
 
   <h3>Tracks</h3>
   <div class="fields">
