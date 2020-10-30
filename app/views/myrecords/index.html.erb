@@ -29,7 +29,7 @@
       <div>
         <h1> Mes vinyles </h1>
       </div>
-      <%= form_tag myrecords_path, method: :get, class: "myrecords-form-field"  do %>
+      <%= form_tag myrecords_path, method: :get, class: "records-search-bar"  do %>
         <input id="query-input" name="query" placeholder="Titre, Artiste... " >
           <% params[:query] %></input>
         <button><i class="fas fa-search fa-lg"></i></button>

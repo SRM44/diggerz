@@ -1,10 +1,23 @@
 .records-index-container {
     padding: 1em;
+    margin-top: 50px;
 }
 
 .records-index-grid {
     display: flex;
     flex-flow: column wrap;
+}
+
+.records-filters {
+    display: flex;
+}
+
+.filter-label {
+    color: white;
+    border-radius: 0.5em;
+    background-color: $rich-black;
+    margin: 0 0.5em 0 0.5em;
+    padding: 0.5em;
 }
 
 .records-index-card {

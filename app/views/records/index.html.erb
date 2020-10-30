@@ -2,6 +2,24 @@
   <h1>Hello</h1>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
   
+  <%= form_tag records_path, method: :get, class: "records-search-bar"  do %>
+    <input id="query-input" name="query" placeholder="Titre, Artiste... " >
+      <% params[:query] %></input>
+    <button><i class="fas fa-search fa-lg"></i></button>
+  <% end %>
+
+<div class="records-filters">
+  <div class="filter-label">City: [SELECTED CITY] <i class="fas fa-times"></i></div>
+  <div class="filter-label">Genre 1 <i class="fas fa-times"></i></div>
+  <div class="filter-label">Genre 2 <i class="fas fa-times"></i></div>
+  <div class="filter-label">Genre X <i class="fas fa-times"></i></div>
+  <div class="filter-label">Année <i class="fas fa-times"></i></div>
+  <div class="filter-label">Année 2 <i class="fas fa-times"></i></div>
+  <div class="filter-label">Année X <i class="fas fa-times"></i> </div>
+</div>
+
+<h3>[NB RESULTS] disques vinyles trouvé pour [QUERY]</h3>
+
   <div class="records-index-grid">
     <% @discover.each do |record| %>
       <%= link_to new_record_deal_path(record) do %>      
