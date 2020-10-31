@@ -10,6 +10,13 @@
       <p> <%= @record.release.artist %> </p>
       <span> <%= @record.release.year %> - <%= @record.release.genre.name %></span>
     </div>
+    <div id="myrecords-toggle" class="custom-control custom-switch custom-switch-collection onoffswitch" ">
+      <input type="checkbox" name="record[swappable]" class="custom-control-input onoffswitch-checkbox" ">
+      <label class="custom-control-label onoffswitch-label" >
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+      </label>
+    </div>
     <div id="record-show-content">
       <img class="record-show-element" src="<%= cl_image_path record_thumb_pic(@record) %>" alt="">
       <div class="record-show-element">
@@ -21,7 +28,6 @@
         </ul>
       </div>
     </div>
-    <div class="button-master">Disponible</div>
     <div class="button-secondary">Supprimer</div>
   </div>
 
