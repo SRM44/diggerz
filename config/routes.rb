@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'forgot',                       to: 'new_app_design#forgot_password'
 
 
+  get "decouvrir", to: "records#index"
+
   get 'myrecords/index'
   root to: 'pages#home'
 

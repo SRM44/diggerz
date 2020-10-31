@@ -1,4 +1,5 @@
 const records = document.querySelectorAll('.deal-myrecord')
+
 records.forEach((record) => {
   record.addEventListener('click', () => {
     const input = document.getElementById('deal_requester_record_id')
