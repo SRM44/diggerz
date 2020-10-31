@@ -63,16 +63,15 @@ if (previousButton) {
 
 cards.forEach(recordCard => {
   const recordModal = document.getElementById('discover-record-modal-' + recordCard.dataset.recordId)
-  const navbar      = document.querySelector('.nav-header')
 
   recordCard.addEventListener('click', (event) => {
-    navbar.classList.add('undisplay')
-    recordModal.classList.remove('undisplay')
+    recordModal.classList.toggle('undisplay')
   })
+
   const close = recordModal.querySelector('#record-close-modal-' + recordCard.dataset.recordId)
+  
   close.addEventListener('click', () => {
-    navbar.classList.remove('undisplay')
-    recordModal.classList.add('undisplay')
+    recordModal.classList.toggle('undisplay')
   })
 
 })
