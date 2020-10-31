@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  skip_before_action :redirect_user_without_confirmed_email!, only: [:show]
   before_action :set_discogs, only: [:show, :import_from_discogs]
 
   def show

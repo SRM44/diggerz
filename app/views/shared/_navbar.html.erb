@@ -1,35 +1,42 @@
-<nav class="mobile-bottom-nav">
-<% if user_signed_in? %>
-	<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
-		<div class="mobile-bottom-nav__item-content">
-			<%= link_to "Découvrir", records_path, class: "nav-link" %>
-		</div>		
-	</div>
-	<div class="mobile-bottom-nav__item">		
-		<div class="mobile-bottom-nav__item-content">
-			<%= link_to "Ma collection", myrecords_path, class: "nav-link" %>
+
+
+	<nav class="mobile-bottom-nav">
+	<% if user_signed_in? %>
+		<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
+			<div class="mobile-bottom-nav__item-content">
+				<%= link_to "Découvrir", records_path, class: "nav-link" %>
+			</div>		
 		</div>
-	</div>
+		<div class="mobile-bottom-nav__item">		
+			<div class="mobile-bottom-nav__item-content">
+				<%= link_to "Ma collection", myrecords_path, class: "nav-link" %>
+			</div>
+		</div>
+		<div class="mobile-bottom-nav__item">
+			<div class="mobile-bottom-nav__item-content">
+				<%= link_to "Ajouter", new_release_path, class: "nav-link" %>
+			</div>		
+		</div>
+		<div class="mobile-bottom-nav__item">
+			<div class="mobile-bottom-nav__item-content">
+				<%= link_to "Deals", mydeals_path, class: "nav-link" %>
+			</div>		
+		</div>
+		<div class="mobile-bottom-nav__item">
+			<div class="mobile-bottom-nav__item-content">
+				<%= link_to "Profil", profile_path, class: "nav-link" %>
+			</div>		
+		</div>
+		
+
+	<% else %>
+
 	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-			<%= link_to "Ajouter", new_release_path, class: "nav-link" %>
-		</div>		
-	</div>
-	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-			<%= link_to "Deals", mydeals_path, class: "nav-link" %>
-		</div>		
-	</div>
-	
-
-  <% else %>
-
-  <div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-			<%= link_to "Login", new_user_session_path, class: "nav-link" %>
-		</div>		
-	</div>
+			<div class="mobile-bottom-nav__item-content">
+				<%= link_to "Login", new_user_session_path, class: "nav-link" %>
+			</div>		
+		</div>
 
 
-<% end %>
-</nav>
+	<% end %>
+	</nav>

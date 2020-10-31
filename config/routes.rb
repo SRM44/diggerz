@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     resources :deals, only: [:new, :create]
   end
 
-  resources :myrecords, only: [:index, :show, :new, :create, :update] do
+  resources :myrecords, only: [:index, :show, :new, :create, :update, :destroy] do
 
     collection do
       resources :releases, only: [:new, :create]
