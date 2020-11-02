@@ -1,5 +1,7 @@
 <div class="container-vinyl-card">
+
   <div class='vinyl-card'>
+  
     <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @record.release.image %>')">
       <div class="vinyl-card-details-infos">
         <div class="vinyl-card-details-index-button">
@@ -14,22 +16,29 @@
         </div>
       </div>
     </div>
+
     <div class="deal-input">
+
       <div id="deal-myrecord-swapped" class="deal-myrecord-swapped">`
       </div>
-      <%= simple_form_for [@record, @deal] do |f| %>
-        <%= f.input :requester_record_id, as: :hidden %>
-        <div class="vinyl-card-input-button">
-          <%= f.submit '>> Envoyer ce deal', :class => 'button-master-nemesis' %>
-        </div>
-      <% end %>
+
+    <%= simple_form_for [@record, @deal] do |f| %>
+    <%= f.input :requester_record_id, as: :hidden %>
+      <div class="vinyl-card-input-button">
+        <%= f.submit '>> Envoyer ce deal', :class => 'button-master-nemesis' %>
+      </div>
+    <% end %>
     </div>
+
       <button id="vinyl-card-proposition-button" class="vinyl-card-add-button button-master-nemesis">
         <i class="fas fa-plus"></i>
         <div>Proposer un vinyle</div>
       </button>
+
   </div>
-  <div class="vinyl-card vinyl-card-collection records-undisplay">
+
+  <button class="vinyl-card vinyl-card-collection records-undisplay">
     <%= render 'myrecords/collection' %>
-  </div>
+  </button>
+  
 </div>

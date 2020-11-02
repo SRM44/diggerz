@@ -1,8 +1,11 @@
 <div class="deal-collection-title">
+  <div class="vinyl-card-details-index-button" >
+    <i class="fas fa-times" id="close_collection_button"></i>
+  </div>
   <h3>Choisissez votre disque à échanger</h3>
 </div>
 <% @myrecords.each do |myrecord| %>
-  <div data-record-id="<%= myrecord.id %>" data-record-title="<%= myrecord.release.title %>" data-record-image="<%= myrecord.release.image %>" data-record-artist="<%= myrecord.release.artist %>" class="deal-myrecord">
+  <div data-record-id="<%= myrecord.id %>" data-record-title="<%= myrecord.release.title %>" data-record-image="<%= myrecord.release.image %>" data-record-artist="<%= myrecord.release.artist %>" class="deal-myrecord" id="deal_requester_record_id">
     <div class="deal-myrecord-image">
       <%= cl_image_tag myrecord.release.image, class: "avatar-large" %>
     </div>

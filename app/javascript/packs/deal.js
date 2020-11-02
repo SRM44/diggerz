@@ -1,17 +1,29 @@
+/* 
+For each records of my collection 
+On click
+Add record to deal and close my collection
+
+++
+
+For my proposed record 
+On click 
+Add a different record to deal and close
+*/
+
 const records = document.querySelectorAll('.deal-myrecord')
 
 records.forEach((record) => {
   record.addEventListener('click', () => {
-    const input = document.getElementById('deal_requester_record_id')
-    input.value = record.dataset.recordId
-    const collection = document.querySelector('.vinyl-card-collection')
-    collection.classList.add('records-undisplay')
-    const tracklist = document.querySelector('.vinyl-card-more')
-    tracklist.classList.add('records-undisplay')
-    const deal = document.querySelector('.deal-input')
-    deal.classList.add('deal-input-show')
-    deal.classList.remove('deal-input')
+
+    const requesterRecord = document.getElementById('deal_requester_record_id')
+    requesterRecord.value = record.dataset.recordId
+
+    const dealBtn = document.querySelector('.deal-input')
+    dealBtn.classList.add('deal-input-show')
+    dealBtn.classList.remove('deal-input')
+
     const resultDiv     = document.getElementById('deal-myrecord-swapped')
+
     const resultContent = `
       <div class="deal-myrecord-swapped-infos">
         <p><em>En échange de :</em></p>
@@ -27,11 +39,15 @@ records.forEach((record) => {
   })
 })
 
+/* OPEN MYRECORDS COLLECTION */
 const displayButton = document.getElementById('vinyl-card-proposition-button')
+const closeButton = document.getElementById('close_collection_button')
 
-if (displayButton) {
-  displayButton.addEventListener('click', () => {
-    const records = document.querySelector('.vinyl-card-collection')
-    records.classList.remove('records-undisplay')
-  })
+displayButton.addEventListener('click', toggleCollection);
+closeButton.addEventListener('click', toggleCollection);
+
+function toggleCollection() {
+  const displayButton = document.querySelector('.vinyl-card-collection')
+  
+  displayButton.classList.toggle('records-undisplay');
 }
