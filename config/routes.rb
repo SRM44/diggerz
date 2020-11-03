@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'deal-annule',                  to: 'new_app_design#show_deal_cancelled'
   get 'forgot',                       to: 'new_app_design#forgot_password'
 
+  get "decouvrir", to: "records#index"
+
   root to: 'pages#home'
 
   devise_for :users, controllers: {
@@ -36,7 +38,7 @@ Rails.application.routes.draw do
     resources :deals, only: [:new, :create]
   end
 
-  resources :myrecords, only: [:index, :show, :new, :create, :update] do
+  resources :myrecords, only: [:index, :show, :new, :create, :update, :destroy] do
 
     collection do
       resources :releases, only: [:new, :create]
