@@ -1,6 +1,6 @@
 <div class="vinyl-card-details-index-button">
-          <%= link_to "< retour", records_path  %>
-        </div>
+  <%= link_to "< retour", search_results_url  %>
+</div>
 <div class="record-show-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @record.release.image %>')">
   <h3> <%= @record.release.title %> </h3>
   <p> <%= @record.release.artist %> </p>

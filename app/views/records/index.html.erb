@@ -1,30 +1,48 @@
 <div class="records-index-container" >
   <h1>Hello</h1>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-  
-  <%= form_tag records_path, method: :get, class: "records-search-bar"  do %>
-    <input id="query-input" name="query" placeholder="Titre, Artiste... " >
-      <% params[:query] %></input>
+
+  <%= form_tag records_path, method: :get, class: "records-search-bar" do %>
+    <input id="query-input" name="search[query]" placeholder="Titre, Artiste, Label... " value="<%= params.dig(:search, :query) %>"></input>
     <button><i class="fas fa-search fa-lg"></i></button>
+
+    <%= select_tag "search[location]", options_for_select(User::Location.available, @location), onchange: "this.form.submit()" %>
+
+    <%= select_tag "filters[years]", options_for_select(Release::Year.available, params.dig(:filters, :years)), multiple: true %>
+
+    <%= select_tag "filters[genres]", options_for_select(Genre.available, params.dig(:filters, :genres)), multiple: true %>
+
+    <%= submit_tag "Rechercher" %>
   <% end %>
 
 <div class="records-filters">
-  <div class="filter-label">City: [SELECTED CITY] <i class="fas fa-times"></i></div>
-  <div class="filter-label">Genre 1 <i class="fas fa-times"></i></div>
-  <div class="filter-label">Genre 2 <i class="fas fa-times"></i></div>
-  <div class="filter-label">Genre X <i class="fas fa-times"></i></div>
-  <div class="filter-label">Année <i class="fas fa-times"></i></div>
-  <div class="filter-label">Année 2 <i class="fas fa-times"></i></div>
-  <div class="filter-label">Année X <i class="fas fa-times"></i> </div>
+  <% if false %>
+    <% if params.dig(:search, :location) %>
+      <div class="filter-label">Location: <%= params.dig(:search, :location) %>
+        <a href="<%= remove_location_from_url %>">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    <% end %>
+  <% end %>
+  <% search_filters.each do |name, values| %>
+    <% values.each do |value| %>
+      <div class="filter-label"><%= filter_display_label(name, value) %>
+        <a href="<%= remove_filter_from_url(name, value) %>">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 
-<h3>[NB RESULTS] disques vinyles trouvé pour [QUERY]</h3>
+<h3> <%= @records_count %> disques vinyles trouvé pour <%= params.dig(:search, :query) %></h3>
 
   <div class="records-index-grid">
     <% @discover.each do |record| %>
-      <%= link_to new_record_deal_path(record) do %>      
+      <%= link_to new_record_deal_path(record, return_url: request.original_url) do %>
       <div class="records-index-card">
-        <img src="<%= record.release.image %>">
+        <%= image_tag record_cover_path(record), alt: "alttext" %>
         <div class="records-index-infos">
           <h3><%= record.release.title %></h3>
           <p><%= record.release.artist %></p>

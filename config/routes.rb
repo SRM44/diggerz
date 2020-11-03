@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   get 'deal-annule',                  to: 'new_app_design#show_deal_cancelled'
   get 'forgot',                       to: 'new_app_design#forgot_password'
 
-
-  get 'myrecords/index'
   root to: 'pages#home'
 
   devise_for :users, controllers: {
