@@ -1,11 +1,11 @@
 <div class="container-vinyl-card">
 
   <div class='vinyl-card'>
-  
+
     <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @record.release.image %>')">
       <div class="vinyl-card-details-infos">
         <div class="vinyl-card-details-index-button">
-          <%= link_to "< retour", records_path  %>
+          <%= link_to "< retour", search_results_url  %>
         </div>
         <div class="vinyl-card-details-infos-release">
           <div>
@@ -20,7 +20,7 @@
     <div class="deal-input">
 
       <div id="deal-myrecord-swapped" class="deal-myrecord-swapped">
-      
+
       </div>
 
     <%= simple_form_for [@record, @deal] do |f| %>
@@ -41,5 +41,5 @@
   <button class="vinyl-card vinyl-card-collection records-undisplay">
     <%= render 'myrecords/collection' %>
   </button>
-  
+
 </div>
