@@ -1,5 +1,5 @@
 class DealsController < ApplicationController
-  skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :import_from_discogs]
+  skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :accept, :decline, :import_from_discogs]
 
   def new
     @record = Record.find(params[:record_id])

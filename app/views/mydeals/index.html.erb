@@ -77,7 +77,7 @@
         <% if @accepted_deals.empty? %>
             <p>Vous n’avez pas de deals en cours.</p>
         <% else  %>
-          <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
+          <p>Les échanges que vous devez faire.</p>
 
           <% @accepted_deals.sort_by {|track| track.created_at }.reverse.each do |deal| %>
 

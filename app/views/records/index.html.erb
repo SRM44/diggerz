@@ -68,12 +68,16 @@
 
             <div class="vinyl-card-more">
               <div class="vinyl-card-tracklist">
+                <% if record.release.tracks.empty? %>
+                  <p>Oops ! Tracks indisponibles pour ce disque.</p>
+                <% else %>
                 <ul>
                   <li><strong>TRACKLIST</strong></li>
                   <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
                     <li><%= track.position %> - <%= track.title %></li>
                   <% end %>
                 </ul>
+                <% end %>
               </div>
               <div class="button-master vinyl-card-proposition-button">
                 <%= link_to 'Lancer un deal pour ce vinyle', new_record_deal_path(record, return_url: request.original_url) %>
