@@ -1,5 +1,5 @@
 class NewAppDesignController < ApplicationController
-    skip_before_action :authenticate_user!
+    skip_before_action :redirect_user_without_confirmed_email!
     def session
     end
     def registration
