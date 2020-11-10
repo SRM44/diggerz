@@ -32,6 +32,15 @@
 		display:flex;
 		flex-direction:column;		
 	}
+
+	i {
+		font-size: 2em;
+		color: $rich-black;
+	}
+
+	img {
+		height: 3em;
+	}
 }
 
 
@@ -40,8 +49,9 @@
   .mobile-bottom-nav {
     position:fixed;
     top:0;
-    left:0;
-    right:0;
-
+	left:0;
+	flex-direction: column;
+	width: 8%;
+	height: 100vh;
   }
 }

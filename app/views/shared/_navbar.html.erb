@@ -1,36 +1,30 @@
 
-
-	<% if user_signed_in? %>
-	<nav class="mobile-bottom-nav">
-		<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
-			<div class="mobile-bottom-nav__item-content">
-				<%= link_to "Découvrir", records_path, class: "nav-link" %>
-			</div>		
+<% if user_signed_in? %>
+<nav class="mobile-bottom-nav">
+	<div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
+		<div class="mobile-bottom-nav__item-content">
+			<%= link_to records_path, class: "nav-link" do %><%= image_tag("logo_diggerz_icon.png") %><% end %>
+		</div>		
+	</div>
+	<div class="mobile-bottom-nav__item">		
+		<div class="mobile-bottom-nav__item-content">
+			<%= link_to myrecords_path, class: "nav-link" do %><%= image_tag("library.png") %><% end %>
 		</div>
-		<div class="mobile-bottom-nav__item">
-			<div class="mobile-bottom-nav__item-content">
-				<%= link_to "Rechercher", profile_path, class: "nav-link" %>
-			</div>		
-		</div>
-		<div class="mobile-bottom-nav__item">		
-			<div class="mobile-bottom-nav__item-content">
-				<%= link_to "Ma collection", myrecords_path, class: "nav-link" %>
-			</div>
-		</div>
-		<div class="mobile-bottom-nav__item">
-			<div class="mobile-bottom-nav__item-content">
-				<%= link_to "Ajouter", new_release_path, class: "nav-link" %>
-			</div>		
-		</div>
-		<div class="mobile-bottom-nav__item">
-			<div class="mobile-bottom-nav__item-content">
-				<%= link_to "Deals", mydeals_path, class: "nav-link" %>
-			</div>		
-		</div>
-		<div class="mobile-bottom-nav__item">
-			<div class="mobile-bottom-nav__item-content">
-				<%= link_to "Profil", profile_path, class: "nav-link" %>
-			</div>		
-		</div>
-	</nav>
-	<% end %>
+	</div>
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+			<%= link_to new_release_path, class: "nav-link" do %><i class="far fa-plus-square"></i><% end %>
+		</div>		
+	</div>
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+			<%= link_to mydeals_path, class: "nav-link" do %><i class="far fa-handshake"></i><% end %>
+		</div>		
+	</div>
+	<div class="mobile-bottom-nav__item">
+		<div class="mobile-bottom-nav__item-content">
+			<%= link_to profile_path, class: "nav-link" do %><i class="fas fa-user"></i><% end %>
+		</div>		
+	</div>
+</nav>
+<% end %>
