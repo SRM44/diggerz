@@ -1,6 +1,8 @@
 .records-search-bar {
     display: flex;
     margin: 2em 0 2em 0;
+    max-width: 600px;
+    
 
     input, select {
       flex: 1 1 auto;
@@ -9,7 +11,8 @@
     input {
       outline: 0;
       border-width: 0 0 0.5px;
-      border-radius: 0px;
+      border-radius: 0.5em;
+      height: 48px;
     }
 
     input:focus {

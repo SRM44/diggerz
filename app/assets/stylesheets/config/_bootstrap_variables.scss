@@ -5,7 +5,7 @@
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family: $headers-font;
-$body-bg: $white;
+$body-bg: $white-stripes;
 $font-size-base: 1rem;
 // Colors
 $body-color: $tech-house-gray-7;
@@ -15,7 +15,7 @@ $info: $yellow;
 $danger: $red;
 $warning: $orange;
 // Buttons & inputs' radius
-$btn-height: 50px;
+$btn-height: 48px;
 $border-radius: 50px;
 $border-radius-lg: 50px;
 $border-radius-sm: 50px;
@@ -28,7 +28,7 @@ $h3-font-size: 18px;
 $btn-font-family: "Montserrat",
 "sans-serif";
 $btn-font-size: 16px;
-$btn-border-radius: 50px;
+$btn-border-radius: 48px;
 //heading style
 $headings-font-weight: 700;
 $headings-color: $rich-black;
@@ -36,3 +36,5 @@ $headings-color: $rich-black;
 $micro-text: 10px;
 // Margins 
 $paragraph-margin-bottom: 0.3rem;
+//btn Box Shadows 
+$the-shadows: inset 0 1px 0 hsl(55,92%,76%), 0 1px 3px hsla(0, 0%, 0%, .2);

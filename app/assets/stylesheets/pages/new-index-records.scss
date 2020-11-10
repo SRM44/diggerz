@@ -1,32 +1,43 @@
 .records-index-container {
-    padding: 1em;
-    margin-top: 50px;
+    padding: 50px 1em;
     height: 100vh;
-    background-color: gray;
-}
-
-.records-index-grid {
-    display: flex;
-    flex-flow: column wrap;
 }
 
 .records-index-card {
     display: flex;
-    width: 100%;
+    width: 500px;
     margin: 0.5em;
     border-radius: 1em;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background-color: white;
+    box-shadow: 0 2px 0 hsl(220, 7%, 83);
+    cursor: pointer;
     
     img {
         border-radius: 1em;
-        width: 8em;
-        height: 8em;
+        width: 10em;
+        height: 10em;
         object-fit: cover;
         object-position: 50% 50%;
     }
 
     .records-index-infos {
+        width: 50%;
         padding: 1em;
 
     }
 }
+
+.discover-vinyl-card {
+    position: fixed;
+    top:0;
+    height: 100vh;
+    width: 50vw;
+    background-color: rgba(0, 0, 0, .92);
+    z-index: 100;
+  }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .records-index-container{  width: 50vw;}
+    .discover-vinyl-card {left: 50%;}
+  }
