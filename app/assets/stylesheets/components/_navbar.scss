@@ -13,7 +13,7 @@
 	height:50px;
 	
 	box-shadow: 0 -2px 5px -2px #333;
-	background-color:#fff;
+	background-color:#ffff;
 	
 	&__item{
 		flex-grow:1;
@@ -21,8 +21,8 @@
 		font-size:12px;
 		
 		display:flex;
-		flex-direction:column;
-		justify-content:center;
+		align-items: center;
+		justify-content: center;
 	}
 	&__item--active{
 		//dev
@@ -34,12 +34,20 @@
 	}
 
 	i {
-		font-size: 2em;
-		color: $rich-black;
+		font-size: 1.5em;
+		color: $grey-600;
 	}
 
 	img {
-		height: 3em;
+		height: 2.5em;
+		color: $grey-300;
+	}
+
+	#nav-label {
+		display: none;
+		color: $grey-600;
+		font-size: $small-text;
+		font-weight: $emphase600;
 	}
 }
 
@@ -47,11 +55,26 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .mobile-bottom-nav {
-    position:fixed;
+	position:fixed;
+	margin-top: 1em;
+	width: 15%;
+	height: 100vh;
     top:0;
 	left:0;
 	flex-direction: column;
-	width: 5%;
-	height: 100vh;
+	background-color: transparent;
+	box-shadow: none;
+
+	&__item {
+		padding-left: 2em;
+		height: 48px;
+		justify-content: flex-start;
+		flex-grow: 0;
+	}
+
+	#nav-label {
+		display: inline;
+		margin-left: 1em;
+	}
   }
 }

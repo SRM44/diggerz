@@ -35,7 +35,27 @@ $headings-font-weight: 700;
 $headings-color: $rich-black;
 // Font Sizes 
 $micro-text: 12px;
+$small-text: 14px;
+$text: 16px;
+$big-text: 20px;
+$subtitle: 24px;
+$title: 28px;
+$big-title: 32px;
+$head: 36px;
+$mega-head: 40px;
+//weight 
+$emphase700: 700; 
+$emphase600: 600;
+$emphase500: 500;
+$emphase400: 400;
+
 // Margins 
 $paragraph-margin-bottom: 0.3rem;
 //btn Box Shadows 
 $the-shadows: inset 0 1px 0 hsl(55,92%,76%), 0 1px 3px hsla(0, 0%, 0%, .2);
+//Shadows 
+$very-close: 0 1px 3px hsl(0,0%,60);
+$close: 0 4px 6px hsl(0,0%,60);
+$medium: 0 5px 15px hsl(0,0%,60);
+$far: 0 10px 24px hsl(0,0%,60);
+$very-far: 0 15px 35px hsl(0,0%,60);
