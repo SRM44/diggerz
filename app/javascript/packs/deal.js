@@ -3,7 +3,7 @@ Add the new record to input AND replace old record to my collection
 Close my collection
 */
 
-const records = document.querySelectorAll('.deal-myrecord')
+const records = document.querySelectorAll('.myrecords-card')
 const selectedRecord = document.getElementById("deal-myrecord-swapped")
 const btn = document.getElementById("vinyl-card-proposition-button")
 
@@ -25,14 +25,18 @@ function addMyRecord(record) {
   const resultDiv = document.getElementById('deal-myrecord-swapped')
   
   const resultContent = 
-  `<div class="deal-myrecord-swapped-infos">
-      <p><em>En échange de :</em></p>
-      <h4>${record.dataset.recordTitle}</h4>
-      <p>${record.dataset.recordArtist}</p>
+  `
+    <p><em>En échange de :</em></p>
+    <div class="myrecords-card">
+      <div id="my-records-infos">
+        <img src="${record.dataset.recordImage}">
+        <div>
+          <h4>${record.dataset.recordTitle}</h4>
+          <p>${record.dataset.recordArtist}</p>
+        </div>
+      </div>
     </div>
-    <div class="deal-myrecord-swapped-image">
-      <img class="avatar-square" src="${record.dataset.recordImage}">
-    </div>
+
   `
 
   if (selectedRecord.lastElementChild) {

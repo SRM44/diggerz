@@ -1,17 +1,17 @@
-<div class="deal-collection-title">
+<div class="deal_mycollection">
   <div class="vinyl-card-details-index-button" >
     <i class="fas fa-times" id="vinyl-card-proposition-button"></i>
   </div>
   <h3>Choisissez votre disque à échanger</h3>
+  <% @myrecords.each do |myrecord| %>
+    <div data-record-id="<%= myrecord.id %>" data-record-title="<%= myrecord.release.title %>" data-record-image="<%= myrecord.release.image %>" data-record-artist="<%= myrecord.release.artist %>" class="myrecords-card _collection-dark" id="deal_requester_record_id" >
+      <div id="my-records-infos">
+        <%= cl_image_tag myrecord.release.image %>
+        <div>
+          <h4><%= myrecord.release.title %></h4>
+          <p><%= myrecord.release.artist%></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
-<% @myrecords.each do |myrecord| %>
-  <div data-record-id="<%= myrecord.id %>" data-record-title="<%= myrecord.release.title %>" data-record-image="<%= myrecord.release.image %>" data-record-artist="<%= myrecord.release.artist %>" class="deal-myrecord" id="deal_requester_record_id">
-    <div class="deal-myrecord-image">
-      <%= cl_image_tag myrecord.release.image, class: "avatar-large" %>
-    </div>
-    <div>
-      <h4><%= myrecord.release.title %></h4>
-      <p><%= myrecord.release.artist%></p>
-    </div>
-  </div>
-<% end %>

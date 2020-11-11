@@ -53,7 +53,7 @@ $emphase400: 400;
 $paragraph-margin-bottom: 0.3rem;
 //Input Shadows 
 $the-shadows: inset 0 1px 0 hsl(55,92%,76%), 0 1px 3px hsla(0, 0%, 0%, .2);
-$input-shadow: 0 -2px 0 hsla(0, 0%, 100%, 0.15), inset 0 2px 2px hsla(0,0%, 0%, 0.1);
+$input-shadow: inset 0 -2px 2px rgba(255,255,255,1), inset 0 2px 2px hsla(0,0%, 0%, 0.3);
 //Shadows 
 $very-close: 0 1px 3px hsl(0,0%,60);
 $close: 0 4px 6px hsl(0,0%,60);
