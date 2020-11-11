@@ -125,3 +125,35 @@
     padding: $lined-btn-padding;
     background-color: transparent;
 }
+
+.vinyl-card-details-index-button {
+    height: 15%;
+    text-decoration: none;
+    color: #F3F3F3;
+    font-size: 20px;
+    cursor: pointer;
+  
+    a {
+      color:$grey-300;
+    }
+
+    a:hover {
+    color: white;
+    text-decoration: none;
+    }
+  
+    i {
+      position: relative;
+      height: 15%;
+      text-decoration: none;
+      color: #A9A9A9;
+      font-size: 150%;
+      cursor: pointer;
+    }
+  
+    i:hover {
+      color: white;
+      font-weight: 800;
+    }
+  
+  }

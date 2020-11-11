@@ -53,20 +53,23 @@
 }
 
 .records-undisplay {
-display: none;
+  display: none;
 }
 
 .discover-vinyl-card {
-    position: fixed;
-    top:0;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, .95);
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
+  position: fixed;
+  top:0;
+  height: 100%;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, .95);
+  z-index: 100;
 }
 
+.records-modals-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
 .vinyl-card-details {
   height: 100%;
@@ -91,42 +94,10 @@ display: none;
   }
 }
   
-  
-  .vinyl-card-details-index-button {
-    height: 15%;
-    text-decoration: none;
-    color: #F3F3F3;
-    font-size: 20px;
-    cursor: pointer;
-  
-    a:hover {
-    color: white;
-    font-weight: 800;
-    }
-  
-    i {
-      position: relative;
-      height: 15%;
-      text-decoration: none;
-      color: #A9A9A9;
-      font-size: 150%;
-      cursor: pointer;
-    }
-  
-    i:hover {
-      color: white;
-      font-weight: 800;
-    }
-  
-  }
-  
   .vinyl-card-tracklist {
-    position:relative;
-    height:100%;
     width: 100%;
     padding: 0 1em 1em 1em;
-    display:flex;
-    overflow-y: scroll;
+    overflow: scroll;
 /*     -webkit-box-shadow: inset 0px 11px 38px 18px rgba(0,0,0,0.82);
     -moz-box-shadow: inset 0px 11px 38px 18px rgba(0,0,0,0.82);
     box-shadow: inset 0px 11px 38px 18px rgba(0,0,0,0.82); */
@@ -163,12 +134,16 @@ display: none;
   .discover-vinyl-card {
     left: 55%;
     width: 45vw;
-    align-self: flex-end;
   }
 
   .vinyl-card-details {
-    height: 100%;
     width: 45vw;
+    height: 100%;
     background-size: contain;
+  }
+
+  .vinyl-card-proposition-button {
+    margin: 1em;
+    height: 48px;
   }
 }

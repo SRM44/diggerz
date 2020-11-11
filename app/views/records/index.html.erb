@@ -67,42 +67,41 @@
       </div>
 
       <div class="discover-vinyl-card records-undisplay" id="discover-record-modal-<%= record.id %>">
+        <div class="records-modals-wrapper" >
+          <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
+            
+            <div class="vinyl-card-details-index-button" id="record-close-modal-<%= record.id %>">
+              <i class="fas fa-times"></i>
+            </div>
 
-        <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
-          
-          <div class="vinyl-card-details-index-button" id="record-close-modal-<%= record.id %>">
-            <i class="fas fa-times"></i>
+            <div class="vinyl-card-details-infos">
+              <h3> <%= record.release.title %> </h3>
+              <p> <%= record.release.artist %> </p>
+              <span> <%= record.release.year %> - <%= record.release.genre.name %></span>
+            </div>
+
           </div>
 
-          <div class="vinyl-card-details-infos">
-            <h3> <%= record.release.title %> </h3>
-            <p> <%= record.release.artist %> </p>
-            <span> <%= record.release.year %> - <%= record.release.genre.name %></span>
-          </div>
+          <div class="vinyl-card-tracklist">
 
-        </div>
+            <% if record.release.tracks.empty? %>
+              <p>Oups ! Pas de tracks renseignées ce disque.</p> 
+            <% else %>
 
-        <div class="vinyl-card-tracklist">
+            <ul>
+              <li><strong>TRACKLIST</strong></li>
+              <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
+                <li><%= track.position %> - <%= track.title %></li>
+              <% end %>
+            </ul>
 
-          <% if record.release.tracks.empty? %>
-            <p>Oups ! Pas de tracks renseignées ce disque.</p> 
-          <% else %>
-
-          <ul>
-            <li><strong>TRACKLIST</strong></li>
-            <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
-              <li><%= track.position %> - <%= track.title %></li>
             <% end %>
-          </ul>
 
-          <% end %>
-
+          </div>
+          <div class="button-master vinyl-card-proposition-button">
+            <%= link_to 'Faire une proposition', new_record_deal_path(record, return_url: request.original_url) %>
+          </div>
         </div>
-        <div class="button-master vinyl-card-proposition-button">
-          <%= link_to 'Faire une proposition', new_record_deal_path(record, return_url: request.original_url) %>
-        </div>
-
-
       </div>
     <% end %>
   </div>

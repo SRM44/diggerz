@@ -4,10 +4,10 @@ function undisplay(record) {
   record.classList.toggle('records-undisplay');
 }
 
-function checkRecord(record) {
+/* function checkRecord(record) {
   record.querySelector("div:not(.records-undisplay)");
 }
-
+ */
 recordsCards.forEach(recordCard => {
   const recordModal = document.getElementById('discover-record-modal-' + recordCard.dataset.recordId)
   const close = recordModal.querySelector('#record-close-modal-' + recordCard.dataset.recordId)
