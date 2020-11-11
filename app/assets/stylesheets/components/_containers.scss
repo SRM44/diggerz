@@ -1,25 +1,11 @@
-.container-discover-card {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-image: linear-gradient(150deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 7));
+.records-index-container {
+    padding: 1em 1em 4em 0;
+    height: 100%;
 }
 
-.container-vinyl-card {
-    height: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    background: $white-stripes;
-}
-
-.container-profile-page {
-    height: calc(100vh - 60px);
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(170deg, #A09ABC 11.72%, #121013 92.81%)
+@media (min-width: 992px) {
+    .records-index-container{  
+        width: 50vw;
+        padding-left: 15%;
+    }
 }

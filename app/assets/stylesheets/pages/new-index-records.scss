@@ -1,7 +1,3 @@
-.records-index-container {
-    padding: 1em 1em 4em 0;
-    height: 100%;
-}
 
 .results-counter {
   display: flex;
@@ -160,11 +156,6 @@ display: none;
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  .records-index-container{  
-      width: 50vw;
-      padding-left: 15%;
-  }
-
   .records-index-card {
     max-width: 500px;
   }
