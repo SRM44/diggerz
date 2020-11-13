@@ -18,6 +18,10 @@
     display: flex;
     justify-content: space-between;
     margin: 1em 0 1em 0;
+    padding: 0.2em;
+    border-radius: $border-radius;
+    background-color:$grey-200;
+    cursor: pointer;
 
     #my-records-infos {
         display: flex;
@@ -37,6 +41,11 @@
         text-decoration: none;
         color: $tech-house-gray-7;
     }
+
+    &:hover {
+        background-color: $grey-300;
+    }
+
 }
 
 .myrecords-discog-sync-btn {

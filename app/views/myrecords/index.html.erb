@@ -43,27 +43,27 @@
 
       <div class="myrecords-cards-container">
 
-      <% @myrecords.sort_by {|myrecord| myrecord.created_at }.reverse.each_with_index do |myrecord, index| %>
-        <div class="myrecords-card">
-        <%= link_to myrecord_path(myrecord) do %>
-          <div id="my-records-infos">
-            <%= cl_image_tag myrecord.release.image %>
-            <div>
-              <h4><%= myrecord.release.title %></h4>
-              <p><%= myrecord.release.artist%></p>
+        <% @myrecords.sort_by {|myrecord| myrecord.created_at }.reverse.each_with_index do |myrecord, index| %>
+          <div class="myrecords-card">
+          <%= link_to myrecord_path(myrecord) do %>
+            <div id="my-records-infos">
+              <%= cl_image_tag myrecord.release.image %>
+              <div>
+                <h4><%= myrecord.release.title %></h4>
+                <p><%= myrecord.release.artist%></p>
+              </div>
+            </div>
+          <% end %>
+            <div id="myrecords-toggle" class="custom-control custom-switch custom-switch-collection onoffswitch" data-id="<%= myrecord.id %>">
+              <input type="checkbox" <%= 'checked' if myrecord.swappable %> name="record[swappable]" class="custom-control-input onoffswitch-checkbox" id="record-swap-<%= index %>">
+              <label class="custom-control-label onoffswitch-label" for="record-swap-<%= index %>">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+              </label>
             </div>
           </div>
         <% end %>
-          <div id="myrecords-toggle" class="custom-control custom-switch custom-switch-collection onoffswitch" data-id="<%= myrecord.id %>">
-            <input type="checkbox" <%= 'checked' if myrecord.swappable %> name="record[swappable]" class="custom-control-input onoffswitch-checkbox" id="record-swap-<%= index %>">
-            <label class="custom-control-label onoffswitch-label" for="record-swap-<%= index %>">
-              <span class="onoffswitch-inner"></span>
-              <span class="onoffswitch-switch"></span>
-            </label>
-          </div>
-        </div>
-      <% end %>
-    </div>
+      </div>
   <% end %>
 </div>
 
