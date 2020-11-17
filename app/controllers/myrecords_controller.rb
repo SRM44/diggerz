@@ -17,9 +17,14 @@ class MyrecordsController < ApplicationController
   def show
     @record = Record.find(params[:id])
 
-    if @record.release.tracks.empty?
-      ImportFromDiscogsService.new(@discogs, release: @record.release).import_record_data
-    end
+    # Here the release has no `discogs_id`, so in ImportFromDiscogsService this line fails
+    # @discogs_release = @discogs.get_release(@diggerz_release.discogs_id)
+
+    # Need to discuss what to do here
+
+    # if @record.release.tracks.empty?
+    #   ImportFromDiscogsService.new(@discogs, release: @record.release).import_record_data
+    # end
   end
 
   def import_from_discogs
@@ -30,7 +35,6 @@ class MyrecordsController < ApplicationController
     else
       redirect_to myrecords_path, alert: "L'importation de vos vinyles a échoué"
     end
-    # <%= link_to 'Importer ma collection', import_from_discogs_releases_path %>
   end
 
   def toggle_swappable

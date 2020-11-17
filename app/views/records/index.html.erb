@@ -10,10 +10,6 @@
     </div>
 
     <div class="records-filters-wrapper">
-        <%#     <div class="records-filter">City <i class="fas fa-chevron-down"></i></div>
-        <div class="records-filter">Genre <i class="fas fa-chevron-down"></i></div>
-        <div class="records-filter">Année <i class="fas fa-chevron-down"></i></div> %>
-
         <%= select_tag "search[location]", options_for_select(User::Location.available, @location), onchange: "this.form.submit()" %>
 
         <%= select_tag "filters[years]", options_for_select(Release::Year.available, params.dig(:filters, :years)), multiple: true %>
