@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   end
 
   resources :records, only: [:index, :show] do
+    collection do
+      get 'discover', to: 'records#discover'
+    end
     resources :deals, only: [:new, :create]
   end
 

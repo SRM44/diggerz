@@ -12,8 +12,24 @@
 @import "components/index";
 @import "pages/index";
 
-
 // Shame
 .hidden-button{
   display: none;
+}
+
+.mobile-bottom-nav__item-content {
+  img, i {
+    margin-right: 0.5em;
+  }
+
+  img {
+    margin-right: 0.5em;
+    width:  2em;
+    height: 2em;
+  }
+  i {
+    margin-right: 0.7em;
+    width:  1em;
+    height: 1em;
+  }
 }

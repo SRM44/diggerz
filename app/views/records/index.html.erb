@@ -45,7 +45,7 @@
   </div>
 
   <div class="records-grid">
-    <% @discover.each do |record| %>
+    <% @records.each do |record| %>
       <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="records-index-card">
         <img src="<%= record_cover(record) %>">
         <div class="records-index-infos">
