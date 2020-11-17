@@ -1,7 +1,7 @@
 <div class="records-index-container">
   <div div="records-search-header">
-  
-    <h1>Vinyles à Nantes</h1>
+
+    <h1>Vinyles à <%= @location.capitalize %></h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
     <div class="records-search">
@@ -24,15 +24,7 @@
       <% end %>
     </div>
     <div class="records-filters-wrapper">
-      <% if false %>
-        <% if params.dig(:search, :location) %>
-          <div class="filter-label">Location: <%= params.dig(:search, :location) %>
-            <a href="<%= remove_location_from_url %>">
-              <i class="fas fa-times"></i>
-            </a>
-          </div>
-        <% end %>
-      <% end %>
+
       <% search_filters.each do |name, values| %>
         <% values.each do |value| %>
           <div class="filter-label"><%= filter_display_label(name, value) %>
@@ -45,15 +37,17 @@
 
     </div>
     <div class="results-counter">
-      <%if params.dig(:search, :query) %>
+      <%if params.dig(:search, :query).present? %>
         <h3>Recherche pour "<%= params.dig(:search, :query) %>"</h3>
-        <h4> <%= @records_count %> disques trouvé</h4>
-      <%else %>
-        <h4> <%= @records_count %> disques trouvé</h4>
+      <% else %>
+        <!-- Filler for space-between behavior -->
+        <div></div>
       <% end %>
+
+      <h4><%= pluralize(@records_count, 'disque trouvé', plural: 'disques trouvés') %></h4>
     </div>
   </div>
-  
+
   <div class="records-grid">
     <% @discover.each do |record| %>
       <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="records-index-card">
@@ -69,7 +63,7 @@
       <div class="discover-vinyl-card records-undisplay" id="discover-record-modal-<%= record.id %>">
         <div class="records-modals-wrapper" >
           <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
-            
+
             <div class="vinyl-card-details-index-button" id="record-close-modal-<%= record.id %>">
               <i class="fas fa-times"></i>
             </div>
@@ -85,7 +79,7 @@
           <div class="vinyl-card-tracklist">
 
             <% if record.release.tracks.empty? %>
-              <p>Oups ! Pas de tracks renseignées ce disque.</p> 
+              <p>Oups ! Pas de tracks renseignées ce disque.</p>
             <% else %>
 
             <ul>

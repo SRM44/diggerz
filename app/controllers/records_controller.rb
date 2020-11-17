@@ -4,7 +4,6 @@ class RecordsController < ApplicationController
   def index
     @discover = Record.joins(release: :genre).includes(release: :genre)
 
-
     query = params.dig(:search, :query)
     if query.present?
       query_components = query.split(' ').map {|comp| "%#{comp}%"}
@@ -18,7 +17,8 @@ class RecordsController < ApplicationController
     end
 
     @location = params.dig(:search, :location)&.upcase || current_user.location
-    if @location
+
+    if @location.present?
       @discover = @discover.joins(:user).where(users: {location: @location})
     end
 
