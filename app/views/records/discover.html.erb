@@ -1,0 +1,67 @@
+<div class="records-index-container" >
+  <h1>Hello</h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+  <div class="slider-wrap">
+    <div id="card-slider" class="slider">
+      <% @discover.sample(30).each do |record| %>
+
+        <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="slider-item">
+          <div class="animation-card_image">
+            <img src="<%= record_cover(record) %>">
+          </div>
+        </div>
+
+        <div class="discover-vinyl-card undisplay" id="discover-record-modal-<%= record.id %>">
+
+          <div class='vinyl-card'>
+
+            <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
+                <div class="vinyl-card-details-index-button" id="record-close-modal-<%= record.id %>">
+                  <i class="fas fa-times"></i>
+                </div>
+              <div class="vinyl-card-details-infos">
+                <div class="vinyl-card-details-infos-release">
+                  <div>
+                    <h3> <%= record.release.title %> </h3>
+                    <p> <%= record.release.artist %> </p>
+                    <span> <%= record.release.year %> - <%= record.release.genre.name %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="vinyl-card-more">
+              <div class="vinyl-card-tracklist">
+                <% if record.release.tracks.empty? %>
+                  <p>Oops ! Tracks indisponibles pour ce disque.</p>
+                <% else %>
+                <ul>
+                  <li><strong>TRACKLIST</strong></li>
+                  <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
+                    <li><%= track.position %> - <%= track.title %></li>
+                  <% end %>
+                </ul>
+                <% end %>
+              </div>
+              <div class="button-master vinyl-card-proposition-button">
+                <%= link_to 'Lancer un deal pour ce vinyle', new_record_deal_path(record, return_url: request.original_url) %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+  <div class="select-discover-card">
+    <i class="fas fa-fast-backward" id="previous"></i>
+
+    <i class="fas fa-fast-forward" id="next"></i>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/TimelineMax.min.js"></script>

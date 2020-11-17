@@ -1,5 +1,8 @@
 class RecordsController < ApplicationController
   skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :import_from_discogs]
+  def discover
+    @discover = Record.joins(release: :genre).includes(release: :genre)
+  end
 
   def index
     @discover = Record.joins(release: :genre).includes(release: :genre)
