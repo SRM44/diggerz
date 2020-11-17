@@ -4,18 +4,18 @@ initAnim(cards);
 
 function initAnim(array) {
   if(array.length >= 4 ) {
-    TweenMax.fromTo(array[0], 0, {x:0, y: 0, opacity:0.5}, {x:0, y: -120, opacity:0, zIndex: 0, delay:0.03, ease: Cubic.easeInOut });
+    TweenMax.fromTo(array[0], 0, {x:0, y: 0, opacity:0.5}, {x:0, y: -120, opacity:0, zIndex: 0, delay:0.01, ease: Cubic.easeInOut });
 
     TweenMax.fromTo(array[1], 0, {x:0, y: 50, opacity:1, zIndex: 1}, {x:0, y: 0, opacity:0.5, zIndex: 0, ease: Cubic.easeInOut});
 
     TweenMax.to(array[2], 0, {bezier:[{x:0, y:100}, {x:65, y:75}, {x:0, y:50}], zIndex: 1, opacity: 1, ease: Cubic.easeInOut});
 
-    TweenMax.fromTo(array[3], 0, {x:0, y:400, opacity: 0, zIndex: 0}, {x:0, y:100, opacity: 0.5, zIndex: 0, ease: Cubic.easeInOut});
+    TweenMax.fromTo(array[3], 0, {x:0, y:400, opacity: 0, zIndex: 0}, {x:0, y:80, opacity: 0.5, zIndex: 0, ease: Cubic.easeInOut});
   }
 }
 
 function startAnim(array) {
-  TweenMax.fromTo(array[0], 0.5, {x:0, y: 0, opacity:0.5}, {x:0, y: -120, opacity:0, zIndex: 0, delay:0.03, ease: Cubic.easeInOut });
+  TweenMax.fromTo(array[0], 0.5, {x:0, y: 0, opacity:0.5}, {x:0, y: -120, opacity:0, zIndex: 0, delay:0.01, ease: Cubic.easeInOut });
 
   TweenMax.fromTo(array[1], 0.5, {x:0, y: 50, opacity:1, zIndex: 1}, {x:0, y: 0, opacity:0.5, zIndex: 0, ease: Cubic.easeInOut});
 
@@ -25,7 +25,7 @@ function startAnim(array) {
 }
 
 function reverseAnim(array) {
-  TweenMax.fromTo(array[0], 0.5, {x:0, y: -120, opacity:0}, {x:0, y: 0, opacity:0.5, zIndex: 0, delay:0.03, ease: Cubic.easeInOut });
+  TweenMax.fromTo(array[0], 0.5, {x:0, y: -120, opacity:0}, {x:0, y: 0, opacity:0.5, zIndex: 0, delay:0.01, ease: Cubic.easeInOut });
 
   TweenMax.to(array[1], 0.5, {bezier:[{x:0, y:0}, {x:65, y:25}, {x:0, y:50}], zIndex: 1, opacity: 1, ease: Cubic.easeInOut});
 
@@ -45,13 +45,27 @@ function previousArray(array) {
 }
 
 
+document.onkeydown = function() {
+  switch (window.event.keyCode) {
+      case 37:
+        reverseAnim(cards);
+        previousArray(cards);
+       break;
+      case 39:
+        nextArray(cards);
+        startAnim(cards);
+       break;
+  }
+};
+
+
 const nextButton = document.getElementById('next')
 if (nextButton) {
   nextButton.addEventListener('click', (event) => {
     nextArray(cards)
     startAnim(cards);
   });
-}
+} 
 
 const previousButton = document.getElementById('previous')
 if (previousButton) {
