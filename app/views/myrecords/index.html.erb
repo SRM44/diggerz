@@ -47,7 +47,7 @@
           <div class="myrecords-card">
           <%= link_to myrecord_path(myrecord) do %>
             <div id="my-records-infos">
-              <%= cl_image_tag myrecord.release.image %>
+              <%= image_tag record_cover(myrecord) %>
               <div>
                 <h4><%= myrecord.release.title %></h4>
                 <p><%= myrecord.release.artist%></p>
@@ -61,6 +61,7 @@
                 <span class="onoffswitch-switch"></span>
               </label>
             </div>
+            <%= link_to "", toggle_swappable_myrecord_path(myrecord), id: "submit-record-#{myrecord.id}", class: "hidden-button", method: :patch, remote: true %>
           </div>
         <% end %>
       </div>

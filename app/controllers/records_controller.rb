@@ -1,9 +1,16 @@
 class RecordsController < ApplicationController
-  skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :import_from_discogs]
+  skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :discover, :import_from_discogs]
+
+  def discover
+    @discover = Record.
+      joins(release: :genre).
+      includes(release: :genre).
+      where(swappable: true)
+      # .where.not(user: current_user) # To exclude records owned by user
+  end
 
   def index
-    @discover = Record.joins(release: :genre).includes(release: :genre)
-
+    @records = Record.joins(release: :genre).includes(release: :genre)
 
     query = params.dig(:search, :query)
     if query.present?
@@ -14,27 +21,28 @@ class RecordsController < ApplicationController
         "#{column} ilike any ( array[:components] )"
       end.join(' OR ')
 
-      @discover = @discover.where(ilike_query, components: query_components)
+      @records = @records.where(ilike_query, components: query_components)
     end
 
     @location = params.dig(:search, :location)&.upcase || current_user.location
-    if @location
-      @discover = @discover.joins(:user).where(users: {location: @location})
+
+    if @location.present?
+      @records = @records.joins(:user).where(users: {location: @location})
     end
 
     years = params.dig(:filters, :years)
     if years&.any?
-      @discover = @discover.where(releases: { year: years })
+      @records = @records.where(releases: { year: years })
     end
 
     genres = params.dig(:filters, :genres)
     if genres&.any?
-      @discover = @discover.where(releases: { genres: { name: genres } })
+      @records = @records.where(releases: { genres: { name: genres } })
     end
 
-    # @discover = @discover.where.not(user: current_user) # To exclude records owned by user
-    @discover      = @discover.where(swappable: true)
-    @records_count = @discover.length
+    # @records = @records.where.not(user: current_user) # To exclude records owned by user
+    @records       = @records.where(swappable: true)
+    @records_count = @records.length
   end
 
   def collection

@@ -1,6 +1,6 @@
 <div class="deal-wrapper">
   <div class="deal-maker-container">
-    <div class="vinyl-card-details" id="_deal" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @record.release.image %>')">
+    <div class="vinyl-card-details" id="_deal" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(@record) %>')">
       <div class="vinyl-card-details-index-button">
         <%= link_to "< retour", myrecords_path  %>
       </div>
@@ -13,19 +13,19 @@
     </div>
     <div class="vinyl-card-tracklist">
       <% if @record.release.tracks.empty? %>
-        <p>Renseignes les tracks de ce disque !</p> 
+        <p>Renseigne les tracks de ce disque !</p>
         <div class="button-secondary">Ajouter une track</div>
       <% else %>
-      <%# <ul>
+      <ul>
         <li><strong>TRACKLIST</strong></li>
-        <% @record.release.tracks.sort_by {|track| track.position }.each do |track| >
-          <li><%= track.position > - <%= track.title ></li>
-        <% end >
-      </ul> %>
+        <% @record.release.tracks.sort_by {|track| track.position }.each do |track| %>
+          <li><%= track.position %> - <%= track.title %></li>
+        <% end %>
+      </ul>
       <% end %>
     </div>
-    <div id="myrecords-toggle" class="custom-control custom-switch custom-switch-collection onoffswitch" ">
-      <input type="checkbox" name="record[swappable]" class="custom-control-input onoffswitch-checkbox" ">
+    <div id="myrecords-toggle" class="custom-control custom-switch custom-switch-collection onoffswitch">
+      <input type="checkbox" name="record[swappable]" class="custom-control-input onoffswitch-checkbox">
       <label class="custom-control-label onoffswitch-label" >
         <span class="onoffswitch-inner"></span>
         <span class="onoffswitch-switch"></span>
@@ -34,7 +34,6 @@
     <div class="button-secondary">Partager</div>
     <div class="button-secondary">Modifier</div>
     <div class="button-secondary">Supprimer</div>
-
   </div>
 </div>
 

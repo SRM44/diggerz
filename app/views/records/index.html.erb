@@ -1,65 +1,103 @@
-<div class="records-index-container" >
-  <h1>Hello</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<div class="records-index-container">
+  <div div="records-search-header">
 
-  <div class="slider-wrap">
-    <div id="card-slider" class="slider">
-      <% @discover.sample(30).each do |record| %>
+    <h1>Vinyles à <%= @location.capitalize %></h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
-        <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="slider-item">
-          <div class="animation-card_image">
-            <img src="<%= record_cover(record) %>">
-          </div>
-        </div>
+    <div class="records-search">
+      <%= form_tag records_path, method: :get, class: "records-search-bar" do %>
+      <input id="query-input" name="search[query]" placeholder="Titre, Artiste, Label... " value="<%= params.dig(:search, :query) %>"></input>
+    </div>
 
-        <div class="discover-vinyl-card undisplay" id="discover-record-modal-<%= record.id %>">
+    <div class="records-filters-wrapper">
+        <%= select_tag "search[location]", options_for_select(User::Location.available, @location), onchange: "this.form.submit()" %>
 
-          <div class='vinyl-card'>
+        <%= select_tag "filters[years]", options_for_select(Release::Year.available, params.dig(:filters, :years)), multiple: true %>
 
-            <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
-                <div class="vinyl-card-details-index-button" id="record-close-modal-<%= record.id %>">
-                  <i class="fas fa-times"></i>
-                </div>
-              <div class="vinyl-card-details-infos">
-                <div class="vinyl-card-details-infos-release">
-                  <div>
-                    <h3> <%= record.release.title %> </h3>
-                    <p> <%= record.release.artist %> </p>
-                    <span> <%= record.release.year %> - <%= record.release.genre.name %></span>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <%= select_tag "filters[genres]", options_for_select(Genre.available, params.dig(:filters, :genres)), multiple: true %>
 
-            <div class="vinyl-card-more">
-              <div class="vinyl-card-tracklist">
-                <% if record.release.tracks.empty? %>
-                  <p>Oops ! Tracks indisponibles pour ce disque.</p>
-                <% else %>
-                <ul>
-                  <li><strong>TRACKLIST</strong></li>
-                  <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
-                    <li><%= track.position %> - <%= track.title %></li>
-                  <% end %>
-                </ul>
-                <% end %>
-              </div>
-              <div class="button-master vinyl-card-proposition-button">
-                <%= link_to 'Lancer un deal pour ce vinyle', new_record_deal_path(record, return_url: request.original_url) %>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+        <button><i class="fas fa-search fa-lg"></i></button>
       <% end %>
     </div>
-  </div>
-  <div class="select-discover-card">
-    <i class="fas fa-fast-backward" id="previous"></i>
+    <div class="records-filters-wrapper">
 
-    <i class="fas fa-fast-forward" id="next"></i>
+      <% search_filters.each do |name, values| %>
+        <% values.each do |value| %>
+          <div class="filter-label"><%= filter_display_label(name, value) %>
+            <a href="<%= remove_filter_from_url(name, value) %>">
+              <i class="fas fa-times"></i>
+            </a>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+    <div class="results-counter">
+      <%if params.dig(:search, :query).present? %>
+        <h3>Recherche pour "<%= params.dig(:search, :query) %>"</h3>
+      <% else %>
+        <!-- Filler for space-between behavior -->
+        <div></div>
+      <% end %>
+
+      <h4><%= pluralize(@records_count, 'disque trouvé', plural: 'disques trouvés') %></h4>
+    </div>
+  </div>
+
+  <div class="records-grid">
+    <% @records.each do |record| %>
+      <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="records-index-card">
+        <img src="<%= record_cover(record) %>">
+        <div class="records-index-infos">
+          <p>Vinyle <%= record.release.genre.name %> à <%= record.user.location %> </p>
+          <h3><%= record.release.title %></h3>
+          <p><%= record.release.artist %></p>
+          <p>Proposé par <%= record.user.username %></p>
+        </div>
+      </div>
+
+      <div class="discover-vinyl-card records-undisplay" id="discover-record-modal-<%= record.id %>">
+        <div class="records-modals-wrapper" >
+          <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
+
+            <div class="vinyl-card-details-index-button" id="record-close-modal-<%= record.id %>">
+              <i class="fas fa-times"></i>
+            </div>
+
+            <div class="vinyl-card-details-infos">
+              <h3> <%= record.release.title %> </h3>
+              <p> <%= record.release.artist %> </p>
+              <span> <%= record.release.year %> - <%= record.release.genre.name %></span>
+            </div>
+
+          </div>
+
+          <div class="vinyl-card-tracklist">
+
+            <% if record.release.tracks.empty? %>
+              <p>Oups ! Pas de tracks renseignées ce disque.</p>
+            <% else %>
+
+            <ul>
+              <li><strong>TRACKLIST</strong></li>
+              <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
+                <li><%= track.position %> - <%= track.title %></li>
+              <% end %>
+            </ul>
+
+            <% end %>
+
+          </div>
+          <div class="button-master vinyl-card-proposition-button">
+            <%= link_to 'Faire une proposition', new_record_deal_path(record, return_url: request.original_url) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
+<<<<<<< HEAD
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+=======
+>>>>>>> d90d38289c49c904583cc7be5435cb665eff0ea3
