@@ -47,7 +47,7 @@
           <div class="myrecords-card">
           <%= link_to myrecord_path(myrecord) do %>
             <div id="my-records-infos">
-              <%= cl_image_tag myrecord.release.image %>
+              <%= image_tag record_cover(myrecord) %>
               <div>
                 <h4><%= myrecord.release.title %></h4>
                 <p><%= myrecord.release.artist%></p>

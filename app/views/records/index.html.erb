@@ -51,7 +51,7 @@
   <div class="records-grid">
     <% @discover.each do |record| %>
       <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="records-index-card">
-        <img src="<%= record.release.image %>">
+        <img src="<%= record_cover(record) %>">
         <div class="records-index-infos">
           <p>Vinyle <%= record.release.genre.name %> à <%= record.user.location %> </p>
           <h3><%= record.release.title %></h3>
