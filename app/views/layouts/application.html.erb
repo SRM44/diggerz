@@ -23,7 +23,7 @@
     <meta name="twitter:image:src" content="<%= meta_image %>">
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Montserrat&display=swap" rel="stylesheet">
     <%= favicon_link_tag 'diggerz.ico' %>
-    <title>Diggerz - Echangez des vinyles dans votre ville.</title>
+    <title>Diggerz - Échangez des vinyles dans votre ville.</title>
 
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -34,8 +34,10 @@
   <% unless controller_name == "pages" || controller_name == 'myrecords' && action_name == 'show' || controller_name == 'deals' && action_name == 'new'%>
       <%= render 'shared/navbar' %>
     <% end %>
+
     <%= render 'shared/flashes' %>
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

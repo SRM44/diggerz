@@ -31,7 +31,9 @@
           </div>
         <% end %>
 
-        <%= link_to "Passer à la suite", new_myrecord_path %>
+        <% if params[:just_registered] %>
+          <%= link_to "Passer à la suite", new_myrecord_path %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -7,16 +7,19 @@ class ProfilesController < ApplicationController
       ImportFromDiscogsService.new(@discogs, user: current_user).import_user_data
       redirect_to profile_path
     end
+
     @user = current_user
   end
 
-  def edit # GET /profile/edit
+  def edit
     @user = current_user
   end
 
-  def update # PATCH / profile
+  def update
     @user = current_user
     @user.update(current_user_params)
+
+    redirect_to profile_path
   end
 
   def import_from_discogs
@@ -30,7 +33,6 @@ class ProfilesController < ApplicationController
   end
 
   def current_user_params
-    params.require(:user).permit(:avatar, :email, :location)
+    params.require(:user).permit(:name, :username, :email)
   end
-
 end

@@ -1,27 +1,11 @@
 <div class="profile-container">
 
-  <div class="genre-card-category">
+  <%= simple_form_for current_user, url: profile_path do |f| %>
+    <%= f.input :email %>
+    <%= f.input :name %>
+    <%= f.input :username %>
 
-  <%= link_to "Mon profil", profile_path %>
-  <%= link_to "Mes genres", edit_profile_preferences_path %>
-
-  </div>
-
-  <div class="form-label-group">
-    <input type="Nom" class="form-control" id="exampleInputEmail" placeholder="Votre nom" autocomplete="email" required>
-    <label for="exampleInputEmail">Nom</label>
-  </div>
-
-  <div class="form-label-group">
-    <input type="Email" class="form-control" id="exampleInputEmail" placeholder="Votre email" autocomplete="email" required>
-    <label for="exampleInputEmail">Email</label>
-  </div>
-
-    <div class="form-label-group">
-    <input type="Location" class="form-control" id="exampleInputEmail" placeholder= "Votre lieu d'habitation" autocomplete="email" required>
-    <label for="exampleInputEmail">Localisation</label>
-    <div class="valid-feedback">Looks good!</div>
-  </div>
-
+    <%= f.button :submit, 'Mettre à jour', class: 'button-secondary' %>
+  <% end %>
   <div class="genre-card-category">
 </div></div>
