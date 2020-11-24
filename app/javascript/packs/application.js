@@ -12,7 +12,7 @@ document.querySelectorAll(".genre-card-label").forEach((label) => {
   });
 });
 
-$(".alert" ).fadeOut(3000);
+// $(".alert" ).fadeOut(5000);
 
 // Dynamic nested track form when creating a record
 $('form').on('click', '.remove_record', function(event) {

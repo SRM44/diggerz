@@ -7,7 +7,7 @@
 <% if current_user == @asked_record.user %>
 
   <div class="md-show-card">
-    <img class="md-show-album" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= cl_image_path @proposed_record.release.image %>')">
+    <img class="md-show-album" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= record_cover(@proposed_record) %>')">
     <div class="md-show-requester-img">
       <span><%= @proposed_record.user.name %> vous propose</span>
       <img src="<%= cl_image_path @proposed_record.user.avatar %>">
@@ -20,7 +20,7 @@
   </div>
 
   <div class="md-show-card-proposed">
-    <img class="md-show-album" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= cl_image_path @asked_record.release.image %>')">
+    <img class="md-show-album" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= record_cover(@asked_record) %>')">
     <div class="md-show-album-infos">
       <p>En échange de :</p>
       <h5><%= @asked_record.release.title %></h5>
@@ -44,7 +44,7 @@
 <% elsif current_user == @proposed_record.user %>
 
 <div class="md-show-card">
-    <img class="md-show-album" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= cl_image_path @asked_record.release.image %>')">
+    <img class="md-show-album" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= record_cover(@asked_record) %>')">
     <div class="md-show-requester-img">
       <span><%= @asked_record.user.name %> vous propose</span>
       <img src="<%= cl_image_path @asked_record.user.avatar %>">
@@ -57,7 +57,7 @@
   </div>
 
   <div class="md-show-card-proposed">
-    <img class="md-show-album" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= cl_image_path @proposed_record.release.image %>')">
+    <img class="md-show-album" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= record_cover(@proposed_record) %>')">
     <div class="md-show-album-infos">
       <p>En échange de :</p>
       <h5><%= @proposed_record.release.title %></h5>
