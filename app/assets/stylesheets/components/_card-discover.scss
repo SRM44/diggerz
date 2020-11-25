@@ -3,27 +3,22 @@
 }
 
 .select-discover-card {
-  position: absolute;
-  bottom: 13%;
-  height: 10%;
-  width: 88%;
+
+  margin: auto auto;
   max-width: 400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-   i { 
-     color: $rich-black;
-   }
-}
 
-.select-discover-card a:active {
-  text-decoration: none;
-}
+  i {
+    font-size: 150%;
+    color: $rich-black;
+    cursor: pointer;
+  }
 
-.select-discover-card i {
-  font-size: 150%;
-  color: white;
-  cursor: pointer;
+  a:active {
+    text-decoration: none;
+  }
 }
 
 .discover-card-for-deal {
@@ -37,15 +32,12 @@
 
 .slider-wrap {
   margin-top: 60px;
-  height: 100%;
-  width: 100%;
+  height: 70vh;
+  width: 70vw;
 }
 
 .slider {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
+
 }
 
 .slider-item {
