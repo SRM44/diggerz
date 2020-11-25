@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'localisation',                 to: 'new_app_design#localisation'
-  get 'home',                         to: 'new_app_design#home'
   get 'deals',                        to: 'new_app_design#deals_page'
   get 'deal-envoye',                  to: 'new_app_design#show_deal_sent'
   get 'deal-recu',                    to: 'new_app_design#show_deal_pending'
@@ -17,14 +14,11 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     registrations:      'users/registrations',
-    omniauth_callbacks: 'users/omniauth_callbacks'
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    confirmations:      'users/confirmations'
   }
 
   resources :mydeals, only: [:index, :show]
-
-  resource :account, only: [] do
-    resource :location, only: [:edit, :update], controller: 'account/location'
-  end
 
   resources :deals, only: [:index, :show] do
     member do
@@ -54,6 +48,10 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:show, :edit, :update] do
-   resource :preferences, only: [:edit, :update]
+    resource :preferences, only: [:edit, :update]
+  end
+
+  resource :account, only: [] do
+    resource :location, only: [:edit, :update], controller: 'account/location'
   end
 end

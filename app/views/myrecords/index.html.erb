@@ -12,8 +12,9 @@
           <form action="<%= user_discogs_omniauth_authorize_path %>" method="POST">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-            <input type="submit" value="Connecter mon compte" class="button-master button-synchroniser">
+            <input type="submit" value="Connecter mon compte Discogs" class="button-master button-synchroniser">
           </form>
+          <%= link_to "Ajouter un vinyl", new_release_path, class: 'button-master' %>
         <% else %>
           <div class="button-master button-synchroniser">
             <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
@@ -43,7 +44,7 @@
 
       <div class="myrecords-cards-container">
 
-        <% @myrecords.sort_by {|myrecord| myrecord.created_at }.reverse.each_with_index do |myrecord, index| %>
+        <% @myrecords.sort_by {|myrecord| myrecord.created_at }.reverse.each do |myrecord| %>
           <div class="myrecords-card">
           <%= link_to myrecord_path(myrecord) do %>
             <div id="my-records-infos">
@@ -55,8 +56,8 @@
             </div>
           <% end %>
             <div id="myrecords-toggle" class="custom-control custom-switch custom-switch-collection onoffswitch" data-id="<%= myrecord.id %>">
-              <input type="checkbox" <%= 'checked' if myrecord.swappable %> name="record[swappable]" class="custom-control-input onoffswitch-checkbox" id="record-swap-<%= index %>">
-              <label class="custom-control-label onoffswitch-label" for="record-swap-<%= index %>">
+              <input type="checkbox" <%= 'checked' if myrecord.swappable %> name="record[swappable]" class="custom-control-input onoffswitch-checkbox" id="record-swap-<%= myrecord.id %>" data-id="<%= myrecord.id %>">
+              <label class="custom-control-label onoffswitch-label" for="record-swap-<%= myrecord.id %>">
                 <span class="onoffswitch-inner"></span>
                 <span class="onoffswitch-switch"></span>
               </label>

@@ -1,8 +1,11 @@
 .connexion-container {
-    height: 100vh;
-    background-color: white;
-    display: flex;
+  height: 100vh;
+  background-color: white;
+  display: flex;
 
+  @media (min-width: 992px) {
+    padding-left: 15%;
+  }
 }
 
 .connexion-content {

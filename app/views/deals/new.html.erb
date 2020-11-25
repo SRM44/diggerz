@@ -1,6 +1,6 @@
 <div class="deal-wrapper">
   <div class="deal-maker-container">
-    <div class="vinyl-card-details" id="_deal" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @record.release.image %>')">
+    <div class="vinyl-card-details" id="_deal" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(@record) %>')">
       <div class="vinyl-card-details-index-button">
         <%= link_to "< retour", search_results_url  %>
       </div>

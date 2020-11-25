@@ -16,7 +16,7 @@
   </ul>
 
   <div class="tab-content" id="myTabContent">
-  
+
     <div class="tab-pane fade show active" id="tovalidate" role="tabpanel" aria-labelledby="tovalidate-tab">
       <section class="my-deals-container">
         <% if @received_deals.empty? %>
@@ -24,12 +24,12 @@
         <% else  %>
           <p>Les propositions que vous avez reçu.</p>
 
-          <% @received_deals.sort_by {|track| track.created_at }.reverse.each do |deal| %>
+          <% @received_deals.sort_by {|deal| deal.created_at }.reverse.each do |deal| %>
 
             <div class="card-list-container">
               <%= link_to mydeal_path(deal) do %>
                 <div class="records-index-card">
-                  <img src="<%= cl_image_path deal.requester_record.release.image %>" alt="">
+                  <img src="<%= record_cover(deal.requester_record) %>" alt="">
                   <div class="records-index-infos">
                     <h3><%= deal.requester_record.release.title %></h3>
                     <p><%= deal.requester_record.release.artist %></p>
@@ -47,17 +47,17 @@
     <div class="tab-pane fade show" id="pending" role="tabpanel" aria-labelledby="pending-tab">
 
       <section id="md-section-one" class="my-deals-container">
-        <% if @sended_deals.empty? %>
+        <% if @sent_deals.empty? %>
             <p>Vous n’avez pas encore envoyé de propositions d'échange ;).</p>
         <% else  %>
           <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
 
-          <% @sended_deals.sort_by {|track| track.created_at }.reverse.each do |deal| %>
+          <% @sent_deals.sort_by {|deal| deal.created_at }.reverse.each do |deal| %>
 
             <div class="card-list-container">
               <%= link_to mydeal_path(deal) do %>
                 <div class="records-index-card">
-                  <img src="<%= cl_image_path deal.receiver_record.release.image %>" alt="">
+                  <img src="<%= record_cover(deal.receiver_record) %>" alt="">
                   <div class="records-index-infos">
                     <h3><%= deal.receiver_record.release.title %></h3>
                     <p><%= deal.receiver_record.release.artist %></p>
@@ -80,12 +80,12 @@
         <% else  %>
           <p>Les échanges que vous devez faire.</p>
 
-          <% @accepted_deals.sort_by {|track| track.created_at }.reverse.each do |deal| %>
+          <% @accepted_deals.sort_by {|deal| deal.created_at }.reverse.each do |deal| %>
 
             <div class="card-list-container">
               <%= link_to mydeal_path(deal) do %>
 
-                <img src="<%= cl_image_path deal.receiver_record.release.image %>" alt="">
+                <img src="<%= record_cover(deal.receiver_record) %>" alt="">
                 <div class="card-list-infos">
                   <div><%= deal.receiver_record.release.title %></div>
                   <div><%= deal.receiver_record.release.artist %></div>
@@ -97,12 +97,10 @@
           <% end %>
         <% end %>
       </section>
-     
+
     </div>
 
     <div class="tab-pane fade" id="terminated" role="tabpanel" aria-labelledby="terminated-tab">
-
-
       <section id="md-section-one" class="my-deals-container">
         <% if @confirmed_deals.empty? %>
           <p>Vous n’avez pas encore accepté d'échanges !</p>
@@ -110,12 +108,12 @@
         <% else  %>
           <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
 
-          <% @confirmed_deals.sort_by {|track| track.created_at }.reverse.each do |deal| %>
+          <% @confirmed_deals.sort_by {|deal| deal.created_at }.reverse.each do |deal| %>
 
             <div class="card-list-container">
               <%= link_to mydeal_path(deal) do %>
 
-                <img src="<%= cl_image_path deal.receiver_record.release.image %>" alt="">
+                <img src="<%= record_cover(deal.receiver_record) %>" alt="">
                 <div class="card-list-infos">
                   <div><%= deal.receiver_record.release.title %></div>
                   <div><%= deal.receiver_record.release.artist %></div>

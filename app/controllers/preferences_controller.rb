@@ -11,5 +11,5 @@ class PreferencesController < ApplicationController
     # end
     current_user.update(genre_ids: params[:genre_id])
     redirect_to records_path
-    end
+  end
 end

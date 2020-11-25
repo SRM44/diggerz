@@ -2,12 +2,9 @@ class DealsController < ApplicationController
   skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :accept, :decline, :import_from_discogs]
 
   def new
-    @record = Record.find(params[:record_id])
-    @myrecords_all = current_user.records
-    @myrecords = []
-    @myrecords_all.each do |myrecord|
-      @myrecords << myrecord if myrecord.swappable
-    end
+    @record    = Record.find(params[:record_id])
+    @myrecords = current_user.records.swappable
+
     @deal = Deal.new
   end
 
