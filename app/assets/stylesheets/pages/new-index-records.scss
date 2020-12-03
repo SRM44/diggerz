@@ -14,119 +14,12 @@
   }
 }
 
-.records-grid {
-  height: 100%;
-}
-
-.records-index-card {
-    display: flex;
-    max-width: 400px;
-    margin: 0.5em;
-    border-radius: 0.5em;
-    background-color: white;
-    box-shadow: $very-close;
-    cursor: pointer;
-
-    img {
-        border-radius: 0.5em;
-        width: 10em;
-        height: 10em;
-        object-fit: cover;
-        object-position: 50% 50%;
-    }
-
-    .records-index-infos {
-      width: 70%;
-      margin: 1em;
-      display: flex;
-      flex-direction: column;
-    }
-
-    p:first-child {
-      font-size: $micro-text;
-    }
-    .records-index-infos div:last-child {
-      background-color: $grey-200;
-    }
-
-    p:last-child {
-      font-size: $micro-text;
-      justify-self: flex-end;
-    }
-}
-
-.records-undisplay {
-  display: none;
-}
-
-.discover-vinyl-card {
-  position: fixed;
-  top:0;
-  height: 100%;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, .95);
-  z-index: 100;
-}
-
 .records-modals-wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.vinyl-card-details {
-  height: 50%;
-  width: 100%;
-  padding: 1em;
-  margin-bottom: 1em;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.vinyl-card-details-infos {
-  position: relative;
-  color: white;
-
-  h3 {
-    color: white;
-  }
-}
-
-  .vinyl-card-tracklist {
-    width: 100%;
-    padding: 0 1em 1em 1em;
-    overflow: scroll;
-/*     -webkit-box-shadow: inset 0px 11px 38px 18px rgba(0,0,0,0.82);
-    -moz-box-shadow: inset 0px 11px 38px 18px rgba(0,0,0,0.82);
-    box-shadow: inset 0px 11px 38px 18px rgba(0,0,0,0.82); */
-
-    p {
-      margin: 4em 0 4em 0;
-    }
-
-    ul {
-      list-style: none;
-      padding:0;
-    }
-
-    li {
-      font-size: 16px;
-      color: white;
-      list-style-type: none;
-      margin-top:15px;
-    }
-  }
-
-  .vinyl-card-proposition-button {
-    margin: 1em 1em 4em 1em;
-    height: 48px;
-    align-self: center;
-  }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {

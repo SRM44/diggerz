@@ -2,12 +2,13 @@
   <div class="deal-maker-container">
     <div class="vinyl-card-details" id="_deal" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(@record) %>')">
       <div class="vinyl-card-details-index-button">
-        <%= link_to "< retour", search_results_url  %>
+      	<%= link_to records_path do %><i class="fas fa-long-arrow-alt-left"></i><% end %>
       </div>
       <div class="vinyl-card-details-infos">
         <h3> <%= @record.release.title %> </h3>
         <p> <%= @record.release.artist %> </p>
-        <span> <%= @record.release.year %> - <%= @record.release.genre.name %></span>
+        <p> <%= @record.release.year %> - <%= @record.release.genre.name %> - <%= @record.release.label %></p>
+        <p class="record-condition-cap"> <%= @record.condition %> </p>
       </div>
     </div>
 

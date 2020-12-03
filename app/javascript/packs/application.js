@@ -3,6 +3,7 @@ import "./discover";
 import "./deal";
 import "./swap";
 import "./search";
+import "./records-options";
 
 // listeners
 
@@ -28,3 +29,6 @@ $('form').on('click', '.add_fields', function(event) {
   $('.fields').append($(this).data('fields').replace(regexp, time));
   return event.preventDefault();
 });
+
+
+

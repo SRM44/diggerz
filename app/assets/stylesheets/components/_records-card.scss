@@ -1,0 +1,53 @@
+.records-grid {
+    height: 100%;
+  }
+  
+  .records-index-card {
+      display: flex;
+      max-width: 400px;
+      margin: 0.5em;
+      border-radius: 0.5em;
+      background-color: white;
+      box-shadow: $very-close;
+      cursor: pointer;
+  
+      img {
+          border-radius: 0.5em;
+          width: 10em;
+          height: 10em;
+          object-fit: cover;
+          object-position: 50% 50%;
+      }
+  
+      .records-index-infos {
+        width: 70%;
+        margin: 1em;
+        display: flex;
+        flex-direction: column;
+      }
+  
+      p:first-child {
+        font-size: $micro-text;
+      }
+      .records-index-infos div:last-child {
+        background-color: $grey-200;
+      }
+  
+      p:last-child {
+        font-size: $micro-text;
+        justify-self: flex-end;
+      }
+  }
+  
+  .records-undisplay {
+    display: none;
+  }
+  
+  .discover-vinyl-card {
+    position: fixed;
+    top:0;
+    height: 100%;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .95);
+    z-index: 100;
+  }

@@ -67,8 +67,9 @@
             <div class="vinyl-card-details-infos">
               <h3> <%= record.release.title %> </h3>
               <p> <%= record.release.artist %> </p>
-              <span> <%= record.release.year %> - <%= record.release.genre.name %></span>
-            </div>
+              <p> <%= record.release.year %> - <%= record.release.genre.name %> - <%= record.release.label %></p>
+              <p class="record-condition-cap"> <%= record.condition %> </p>
+            </div>  
 
           </div>
 

@@ -128,7 +128,8 @@
 }
 
 .vinyl-card-details-index-button {
-    height: 15%;
+    display: flex;
+    justify-content: space-between;
     text-decoration: none;
     color: #F3F3F3;
     font-size: 20px;
@@ -145,7 +146,6 @@
   
     i {
       position: relative;
-      height: 15%;
       text-decoration: none;
       color: #A9A9A9;
       font-size: 150%;
