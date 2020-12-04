@@ -30,5 +30,3 @@ $('form').on('click', '.add_fields', function(event) {
   return event.preventDefault();
 });
 
-
-

@@ -34,7 +34,11 @@
       </ul>
       <% end %>
     </div>
-    <div class="record-swapable-btn">Available || Inactive</div>
+    <%if @record.swappable %>
+      <div class="record-available-btn"><i class="fas fa-check"></i></i>En ligne</div>
+    <% else %>
+      <div class="record-swapable-btn"><i class="fas fa-arrow-up"></i>Echanger</div>
+    <%end %>
   </div>
 </div>
 

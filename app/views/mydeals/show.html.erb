@@ -1,10 +1,10 @@
 <div class="container-deal col">
 
-  <div class="md-show-card-back-button">
-    <%= link_to "< Mes deals", mydeals_path(anchor: 'pending')  %>
-  </div>
-
 <% if current_user == @asked_record.user %>
+
+  <div class="md-show-card-back-button">
+    <%= link_to "< Mes deals", mydeals_path(anchor: 'tovalidate')  %>
+  </div>
 
   <div class="md-show-card">
     <img class="md-show-album" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= record_cover(@proposed_record) %>')">
@@ -42,7 +42,9 @@
   </div>
 
 <% elsif current_user == @proposed_record.user %>
-
+  <div class="md-show-card-back-button">
+    <%= link_to "< Mes deals", mydeals_path(anchor: 'pending')  %>
+  </div>
 <div class="md-show-card">
     <img class="md-show-album" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= record_cover(@asked_record) %>')">
     <div class="md-show-requester-img">
