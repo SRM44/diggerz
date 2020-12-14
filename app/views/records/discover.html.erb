@@ -1,3 +1,7 @@
+<%= content_for(:after_application_pack) do %>
+  <%= javascript_pack_tag "discover" %>
+<% end %>
+
 <div class="records-index-container">
   <h1>Discover</h1>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque harum reiciendis adipisci delectus eligendi. Ipsa tempora veniam, magnam incidunt vero, quasi possimus adipisci, provident aliquid nesciunt sint cumque suscipit iste.</p>
@@ -61,5 +65,3 @@
     <i class="fas fa-fast-forward" id="next"></i>
   </div>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>

@@ -40,5 +40,8 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+
+    <%# Insert specific page JS pack %>
+    <%= yield :after_application_pack %>
   </body>
 </html>
