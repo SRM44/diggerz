@@ -1,6 +1,5 @@
 import "bootstrap";
 import "./deal";
-import "./swap";
 import "./search";
 import "./records-options";
 
