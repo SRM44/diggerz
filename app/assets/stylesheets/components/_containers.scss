@@ -1,10 +1,11 @@
-.records-index-container {
+.app-container {
     padding: 1em 1em 4em 0;
+    margin: 1em;
     height: 100%;
 }
 
 @media (min-width: 992px) {
-    .records-index-container{  
+    .app-container{  
         width: 50vw;
         padding-left: 15%;
     }

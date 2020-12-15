@@ -3,14 +3,14 @@
 <nav class="mobile-bottom-nav">
 
   <div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
-    <div class="mobile-bottom-nav__item-content">
-      <%= link_to discover_records_path do %><%= image_tag("logo_diggerz_icon.png") %><div id="nav-label">Découvrir</div><% end %>
+    <div class="mobile-bottom-nav__item-content nav-logo">
+      <%= link_to discover_records_path do %><%= image_tag("logo_diggerz_icon_white.png") %><div id="nav-label">Découvrir</div><% end %>
     </div>
   </div>
 
 	<div class="mobile-bottom-nav__item">
 		<div class="mobile-bottom-nav__item-content">
-			<%= link_to records_path do %><%= image_tag("selectionner.svg") %><div id="nav-label">Rechercher</div><% end %>
+			<%= link_to records_path do %><i class="fas fa-search"></i><div id="nav-label">Rechercher</div><% end %>
 		</div>
 	</div>
 

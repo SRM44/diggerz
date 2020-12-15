@@ -3,7 +3,8 @@
 	bottom:0;
 	left:0;
 	right:0;
-	z-index:1000;
+	z-index:5000;
+	margin-top: 1em;
 	
 	will-change:transform;
 	transform: translateZ(0);
@@ -13,7 +14,7 @@
 	height:50px;
 	
 	box-shadow: 0 -2px 5px -2px #333;
-	background-color:#ffff;
+	background-color: $rich-black;
 	
 	&__item{
 		flex-grow:1;
@@ -23,6 +24,7 @@
 		display:flex;
 		align-items: center;
 		justify-content: center;
+
 	}
 	&__item--active{
 		//dev
@@ -35,12 +37,7 @@
 
 	i {
 		font-size: 1.5em;
-		color: $grey-600;
-	}
-
-	img {
-		height: 2.5em;
-		color: $grey-300;
+		color: white;
 	}
 
 	#nav-label {
@@ -56,20 +53,18 @@
 @media (min-width: 992px) {
   .mobile-bottom-nav {
 	position:fixed;
-	margin-top: 1em;
 	width: 15%;
 	height: 100vh;
-    top:0;
 	left:0;
 	flex-direction: column;
-	background-color: transparent;
 	box-shadow: none;
 
 	&__item {
 		padding-left: 2em;
-		height: 48px;
+		height: 50px;
 		justify-content: flex-start;
 		flex-grow: 0;
+		
 	}
 
 	#nav-label {
