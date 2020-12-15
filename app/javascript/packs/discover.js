@@ -101,5 +101,3 @@ cards.forEach(recordCard => {
   })
 
 })
-
- */

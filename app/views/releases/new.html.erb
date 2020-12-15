@@ -3,6 +3,12 @@
 <% end %>
 
 <div class="records-index-container"> 
-  <h1>Chouette ! Un nouveau disque !</h1>
-  <%= render "form", release: @release %>
+  <div class="myrecords-wrapper">
+    <div id="myrecords-header">
+      <h1>Nouveau disque !</h1>
+    </div>
+    <div class="add-record_form">
+     <%= render "form", release: @release %>
+    </div>
+  </div>
 </div>
