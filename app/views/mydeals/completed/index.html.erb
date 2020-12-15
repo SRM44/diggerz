@@ -1,0 +1,29 @@
+<div class="records-index-container main-container-md container-deals">
+  <h1>Deals</h1>
+  <%= render 'mydeals/nav', current_path: completed_mydeals_path %>
+
+  <section class="my-deals-container">
+    <% if @deals.empty? %>
+      <p>Vous n’avez pas encore accepté d'échanges !</p>
+      <p>Allez donc échanger des disques ;)</p>
+    <% else  %>
+      <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
+
+      <% @deals.each do |deal| %>
+
+        <div class="card-list-container">
+          <%= link_to mydeal_path(deal) do %>
+
+            <img src="<%= record_cover(deal.receiver_record) %>" alt="">
+            <div class="card-list-infos">
+              <div><%= deal.receiver_record.release.title %></div>
+              <div><%= deal.receiver_record.release.artist %></div>
+              <div> <i class="far fa-clock"> </i> Proposé par <%= deal.receiver_record.user.name %></div>
+            </div>
+
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+</div>

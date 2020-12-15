@@ -1,9 +1,11 @@
 class Deal < ApplicationRecord
-  STATUSES = [:pending, :accepted, :declined, :canceled]
+  STATUSES = [:pending, :accepted, :declined, :canceled, :completed]
 
   STATUSES.each do |status|
     scope status, ->() { where(status: status) }
   end
+
+  scope :by_most_recent, ->() { order(created_at: :desc) }
 
   extend Enumerize
   enumerize :status, in: STATUSES, predicates: true, default: :pending
