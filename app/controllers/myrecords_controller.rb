@@ -3,14 +3,11 @@ class MyrecordsController < ApplicationController
   skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :import_from_discogs, :toggle_swappable]
 
   def index
-    if params[:query].present?
-      sql_query = <<~SQL
-        title @@ :query
-        OR artist @@ :query
-      SQL
-      @myrecords = current_user.records.joins(:release).where(sql_query, query: "%#{params[:query]}%")
-    else
-      @myrecords = current_user.records
+    @myrecords = current_user.records.joins(:release)
+
+    query = params.dig(:search, :query)
+    if query.present?
+      @myrecords = @myrecords.for_query(query)
     end
   end
 
