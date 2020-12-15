@@ -1,6 +1,5 @@
 import "bootstrap";
 import "./deal";
-import "./search";
 
 // listeners
 
