@@ -1,6 +1,4 @@
 class DealsController < ApplicationController
-  skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :accept, :decline, :import_from_discogs]
-
   def new
     @record    = Record.find(params[:record_id])
     @myrecords = current_user.records.swappable
@@ -13,10 +11,10 @@ class DealsController < ApplicationController
     @deal = Deal.new(deal_params)
     @deal.receiver_record_id = @record.id
 
-    if @deal.save # false si les validations ne passent pas
+    if @deal.save
       redirect_to mydeals_path
     else
-      render :new # template de views/reviews/new.html.erb
+      render :new
     end
   end
 

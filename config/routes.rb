@@ -18,9 +18,16 @@ Rails.application.routes.draw do
     confirmations:      'users/confirmations'
   }
 
-  resources :mydeals, only: [:index, :show]
+  resources :mydeals, only: [:show] do
+    collection do
+      get "received",    to: 'mydeals/received#index'
+      get "requested",   to: 'mydeals/requested#index'
+      get "in_progress", to: 'mydeals/in_progress#index'
+      get "completed",   to: 'mydeals/completed#index'
+    end
+  end
 
-  resources :deals, only: [:index, :show] do
+  resources :deals, only: [] do
     member do
       patch :confirm
       patch :accept
@@ -30,7 +37,7 @@ Rails.application.routes.draw do
 
   resources :records, only: [:index, :show] do
     collection do
-      get 'discover', to: 'records#discover'
+      get 'discover'#, to: 'records#discover'
     end
     resources :deals, only: [:new, :create]
   end

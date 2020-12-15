@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :discover, :import_from_discogs]
+  skip_before_action :redirect_user_without_confirmed_email!, only: [:index, :discover]
 
   def discover
     @discover = Record.

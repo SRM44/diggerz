@@ -1,14 +1,17 @@
-<div class="app-container">
-  <div class="myrecords-wrapper">
-    <div id="myrecords-header">
-      <div div="records-search-header">
-        <h1>Vinyles à <%= @location.capitalize %></h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<%= content_for(:after_application_pack) do %>
+  <%= javascript_pack_tag "search" %>
+<% end %>
 
-        <div class="records-search">
-          <%= form_tag records_path, method: :get, class: "records-search-bar" do %>
-          <input id="query-input" name="search[query]" placeholder="Titre, Artiste, Label... " value="<%= params.dig(:search, :query) %>"></input>
-        </div>
+<div class="records-index-container">
+  <div div="records-search-header">
+
+    <h1>Vinyles à <%= @location.capitalize %></h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+    <div class="records-search">
+      <%= form_tag records_path, method: :get, class: "records-search-bar" do %>
+      <input id="query-input" name="search[query]" placeholder="Titre, Artiste, Label... " value="<%= params.dig(:search, :query) %>"></input>
+    </div>
 
         <div class="records-filters-wrapper">
             <%= select_tag "search[location]", options_for_select(User::Location.available, @location), onchange: "this.form.submit()" %>

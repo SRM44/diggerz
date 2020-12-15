@@ -130,11 +130,12 @@
 .vinyl-card-details-index-button {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     text-decoration: none;
     color: #F3F3F3;
     font-size: 20px;
     cursor: pointer;
-  
+
     a {
       color:$grey-300;
     }
@@ -143,7 +144,7 @@
     color: white;
     text-decoration: none;
     }
-  
+
     i {
       position: relative;
       text-decoration: none;
@@ -151,10 +152,10 @@
       font-size: 150%;
       cursor: pointer;
     }
-  
+
     i:hover {
       color: white;
       font-weight: 800;
     }
-  
+
   }
