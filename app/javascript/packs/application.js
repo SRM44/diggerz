@@ -1,9 +1,6 @@
 import "bootstrap";
-import "./discover";
 import "./deal";
-import "./swap";
 import "./search";
-import "./records-options";
 
 // listeners
 

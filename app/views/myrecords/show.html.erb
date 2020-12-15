@@ -1,3 +1,7 @@
+<%= content_for(:after_application_pack) do %>
+  <%= javascript_pack_tag "record_options" %>
+<% end %>
+
 <div class="deal-wrapper">
   <div class="deal-maker-container">
     <div class="vinyl-card-details" id="_deal" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(@record) %>')">
