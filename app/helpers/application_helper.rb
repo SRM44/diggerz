@@ -13,10 +13,14 @@ module ApplicationHelper
   end
 
   def current_user_avatar_path
-    if current_user.avatar.url.nil?
+    user_avatar_path(current_user)
+  end
+
+  def user_avatar_path(user)
+    if user.avatar.url.nil?
       image_path 'default_profile.png'
     else
-      cl_image_path current_user.avatar
+      cl_image_path user.avatar
     end
   end
 
