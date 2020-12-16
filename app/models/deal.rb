@@ -1,5 +1,13 @@
 class Deal < ApplicationRecord
-  STATUSES = [:pending, :accepted, :declined, :canceled, :completed]
+  STATUSES = [
+    :pending,
+    :accepted,
+    :declined,
+    :canceled,
+    :confirmed_by_requester,
+    :confirmed_by_receiver,
+    :completed
+  ]
 
   STATUSES.each do |status|
     scope status, ->() { where(status: status) }
@@ -24,5 +32,10 @@ class Deal < ApplicationRecord
 
   def cancel
     self.status = 'canceled'
+  end
+
+  def confirm_for(user)
+    # TODO: encapsulate logic around confirmation based on user
+    # & deal previous steps in lifecycle
   end
 end

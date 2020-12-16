@@ -42,6 +42,18 @@ class DealsController < ApplicationController
     redirect_to mydeal_path(@deal)
   end
 
+  def confirm
+    @deal = Deal.find(params[:id])
+    @deal.confirm_for(current_user)
+    @deal.save
+
+    if @deal.completed
+      redirect_to completed_deal_path(@deal)
+    else
+      redirect_to mydeal_path(@deal)
+    end
+  end
+
   private
 
   def deal_params

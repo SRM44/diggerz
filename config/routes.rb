@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   get 'deal-annule',                  to: 'new_app_design#show_deal_cancelled'
   get 'forgot',                       to: 'new_app_design#forgot_password'
 
-  get "decouvrir", to: "records#index"
-
   root to: 'pages#home'
 
   devise_for :users, controllers: {
@@ -29,30 +27,34 @@ Rails.application.routes.draw do
 
   resources :deals, only: [] do
     member do
-      # Phase 1: deal open
+      # Deal lifecycle
+      ## Phase 1: deal open
       patch :accept
       patch :decline
       patch :cancel
 
-      # Phase 2: deal in progress
+      ## Phase 2: deal in progress
       patch :confirm
+
+      ## Phase 3: specific show when deal has been completed
+      get :completed
     end
   end
 
   resources :records, only: [:index, :show] do
     collection do
-      get 'discover'#, to: 'records#discover'
+      get 'discover'
     end
     resources :deals, only: [:new, :create]
   end
 
   resources :myrecords, only: [:index, :show, :new, :create, :update, :destroy] do
-
     collection do
       resources :releases, only: [:new, :create]
 
       get :import_from_discogs
     end
+
     member do
       patch :toggle_swappable
     end
