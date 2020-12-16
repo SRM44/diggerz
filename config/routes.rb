@@ -29,9 +29,13 @@ Rails.application.routes.draw do
 
   resources :deals, only: [] do
     member do
-      patch :confirm
+      # Phase 1: deal open
       patch :accept
       patch :decline
+      patch :cancel
+
+      # Phase 2: deal in progress
+      patch :confirm
     end
   end
 

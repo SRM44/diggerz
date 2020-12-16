@@ -20,16 +20,26 @@ class DealsController < ApplicationController
 
   def accept
     @deal = Deal.find(params[:id])
-    @deal.status = 'accepted'
+    @deal.accept
     @deal.save
-    redirect_to mydeals_path
+
+    redirect_to mydeal_path(@deal)
   end
 
   def decline
     @deal = Deal.find(params[:id])
-    @deal.status = 'declined'
+    @deal.decline
     @deal.save
-    redirect_to mydeals_path
+
+    redirect_to mydeal_path(@deal)
+  end
+
+  def cancel
+    @deal = Deal.find(params[:id])
+    @deal.cancel
+    @deal.save
+
+    redirect_to mydeal_path(@deal)
   end
 
   private

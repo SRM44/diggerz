@@ -12,4 +12,16 @@ class Deal < ApplicationRecord
 
   belongs_to :receiver_record, class_name: 'Record'
   belongs_to :requester_record, class_name: 'Record'
+
+  def accept
+    self.status = 'accepted'
+  end
+
+  def decline
+    self.status = 'declined'
+  end
+
+  def cancel
+    self.status = 'canceled'
+  end
 end
