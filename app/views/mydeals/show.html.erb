@@ -1,87 +1,23 @@
-
 <div class="deal-maker-container col">
-
-  <% if @current_user_received_deal %>
-    <div class="deal-wrapper">
-      <div class="deal-maker-container">
-        <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(@proposed_record) %>')">
-          <div class="vinyl-card-details-index-button">
-          	<%= link_to received_mydeals_path do %>
-              <i class="fas fa-long-arrow-alt-left"></i>
-            <% end %>
-            <div class="deal-requester-img">
-              <span><%= @proposed_record.user.username %> vous propose</span>
-              <img src="<%= user_avatar_path(@proposed_record.user) %>">
-            </div>
-          </div>
-          <div class="vinyl-card-details-infos">
-            <h3> <%= @proposed_record.release.title %> </h3>
-            <p> <%= @proposed_record.release.artist %> </p>
-            <p> <%= @proposed_record.release.year %> - <%= @proposed_record.release.genre.name %> - <%= @proposed_record.release.label %></p>
-            <p class="record-condition-cap"> <%= @proposed_record.condition %> </p>
-          </div>
-        </div>
-        <p class="swapping-for-label">En échange de</p>
-        <div class="myrecords-card">
-          <div id="my-records-infos">
-            <img src="<%= record_cover(@asked_record) %>">
-            <div>
-              <h5><%= @asked_record.release.title %></h5>
-              <p><%= @asked_record.release.artist %></p>
-            </div>
-          </div>
-        </div>
-        <div class="md-show-actions-btn flex">
-          <%= link_to "Accepter", accept_deal_path(@deal), method: :patch, class: "button-master" %>
-
-          <%= link_to "Refuser", decline_deal_path(@deal), method: :patch, class: "button-secondary" %>
-        </div>
-      </div>
+  <div class="deal-wrapper">
+    <div class="deal-maker-container">
+      <% if @current_user_received_deal %>
+        <%= render 'mydeals/components/exchange_target_record',
+                   record: @proposed_record,
+                   for_user: :receiver %>
+        <%= render 'mydeals/components/in_exchange_of_record',
+                   record: @asked_record %>
+        <%= render "mydeals/components/actions/#{@deal.status}/receiver_actions",
+                   deal: @deal %>
+      <% else %>
+        <%= render 'mydeals/components/exchange_target_record',
+                   record: @asked_record,
+                   for_user: :requester %>
+        <%= render 'mydeals/components/in_exchange_of_record',
+                   record: @proposed_record %>
+        <%= render "mydeals/components/actions/#{@deal.status}/requester_actions",
+                   deal: @deal %>
+      <% end %>
     </div>
-  <% else %>
-    <div class="deal-wrapper">
-      <div class="deal-maker-container">
-        <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(@asked_record) %>')">
-          <div class="vinyl-card-details-index-button">
-            <%= link_to received_mydeals_path do %>
-              <i class="fas fa-long-arrow-alt-left"></i>
-            <% end %>
-            <div class="deal-requester-img">
-              <span>Proposé à <%= @asked_record.user.username %></span>
-              <img src="<%= cl_image_path @asked_record.user.avatar %>">
-            </div>
-          </div>
-          <div class="vinyl-card-details-infos">
-            <h3> <%= @asked_record.release.title %> </h3>
-            <p> <%= @asked_record.release.artist %> </p>
-            <p> <%= @asked_record.release.year %> - <%= @asked_record.release.genre.name %> - <%= @asked_record.release.label %></p>
-            <p class="record-condition-cap"> <%= @asked_record.condition %> </p>
-          </div>
-        </div>
-        <p class="swapping-for-label">En échange de</p>
-        <div class="myrecords-card">
-          <div id="my-records-infos">
-            <img src="<%= record_cover(@proposed_record) %>">
-            <div>
-              <h5><%= @proposed_record.release.title %></h5>
-              <p><%= @proposed_record.release.artist %></p>
-            </div>
-          </div>
-        </div>
-        <div class="md-show-actions-btn">
-          <%= link_to accept_deal_path(@deal), method: :patch do %>
-            <div class="button-master md-show-accept">
-                Accepter l'échange
-            </div>
-          <% end %>
-          <%= link_to accept_deal_path(@deal), method: :patch do %>
-            <div class="button-secondary md-show-decline">
-                Nope !
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
+  </div>
 </div>
