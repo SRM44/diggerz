@@ -6,6 +6,7 @@ class Deal < ApplicationRecord
   end
 
   scope :by_most_recent, ->() { order(created_at: :desc) }
+  scope :in_progress,    ->() { where(status: [:accepted]) }
 
   extend Enumerize
   enumerize :status, in: STATUSES, predicates: true, default: :pending

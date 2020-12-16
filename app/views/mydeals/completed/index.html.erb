@@ -12,7 +12,7 @@
       <% @deals.each do |deal| %>
 
         <div class="card-list-container">
-          <%= link_to mydeal_path(deal) do %>
+          <%= link_to mydeal_path(deal, mydeals_return_url: completed_mydeals_url) do %>
 
             <img src="<%= record_cover(deal.receiver_record) %>" alt="">
             <div class="card-list-infos">
