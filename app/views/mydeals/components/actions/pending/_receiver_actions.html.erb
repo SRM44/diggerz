@@ -1,0 +1,5 @@
+<div class="md-show-actions-btn flex">
+  <%= link_to "Accepter", accept_deal_path(deal), method: :patch, class: "button-master" %>
+
+  <%= link_to "Refuser", decline_deal_path(deal), method: :patch, class: "button-secondary" %>
+</div>
