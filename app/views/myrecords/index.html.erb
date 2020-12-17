@@ -39,11 +39,12 @@
             <p> Synchroniser avec Discogs</p>
           </div>
         <% end %>
-
+        <div class="records-search">
         <%= form_tag myrecords_path, method: :get, class: "records-search-bar"  do %>
           <input id="query-input" name="search[query]" placeholder="Titre, Artiste, Label... " value="<%= params.dig(:search, :query) %>" />
           <button><i class="fas fa-search fa-lg"></i></button>
         <% end %>
+        </div>
       </div>
 
       <div class="myrecords-cards-container">

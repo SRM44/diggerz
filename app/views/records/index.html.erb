@@ -2,7 +2,7 @@
   <%= javascript_pack_tag "search" %>
 <% end %>
 
-<div class="records-index-container">
+<div class="app-container">
   <div div="records-search-header">
 
     <h1>Vinyles à <%= @location.capitalize %></h1>
@@ -50,13 +50,13 @@
 
       <div class="records-grid">
         <% @records.each do |record| %>
-          <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="records-index-card">
-            <img src="<%= record_cover(record) %>">
-            <div class="records-index-infos">
-              <p>Vinyle <%= record.release.genre.name %> à <%= record.user.location %> </p>
-              <h3><%= record.release.title %></h3>
-              <p><%= record.release.artist %></p>
-              <p>Proposé par <%= record.user.username %></p>
+          <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')" >
+            <div class="records-cards-infos">
+              <div>
+                <p><%= record.release.genre.name %></p>
+                <h3><%= record.release.title %></h3>
+                <p><%= record.release.artist %></p>
+              </div>
             </div>
           </div>
 
