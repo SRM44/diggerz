@@ -1,6 +1,4 @@
 class MydealsController < ApplicationController
-
-
   before_action :set_deal, only: [:show]
 
   def show
