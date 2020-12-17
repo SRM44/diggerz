@@ -1,3 +1,21 @@
+.records-wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.records-search-col {
+  flex-basis: 30%;
+  margin: 1em;
+  position: fixed;
+  height: 100%;
+}
+
+.records-results {
+  margin: 1em;
+  flex-basis: 40%;
+  position: relative;
+  left: 19em;
+}
 
 .results-counter {
   display: flex;
@@ -14,6 +32,12 @@
   }
 }
 
+.records-grid {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .records-modals-wrapper {
   display: flex;
   flex-direction: column;
@@ -23,13 +47,19 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+
+  .records-wrapper {  
+      width: 80vw;
+      margin-left: 15%;
+  }
+
   .records-index-card {
     max-width: 500px;
   }
 
   .discover-vinyl-card {
-    left: 55%;
-    width: 45vw;
+    right: 0;
+    width: 35vw;
   }
 
   .vinyl-card-details {

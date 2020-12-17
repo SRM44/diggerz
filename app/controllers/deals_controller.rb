@@ -1,6 +1,5 @@
 class DealsController < ApplicationController
   skip_before_action :redirect_user_without_confirmed_email!
-
   def new
     @record    = Record.find(params[:record_id])
     @myrecords = current_user.records.swappable

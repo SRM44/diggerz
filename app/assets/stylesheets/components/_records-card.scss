@@ -1,24 +1,18 @@
-.records-grid {
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1em;
-  }
-
   .records-cards {
 
   }
   
   .records-index-card {
-    height: 20em;
-    width: 20em;
+    height: 18em;
+    width: 18em;
+    padding: 1em;
+    margin: 0.5em;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 1em;
     color: white;
     cursor: pointer;
 
@@ -32,6 +26,7 @@
     
     p:first-child {
       font-size: $micro-text;
+      margin-bottom: 1em;
     }
     .records-index-infos div:last-child {
       background-color: $grey-200;

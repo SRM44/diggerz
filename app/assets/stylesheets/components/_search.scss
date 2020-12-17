@@ -1,3 +1,20 @@
+.records-filters {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    select {
+        background-color: transparent;
+    }
+
+    button {
+        border: none;
+        text-decoration: none;
+        background-color: transparent;
+        margin-left: 1em;
+    }
+}
+
 .records-search-bar {
     display: flex;
     margin: 2em 0 2em 0;
@@ -22,35 +39,8 @@
     }
 }
 
-.records-filters-wrapper {
-    display: flex;
-    margin: 1em 0 1em 0;
-
-    select {
-        border-radius: 0.5em;
-        height: 48px;
-        border: solid $rich-black 3px;
-        margin: 0 0.5em 0 0.5em;
-        padding: 0.5em;
-        color: $grey-200;
-        background-color: $rich-black;
-    
-        i {
-            color: $rich-black;
-        }
-    }
-
-    button {
-        border: none;
-        text-decoration: none;
-        background-color: transparent;
-        margin-left: 1em;
-    }
-}
-
-
-
 .filter-label {
+    display: inline-block;
     color: white;
     border-radius: 0.5em;
     background-color: $rich-black;
