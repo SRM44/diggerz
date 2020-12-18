@@ -5,9 +5,10 @@
 
 .records-search-col {
   flex-basis: 30%;
-  margin: 1em;
-  position: fixed;
   height: 100%;
+  padding: 1em;
+  position: fixed;
+  background-color: $grey-600;
 }
 
 .records-results {
