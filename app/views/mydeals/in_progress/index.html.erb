@@ -1,50 +1,58 @@
-<div class="records-index-container main-container-md container-deals">
-  <h1>Deals</h1>
-  <%= render 'mydeals/nav', current_path: in_progress_mydeals_path %>
+<div class="app-container ">
+  <div class="myrecords-wrapper">
 
-  <section class="my-deals-container">
-    <% if @requested_deals.empty? && @received_deals.empty? %>
-      <p>Vous n’avez pas de deals en cours.</p>
-    <% else  %>
-      <p>Les échanges que vous devez effectuer.</p>
+    <h1>Deals</h1>
+    <%= render 'mydeals/nav', current_path: in_progress_mydeals_path %>
 
-      <% unless @received_deals.empty? %>
-        <h4>Les deals que vous avez reçus</h4>
+    <section>
+      <% if @requested_deals.empty? && @received_deals.empty? %>
+        <p>Vous n’avez pas de deals en cours.</p>
+      <% else  %>
+        <p>Les échanges que vous devez effectuer.</p>
 
-        <% @received_deals.each do |deal| %>
-          <div class="card-list-container">
-            <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url) do %>
-              <div class="records-index-card">
-                <img src="<%= record_cover(deal.requester_record) %>" alt="">
-                <div class="records-index-infos">
-                  <h3><%= deal.requester_record.release.title %></h3>
-                  <p><%= deal.requester_record.release.artist %></p>
-                  <p><i class="far fa-clock"> </i>Proposé par <%= deal.requester_record.user.username %></p>
+        <% unless @received_deals.empty? %>
+          <h4>Les deals que vous avez reçus</h4>
+
+          <div class="records-grid">
+            <% @received_deals.each do |deal| %>
+                <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url) do %>
+
+                  <div class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(deal.requester_record) %>')" >
+                    <div class="records-cards-infos">
+                      <p><%= deal.requester_record.release.genre.name %></p>
+                      <h3><%= deal.requester_record.release.title %></h3>
+                      <p><%= deal.requester_record.release.artist %></p>
+                      <p><i class="far fa-clock"> </i>Proposé à <%= deal.requester_record.user.username %></p>
+                    </div>
+                  </div>
+
+                <% end %>
+              <% end %>
+          </div>
+      <% end %>
+
+        <% unless @requested_deals.empty? %>
+          <h4>Les deals que vous avez proposés</h4>
+
+          <div class="records-grid">
+          <% @requested_deals.each do |deal| %>
+              <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url) do %>
+                
+                <div class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(deal.receiver_record) %>')" >
+                  <div class="records-cards-infos">
+                    <p><%= deal.receiver_record.release.genre.name %></p>
+                    <h3><%= deal.receiver_record.release.title %></h3>
+                    <p><%= deal.receiver_record.release.artist %></p>
+                    <p><i class="far fa-clock"> </i>Proposé à <%= deal.receiver_record.user.username %></p>
+                  </div>
                 </div>
-              </div>
+
+              <% end %>
             <% end %>
           </div>
         <% end %>
       <% end %>
+    </section>
 
-      <% unless @requested_deals.empty? %>
-        <h4>Les deals que vous avez proposés</h4>
-
-        <% @requested_deals.each do |deal| %>
-          <div class="card-list-container">
-            <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url) do %>
-              <div class="records-index-card">
-                <img src="<%= record_cover(deal.receiver_record) %>" alt="">
-                <div class="records-index-infos">
-                  <h3><%= deal.receiver_record.release.title %></h3>
-                  <p><%= deal.receiver_record.release.artist %></p>
-                  <p><i class="far fa-clock"> </i>Proposé par <%= deal.receiver_record.user.username %></p>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
-  </section>
+  </div>
 </div>
