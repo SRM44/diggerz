@@ -1,4 +1,6 @@
 class MydealsController < ApplicationController
+  skip_before_action :redirect_user_without_confirmed_email!
+
   before_action :set_deal, only: [:show]
 
   def show

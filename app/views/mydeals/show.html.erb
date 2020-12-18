@@ -1,6 +1,15 @@
-<div class="deal-maker-container col">
+<div class="deal-maker-container">
   <div class="deal-wrapper">
-    <div class="deal-maker-container">
+    <div class="deal-maker-container" id="validated-deal">
+
+      <div class="deal-header">
+        <%= link_to mydeals_return_url do %>
+        <i class="fas fa-long-arrow-alt-left"></i>
+        <% end %>
+        <h2>Deal accépté !</h2>
+        <i class="far fa-question-circle fa-lg dropdown"></i> 
+      </div>
+  
       <% if @current_user_received_deal %>
         <%= render 'mydeals/components/exchange_target_record',
                    record: @proposed_record,
@@ -18,6 +27,7 @@
         <%= render "mydeals/components/actions/#{@deal.status}/requester_actions",
                    deal: @deal %>
       <% end %>
+
     </div>
   </div>
 </div>
