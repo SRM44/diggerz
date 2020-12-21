@@ -1,7 +1,8 @@
-  .records-cards {
+.records-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  }
-  
   .records-index-card {
     height: 18em;
     width: 18em;

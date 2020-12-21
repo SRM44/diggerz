@@ -5,9 +5,10 @@
 
 .records-search-col {
   flex-basis: 30%;
-  margin: 1em;
-  position: fixed;
   height: 100%;
+  padding: 1em;
+  position: fixed;
+  background-color: $grey-600;
 }
 
 .records-results {
@@ -30,12 +31,6 @@
     margin-left: 1em;
     color: $grey-300;
   }
-}
-
-.records-grid {
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .records-modals-wrapper {
