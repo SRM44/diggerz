@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_142610) do
+ActiveRecord::Schema.define(version: 2020_12_18_124259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 2020_09_28_142610) do
     t.datetime "updated_at", null: false
     t.bigint "requester_record_id"
     t.bigint "receiver_record_id"
+    t.datetime "accepted_at"
+    t.datetime "declined_at"
+    t.datetime "canceled_at"
+    t.datetime "confirmed_by_requester_at"
+    t.datetime "confirmed_by_receiver_at"
+    t.datetime "completed_at"
     t.index ["receiver_record_id"], name: "index_deals_on_receiver_record_id"
     t.index ["requester_record_id"], name: "index_deals_on_requester_record_id"
   end

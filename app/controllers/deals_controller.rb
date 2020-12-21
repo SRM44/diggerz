@@ -45,10 +45,19 @@ class DealsController < ApplicationController
 
   def confirm
     @deal = Deal.find(params[:id])
-    @deal.confirm_for(current_user)
-    @deal.save
 
-    if @deal.completed
+    if @deal.canceled?
+      # TODO: send email to Steven
+      # Requester canceled while receiver confirmed, awkward!
+      flash.notice = "Le deal a été annulé par #{@deal.requester.username}. Un administrateur Diggerz a été notifié et reviendra vers vous sous peu."
+      redirect_to mydeal_path(@deal) and return
+
+    else
+      @deal.confirm_for(current_user)
+      @deal.save
+    end
+
+    if @deal.completed?
       redirect_to completed_deal_path(@deal)
     else
       redirect_to mydeal_path(@deal)

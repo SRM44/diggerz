@@ -22,20 +22,50 @@ class Deal < ApplicationRecord
   belongs_to :receiver_record, class_name: 'Record'
   belongs_to :requester_record, class_name: 'Record'
 
+  def receiver
+    @receiver ||= receiver_record.user
+  end
+
+  def requester
+    @requester ||= requester_record.user
+  end
+
   def accept
-    self.status = 'accepted'
+    self.status      = 'accepted'
+    self.accepted_at = DateTime.current
   end
 
   def decline
-    self.status = 'declined'
+    self.status      = 'declined'
+    self.declined_at = DateTime.current
   end
 
   def cancel
-    self.status = 'canceled'
+    self.status      = 'canceled'
+    self.canceled_at = DateTime.current
+  end
+
+  def canceled?
+    status == 'canceled'
+  end
+
+  def completed?
+    status == 'completed'
+  end
+
+  def confirmed_by_requester?
+    status == 'confirmed_by_requester'
+  end
+
+  def confirmed_by_receiver?
+    status == 'confirmed_by_receiver'
+  end
+
+  def confirmation_for(user)
+    Confirmation.new(self, user)
   end
 
   def confirm_for(user)
-    # TODO: encapsulate logic around confirmation based on user
-    # & deal previous steps in lifecycle
+    confirmation_for(user).process
   end
 end

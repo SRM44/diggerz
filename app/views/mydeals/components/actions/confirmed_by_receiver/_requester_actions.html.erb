@@ -1,0 +1,6 @@
+<div class="md-show-actions-btn flex">
+  <%= deal.receiver.username %> a confirmé que l'échange a bien eu lieu.
+  À vous de confirmer aussi !
+
+  <%= link_to "Confirmer", confirm_deal_path(deal), method: :patch, class: "button-master" %>
+</div>
