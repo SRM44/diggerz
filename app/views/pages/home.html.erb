@@ -4,14 +4,12 @@
       <div class="bb-header-wrapper">
         <h1 class="b-h1 bf-header">Troques des vinyles. Gratuitement.</h1>
         <p class="home---header-paragraph">Echanges des disques sans limites avec les passioné.es de ta ville. <br> Tous les genres, tous les styles.</p>
-        
+
         <div class="button-master">
         <% if user_signed_in? %>
           <%= link_to "Mon compte", myrecords_path %>
         <% else %>
-          <%= link_to  user_discogs_omniauth_authorize_path, method: :post do %>
-            Commencer
-          <% end %>
+          <%= link_to "Commencer", new_user_session_path %>
         <% end %>
         </div>
 
@@ -53,7 +51,7 @@
       <div class="button-master">Commencer</div>
     </div>
     <img  class="home_deal-img" src="https://images.unsplash.com/photo-1599231073504-b4f7b244dab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-  
+
     <div style="opacity: 0; display: none;" class="bf-background-holder">
       <div class="blue"></div>
     </div>
@@ -81,7 +79,7 @@
       <div class="button-master">Commencer</div>
     </div>
     <img  class="home_deal-img" src="https://images.unsplash.com/photo-1599231073504-b4f7b244dab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
-      
+
     <div style="opacity: 0; display: none;" class="bf-background-holder">
       <div class="green"></div>
     </div>
@@ -106,7 +104,7 @@ $(document).ready(function(){
         email: {
           name: $('#name').val(),
           email: $('#email').val()
-        } 
+        }
       },
       success: function() {
         $('#newsletter-success').show();
@@ -131,9 +129,9 @@ const body = document.getElementsByClassName('home_deals');
   for (let i = 0; sections.length > i; i++) {
 
     if (scrollFromTop <= sections[i].offsetTop) {
-      body.classList.add = colors[i] 
+      body.classList.add = colors[i]
       break
-    } 
+    }
   }
 }) */
 </script>

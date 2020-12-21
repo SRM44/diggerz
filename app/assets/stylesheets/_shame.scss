@@ -42,3 +42,13 @@
   margin-top: 1em;
   text-transform: uppercase;
 }
+
+.connexion-menu-links {
+  .disabled-link {
+    color: $light-gray;
+  }
+
+  .active {
+    color: $rich-black;
+  }
+}
