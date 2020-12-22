@@ -1,34 +1,25 @@
 <div class="app-container ">
   <div class="myrecords-wrapper">
+    <h1>Deals</h1>
+    <%= render 'mydeals/nav', current_path: requested_mydeals_path %>
 
-      <h1>Deals</h1>
-      <%= render 'mydeals/nav', current_path: requested_mydeals_path %>
+    <section>
+      <% if @deals.empty? %>
+        <p>Vous n’avez pas de propositions d'échange en attente ;).</p>
+      <% else  %>
+        <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
 
-      <section>
-        <% if @deals.empty? %>
-          <p>Vous n’avez pas encore envoyé de propositions d'échange ;).</p>
-        <% else  %>
-          <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
+        <div class="records-grid">
+          <% @deals.each do |deal| %>
 
-          <div class="records-grid">
-            <% @deals.each do |deal| %>
-
-              <%= link_to mydeal_path(deal, mydeals_return_url: requested_mydeals_url) do %>
-                <div class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(deal.receiver_record) %>')" >
-                  <div class="records-cards-infos">
-                    <p><%= deal.receiver_record.release.genre.name %></p>
-                    <h3><%= deal.receiver_record.release.title %></h3>
-                    <p><%= deal.receiver_record.release.artist %></p>
-                    <p><i class="far fa-clock"> </i>Proposé à <%= deal.receiver_record.user.username %></p>
-                  </div>
-                </div>
+            <%= link_to mydeal_path(deal, mydeals_return_url: requested_mydeals_url) do %>
+              <%= render 'mydeals/components/cards/base', deal: deal, record: deal.receiver_record do %>
+                <%= render 'mydeals/components/cards/footer/requester', deal: deal %>
               <% end %>
-              
             <% end %>
-          </div>
-        <% end %>
-      </section>
-
-
+          <% end %>
+        </div>
+      <% end %>
+    </section>
   </div>
 </div>

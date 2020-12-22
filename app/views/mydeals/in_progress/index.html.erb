@@ -15,44 +15,30 @@
 
           <div class="records-grid">
             <% @received_deals.each do |deal| %>
-                <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url) do %>
+              <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url) do %>
 
-                  <div class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(deal.requester_record) %>')" >
-                    <div class="records-cards-infos">
-                      <p><%= deal.requester_record.release.genre.name %></p>
-                      <h3><%= deal.requester_record.release.title %></h3>
-                      <p><%= deal.requester_record.release.artist %></p>
-                      <p><i class="far fa-clock"> </i>Proposé à <%= deal.requester_record.user.username %></p>
-                    </div>
-                  </div>
-
+                <%= render 'mydeals/components/cards/base', deal: deal, record: deal.requester_record do %>
+                  <%= render 'mydeals/components/cards/footer/receiver', deal: deal %>
                 <% end %>
               <% end %>
+            <% end %>
           </div>
-      <% end %>
+        <% end %>
 
         <% unless @requested_deals.empty? %>
           <h4>Les deals que vous avez proposés</h4>
 
           <div class="records-grid">
-          <% @requested_deals.each do |deal| %>
+            <% @requested_deals.each do |deal| %>
               <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url) do %>
-                
-                <div class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(deal.receiver_record) %>')" >
-                  <div class="records-cards-infos">
-                    <p><%= deal.receiver_record.release.genre.name %></p>
-                    <h3><%= deal.receiver_record.release.title %></h3>
-                    <p><%= deal.receiver_record.release.artist %></p>
-                    <p><i class="far fa-clock"> </i>Proposé à <%= deal.receiver_record.user.username %></p>
-                  </div>
-                </div>
-
+                <%= render 'mydeals/components/cards/base', deal: deal, record: deal.receiver_record do %>
+                  <%= render 'mydeals/components/cards/footer/requester', deal: deal %>
+                <% end %>
               <% end %>
             <% end %>
           </div>
         <% end %>
       <% end %>
     </section>
-
   </div>
 </div>

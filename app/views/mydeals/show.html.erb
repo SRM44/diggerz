@@ -2,29 +2,23 @@
   <div class="deal-wrapper">
     <div class="deal-maker-container" id="validated-deal">
 
-      <div class="deal-header">
-        <%= link_to mydeals_return_url do %>
-        <i class="fas fa-long-arrow-alt-left"></i>
-        <% end %>
-        <h2>Deal accépté !</h2>
-        <i class="far fa-question-circle fa-lg dropdown"></i> 
-      </div>
-  
+      <%= render "mydeals/components/show/header/base" do %>
+        <%= render "mydeals/components/show/header/title/#{@deal.status}" %>
+      <% end %>
+
       <% if @current_user_received_deal %>
-        <%= render 'mydeals/components/exchange_target_record',
-                   record: @proposed_record,
-                   for_user: :receiver %>
-        <%= render 'mydeals/components/in_exchange_of_record',
+        <%= render "mydeals/components/show/with_user_context/#{@deal.status}/receiver/exchange_target_record",
+                   record: @proposed_record %>
+        <%= render 'mydeals/components/show/in_exchange_of_record',
                    record: @asked_record %>
-        <%= render "mydeals/components/actions/#{@deal.status}/receiver_actions",
+        <%= render "mydeals/components/show/with_user_context/#{@deal.status}/receiver/actions",
                    deal: @deal %>
       <% else %>
-        <%= render 'mydeals/components/exchange_target_record',
-                   record: @asked_record,
-                   for_user: :requester %>
-        <%= render 'mydeals/components/in_exchange_of_record',
+        <%= render "mydeals/components/show/with_user_context/#{@deal.status}/requester/exchange_target_record",
+                   record: @asked_record %>
+        <%= render 'mydeals/components/show/in_exchange_of_record',
                    record: @proposed_record %>
-        <%= render "mydeals/components/actions/#{@deal.status}/requester_actions",
+        <%= render "mydeals/components/show/with_user_context/#{@deal.status}/requester/actions",
                    deal: @deal %>
       <% end %>
 

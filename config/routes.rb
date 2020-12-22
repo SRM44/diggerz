@@ -36,9 +36,6 @@ Rails.application.routes.draw do
 
       ## Phase 2: deal in progress
       patch :confirm
-
-      ## Phase 3: specific show when deal has been completed
-      get :completed
     end
   end
 
