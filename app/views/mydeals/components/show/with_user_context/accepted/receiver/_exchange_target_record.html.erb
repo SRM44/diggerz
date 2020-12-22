@@ -1,26 +1,5 @@
-<div class="vd-contact-container">
-  <img src="<%= user_avatar_path(record.user) %>">
-  <div>
-    <h5><%= record.user.username %></h5>
-    <p><%= record.user.location %></p>
-    <div class="vd-contact-ctas">
-      <div class="button-master"><i class="fas fa-phone"></i></div>
-      <div class="button-master"><i class="far fa-envelope"></i></div>
-    </div>
-  </div>
-</div>
+<%= render 'mydeals/components/show/contact_box', user: record.user %>
 
-<div class="vd-confirmation-msg">
-  <p>Contacte <strong><%= record.user.username %></strong> pour organiser un RDV afin d'échanger vos disques !</p>
-</div>
+<%= render 'mydeals/components/show/with_user_context/accepted/contact_cta', user: record.user %>
 
-<div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
-  <div class="vinyl-card-details-infos">
-    <h3><%= record.release.title %></h3>
-    <p><%= record.release.artist %></p>
-    <p><%= record.release.year %> - <%= record.release.genre.name %> - <%= record.release.label %></p>
-    <% if record.condition.present? %>
-      <p class="record-condition-cap"> <%= record.condition %> </p>
-    <% end %>
-  </div>
-</div>
+<%= render 'mydeals/components/show/record', record: record %>

@@ -7,7 +7,7 @@
     height: 18em;
     width: 18em;
     padding: 1em;
-    margin: 0.5em;
+    margin: 0.5em 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,10 +21,10 @@
       color: white;
       font-size: 2em;
       text-overflow: ellipsis;
-      overflow: hidden; 
+      overflow: hidden;
       white-space: nowrap;
     }
-    
+
     p:first-child {
       font-size: $micro-text;
       margin-bottom: 1em;
@@ -38,11 +38,11 @@
       justify-self: flex-end;
     }
   }
-  
+
   .records-undisplay {
     display: none;
   }
-  
+
   .discover-vinyl-card {
     position: fixed;
     top:0;

@@ -1,14 +1,14 @@
 #myrecords-header {
     margin-bottom: 1em;
     display: inline-block;
-    
+
     h1 {
         font-size: 2em;
     }
 }
 
 .myrecords-wrapper{
-    width: 100vw;
+  // width: 100vw;
 }
 
 .myrecords-cards-container {
@@ -62,9 +62,9 @@
 }
 
 @media (min-width: 992px) {
-    .myrecords-wrapper{
-        width: 50vw;
-    }
+  .myrecords-wrapper{
+    width: 50vw;
+  }
 }
 
 

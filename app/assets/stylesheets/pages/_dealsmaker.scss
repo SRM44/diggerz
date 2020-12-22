@@ -1,22 +1,18 @@
 .deal-maker-container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    #validated-deal {
-        margin: 1em;
-    }
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
-.deal_mycollection { 
-    
+.deal_mycollection {
+
     width: 100vw;
     height: 100%;
     padding: 1em;
 
-    h3 { 
+    h3 {
         margin-bottom: 2em;
     }
     h3, h4, div, p {
@@ -34,7 +30,7 @@
 .deal-input{
     display:none;
 }
-  
+
 .deal-input-show {
     height: 45%;
     width: 100%;

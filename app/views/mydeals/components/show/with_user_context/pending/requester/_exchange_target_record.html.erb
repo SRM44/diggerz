@@ -1,15 +1,5 @@
-<div class="deal-requester-img">
+<%= render 'mydeals/components/show/with_user_context/explanation_message', user: record.user do %>
   <span>Vous avez proposé ce deal à <%= record.user.username %></span>
-  <img src="<%= user_avatar_path(record.user) %>">
-</div>
+<% end %>
 
-<div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
-  <div class="vinyl-card-details-infos">
-    <h3><%= record.release.title %></h3>
-    <p><%= record.release.artist %></p>
-    <p><%= record.release.year %> - <%= record.release.genre.name %> - <%= record.release.label %></p>
-    <% if record.condition.present? %>
-      <p class="record-condition-cap"> <%= record.condition %> </p>
-    <% end %>
-  </div>
-</div>
+<%= render 'mydeals/components/show/record', record: record %>

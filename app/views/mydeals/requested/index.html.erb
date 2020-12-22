@@ -1,4 +1,4 @@
-<div class="app-container ">
+<div class="app-container">
   <div class="myrecords-wrapper">
     <h1>Deals</h1>
     <%= render 'mydeals/nav', current_path: requested_mydeals_path %>
@@ -14,7 +14,23 @@
 
             <%= link_to mydeal_path(deal, mydeals_return_url: requested_mydeals_url) do %>
               <%= render 'mydeals/components/cards/base', deal: deal, record: deal.receiver_record do %>
-                <%= render 'mydeals/components/cards/footer/requester', deal: deal %>
+                <%= render 'mydeals/components/cards/user_exchanged_with/requester', deal: deal %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <% @deals.each do |deal| %>
+
+            <%= link_to mydeal_path(deal, mydeals_return_url: requested_mydeals_url) do %>
+              <%= render 'mydeals/components/cards/base', deal: deal, record: deal.receiver_record do %>
+                <%= render 'mydeals/components/cards/user_exchanged_with/requester', deal: deal %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <% @deals.each do |deal| %>
+
+            <%= link_to mydeal_path(deal, mydeals_return_url: requested_mydeals_url) do %>
+              <%= render 'mydeals/components/cards/base', deal: deal, record: deal.receiver_record do %>
+                <%= render 'mydeals/components/cards/user_exchanged_with/requester', deal: deal %>
               <% end %>
             <% end %>
           <% end %>

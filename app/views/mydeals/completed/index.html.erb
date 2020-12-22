@@ -16,7 +16,7 @@
               <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url) do %>
 
                 <%= render 'mydeals/components/cards/base', deal: deal, record: deal.receiver_record do %>
-                  <%= render 'mydeals/components/cards/footer/receiver', deal: deal %>
+                  <%= render 'mydeals/components/cards/user_exchanged_with/receiver', deal: deal %>
                 <% end %>
               <% end %>
             <% end %>
@@ -30,7 +30,7 @@
             <% @requested_deals.each do |deal| %>
               <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url) do %>
                 <%= render 'mydeals/components/cards/base', deal: deal, record: deal.requester_record do %>
-                  <%= render 'mydeals/components/cards/footer/requester', deal: deal %>
+                  <%= render 'mydeals/components/cards/user_exchanged_with/requester', deal: deal %>
                 <% end %>
               <% end %>
             <% end %>

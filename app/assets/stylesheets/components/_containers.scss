@@ -1,11 +1,10 @@
 .app-container {
-    padding: 1em 1em 4em 1em;
-    margin: 1em;
-    height: 100%;
+  padding: 1em;
+  margin-bottom: calc(50px + 1em);
 }
 
 @media (min-width: 992px) {
-    .app-container{  
+    .app-container{
         width: 80vw;
         margin-left: 15%;
     }
