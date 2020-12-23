@@ -1,5 +1,6 @@
 class DealsController < ApplicationController
   skip_before_action :redirect_user_without_confirmed_email!
+
   def new
     @record    = Record.find(params[:record_id])
     @myrecords = current_user.records.swappable
@@ -9,11 +10,15 @@ class DealsController < ApplicationController
 
   def create
     @record = Record.find(params[:record_id])
-    @deal = Deal.new(deal_params)
+    @deal   = Deal.new(deal_params)
+
     @deal.receiver_record_id = @record.id
 
     if @deal.save
-      redirect_to mydeals_path
+      Deals::Mailers::Requester::Created.with(deal: @deal).send_mail.deliver_now
+      Deals::Mailers::Receiver::Created.with(deal: @deal).send_mail.deliver_now
+
+      redirect_to requested_mydeals_path
     else
       render :new
     end
