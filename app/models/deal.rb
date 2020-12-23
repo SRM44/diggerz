@@ -16,6 +16,13 @@ class Deal < ApplicationRecord
   scope :by_most_recent, ->() { order(created_at: :desc) }
   scope :in_progress,    ->() { where(status: [:accepted, :confirmed_by_requester, :confirmed_by_receiver]) }
 
+
+  scope :other_than,     ->(deal) { where.not(id: deal.id) }
+
+  scope :to_be_cleaned_up_on_deal_completion, ->(completed_deal) do
+    other_than(completed_deal).in_progress.or(Deal.pending)
+  end
+
   extend Enumerize
   enumerize :status, in: STATUSES, predicates: true, default: :pending
 

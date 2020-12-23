@@ -28,6 +28,7 @@ class Deal
         deal.status = :completed
 
         swap_records_owners
+        cleanup_both_records_non_completed_deals
       else
         deal.status = "confirmed_by_#{user_context}".to_sym
       end
@@ -59,6 +60,21 @@ class Deal
 
       deal.receiver_record.user_id  = original_requester_id
       deal.requester_record.user_id = original_receiver_id
+    end
+
+    def cleanup_both_records_non_completed_deals
+      deal.
+        requester_record.
+        deals.
+        to_be_cleaned_up_on_deal_completion(deal).
+        destroy_all
+
+      deal.
+        receiver_record.
+        deals.
+        to_be_cleaned_up_on_deal_completion(deal).
+        destroy_all
+
     end
   end
 end
