@@ -7,7 +7,7 @@ class MydealsController < ApplicationController
     @proposed_record = @deal.requester_record
     @asked_record    = @deal.receiver_record
 
-    @current_user_received_deal = @asked_record.user == current_user
+    @current_user_received_deal = @deal.receiver == current_user
   end
 
   private
