@@ -26,6 +26,8 @@ class Deal
     def process
       if waiting_for_other_user_confirmation?
         deal.status = :completed
+
+        swap_records_owners
       else
         deal.status = "confirmed_by_#{user_context}".to_sym
       end
@@ -49,6 +51,14 @@ class Deal
 
     def status_changed_timestamp_column
       "#{deal.status}_at".to_sym
+    end
+
+    def swap_records_owners
+      original_receiver_id  = deal.receiver_record.user_id
+      original_requester_id = deal.requester_record.user_id
+
+      deal.receiver_record.user_id  = original_requester_id
+      deal.requester_record.user_id = original_receiver_id
     end
   end
 end

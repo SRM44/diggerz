@@ -19,16 +19,11 @@ class Deal < ApplicationRecord
   extend Enumerize
   enumerize :status, in: STATUSES, predicates: true, default: :pending
 
-  belongs_to :receiver_record, class_name: 'Record'
-  belongs_to :requester_record, class_name: 'Record'
+  belongs_to :receiver_record,  class_name: 'Record', autosave: true
+  belongs_to :requester_record, class_name: 'Record', autosave: true
 
-  def receiver
-    @receiver ||= receiver_record.user
-  end
-
-  def requester
-    @requester ||= requester_record.user
-  end
+  belongs_to :receiver,         class_name: 'User',   autosave: true
+  belongs_to :requester,        class_name: 'User',   autosave: true
 
   def accept
     self.status      = 'accepted'

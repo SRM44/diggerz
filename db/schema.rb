@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_18_124259) do
+ActiveRecord::Schema.define(version: 2020_12_23_155740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,11 @@ ActiveRecord::Schema.define(version: 2020_12_18_124259) do
     t.datetime "confirmed_by_requester_at"
     t.datetime "confirmed_by_receiver_at"
     t.datetime "completed_at"
+    t.bigint "requester_id"
+    t.bigint "receiver_id"
+    t.index ["receiver_id"], name: "index_deals_on_receiver_id"
     t.index ["receiver_record_id"], name: "index_deals_on_receiver_record_id"
+    t.index ["requester_id"], name: "index_deals_on_requester_id"
     t.index ["requester_record_id"], name: "index_deals_on_requester_record_id"
   end
 
@@ -126,6 +130,8 @@ ActiveRecord::Schema.define(version: 2020_12_18_124259) do
 
   add_foreign_key "deals", "records", column: "receiver_record_id"
   add_foreign_key "deals", "records", column: "requester_record_id"
+  add_foreign_key "deals", "users", column: "receiver_id"
+  add_foreign_key "deals", "users", column: "requester_id"
   add_foreign_key "pictures", "records"
   add_foreign_key "preferences", "genres"
   add_foreign_key "preferences", "users"
