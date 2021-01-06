@@ -4,9 +4,9 @@
   </div>
   <h3>Choisissez votre disque à échanger</h3>
   <% @myrecords.each do |myrecord| %>
-    <div data-record-id="<%= myrecord.id %>" data-record-title="<%= myrecord.release.title %>" data-record-image="<%= myrecord.release.image %>" data-record-artist="<%= myrecord.release.artist %>" class="myrecords-card _collection-dark" id="deal_requester_record_id" >
+    <div data-record-id="<%= myrecord.id %>" data-record-title="<%= myrecord.release.title %>" data-record-image="<%= record_cover(myrecord) %>" data-record-artist="<%= myrecord.release.artist %>" class="myrecords-card _collection-dark" id="deal_requester_record_id" >
       <div id="my-records-infos">
-        <%= cl_image_tag myrecord.release.image %>
+        <%= cl_image_tag record_cover(myrecord) %>
         <div>
           <h4><%= myrecord.release.title %></h4>
           <p><%= myrecord.release.artist%></p>

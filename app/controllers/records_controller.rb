@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
   def discover
     @discover = Record.
       available_for_deals.
-      # available_for_user(current_user).
+      available_for_user(current_user).
       joins(release: :genre).
       includes(release: :genre)
   end
@@ -12,7 +12,7 @@ class RecordsController < ApplicationController
   def index
     @records = Record.
       available_for_deals.
-      # available_for_user(current_user).
+      available_for_user(current_user).
       joins(release: :genre).
       includes(release: :genre)
 

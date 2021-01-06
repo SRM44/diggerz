@@ -28,4 +28,8 @@ class Record < ApplicationRecord
 
     where(ilike_query, components: query_components)
   end
+
+  def deals
+    Deal.where(receiver_record: self).or(Deal.where(requester_record: self))
+  end
 end

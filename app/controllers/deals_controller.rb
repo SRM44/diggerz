@@ -14,6 +14,9 @@ class DealsController < ApplicationController
 
     @deal.receiver_record_id = @record.id
 
+    @deal.receiver  = @record.user
+    @deal.requester = current_user
+
     if @deal.save
       Deals::Mailers::Requester::Created.with(deal: @deal).send_mail.deliver_now
       Deals::Mailers::Receiver::Created.with(deal: @deal).send_mail.deliver_now
@@ -26,18 +29,32 @@ class DealsController < ApplicationController
 
   def accept
     @deal = Deal.find(params[:id])
-    @deal.accept
-    @deal.save
 
-    redirect_to mydeal_path(@deal)
+    if @deal.canceled?
+      # Requester canceled then receiver confirmed, awkward!
+      flash.notice = "Le deal a été entre temps annulé par #{@deal.requester.username}."
+      redirect_to mydeal_path(@deal) and return
+    else
+      @deal.accept
+
+      if @deal.save
+        Deals::Mailers::Requester::Accepted.with(deal: @deal).send_mail.deliver_now
+        Deals::Mailers::Receiver::Accepted.with(deal: @deal).send_mail.deliver_now
+
+        redirect_to mydeal_path(@deal)
+      end
+    end
   end
 
   def decline
     @deal = Deal.find(params[:id])
     @deal.decline
-    @deal.save
 
-    redirect_to mydeal_path(@deal)
+    if @deal.save
+      Deals::Mailers::Requester::Declined.with(deal: @deal).send_mail.deliver_now
+
+      redirect_to mydeal_path(@deal)
+    end
   end
 
   def cancel
@@ -52,21 +69,24 @@ class DealsController < ApplicationController
     @deal = Deal.find(params[:id])
 
     if @deal.canceled?
-      # TODO: send email to Steven
-      # Requester canceled while receiver confirmed, awkward!
+      # Requester canceled then receiver confirmed, awkward!
+      Deals::Mailers::Admin::CanceledAfterFirstConfirmation.with(deal: @deal).send_mail.deliver_now
+
       flash.notice = "Le deal a été annulé par #{@deal.requester.username}. Un administrateur Diggerz a été notifié et reviendra vers vous sous peu."
       redirect_to mydeal_path(@deal) and return
-
     else
       @deal.confirm_for(current_user)
       @deal.save
     end
 
     if @deal.completed?
-      redirect_to completed_deal_path(@deal)
+      # Deals::Mailers::Requester::Completed.with(deal: @deal).send_mail.deliver_now
+      # Deals::Mailers::Receiver::Completed.with(deal: @deal).send_mail.deliver_now
     else
-      redirect_to mydeal_path(@deal)
+      # TODO: flash notice
     end
+
+    redirect_to mydeal_path(@deal)
   end
 
   private
