@@ -33,22 +33,22 @@
     <div class="myrecords-wrapper">
       <div id="myrecords-header">
         <h1> Mes vinyles </h1>
-        <%= link_to import_from_discogs_myrecords_path do %>
-          <div class="myrecords-discog-sync-btn">
-            <i class="fas fa-sync-alt"></i>
-            <p> Synchroniser avec Discogs</p>
-          </div>
-        <% end %>
         <div class="records-search">
         <%= form_tag myrecords_path, method: :get, class: "records-search-bar"  do %>
           <input id="query-input" name="search[query]" placeholder="Titre, Artiste, Label... " value="<%= params.dig(:search, :query) %>" />
           <button><i class="fas fa-search fa-lg"></i></button>
         <% end %>
         </div>
+        <%= link_to import_from_discogs_myrecords_path do %>
+          <div class="myrecords-discog-sync-btn">
+            <i class="fas fa-sync-alt"></i>
+            <p> Synchroniser avec Discogs</p>
+          </div>
+        <% end %>
       </div>
 
       <div class="myrecords-cards-container">
-
+        <div class="myrecords-context">Echanger ?</div>
         <% @myrecords.sort_by {|myrecord| myrecord.created_at }.reverse.each do |myrecord| %>
           <div class="myrecords-card">
           <%= link_to myrecord_path(myrecord) do %>

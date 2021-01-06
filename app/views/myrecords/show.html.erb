@@ -38,11 +38,14 @@
       </ul>
       <% end %>
     </div>
-    <%if @record.swappable %>
-      <div class="record-available-btn"><i class="fas fa-check"></i></i>En ligne</div>
-    <% else %>
-      <div class="record-swapable-btn"><i class="fas fa-arrow-up"></i>Echanger</div>
-    <%end %>
+    <div id="myrecords-toggle" class="custom-control custom-switch custom-switch-collection onoffswitch" data-id="<%= @record.id %>">
+      <input type="checkbox" <%= 'checked' if @record.swappable %> name="record[swappable]" class="custom-control-input onoffswitch-checkbox" id="record-swap-<%= @record.id %>" data-id="<%= @record.id %>">
+        <label class="custom-control-label onoffswitch-label" for="record-swap-<%= @record.id %>">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
+      </div>
+      <%= link_to "", toggle_swappable_myrecord_path(@record), id: "submit-record-#{@record.id}", class: "hidden-button", method: :patch, remote: true %>
   </div>
 </div>
 
