@@ -1,0 +1,14 @@
+:concurrency: 3
+:timeout: 60
+:verbose: true
+:queues:
+  - default
+  - mailers
+  - reminders
+  - active_storage_analysis
+  - active_storage_purge
+:schedule:
+  schedule_in_progress_reminders:
+    cron: '01 0 * * *'   # Runs daily, at 00:01
+    # cron: '* * * * *' # For tests, runs every minute
+    class: Deals::InProgress::ScheduleRemindersJob

@@ -43,3 +43,7 @@ gem 'omniauth-discogs'
 gem 'discogs-wrapper'
 gem 'activerecord-session_store'
 gem 'simple_form'
+
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+gem 'sidekiq-scheduler'
