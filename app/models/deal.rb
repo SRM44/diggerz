@@ -63,6 +63,10 @@ class Deal < ApplicationRecord
     status == 'confirmed_by_receiver'
   end
 
+  def none_validated_yet?
+    !(confirmed_by_requester? || confirmed_by_receiver?)
+  end
+
   def confirmation_for(user)
     Confirmation.new(self, user)
   end

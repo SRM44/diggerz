@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   get 'deals',                        to: 'new_app_design#deals_page'
   get 'deal-envoye',                  to: 'new_app_design#show_deal_sent'
   get 'deal-recu',                    to: 'new_app_design#show_deal_pending'
