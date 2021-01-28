@@ -21,8 +21,8 @@ module Deals
       end
 
       def send_reminder_to_both_parties
-        reminder_class.with(deal: deal).send_to_requester
-        reminder_class.with(deal: deal).send_to_receiver
+        reminder_class.with(deal: deal).send_to_requester.deliver_now
+        reminder_class.with(deal: deal).send_to_receiver.deliver_now
       end
     end
   end
