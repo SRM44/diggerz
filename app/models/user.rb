@@ -44,11 +44,11 @@ class User < ApplicationRecord
   end
 
   def received_deals
-    @received_deals ||= Deal.where(receiver_record_id: record_ids)
+    @received_deals ||= Deal.where(receiver_id: id)
   end
 
   def requested_deals
-    @requested_deals ||= Deal.where(requester_record_id: record_ids)
+    @requested_deals ||= Deal.where(requester_id: id)
   end
 
   def location
