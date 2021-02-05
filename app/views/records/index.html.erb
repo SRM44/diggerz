@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="records-wrapper">
-  
+
   <div class="records-search-col">
     <div class="records-filters">
       <%= form_tag records_path, method: :get, class: "records-search-tags" do %>
@@ -13,7 +13,7 @@
         <div>Genre</div>
         <%= select_tag "filters[genres]", options_for_select(Genre.available, params.dig(:filters, :genres)), multiple: true %>
         <%# <div>Année</div>
-        <%= select_tag "filters[years]", options_for_select(Release::Year.available, params.dig(:filters, :years)), multiple: true %> 
+        <%= select_tag "filters[years]", options_for_select(Release::Year.available, params.dig(:filters, :years)), multiple: true %>
 
         <button><i class="fas fa-search fa-lg"></i></button>
       <% end %>
@@ -89,9 +89,16 @@
               <% end %>
 
             </div>
-            <div class="button-master vinyl-card-proposition-button">
-              <%= link_to 'Faire une proposition', new_record_deal_path(record, return_url: request.original_url) %>
-            </div>
+
+            <% if my_records_collection.empty? %>
+              <div class="button-master vinyl-card-proposition-button">
+                <%= link_to 'Ajouter mon premier disque', new_release_path(return_url: new_record_deal_path(record))%>
+              </div>
+            <% else %>
+              <div class="button-master vinyl-card-proposition-button">
+                <%= link_to 'Faire une proposition', new_record_deal_path(record, return_url: request.original_url) %>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
