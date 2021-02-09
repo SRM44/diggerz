@@ -10,13 +10,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def discogs
     if user_signed_in?
       save_discogs_metadata
-      redirect_to myrecords_path
 
+      redirect_to myrecords_path
     else
       user = User.find_for_discogs_oauth(auth)
 
       if user.persisted?
-        session[:access_token] = request.env['omniauth.auth'].extra.access_token
         set_flash_message(:notice, :success, kind: 'Discogs') if is_navigational_format?
         sign_in(:user, user) unless user_signed_in?
 
