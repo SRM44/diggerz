@@ -90,13 +90,19 @@
 
             </div>
 
-            <% if my_records_collection.empty? %>
-              <div class="button-master vinyl-card-proposition-button">
-                <%= link_to 'Ajouter mon premier disque', new_release_path(return_url: new_record_deal_path(record))%>
-              </div>
+            <% if user_signed_in? %>
+              <% if @user_records.empty? %>
+                <div class="button-master vinyl-card-proposition-button">
+                  <%= link_to 'Ajouter mon premier disque', new_release_path(return_url: new_record_deal_url(record))%>
+                </div>
+              <% else %>
+                <div class="button-master vinyl-card-proposition-button">
+                  <%= link_to 'Faire une proposition', new_record_deal_path(record, return_url: request.original_url) %>
+                </div>
+              <% end %>
             <% else %>
               <div class="button-master vinyl-card-proposition-button">
-                <%= link_to 'Faire une proposition', new_record_deal_path(record, return_url: request.original_url) %>
+                <%= link_to 'Se connecter', new_user_session_path %>
               </div>
             <% end %>
           </div>

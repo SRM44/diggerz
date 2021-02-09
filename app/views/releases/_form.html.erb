@@ -6,7 +6,7 @@
   as: :file,
   input_html: { multiple: true } %>
   </div>
-  
+
   <div class="form-field">
   <%= f.input :title,
   placeholder: 'Album',
@@ -27,7 +27,7 @@
   <%# f.input :label, collection: Release.pluck(:label) %>
   </div>
 
-  <div class="form-field-group"> 
+  <div class="form-field-group">
 
     <div class="form-field">
      <%= f.input :year,
@@ -42,10 +42,12 @@
       label:false %>
     </div>
   </div>
-  
+
   <div class="form-group string optional record_condition form-field">
     <input class="form-control string optional" type="text" name="record[condition]" id="record_condition" placeholder="Dans quel état est ton disque ?">
   </div>
+
+  <input type="text" name="return_url" value="<%= params[:return_url] %>" class="hidden">
 
 <%#   <h3>Tracklist</h3>
   <div class="fields">
@@ -56,6 +58,6 @@
   </div> %>
 
 
-  <%= f.submit 'Ajouter mon disque', 
+  <%= f.submit 'Ajouter mon disque',
    class: "button-master" %>
 <% end %>

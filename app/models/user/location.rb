@@ -1,5 +1,9 @@
 class User
   class Location
+    def self.default
+      available.first
+    end
+
     def self.available
       %w(
           NANTES

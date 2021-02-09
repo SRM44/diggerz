@@ -11,7 +11,8 @@ class ReleasesController < ApplicationController
 
     if @release.save && @record.save
       save_pictures
-      redirect_to myrecords_path
+
+      redirect_to redirect_path
     else
       render :new
     end
@@ -41,5 +42,9 @@ class ReleasesController < ApplicationController
 
   def release_params
     params.require(:release).permit(:title, :artist, :label, :year, :genre_id, tracks_attributes: [:title, :position, :_destroy])
+  end
+
+  def redirect_path
+    params[:return_url].presence || myrecords_path
   end
 end
