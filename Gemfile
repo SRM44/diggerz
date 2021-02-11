@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 ruby '2.7.0'
 
 gem 'devise', ">= 4.7.1"
@@ -17,6 +18,7 @@ gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
+gem 'bootstrap-sass'
 gem 'sassc-rails'
 gem 'uglifier'
 
