@@ -1,50 +1,49 @@
-<%= simple_form_for(@release) do |f| %>
-
+<% path = @release.persisted? ? myrecord_release_path : releases_path %>
+<%= simple_form_for([@record, @release], url: path) do |f| %>
   <div>
-  <%= f.input :pictures,
-  label:false,
-  as: :file,
-  input_html: { multiple: true } %>
+    <%= f.input :pictures,
+      label: false,
+      as: :file,
+      input_html: { multiple: true } %>
   </div>
 
   <div class="form-field">
-  <%= f.input :title,
-  placeholder: 'Album',
-  label:false %>
+    <%= f.input :title,
+    placeholder: 'Album',
+    label: false %>
   </div>
 
   <div class="form-field">
-  <%= f.input :artist,
-  placeholder: 'Artiste(s)',
-  label:false %>
-  <%# f.input :artist, collection: Release.pluck(:artist) %>
+    <%= f.input :artist,
+      placeholder: 'Artiste(s)',
+      label: false %>
+    <%# f.input :artist, collection: Release.pluck(:artist) %>
   </div>
 
   <div class="form-field">
-  <%= f.input :label,
-  placeholder: 'Label',
-  label:false %>
-  <%# f.input :label, collection: Release.pluck(:label) %>
+    <%= f.input :label,
+      placeholder: 'Label',
+      label: false %>
+    <%# f.input :label, collection: Release.pluck(:label) %>
   </div>
 
   <div class="form-field-group">
-
     <div class="form-field">
-     <%= f.input :year,
-      collection: Release::Year.available,
-      prompt: 'Date de sortie',
-      label:false %>
+      <%= f.input :year,
+        collection: Release::Year.available,
+        prompt: 'Date de sortie',
+        label: false %>
     </div>
 
     <div class="form-field">
       <%= f.association :genre,
-      prompt: 'Genre',
-      label:false %>
+        prompt: 'Genre',
+        label: false %>
     </div>
   </div>
 
   <div class="form-group string optional record_condition form-field">
-    <input class="form-control string optional" type="text" name="record[condition]" id="record_condition" placeholder="Dans quel état est ton disque ?">
+    <input class="form-control string optional" type="text" name="record[condition]" id="record_condition" value="<%= @record&.condition %>" placeholder="Dans quel état est ton disque ?">
   </div>
 
   <input type="text" name="return_url" value="<%= params[:return_url] %>" class="hidden">
@@ -58,6 +57,11 @@
   </div> %>
 
 
-  <%= f.submit 'Ajouter mon disque',
-   class: "button-master" %>
+  <% if @release.persisted? %>
+    <%= f.submit 'Mettre à jour mon disque',
+      class: "button-master" %>
+  <% else %>
+    <%= f.submit 'Ajouter mon disque',
+      class: "button-master" %>
+  <% end %>
 <% end %>

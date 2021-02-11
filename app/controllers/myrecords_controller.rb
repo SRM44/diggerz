@@ -45,7 +45,7 @@ class MyrecordsController < ApplicationController
   private
 
   def import_failed_alert(errors)
-    "L'import #{errors.count} de vos vinyles a échoué ❌"
+    "L'import de #{errors.count} de vos vinyles a échoué ❌"
   end
 
   def release_params

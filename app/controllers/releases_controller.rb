@@ -18,6 +18,24 @@ class ReleasesController < ApplicationController
     end
   end
 
+  def edit
+    @record  = Record.find(params[:myrecord_id])
+    @release = Release.find(params[:id])
+  end
+
+  def update
+    @record  = Record.find(params[:myrecord_id])
+    @release = Release.find(params[:id])
+
+    if @release.update(release_params) && @record.update(record_params)
+      save_pictures
+      redirect_to myrecord_path(@record)
+    else
+      render :edit
+    end
+
+  end
+
   private
 
   def build_release
@@ -42,6 +60,10 @@ class ReleasesController < ApplicationController
 
   def release_params
     params.require(:release).permit(:title, :artist, :label, :year, :genre_id, tracks_attributes: [:title, :position, :_destroy])
+  end
+
+  def record_params
+    params.require(:record).permit(:condition)
   end
 
   def redirect_path
