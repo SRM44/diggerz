@@ -7,7 +7,7 @@ module Deals
           @requester, @receiver = @deal.requester, @deal.receiver
 
           mail(
-            to:      @receiver.email,
+            to:      @requester.email,
             subject: subject,
           )
         end

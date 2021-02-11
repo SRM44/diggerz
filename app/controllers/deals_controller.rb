@@ -80,10 +80,8 @@ class DealsController < ApplicationController
     end
 
     if @deal.completed?
-      # Deals::Mailers::Requester::Completed.with(deal: @deal).send_mail.deliver_now
-      # Deals::Mailers::Receiver::Completed.with(deal: @deal).send_mail.deliver_now
-    else
-      # TODO: flash notice
+      Deals::Mailers::Requester::Completed.with(deal: @deal).send_mail.deliver_later
+      Deals::Mailers::Receiver::Completed.with(deal: @deal).send_mail.deliver_later
     end
 
     redirect_to mydeal_path(@deal)

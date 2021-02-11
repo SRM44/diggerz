@@ -1,7 +1,7 @@
 module Deals
   module Mailers
     module Requester
-      class Accepted < ApplicationMailer
+      class Completed < ApplicationMailer
         def send_mail
           @deal = params[:deal]
           @requester, @receiver = @deal.requester, @deal.receiver
@@ -15,7 +15,7 @@ module Deals
         private
 
         def subject
-          "Votre proposition d'échange a été acceptée ! 🎉"
+          "Votre échange avec #{@receiver.username} a été complété ! 🎉"
         end
       end
     end
