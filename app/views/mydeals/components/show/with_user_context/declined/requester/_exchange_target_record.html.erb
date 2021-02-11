@@ -1,0 +1,6 @@
+<div class="deal-requester-img">
+  <span>Vous avez proposé ce deal à <%= record.user.username %></span>
+  <img src="<%= user_avatar_path(record.user) %>">
+</div>
+
+<%= render 'mydeals/components/show/record', record: record %>

@@ -1,30 +1,51 @@
-<div class="container-vinyl-card">
-  <div class='vinyl-card'>
-    <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @record.release.image %>')">
+<%= content_for(:after_application_pack) do %>
+  <%= javascript_pack_tag "record_options" %>
+<% end %>
+
+<div class="deal-wrapper">
+  <div class="deal-maker-container">
+    <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(@record) %>')">
+      <div class="vinyl-card-details-index-button">
+      	<%= link_to myrecords_path do %><i class="fas fa-long-arrow-alt-left"></i><% end %>
+        <i class="fas fa-ellipsis-h" id="more-options"></i>
+      </div>
+      <div id="record-options" style="display: none;">
+        <%= link_to "Modifier", edit_myrecord_release_path(@record, @record.release) %>
+      </div>
       <div class="vinyl-card-details-infos">
-        <div class="vinyl-card-details-index-button">
-          <%= link_to "< retour", myrecords_path  %>
-        </div>
-        <div class="vinyl-card-details-infos-release">
-          <div>
-            <h3> <%= @record.release.title %> </h3>
-            <p> <%= @record.release.artist %> </p>
-            <span> <%= @record.release.year %> - <%= @record.release.genre.name %></span>
-          </div>
-        </div>
+        <h3> <%= @record.release.title %> </h3>
+        <p> <%= @record.release.artist %> </p>
+        <p> <%= @record.release.year %> - <%= @record.release.genre.name %> - <%= @record.release.label %></p>
+        <p class="record-condition-cap"> <%= @record.condition %> </p>
       </div>
     </div>
-    <div class="vinyl-card-more">
-      <div class="vinyl-card-tracklist">
-        <ul>
-          <li><strong>TRACKLIST</strong></li>
-          <% @record.release.tracks.sort_by {|track| track.position }.each do |track| %>
-            <li><%= track.position %> - <%= track.title %></li>
-          <% end %>
-          <br/>
-          <br/>
-        </ul>
-      </div>
+    <!-- <div class="record-pictures-selector">
+      <div class="record-picture">Photo 1</div>
+      <div class="record-picture">Photo 2</div>
+      <div class="record-picture">Photo 3</div>
+    </div> -->
+    <div class="myrecords-tracklist ">
+      <% if @record.release.tracks.empty? %>
+        <p>Renseigne les tracks de ce disque !</p>
+        <div class="button-secondary">Ajouter une track</div>
+      <% else %>
+      <ul>
+        <li><strong>TRACKLIST</strong></li>
+        <% @record.release.tracks.sort_by {|track| track.position }.each do |track| %>
+          <li><%= track.position %> - <%= track.title %></li>
+        <% end %>
+      </ul>
+      <% end %>
     </div>
+    <div id="myrecords-toggle" class="custom-control custom-switch custom-switch-collection onoffswitch" data-id="<%= @record.id %>">
+      <input type="checkbox" <%= 'checked' if @record.swappable %> name="record[swappable]" class="custom-control-input onoffswitch-checkbox" id="record-swap-<%= @record.id %>" data-id="<%= @record.id %>">
+        <label class="custom-control-label onoffswitch-label" for="record-swap-<%= @record.id %>">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
+      </div>
+      <%= link_to "", toggle_swappable_myrecord_path(@record), id: "submit-record-#{@record.id}", class: "hidden-button", method: :patch, remote: true %>
   </div>
 </div>
+
+

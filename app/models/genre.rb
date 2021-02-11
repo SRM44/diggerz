@@ -16,6 +16,10 @@ class Genre < ApplicationRecord
     "stage-screen"
   ]
 
+  def self.available
+    pluck(:name).sort
+  end
+
   has_many :users, through: :preferences
   has_many :releases
 

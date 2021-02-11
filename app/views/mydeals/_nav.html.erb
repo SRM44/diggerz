@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs my-deals-tabs my-deals-submenu">
+  <li class="nav-item">
+    <%= link_to "À valider", received_mydeals_path, class: "nav-link #{active_nav_link_class(received_mydeals_path, current_path)}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "En attente", requested_mydeals_path, class: "nav-link #{active_nav_link_class(requested_mydeals_path, current_path)}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "En cours d'échange", in_progress_mydeals_path, class: "nav-link #{active_nav_link_class(in_progress_mydeals_path, current_path)}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Complétés", completed_mydeals_path, class: "nav-link #{active_nav_link_class(completed_mydeals_path, current_path)}" %>
+  </li>
+</ul>

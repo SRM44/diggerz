@@ -1,34 +1,27 @@
 class MyrecordsController < ApplicationController
-  before_action :set_discogs, only: [:show, :import_from_discogs]
+  skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :import_from_discogs, :toggle_swappable]
+
   def index
-    if params[:query].present?
-      sql_query = <<~SQL
-        title @@ :query
-        OR artist @@ :query
-      SQL
-      @myrecords = current_user.records.joins(:release).where(sql_query, query: "%#{params[:query]}%")
-    else
-      @myrecords = current_user.records
+    @myrecords = current_user.records.joins(:release)
+
+    query = params.dig(:search, :query)
+    if query.present?
+      @myrecords = @myrecords.for_query(query)
     end
   end
 
   def show
     @record = Record.find(params[:id])
-
-    if @record.release.tracks.empty?
-      ImportFromDiscogsService.new(@discogs, release: @record.release).import_record_data
-    end
   end
 
   def import_from_discogs
-    imported = ImportFromDiscogsService.new(@discogs, user: current_user).import_collection
+    errors = Discogs::ImportUserCollection.new(user: current_user).call
 
-    if imported
-      redirect_to myrecords_path, notice: "L'importation de vos vinyles depuis Discogs est terminée ! Sélectionnez les vinyles que vous souhaitez échanger avec d'autres utilisateurs"
+    if errors.any?
+      redirect_to myrecords_path, alert: import_failed_alert(errors)
     else
-      redirect_to myrecords_path, alert: "L'importation de vos vinyles a échoué"
+      redirect_to myrecords_path, notice: "L'import de vos vinyles depuis Discogs est terminé 🎉"
     end
-    # <%= link_to 'Importer ma collection', import_from_discogs_releases_path %>
   end
 
   def toggle_swappable
@@ -51,7 +44,12 @@ class MyrecordsController < ApplicationController
 
   private
 
-  def set_discogs
-    @discogs = Discogs::Wrapper.new("Diggerz", access_token: session[:access_token])
+  def import_failed_alert(errors)
+    "L'import de #{errors.count} de vos vinyles a échoué ❌"
   end
+
+  def release_params
+    params.require(:release).permit(:title, :image, :artist, :label, :year, :genre)
+  end
+
 end

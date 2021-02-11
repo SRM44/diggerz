@@ -1,0 +1,49 @@
+.records-filters {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    select {
+        background-color: transparent;
+    }
+
+    button {
+        border: none;
+        text-decoration: none;
+        background-color: transparent;
+        margin-left: 1em;
+    }
+}
+
+.records-search-bar {
+    display: flex;
+    margin: 2em 0 2em 0;
+    max-width: 600px;
+    
+
+    input, select {
+      flex: 1 1 auto;
+    }
+
+    input {
+      outline: 0;
+      border-width: 0 0 0.5px;
+      border-radius: 0.5em;
+      height: 48px;
+      background-color: #ffffff;
+      box-shadow: $medium;
+    }
+
+    input:focus {
+        border-color: $deep-green-3
+    }
+}
+
+.filter-label {
+    display: inline-block;
+    color: white;
+    border-radius: 0.5em;
+    background-color: $rich-black;
+    margin: 0 0.5em 0 0.5em;
+    padding: 0.5em;
+}

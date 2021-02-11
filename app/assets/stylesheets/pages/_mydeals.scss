@@ -1,0 +1,34 @@
+.my-deals-submenu {
+    padding-bottom: 10px;
+    color: $gray;
+    border: none;
+    margin: 1em;
+    ul {
+        white-space: nowrap;
+    }
+    li {
+        display: flex;
+    }
+    #deals-tab {
+        background: none;
+        border: none;
+        font-weight: 600;
+        font-size: 1, 5em;
+        color: $gray;
+        padding-left: 0;
+        &.active {
+            color: blue;
+        }
+    }
+}
+
+.card-list-container {
+    display: flex;
+    margin: 8px;
+    max-width: 400px;
+    img {
+        border-radius: 8px;
+        margin-right: 8px;
+        background-image: linear-gradient(180deg, rgba(91,91,91,0.8043418050814075) 0%, rgba(69,69,69,0.8463586118040967) 50%, rgba(45,45,45,0.8687675753895308) 100%)
+    }
+}

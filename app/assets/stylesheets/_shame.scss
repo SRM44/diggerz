@@ -1,0 +1,62 @@
+// Aligning navbar items texts
+.mobile-bottom-nav__item-content {
+  img, i {
+    margin-right: 0.5em;
+  }
+
+  img {
+    margin-right: 0.5em;
+    width:  2em;
+    height: 2em;
+  }
+  i {
+    margin-right: 0.7em;
+    width:  1em;
+    height: 1em;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden-button {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.p100 {
+  padding-bottom: 100px;
+}
+
+// Better mydeals/show buttons positionning & style
+.md-show-actions-btn {
+  align-items: center;
+  flex: 1 0 auto;
+  justify-content: space-evenly;
+  .button-secondary {
+    width: initial !important;
+    padding: 1em;
+    background-color: none;
+    border: 1px, rgba(0, 0, 0, 0.06) solid;
+  }
+}
+
+// Better mydeals/show "In exchange for" label
+.swapping-for-label {
+  margin-top: 1em;
+  text-transform: uppercase;
+}
+
+.connexion-menu-links {
+  .disabled-link {
+    color: $light-gray;
+  }
+
+  .active {
+    color: $rich-black;
+  }
+}

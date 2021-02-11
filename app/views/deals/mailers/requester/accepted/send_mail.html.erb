@@ -1,0 +1,8 @@
+<h3>Votre demande d'échange a été acceptée par <%= @receiver.username %>!</h3>
+
+<p>Le vinyle que vous souhaitez récupérer : <%= @deal.receiver_record.release.title %>
+
+<p>Le vinyle que vous proposez en échange : <%= @deal.requester_record.release.title %></p>
+</p>
+
+<%= link_to "Voir l'échange", mydeal_url(@deal) %>

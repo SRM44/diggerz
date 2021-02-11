@@ -1,152 +1,7 @@
-.vinyl-card {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 500px;
-  height: 100vh;
-  margin-top: 0px;
-}
+/* TO DELETE WHEN APP UPDATE IS DONE */
 
-.vinyl-card .vinyl-card-details {
-  width: 100%;
-  height: 40%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  display:flex;
-}
 
-.vinyl-card-details .vinyl-card-details-infos {
-  position: relative;
-  height: 90%;
-  margin-top: 10%;
-  margin-left: 10%;
-  width: 90%;
-}
 
-.vinyl-card-details-infos .vinyl-card-details-index-button a {
-  position: relative;
-  height: 15%;
-  text-decoration: none;
-  color: #F3F3F3;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.vinyl-card-details-index-button a:hover {
-  color: white;
-  font-weight: 800;
-}
-
-.vinyl-card-details-index-button i {
-  position: relative;
-  height: 15%;
-  text-decoration: none;
-  color: #A9A9A9;
-  font-size: 150%;
-  cursor: pointer;
-}
-
-.vinyl-card-details-index-button i:hover {
-  color: white;
-  font-weight: 800;
-}
-
-.vinyl-card-details-infos .vinyl-card-details-infos-release {
-  position:absolute;
-  bottom: 9%;
-  margin-top: auto;
-  display:flex;
-  align-items: flex-end;
-}
-
-.vinyl-card-details-infos-release h3 {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 20px;
-  margin-bottom: 6px;
-  text-align: left;
-}
-
-.vinyl-card-details-infos-release p {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 18px;
-  margin: 0px;
-  margin-bottom: 6px;
-  text-align: left;
-}
-
-.vinyl-card-details-infos-release span {
-  font-size: 16px;
-  font-weight: normal;
-  margin: 0px;
-  text-align: left;
-}
-
-.vinyl-card-details-infos-record {
-  margin-bottom: 15px;
-}
-
-.vinyl-card-details-infos-record p {
-  font-size: 13px;
-  font-weight: 300;
-  margin: 0px;
-  margin-top: 10px;
-  text-align: left;
-}
-
-.vinyl-card-more {
-  height: 60%;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  box-shadow: inset 0 0 10px #000000;
-}
-
-.vinyl-card-tracklist {
-  position:relative;
-  height:100%;
-  width: 100%;
-  display:flex;
-  overflow: scroll;
-
-  p {
-    color: white;
-    margin: 70px auto;
-  }
-}
-
-.vinyl-card-tracklist ul {
-  width: 90%;
-}
-
-.vinyl-card-tracklist li {
-  font-size: 16px;
-  color: white;
-  list-style-type: none;
-  margin-top:15px;
-}
-
-.vinyl-card-tracklist-blur {
-  position: absolute;
-  background-color: black;
-  height: 12vh;
-  width: 100vw;
-  bottom: 0px;
-  filter: blur(20px);
-}
-
-.vinyl-card-proposition-button {
-  position: absolute;
-  bottom: 14%;
-  z-index: 200;
-}
 
 .vinyl-card-add-button {
   z-index: 200;
@@ -157,19 +12,19 @@
   margin-right: 35px;
 }
 
-.records-undisplay {
-  display: none;
-}
-
 .vinyl-card-input-button {
   position: absolute;
   bottom: 14%;
 }
 
 .vinyl-card-collection {
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: rgba(0,0,0,0.9);
-  padding-top: 2vh;
+  z-index: 1000;
   height: 100vh;
   align-items: center;
   overflow: scroll;
 }
+

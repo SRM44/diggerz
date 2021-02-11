@@ -2,30 +2,61 @@
 // 1. All Bootstrap variables are here => https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
 // 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
 // 3. You can override them below!
-
 // General style
-$font-family-sans-serif:  $body-font;
-$headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$font-family-sans-serif: $body-font;
+$headings-font-family: $headers-font;
+$body-bg: $white-stripes;
 $font-size-base: 1rem;
-
 // Colors
-$body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
-
+$body-color: $tech-house-gray-7;
+$primary: $blue;
+$success: $green;
+$info: $yellow;
+$danger: $red;
+$warning: $orange;
 // Buttons & inputs' radius
-$border-radius:    4px;
-$border-radius-lg: 4px;
-$border-radius-sm: 4px;
-
+$btn-height: 48px;
+$border-radius: 50px;
+$border-radius-lg: 50px;
+$border-radius-sm: 50px;
+$piled-btn-padding: 0.35em 1.2em;
+$lined-btn-radius: 5px;
+$lined-btn-padding: 0.35em 1.2em;
 // Override other variables below!
 $h2-font-size: 36px;
 $h3-font-size: 18px;
-
-$btn-font-family: "Montserrat", "sans-serif";
+$h4-font-size: 16px;
+$btn-font-family: "Montserrat",
+"sans-serif";
 $btn-font-size: 16px;
-$btn-border-radius:  50px;
+$btn-border-radius: 48px;
+//heading style
+$headings-font-weight: 700;
+$headings-color: $rich-black;
+// Font Sizes 
+$micro-text: 12px;
+$small-text: 14px;
+$text: 16px;
+$big-text: 20px;
+$subtitle: 24px;
+$title: 28px;
+$big-title: 32px;
+$head: 36px;
+$mega-head: 40px;
+//weight 
+$emphase700: 700; 
+$emphase600: 600;
+$emphase500: 500;
+$emphase400: 400;
+
+// Margins 
+$paragraph-margin-bottom: 0.3rem;
+//Input Shadows 
+$the-shadows: inset 0 1px 0 hsl(55,92%,76%), 0 1px 3px hsla(0, 0%, 0%, .2);
+$input-shadow: inset 0 -2px 2px rgba(255,255,255,1), inset 0 2px 2px hsla(0,0%, 0%, 0.3);
+//Shadows 
+$very-close: 0 1px 3px hsl(0,0%,60);
+$close: 0 4px 6px hsl(0,0%,60);
+$medium: 0 5px 15px hsl(0,0%,60);
+$far: 0 10px 24px hsl(0,0%,60);
+$very-far: 0 15px 35px hsl(0,0%,60);

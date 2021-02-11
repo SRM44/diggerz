@@ -1,0 +1,15 @@
+<h3>Récap</h3>
+
+Deal ID: <%= @deal.id %>
+
+<p>
+  Le vinyle proposé par <%= @requester.username %>: <%= @deal.requester_record.release.title %>
+</p>
+
+<p>
+  Le vinyle à échanger dans la collection de <%= @receiver.username %>: <%= @deal.receiver_record.release.title %>
+</p>
+
+<%= @requester.username %> a annulé le deal à <%= @deal.canceled_at %>
+
+<%# link_to "Voir l'échange", admin_deal_url(@deal) %>

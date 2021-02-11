@@ -1,25 +1,88 @@
-<h2>Sign up</h2>
+<div class="connexion-container">
+  <div class="connexion-content">
+    <div class="connexion-content-wrapper">
+      <div class="connexion-menu">
+          <%= image_tag "logo_diggerz_icon.png", height: 70 %>
+        <div class="connexion-menu-links">
+          <div>
+            <%= link_to "Connexion", new_session_path(resource_name), class: "disabled-link" %>
+          </div>
+          <div>
+            <%= link_to "Inscription", new_registration_path(resource_name), class: "active" %>
+          </div>
+        </div>
+      </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+      <div class="connexion-form-container">
+        <div id="connexion-form--registration-header">
+          <h1>Inscription</h1>
+          <% if devise_mapping.omniauthable? %>
+            <% resource_class.omniauth_providers.each do |provider| %>
+              <form action="<%= omniauth_authorize_path(resource_name, provider) %>" method="POST">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+                <input type="submit" class="rounded-lined-btn" value="Inscription avec Discogs">
+              </form>
+            <% end %>
+          <% end %>
+        </div>
+
+          <hr class="divider">
+          </hr>
+
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+            <div class="form-field-group form-field ">
+              <%= f.input :first_name,
+                          required: true,
+                          autofocus: true,
+                          placeholder: 'Prénom',
+                          label:false,
+                          input_html: { autocomplete: "email" } %>
+              <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        placeholder: 'Email',
+                        label:false,
+                        input_html: { autocomplete: "email" }%>
+            </div>
+            <div class="form-field">
+              <%= f.input :password,
+                        required: true,
+                        placeholder: 'Mot de passe (+6 caractères)',
+                        label:false,
+                        input_html: { autocomplete: "new-password" } %>
+            </div>
+            <div class="form-field">
+              <%= f.input :password_confirmation,
+                          required: true,
+                          placeholder: 'Confirmes ton mot de passe',
+                          label:false,
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+            <div class="registration-form-ctas">
+              <div id="registration-agreement">
+                <%= f.input :accepts_tos, as: :boolean, label: false, error: "Accepter les conditions d'utilisation est obligatoire" %>
+                <%= f.label :accepts_tos, style: "margin-bottom: 0;
+
+    margin-left: 0.4em;"  do %>
+                  J’accepte <a href="#" id="disabled-link">les conditions générales d’utilisation</a>
+                <% end %>
+              </div>
+              <div id="registration-agreement">
+                <%= f.input :accepts_marketing_communications, as: :boolean, label: false %>
+                <%= f.label :accepts_marketing_communications, style: "margin-bottom: 0;
+    margin-left: 0.4em;"  do %>
+                  J’autorise Diggerz à m’envoyer des emails (sans me spamer <i class="fas fa-heart"></i>)
+                <% end %>
+              </div>
+              <%= f.button :submit, "Commencer", class: 'button-master', id: 'connexion-cta-btn' %>
+            </div>
+          <% end %>
+        </div>
+    </div>
   </div>
+  <div class="connexion-image">
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

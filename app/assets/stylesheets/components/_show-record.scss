@@ -1,0 +1,146 @@
+#record-options {
+  display: flex;
+  flex-direction: column;
+  align-self: end;
+  z-index: 1000;
+  width: 40vw;
+  position: absolute;
+  right: 1em;
+  top: 3em;
+  padding: 0.5rem;
+  font-size: 1rem;
+  list-style: none;
+  background-color: #fff;
+  border: 1px solid rgba(14,0,0,0.15);
+  border-radius: 0.25rem;
+}
+
+.vinyl-card-details {
+    height: 50vh;
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 1em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+.record-condition-cap {
+  display: inline-block;
+  border-radius: 25px;
+  border: 0.5px solid $grey-300;
+  padding: 0 1em;
+  background-color:hsla(228, 8%, 74%, 0.5)
+}
+
+
+.vinyl-card-details-infos {
+  color: white;
+
+  h3 {
+    color: white;
+  }
+}
+
+.record-pictures-selector {
+  display: flex;
+  padding: 0 1em 0 1em;
+}
+
+.record-picture {
+  height: 5em;
+  width: 5em;
+  margin-right: 1em;
+  border-radius: 0.5em;
+  background-color: black;
+}
+  
+.vinyl-card-tracklist {
+  width: 100%;
+  padding: 0 1em 1em 1em;
+  overflow: scroll;
+
+  p {
+    margin: 4em 0 4em 0;
+  }
+
+  ul {
+    list-style: none;
+    padding:0;
+  }
+
+  li {
+    font-size: 16px;
+    color: white;
+    list-style-type: none;
+    margin-top:15px;
+  }
+}
+
+.myrecords-tracklist {
+  height: 20vh;
+  width: 100%;
+  padding: 0 1em 1em 1em;
+  overflow: scroll;
+
+  p {
+    margin: 4em 0 4em 0;
+  }
+
+  ul {
+    list-style: none;
+    padding:0;
+  }
+
+  li {
+    font-size: 16px;
+    color: $rich-black;
+    list-style-type: none;
+    margin-top:15px;
+  }
+}
+  
+.vinyl-card-proposition-button {
+  margin: 1em 1em 4em 1em;
+  height: 48px;
+  align-self: center;
+}
+
+.record-swapable-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  margin: 1em;
+  max-width: 80vw;
+  border-radius: 0.5em;
+  border: 0;
+  background-color: $rich-black800;
+  color: white;
+  box-shadow: 13px 9px 26px -7px rgba(0, 0, 0, 0.16), -2px -3px 26px -7px rgba(255, 255, 255, 1);
+
+  i {
+    padding-right: 1em;
+  }
+}
+
+.record-available-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  margin: 1em;
+  max-width: 80vw;
+  border-radius: 0.5em;
+  border: 0;
+  background-color: $green;
+  color: white;
+  box-shadow: inset 5px 5px 15px -7px rgba(0, 0, 0, 0.17), inset -5px -4px 26px -6px rgba(255, 255, 255, 0.6);
+  i {
+    padding-right: 1em;
+  }
+}

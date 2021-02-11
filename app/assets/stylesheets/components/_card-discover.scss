@@ -2,62 +2,51 @@
   display: none;
 }
 
-.select-discover-card {
-  position: absolute;
-  bottom: 13%;
-  height: 10%;
-  width: 88%;
+.arrow-btn {
+
+  margin: auto auto;
   max-width: 400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  i {
+    font-size: 150%;
+    color: $rich-black;
+    cursor: pointer;
+  }
+
+  a:active {
+    text-decoration: none;
+  }
 }
 
-.select-discover-card a:active {
-  text-decoration: none;
-}
-
-.select-discover-card i {
-  font-size: 150%;
-  color: white;
-  cursor: pointer;
-}
-
-.discover-card-for-deal {
-  position: absolute;
-  bottom: 8%;
-  height: 7%;
-  width: 70%;
-  max-height: 60px;
-  max-width: 300px;
-}
-
-.slider-wrap {
-  margin-top: 60px;
-  height: 100%;
+.discover-wrapper {
+  height: 70vh;
   width: 100%;
-}
-
-.slider {
-  width: 100%;
-  height: 100%;
   display: flex;
-  margin-top:1%;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+#card-slider {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slider-item {
-  width: 90%;
   max-width: 400px;
   height: 50%;
   max-height: 400px;
   border-radius: 10px;
   background-color: #ffffff;
-  display: flex;
-  justify-content: flex-start;
-  opacity: 0;
+  opacity: 0; /* UNCOMMENT FOR SWAP UX */
   z-index: 0;
-  position: absolute;
+  position: absolute; /*  UNCOMMENT FOR SWAP UX */
 }
 
 .animation-card_image {
@@ -76,45 +65,13 @@
   }
 }
 
-.animation-card_content {
-  width: 100%;
-  max-width: 374px;
-  margin-left: 26px;
-  font-family: "Open Sans",sans-serif;
-}
+// Large devices (desktops, 992px and up)
+/* @media (min-width: 992px) {
+  .mobile-bottom-nav {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
 
-.animation-card_content_title {
-  color: #4a4545;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: -.18px;
-  line-height: 24px;
-  margin: 0;
-}
-
-.animation-card_content_description {
-  color: #696d74;
-  font-size: 15px;
-  font-weight: 300;
-  letter-spacing: normal;
-  line-height: 24px;
-  margin: 10px 0 0 0;
-}
-
-.animation-card_content_city {
-  font-size: 11px;
-  margin: 10px 0 0 0;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: #696d74;
-}
-
-.discover-vinyl-card {
-  position: fixed;
-  top:0;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, .92);
-  z-index: 100;
-}
+  }
+} */

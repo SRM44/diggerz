@@ -1,82 +1,75 @@
-.nav-link {
-  font-family: $headers-font;
-  color: white;
+.mobile-bottom-nav{
+	position:fixed;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index:5000;
+	margin-top: 1em;
+	
+	will-change:transform;
+	transform: translateZ(0);
+	
+	display:flex;	
+	
+	height:50px;
+	
+	box-shadow: 0 -2px 5px -2px #333;
+	background-color: $rich-black;
+	
+	&__item{
+		flex-grow:1;
+		text-align:center;
+		font-size:12px;
+		
+		display:flex;
+		align-items: center;
+		justify-content: center;
+
+	}
+	&__item--active{
+		//dev
+		color:red;
+	}
+	&__item-content{ 
+		display:flex;
+		flex-direction:column;		
+	}
+
+	i {
+		font-size: 1.5em;
+		color: white;
+	}
+
+	#nav-label {
+		display: none;
+		color: $grey-600;
+		font-size: $small-text;
+		font-weight: $emphase600;
+	}
 }
 
 
-.nav-header .logo {
-  width: 20%;
-}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .mobile-bottom-nav {
+	position:fixed;
+	width: 15%;
+	height: 100vh;
+	left:0;
+	flex-direction: column;
+	box-shadow: none;
 
-.nav-header nav {
-  width: 100vw;
-  height:60px;
-}
+	&__item {
+		padding-left: 2em;
+		height: 50px;
+		justify-content: flex-start;
+		flex-grow: 0;
+		
+	}
 
-header {
-  position: absolute;
-  background-color: transparent;
-}
-
-.nav-header {
-  border-radius: 5px;
-  padding-top: 5px;
-  position: relative;
-  z-index: 999;
-}
-
-.logo {
-  padding-left: 10px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 30%;
-}
-
-.item {
-  padding: 12px 12px 13px;
-  font-size: 24px;
-  color: white;
-
-  a:hover {
-  color: gray;
+	#nav-label {
+		display: inline;
+		margin-left: 1em;
+	}
   }
 }
-
-header,
-nav {
-  font-size: 0;
-}
-
-.logo
-.item,
-.middle {
-  display: flex;
-  align-items: center;
-}
-
-.scroll {
-  white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-.scroll a {
-  height: 100%;
-}
-
-.scroll::-webkit-scrollbar {
-  display: none;
-}
-
-@media (max-width: 765px) {
-  .item {
-    font-size: 17px;
-  }
-}
-

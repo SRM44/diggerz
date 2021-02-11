@@ -1,20 +1,70 @@
-<h2>Log in</h2>
+<div class="connexion-container">
+  <div class="connexion-content">
+    <div class="connexion-content-wrapper">
+      <div class="connexion-menu">
+          <%= image_tag "logo_diggerz_icon.png", height: 70 %>
+        <div class="connexion-menu-links">
+          <div>
+            <%= link_to "Connexion", new_session_path(resource_name), class: 'active' %>
+          </div>
+          <div>
+            <%= link_to "Inscription", new_registration_path(resource_name), class: "disabled-link" %>
+          </div>
+        </div>
+      </div>
+      <div class="connexion-form-container">
+        <div id="connexion-form--registration-header">
+          <h1>Connexion</h1>
+          <h3>Salut toi, on se connaît non ? </h3>
+          <% if devise_mapping.omniauthable? %>
+            <% resource_class.omniauth_providers.each do |provider| %>
+              <form  action="<%= omniauth_authorize_path(resource_name, provider) %>" method="POST">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                <input class="rounded-lined-btn" type="submit" value="Connexion avec Discogs">
+              </form>
+            <% end %>
+          <% end %>
+        </div>
+        <hr class="divider">
+        </hr>
+
+
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+          <div class="form-field">
+            <%= f.input :email,
+                        required: false,
+                        autofocus: true,
+                        placeholder: 'Email',
+                        label:false,
+                        input_html: { autocomplete: "email" } %>
+          </div>
+          <div class="form-field">
+            <%= f.input :password,
+                        required: false,
+                        placeholder: 'Mot de passe',
+                        label:false,
+                        input_html: { autocomplete: "current-password" } %>
+          </div>
+
+          <div class="connexion-password">
+            <div style="display: flex">
+              <%= f.input :remember_me, label: false, as: :boolean if devise_mapping.rememberable? %>
+              <%= f.label :remember_me, "Se souvenir de moi" %>
+            </div>
+            <div id="connexion-cta-forgot">
+              <%= link_to "Oups ! J'ai perdu mon mot de passe.", new_password_path(resource_name), id: "disabled-link" %>
+            </div>
+          </div>
+
+          <div class="connexion-form-ctas">
+            <%= f.button :submit, "Go !", class: 'button-master'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <div class="connexion-image">
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

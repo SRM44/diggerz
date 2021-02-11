@@ -1,37 +1,38 @@
-<div class="container-vinyl-card">
-  <div class='vinyl-card'>
-    <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= cl_image_path @record.release.image %>')">
+<div class="deal-wrapper">
+  <div class="deal-maker-container">
+    <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(@record) %>')">
+      <div class="vinyl-card-details-index-button">
+      	<%= link_to records_path do %><i class="fas fa-long-arrow-alt-left"></i><% end %>
+      </div>
       <div class="vinyl-card-details-infos">
-        <div class="vinyl-card-details-index-button">
-          <%= link_to "< retour", records_path  %>
-        </div>
-        <div class="vinyl-card-details-infos-release">
-          <div>
-            <h3> <%= @record.release.title %> </h3>
-            <p> <%= @record.release.artist %> </p>
-            <span> <%= @record.release.year %> - <%= @record.release.genre.name %></span>
-          </div>
-        </div>
+        <h3> <%= @record.release.title %> </h3>
+        <p> <%= @record.release.artist %> </p>
+        <p> <%= @record.release.year %> - <%= @record.release.genre.name %> - <%= @record.release.label %></p>
+        <p class="record-condition-cap"> <%= @record.condition %> </p>
       </div>
     </div>
+
     <div class="deal-input">
-      <div id="deal-myrecord-swapped" class="deal-myrecord-swapped">`
+      <div id="deal-myrecord-swapped" class="deal-myrecord-swapped">
+
       </div>
+
       <%= simple_form_for [@record, @deal] do |f| %>
-        <%= f.input :requester_record_id, as: :hidden %>
+      <%= f.input :requester_record_id, as: :hidden %>
         <div class="vinyl-card-input-button">
-          <%= f.submit '>> Envoyer ce deal', :class => 'button-master-nemesis' %>
+          <%= f.submit '>> Proposer', :class => 'button-master-nemesis' %>
         </div>
       <% end %>
     </div>
-    <div class="vinyl-card-more">
-      <div id="vinyl-card-proposition-button" class="vinyl-card-add-button button-master-nemesis">
-        <i class="fas fa-plus"></i>
-        <div>Proposer un vinyle</div>
-      </div>
+
+    <button id="vinyl-card-proposition-button" class="vinyl-card-add-button button-master-nemesis">
+      <i class="fas fa-plus"></i>
+      <div>Proposer un disque</div>
+    </button>
+
+    <div class="vinyl-card vinyl-card-collection records-undisplay">
+      <%= render 'myrecords/collection' %>
     </div>
-  </div>
-  <div class="vinyl-card vinyl-card-collection records-undisplay">
-    <%= render 'records/collection' %>
+
   </div>
 </div>

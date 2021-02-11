@@ -1,0 +1,26 @@
+<div class="app-container">
+  <div class="myrecords-wrapper">
+    <h1>Deals</h1>
+    <%= render 'mydeals/nav', current_path: requested_mydeals_path %>
+
+    <section>
+      <% if @deals.empty? %>
+        <p>Vous n’avez pas de propositions d'échange en attente ;).</p>
+      <% else  %>
+        <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
+
+        <div class="records-grid">
+          <% @deals.each do |deal| %>
+            <%= link_to mydeal_path(deal, mydeals_return_url: requested_mydeals_url) do %>
+
+              <%= render 'mydeals/components/cards/base', deal: deal, record: deal.receiver_record do %>
+                <%= render 'mydeals/components/cards/user_exchanged_with/requester', deal: deal %>
+              <% end %>
+
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+  </div>
+</div>

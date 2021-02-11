@@ -1,0 +1,42 @@
+<div class="app-container ">
+  <div class="myrecords-wrapper">
+    <h1>Deals</h1>
+    <%= render 'mydeals/nav', current_path: completed_mydeals_path %>
+
+    <section>
+      <% if @requested_deals.empty? && @received_deals.empty? %>
+        <p>Vous n’avez pas fait d'échange sur Diggerz.</p>
+        <p>Allez donc échanger des disques ;)</p>
+      <% else  %>
+        <% unless @received_deals.empty? %>
+          <h4>Les échanges qui vous ont été proposés</h4>
+
+          <div class="records-grid">
+            <% @received_deals.each do |deal| %>
+              <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url) do %>
+
+                <%= render 'mydeals/components/cards/base', deal: deal, record: deal.receiver_record do %>
+                  <%= render 'mydeals/components/cards/user_exchanged_with/receiver', deal: deal %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <% unless @requested_deals.empty? %>
+          <h4>Les échanges que vous avez proposés</h4>
+
+          <div class="records-grid">
+            <% @requested_deals.each do |deal| %>
+              <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url) do %>
+                <%= render 'mydeals/components/cards/base', deal: deal, record: deal.requester_record do %>
+                  <%= render 'mydeals/components/cards/user_exchanged_with/requester', deal: deal %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<h3>Votre deal avec <%= @receiver.username %> est complété !</h3>
+
+<p>Le vinyle que vous aviez proposé : <%= @deal.requester_record.release.title %></p>
+
+<p>Le vinyle que vous avez récupéré en échange : <%= @deal.receiver_record.release.title %>
+</p>
+
+<%= link_to "Voir l'échange", mydeal_url(@deal) %>

@@ -1,0 +1,48 @@
+.deal-requester-img {
+  // Better alignment of back link & "proposed by" block
+  // margin: 1em;
+  > img {
+    height: 30px;
+    border-radius: 50%;
+  }
+}
+
+
+.deal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vd-contact-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 1em;
+  padding: 1em;
+  height: 200px;
+  box-shadow: $very-close;
+
+  img:first-of-type {
+    border-radius: 1em;
+    height: 8em;
+  }
+
+  div:last-of-type {
+
+  }
+
+  .vd-contact-ctas {
+    display: flex;
+  }
+}
+
+.vd-confirmation-msg {
+  margin: 1.5em;
+}
+
+.fa-check-circle {
+  color: green;
+  margin: 16px;
+  ;
+}

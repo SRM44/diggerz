@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_173104) do
+ActiveRecord::Schema.define(version: 2020_12_23_155740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,17 @@ ActiveRecord::Schema.define(version: 2019_08_28_173104) do
     t.datetime "updated_at", null: false
     t.bigint "requester_record_id"
     t.bigint "receiver_record_id"
+    t.datetime "accepted_at"
+    t.datetime "declined_at"
+    t.datetime "canceled_at"
+    t.datetime "confirmed_by_requester_at"
+    t.datetime "confirmed_by_receiver_at"
+    t.datetime "completed_at"
+    t.bigint "requester_id"
+    t.bigint "receiver_id"
+    t.index ["receiver_id"], name: "index_deals_on_receiver_id"
     t.index ["receiver_record_id"], name: "index_deals_on_receiver_record_id"
+    t.index ["requester_id"], name: "index_deals_on_requester_id"
     t.index ["requester_record_id"], name: "index_deals_on_requester_record_id"
   end
 
@@ -29,6 +39,14 @@ ActiveRecord::Schema.define(version: 2019_08_28_173104) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string "photo"
+    t.bigint "record_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_id"], name: "index_pictures_on_record_id"
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -76,7 +94,6 @@ ActiveRecord::Schema.define(version: 2019_08_28_173104) do
 
   create_table "tracks", force: :cascade do |t|
     t.string "title"
-    t.string "duration"
     t.bigint "release_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -99,12 +116,23 @@ ActiveRecord::Schema.define(version: 2019_08_28_173104) do
     t.string "provider"
     t.string "discogs_id"
     t.string "token"
+    t.string "first_name"
+    t.boolean "accepts_marketing_communications"
+    t.boolean "accepts_tos"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "secret_token"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "deals", "records", column: "receiver_record_id"
   add_foreign_key "deals", "records", column: "requester_record_id"
+  add_foreign_key "deals", "users", column: "receiver_id"
+  add_foreign_key "deals", "users", column: "requester_id"
+  add_foreign_key "pictures", "records"
   add_foreign_key "preferences", "genres"
   add_foreign_key "preferences", "users"
   add_foreign_key "records", "releases"

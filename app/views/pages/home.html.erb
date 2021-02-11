@@ -1,74 +1,137 @@
-<div class="homepage-banner" >
-  <div class="homepage-container" style="background-image: url('https://images.unsplash.com/photo-1460058418905-d61a1b4a55fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80')">
-    <div class="logo-homepage">
-      <%= image_tag "logo_diggerz_full_white.png"%>
-      <p>Troquer vos vinyles.</p>
-    </div>
-    <div class="hp-presentation">
-      <div class="hp-button button-master">
+<div class="b-section-header black" >
+  <div class="b-container">
+    <div class="b-9-col">
+      <div class="bb-header-wrapper">
+        <h1 class="b-h1 bf-header">Troques des vinyles. Gratuitement.</h1>
+        <p class="home---header-paragraph">Echanges des disques sans limites avec les passioné.es de ta ville. <br> Tous les genres, tous les styles.</p>
+
+        <div class="button-master">
         <% if user_signed_in? %>
           <%= link_to "Mon compte", myrecords_path %>
         <% else %>
-          <%= link_to  user_discogs_omniauth_authorize_path, method: :post do %>
-            Echanger des vinyles
-          <% end %>
+          <%= link_to "Commencer", new_user_session_path %>
         <% end %>
+        </div>
+
       </div>
+    </div>
+  </div>
+  <div class="header-bg-overlay"></div>
+  <div class="b-header-background-image-fit"></div>
+</div>
+<div class="b-section black">
+  <div class="b-container">
+    <div class="div-block-42">
+      <h2 class="bf-title-text white">Syncronisation Discogs</h2>
+      <p class="bf-paragraph text---white">Importes instantanément ta collection enregistrées dans Discogs</p>
     </div>
   </div>
 </div>
-<div class="arguments-grid">
-  <div class="reassurance">
-    <h2>Votre super-pouvoir Diggerz</h2>
-    <div class="keywords_grid">
-      <div class="keyword_bloc">
-        <%= image_tag "discogs-logo-white.svg"%>
-      </div>
-      <div class="keyword_bloc">
-        <%= image_tag "selectionner.svg"%>
-      </div>
-      <div class="keyword_bloc">
-        <%= image_tag "echanger.svg"%>
-      </div>
+<div class="b-section home_deals">
+
+  <section class="home_deal">
+    <img  class="home_deal-img" src="https://images.unsplash.com/photo-1599231073504-b4f7b244dab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+    <div>
+      <h2 class="home_deal-title">Big title</h2>
+      <div class="b-divider"></div>
+      <p class="home_deal-prez"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum dolor deleniti dicta sunt! Alias cum modi quasi et repellendus tempora aliquid, rem amet, voluptas ea porro necessitatibus minus nesciunt fuga!</p>
+      <div class="button-master">Commencer</div>
     </div>
-    <div class="keywords_grid">
-      <div class="keyword_bloc">
-        IMPORTER
-      </div>
-      <div class="keyword_bloc">
-        SELECTIONNER
-      </div>
-      <div class="keyword_bloc">
-        ECHANGER
-      </div>
+
+    <div style="opacity: 0; display: none;" class="bf-background-holder">
+      <div class="black""></div>
     </div>
-  </div>
-  <div class="reassurance">
-  <p>Echangez les vinyles dont vous ne voulez plus avec ceux des diggerz autour de vous : les disques dont vous ne voulez plus sont ceux qui interessent quelqu'un d'autre.
-  <br>
-  <br>
-  Diggerz utilise les services de Discogs - la plus grande base de données de vinyles au monde - pour importer votre propre collection et commencer à échanger des disques.
-  </p>
-  </div>
-    <div class="button-master" id="hp-second-cta">
-      <% if user_signed_in? %>
-        <%= link_to "Mon compte", myrecords_path %>
-      <% else %>
-        <%= link_to  user_discogs_omniauth_authorize_path, method: :post do %>
-          Echanger des vinyles
-        <% end %>
-      <% end %>
+  </section>
+
+  <section class="home_deal">
+    <div>
+      <h2 class="home_deal-title">Big title</h2>
+      <div class="b-divider"></div>
+      <p class="home_deal-prez"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum dolor deleniti dicta sunt! Alias cum modi quasi et repellendus tempora aliquid, rem amet, voluptas ea porro necessitatibus minus nesciunt fuga!</p>
+      <div class="button-master">Commencer</div>
     </div>
-  </div>
-</div>
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
+    <img  class="home_deal-img" src="https://images.unsplash.com/photo-1599231073504-b4f7b244dab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+
+    <div style="opacity: 0; display: none;" class="bf-background-holder">
+      <div class="blue"></div>
+    </div>
+  </section>
+
+  <section class="home_deal">
+    <img  class="home_deal-img" src="https://images.unsplash.com/photo-1599231073504-b4f7b244dab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+    <div>
+      <h2 class="home_deal-title">Big title</h2>
+      <div class="b-divider"></div>
+      <p class="home_deal-prez"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum dolor deleniti dicta sunt! Alias cum modi quasi et repellendus tempora aliquid, rem amet, voluptas ea porro necessitatibus minus nesciunt fuga!</p>
+      <div class="button-master">Commencer</div>
+    </div>
+
+    <div style="opacity: 0; display: none;" class="bf-background-holder">
+      <div class="yellow"></div>
+    </div>
+  </section>
+
+  <section class="home_deal">
+    <div>
+      <h2 class="home_deal-title">Big title</h2>
+      <div class="b-divider"></div>
+      <p class="home_deal-prez"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum dolor deleniti dicta sunt! Alias cum modi quasi et repellendus tempora aliquid, rem amet, voluptas ea porro necessitatibus minus nesciunt fuga!</p>
+      <div class="button-master">Commencer</div>
+    </div>
+    <img  class="home_deal-img" src="https://images.unsplash.com/photo-1599231073504-b4f7b244dab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+
+    <div style="opacity: 0; display: none;" class="bf-background-holder">
+      <div class="green"></div>
+    </div>
+  </section>
+
 </div>
 
 
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#newsletter').submit(function(e) {
+    e.preventDefault();
+    let form = $(this);
+    $.ajax({
+      type: 'post',
+      dataType: 'json',
+      url: form.attr('action'),
+      data: {
+        email: {
+          name: $('#name').val(),
+          email: $('#email').val()
+        }
+      },
+      success: function() {
+        $('#newsletter-success').show();
+        $('#newsletter').hide();
+      },
+      error: function(xhr, res, text) {
+        alert(text);
+      }
+    });
+  });
+});
+
+
+/* const colors = ['black', 'blue', 'yellow', 'green'];
+const sections = [...document.getElementsByTagName('section')]
+
+window.addEventListener('scroll', function () {
+const body = document.getElementsByClassName('home_deals');
+
+  const scrollFromTop = window.pageYOffset
+
+  for (let i = 0; sections.length > i; i++) {
+
+    if (scrollFromTop <= sections[i].offsetTop) {
+      body.classList.add = colors[i]
+      break
+    }
+  }
+}) */
+</script>

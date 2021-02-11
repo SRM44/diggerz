@@ -1,0 +1,88 @@
+.myrecords-wrapper{
+  // width: 100vw;
+}
+
+#myrecords-header {
+    margin-bottom: 1em;
+
+    h1 {
+        font-size: 2em;
+    }
+}
+
+
+.myrecords-cards-container {
+    max-width: 30em;
+    overflow-y: auto;
+    overflow-x: none;
+    display: flex;
+    flex-direction: column;
+
+    .myrecords-context {
+        align-self: flex-end;
+        margin: 0 1em;
+        font-size: $micro-text;
+    }
+}
+
+.myrecords-card {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5em 0 0.5em 0;
+    padding: 0.2em;
+    border-radius: $border-radius;
+    background-color:$grey-200;
+    cursor: pointer;
+
+    #my-records-infos {
+        display: flex;
+    }
+
+    img {
+        height: 3.5em;
+        width:  3.5em;
+        border-radius: 50%;
+        margin-right: 1em;
+    }
+
+    #myrecords-toggle {
+        align-self: center;
+        margin: 0 1em;
+    }
+
+    a {
+        text-decoration: none;
+        color: $tech-house-gray-7;
+    }
+
+    &:hover {
+        background-color: $grey-300;
+    }
+
+}
+
+.myrecords-discog-sync-btn {
+    display: flex;
+    align-items: center;
+    width: 15em;
+    text-decoration: none;
+    color: black;
+    border: solid black 1px;
+    border-radius: 1em;
+
+    i  {
+        margin: 0 0.5em;
+    }
+}
+
+@media (min-width: 992px) {
+  .myrecords-wrapper{
+    width: 50vw;
+  }
+
+  #myrecords-header {
+    max-width: 30em;
+  }
+}
+
+
