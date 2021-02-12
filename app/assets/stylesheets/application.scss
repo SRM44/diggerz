@@ -14,4 +14,16 @@
 @import "pages/index";
 
 // FIX this when possible
+
+// Should go into shame, but Undefined variable: "$light-gray" error
+.connexion-menu-links {
+  .disabled-link {
+    color: $light-gray;
+  }
+
+  .active {
+    color: $rich-black;
+  }
+}
+
 @import "shame";
