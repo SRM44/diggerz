@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: '"Diggerz" <platform@diggerz.fr>'
+  default from: ENV['PLATFORM_EMAIL']
   layout 'mailer'
 end

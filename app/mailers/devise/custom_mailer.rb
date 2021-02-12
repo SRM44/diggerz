@@ -1,4 +1,6 @@
 class Devise::CustomMailer < Devise::Mailer
+  default from: ENV['PLATFORM_EMAIL']
+
   helper :application
   include Devise::Controllers::UrlHelpers
 

@@ -1,6 +1,11 @@
 Rails.application.configure do
-  config.action_mailer.delivery_method     = :letter_opener
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
+
+  config.action_mailer.delivery_method     = :letter_opener
+
+  # TO test postmark setup locally, comment line #4, uncomment lines 7-8
+  # config.action_mailer.delivery_method     = :postmark
+  # config.action_mailer.postmark_settings   = { api_token: ENV['POSTMARK_API_TOKEN'] }
 
   # Settings specified here will take precedence over those in config/application.rb.
 
