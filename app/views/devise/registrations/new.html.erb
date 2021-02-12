@@ -1,5 +1,7 @@
 <div class="connexion-container">
+
   <div class="connexion-content">
+
     <div class="connexion-content-wrapper">
       <div class="connexion-menu">
           <%= image_tag "logo_diggerz_icon.png", height: 70 %>
@@ -16,6 +18,7 @@
       <div class="connexion-form-container">
         <div id="connexion-form--registration-header">
           <h1>Inscription</h1>
+          <h3>Hey ! Bienvenue ! </h3>
           <% if devise_mapping.omniauthable? %>
             <% resource_class.omniauth_providers.each do |provider| %>
               <form action="<%= omniauth_authorize_path(resource_name, provider) %>" method="POST">
@@ -62,7 +65,7 @@
             </div>
             <div class="registration-form-ctas">
               <div id="registration-agreement">
-                <%= f.input :accepts_tos, as: :boolean, label: false, error: "Accepter les conditions d'utilisation est obligatoire" %>
+                <%= f.input :accepts_tos, as: :boolean, label: false, error: "Acceptes les conditions générales d'utilisation pour continuer ;)" %>
                 <%= f.label :accepts_tos, style: "margin-bottom: 0;
 
     margin-left: 0.4em;"  do %>
@@ -81,8 +84,10 @@
           <% end %>
         </div>
     </div>
+    
   </div>
-  <div class="connexion-image">
 
+  <div class="connexion-image">
   </div>
+
 </div>

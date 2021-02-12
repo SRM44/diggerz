@@ -1,11 +1,8 @@
 .connexion-container {
-  height: 100vh;
+  height: 100%;
   background-color: white;
   display: flex;
-
-  @media (min-width: 992px) {
-    padding-left: 15%;
-  }
+  justify-content: center;
 }
 
 .connexion-content {
@@ -17,17 +14,13 @@
 }
 
 .connexion-content-wrapper {
-  max-width: 500px;
+  width: 380px;
   padding: 8px;
 }
 
 
 .connexion-image {
-    flex: 1;
-    background-image: linear-gradient(to bottom, rgba(52, 50, 50, 0.40), rgba(141, 139, 139, 0.50)), url(https://source.unsplash.com/random/?record,vinyl);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    display: none;
 }
 
 
@@ -43,6 +36,9 @@
     justify-content: space-between;
     div {
       margin-left: 16px;
+    }
+    .active {
+      font-weight: bold;
     }
 }
 
@@ -65,17 +61,27 @@
   input {
   width: 100%;
   margin-bottom: 0.5em;
-  outline: 0;
-  border-width: 0 0 0.5px;
-  border-radius: 0px;
+  outline: none;
+  box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.12);
+  border: 0.5px solid #d1d1d1;
+  border-radius: 4px;
+
   }
+
+  input:hover {
+    box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+  }
+
   input:focus {
-      border-color: $deep-green-3
+    color: #4b515d;
+    border: 1px solid #B8B6B6;
+    box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
   }
 }
 
 .connexion-password {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   #connexion-cta-forgot {
       align-self: start;
@@ -87,7 +93,7 @@
 .registration-form-ctas {
     display: flex;
     flex-direction: column;
-    margin: 2.5em 0 2.5em 0;
+    margin: 1.5em 0 1.5em 0;
     #registration-agreement {
         display:        flex;
         padding-bottom: 1em;
@@ -101,3 +107,18 @@
 
 }
 
+
+@media (min-width: 992px) {
+  .connexion-container {
+  padding-left: 15%;
+  }
+
+  .connexion-image {
+    display: block;
+    flex: 1;
+    background-image: linear-gradient(to bottom, rgba(52, 50, 50, 0.40), rgba(141, 139, 139, 0.50)), url(https://source.unsplash.com/random/?record,vinyl);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
