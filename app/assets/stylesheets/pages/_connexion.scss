@@ -1,5 +1,4 @@
 .connexion-container {
-  height: 100%;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -42,6 +41,14 @@
     }
 }
 
+#connexion-form--registration-header {
+  font-size: 12px;
+
+  img {
+    height: 1.5em;
+  }
+}
+
 .connexion-form-container {
   h1 {
       margin-bottom: 32px;
@@ -55,6 +62,10 @@
 .form-field-group {
   display: flex;
   justify-content: space-between;
+
+  div:first-child {
+    margin-right: 8px;
+  }
 }
 
 .form-field {
@@ -110,7 +121,8 @@
 
 @media (min-width: 992px) {
   .connexion-container {
-  padding-left: 15%;
+      padding-left: 15%;
+      height: 100vh;
   }
 
   .connexion-image {

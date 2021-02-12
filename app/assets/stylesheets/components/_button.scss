@@ -4,15 +4,14 @@
     padding: $piled-btn-padding;
     height: $btn-height;
     border-radius: $btn-border-radius;
-    background: $yellow;
     font-family: $btn-font-family;
     font-size: $btn-font-size;
-    background: $yellow-300;
+    background: $rich-black;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $orange;
+    color: $white-stripes;
     font-weight: 600;
     transition: all 0.3s ease-in-out;
 }
