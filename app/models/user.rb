@@ -21,12 +21,13 @@ class User < ApplicationRecord
 
   def self.find_for_discogs_oauth(auth)
     user_params = {
-      username:   auth.info.username,
-      avatar:     auth.info.picture,
-      email:      auth.info.username.downcase + '@diggerz-user.com',
-      discogs_id: auth.uid,
-      provider:   auth.provider,
-      token:      auth.credentials.token
+      username:    auth.info.username,
+      avatar:      auth.info.picture,
+      email:       auth.info.username.downcase + '@diggerz-user.com',
+      discogs_id:  auth.uid,
+      provider:    auth.provider,
+      token:       auth.credentials.token,
+      accepts_tos: true
     }
 
     user = User.find_by(provider: auth.provider, discogs_id: auth.uid)
