@@ -1,18 +1,44 @@
-<h2>Forgot your password?</h2>
+<div class="connexion-container">
+    <div class="connexion-content">
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+      <div class="connexion-content-wrapper">
+        <div class="connexion-menu">
+          <%= image_tag "logo_diggerz_icon.png", height: 70 %>
+        <div class="connexion-menu-links">
+          <div>
+            <%= link_to " < Connexion", new_session_path(resource_name), class: 'disabled-link' %>
+          </div>
+        </div>
+      </div>
+        <div class="connexion-form-container">
+          <div id="connexion-form--registration-header">
+              <h1>Ca arrive !</h1>
+              <h3>Allons récupèrer ton mot de passe !</h3>
+          </div>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-  </div>
+          <div id="lost-password-ctas">
+            <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <%= f.error_notification %>
+                <div class="form-field"> 
+                  <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  autofocus: true,
+                  placeholder: 'Memoire@poissonrouge.com',
+                  label:false,
+                  input_html: { autocomplete: "email" } %>
+                </div>
+                <div class="connexion-form-ctas">
+                  <%= f.button :submit, "Récupèrer", class: "button-master", id: "password-cta-btn" %>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="connexion-image">
+       
+    </div>
+</div>

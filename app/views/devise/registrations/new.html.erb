@@ -3,8 +3,9 @@
   <div class="connexion-content">
 
     <div class="connexion-content-wrapper">
+    
       <div class="connexion-menu">
-          <%= image_tag "logo_diggerz_icon.png", height: 70 %>
+          <%= link_to image_tag("logo_diggerz_icon.png", height: 50), root_path %>
         <div class="connexion-menu-links">
           <div>
             <%= link_to "Connexion", new_session_path(resource_name), class: "disabled-link" %>
