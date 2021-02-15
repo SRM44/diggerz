@@ -2,14 +2,12 @@
   <div class="connexion-menu" id="hp-links">
      <%= link_to image_tag("logo_diggerz_full.png", height: 25), root_path %>
     <div class="connexion-menu-links" >
-      <div>
-        <%= link_to "Connexion", new_user_session_path, class: 'disabled-link' %>
-      </div>
+      <%= link_to "Connexion", new_user_session_path %>
     </div>
   </div>
   <div class="hp-header">
     <h1>Troques des vinyles. Gratuitement.</h1>
-    <p>Echanges sans limites tes disques avec les passioné.es de ta ville. <br> Tous les genres, tous les styles.</p>
+    <p>Echanges sans limites des disques avec les passioné.es de ta ville. <br> Tous les genres, tous les styles.</p>
   </div>
   <div class="button-master">
     <% if user_signed_in? %>
