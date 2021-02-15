@@ -1,9 +1,9 @@
 module Deals
   module Reminders
-    First::DELAY_DURATION  = 2.days
-    Second::DELAY_DURATION = 4.days
-    Third::DELAY_DURATION  = 6.days
-    Last::DELAY_DURATION   = 7.days
+    First::DELAY_DURATION  = ENV.fetch('REMINDER_DELAY_IN_DAYS_FIRST').to_f.days
+    Second::DELAY_DURATION = ENV.fetch('REMINDER_DELAY_IN_DAYS_SECOND').to_f.days
+    Third::DELAY_DURATION  = ENV.fetch('REMINDER_DELAY_IN_DAYS_THIRD').to_f.days
+    Last::DELAY_DURATION   = ENV.fetch('REMINDER_DELAY_IN_DAYS_LAST').to_f.days
 
     class Schedule
       attr_reader :deal
