@@ -6,7 +6,7 @@ class User
 
     def self.available
       %w(
-          NANTES
+          Nantes
         )
 
       # %w(
@@ -29,7 +29,7 @@ class User
       #     METZ
       #     MONTPELLIER
       #     MULHOUSE
-      #     NANTES
+      #     Nantes
       #     NICE
       #     NIMES
       #     ORLEANS

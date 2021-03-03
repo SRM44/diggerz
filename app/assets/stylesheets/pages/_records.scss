@@ -1,21 +1,9 @@
 .records-wrapper {
-  display: flex;
   height: 100vh;
-}
-
-.records-search-col {
-  flex-basis: 30%;
-  height: 100%;
-  padding: 1em;
-  position: fixed;
-  background-color: $grey-600;
 }
 
 .records-results {
   margin: 1em;
-  flex-basis: 40%;
-  position: relative;
-  left: 19em;
 }
 
 .results-counter {

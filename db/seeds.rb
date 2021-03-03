@@ -861,22 +861,22 @@ homesick_amelie = Record.create!(
 
 puts "Create deals..."
 
-deal_steven_yanis = Deal.create!(
-  requester_record: the_dark_side_of_the_moon_steven,
-  receiver_record: rage_against_the_machine_yanis,
-  status: 'pending'
-)
+#deal_steven_yanis = Deal.create!(
+#  requester_record: the_dark_side_of_the_moon_steven,
+#  receiver_record: rage_against_the_machine_yanis,
+#  status: 'pending'
+#)
 
-deal_volodia_steven = Deal.create!(
-  requester_record: born_in_the_usa_volodia,
-  receiver_record: nevermind_steven,
-  status: 'pending'
-)
+#deal_volodia_steven = Deal.create!(
+#  requester_record: born_in_the_usa_volodia,
+#  receiver_record: nevermind_steven,
+#  status: 'pending'
+#)
 
-deal_steven_amelie = Deal.create!(
-  requester_record: hots_space_steven,
-  receiver_record: homesick_amelie,
-  status: 'pending'
-)
+#deal_steven_amelie = Deal.create!(
+#  requester_record: hots_space_steven,
+#  receiver_record: homesick_amelie,
+#  status: 'pending'
+#)
 
 puts "Finished!"

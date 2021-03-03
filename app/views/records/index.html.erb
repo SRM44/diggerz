@@ -4,37 +4,41 @@
 
 <div class="records-wrapper">
 
-  <div class="records-search-col">
-    <div class="records-filters">
-      <%= form_tag records_path, method: :get, class: "records-search-tags" do %>
-        <input id="query-input" name="search[query]" placeholder="Titre, Artiste, Label... " value="<%= params.dig(:search, :query) %>"></input>
-        <div>VILLE</div>
+  <div class="records-filters">
+    <%= form_tag records_path, method: :get, class: "records-search-tags" do %>
+      <div class="records-location">
+        <i class="fas fa-map-marker-alt"></i>
         <%= select_tag "search[location]", options_for_select(User::Location.available, @location), onchange: "this.form.submit()" %>
-        <div>Genre</div>
-        <%= select_tag "filters[genres]", options_for_select(Genre.available, params.dig(:filters, :genres)), multiple: true %>
-        <%# <div>Année</div>
-        <%= select_tag "filters[years]", options_for_select(Release::Year.available, params.dig(:filters, :years)), multiple: true %>
-
+      </div>
+      <div>
+        <h1>Vinyles à <%= @location.capitalize %></h1>
+      </div>
+      <div class="records-search-input form-field">
+        <input class="records-search-bar" name="search[query]" placeholder="Titre, Artiste, Label... " value="<%= params.dig(:search, :query) %>"></input>
         <button><i class="fas fa-search fa-lg"></i></button>
-      <% end %>
-    </div>
+      </div>
 
-    <div class="">
-      <% search_filters.each do |name, values| %>
-        <% values.each do |value| %>
-          <div class="filter-label"><%= filter_display_label(name, value) %>
-            <a href="<%= remove_filter_from_url(name, value) %>">
-              <i class="fas fa-times"></i>
-            </a>
-          </div>
-        <% end %>
+      <%# <div>Genre</div>
+      <%= select_tag "filters[genres]", options_for_select(Genre.available, params.dig(:filters, :genres)), multiple: true %> 
+      <%# <div>Année</div>
+      <%= select_tag "filters[years]", options_for_select(Release::Year.available, params.dig(:filters, :years)), multiple: true %>
+
+    <% end %>
+  </div>
+
+  <div class="">
+    <% search_filters.each do |name, values| %>
+      <% values.each do |value| %>
+        <div class="filter-label"><%= filter_display_label(name, value) %>
+          <a href="<%= remove_filter_from_url(name, value) %>">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
 
   <div class="records-results">
-    <h1>Vinyles à <%= @location.capitalize %></h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
     <div class="results-counter">
       <%if params.dig(:search, :query).present? %>
