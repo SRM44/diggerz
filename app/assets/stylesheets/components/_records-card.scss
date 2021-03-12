@@ -1,53 +1,63 @@
 .records-grid {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-  .records-index-card {
-    height: 18em;
-    width: 18em;
-    padding: 1em;
-    margin: 0.5em 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    color: white;
-    cursor: pointer;
+.records-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+  cursor: pointer;
+}
 
-    h3 {
-      color: white;
-      font-size: 2em;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
 
-    p:first-child {
-      font-size: $micro-text;
-      margin-bottom: 1em;
-    }
-    .records-index-infos div:last-child {
-      background-color: $grey-200;
-    }
+.records-index-card {
+  width: 100%;
+  margin: 0.5em 0;
+  border-radius: 2px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: white;
+  cursor: pointer;
+}
 
-    p:last-child {
-      font-size: $micro-text;
-      justify-self: flex-end;
-    }
+.records-index-card:before {
+  content: "";
+  float: left;
+	padding-top: 100%; 
+}
+
+.records-cards-infos {
+  h3 {
+    font-size: 1em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
-  .records-undisplay {
-    display: none;
+  .records-index-infos div:last-child {
+    background-color: $grey-200;
   }
 
-  .discover-vinyl-card {
-    position: fixed;
-    top:0;
-    height: 100%;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, .95);
-    z-index: 100;
+  p:last-child {
+    font-size: $micro-text;
+    justify-self: flex-end;
   }
+
+}
+
+.records-undisplay {
+  display: none;
+}
+
+.discover-vinyl-card {
+  position: fixed;
+  top:0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .95);
+  z-index: 100;
+}
