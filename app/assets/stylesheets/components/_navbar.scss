@@ -19,8 +19,7 @@
 	&__item{
 		flex-grow:1;
 		text-align:center;
-		font-size:12px;
-		
+		font-size:1em;
 		display:flex;
 		align-items: center;
 		justify-content: center;
@@ -44,7 +43,7 @@
 		display: none;
 		color: $grey-600;
 		font-size: $small-text;
-		font-weight: $emphase600;
+		font-weight: $emphase500;
 	}
 }
 
@@ -52,12 +51,15 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .mobile-bottom-nav {
-	position:fixed;
-	top:0;
-	left:0;
-	right:0;
-	z-index:5000;
-	margin-top: 1em;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 5000;
+	margin-top: 0;
+	flex-direction: column;
+	height: 100%;
+	width: 15%;
+	background-color: #f8f9fc;
 
 	&__item {
 		padding-left: 2em;
@@ -67,9 +69,15 @@
 		
 	}
 
+	i {
+		font-size: 1.5em;
+		color: $rich-black;
+	}
+
 	#nav-label {
 		display: inline;
 		margin-left: 1em;
+		color: $rich-black
 	}
   }
 }
