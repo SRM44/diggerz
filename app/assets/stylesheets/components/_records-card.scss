@@ -13,7 +13,7 @@
 
 .records-index-card {
   width: 100%;
-  margin: 0.5em 0;
+
   border-radius: 2px;
   background-size: cover;
   background-position: center;
@@ -55,7 +55,7 @@
 .discover-vinyl-card {
   position: fixed;
   top:0;
-  left: 0;
+  right: 0;
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, .95);
@@ -67,11 +67,14 @@
 
   .records-grid {
     height: 100%;
+    flex-direction: row;
     flex-wrap: wrap;
   }
 
   .records-content-wrapper {
-    max-width: 350px;
+    width: 25%;
+    padding: 0.5em;
+    max-height: 100px;
   }
-
+  
 }
