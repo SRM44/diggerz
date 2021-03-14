@@ -31,7 +31,7 @@
 
 .record-condition-cap {
   display: inline-block;
-  border-radius: 25px;
+  border-radius: $btn-border-radius;
   border: 0.5px solid $grey-300;
   padding: 0 1em;
   background-color:hsla(228, 8%, 74%, 0.5)

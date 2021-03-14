@@ -8,9 +8,10 @@
 
 .button-master {
     max-width: 300px;
+    min-width: 300px;
     margin: 1em 0 1em 0;
     padding: $piled-btn-padding;
-    height: $btn-height;
+    min-height: $btn-height;
     border-radius: $btn-border-radius;
     font-family: $btn-font-family;
     font-size: $btn-font-size;
