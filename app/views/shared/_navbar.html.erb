@@ -1,28 +1,39 @@
 <nav class="mobile-bottom-nav">
 
   <div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
-	<div class="mobile-bottom-nav__item-content nav-logo">
-		<%= link_to discover_records_path do %><%= image_tag("logo_diggerz_icon_white.png") %><div id="nav-label">Digger</div><% end %>
-		</div>
+	<div>
+		<div class="mobile-bottom-nav__item-content nav-logo">
+			<%= link_to discover_records_path do %><%= image_tag("logo_diggerz_icon_white.png") %><div id="nav-label">Digger</div><% end %>
+			</div>
+		</div>	
 	</div>
-	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-			<%= link_to myrecords_path do %><%= image_tag("library.png") %><div id="nav-label">Ma collection</div><% end %>
+	<div>
+		<div class="mobile-bottom-nav__item-content nav-logo">
+			<%= link_to discover_records_path do %>
+				<%= image_tag("logo_diggerz_icon_white.png") %><div id="nav-label">Digger</div>
+			<% end %>
+			</div>
 		</div>
-	</div>
-<%# 	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-			<%= link_to new_release_path do ><i class="far fa-plus-square"></i><div id="nav-label">Ajouter un disque</div><% end >
+		<div class="mobile-bottom-nav__item">
+			<div class="mobile-bottom-nav__item-content">
+				<%= link_to myrecords_path do %><%= image_tag("library.png") %><div id="nav-label">Ma collection</div><% end %>
+			</div>
 		</div>
-	</div> %>
-	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-			<%= link_to received_mydeals_path do %><i class="far fa-handshake"></i><div id="nav-label">Mes échanges</div><% end %>
+	<%# 	<div class="mobile-bottom-nav__item">
+			<div class="mobile-bottom-nav__item-content">
+				<%= link_to new_release_path do ><i class="far fa-plus-square"></i><div id="nav-label">Ajouter un disque</div><% end >
+			</div>
+		</div> %>
+		<div class="mobile-bottom-nav__item">
+			<div class="mobile-bottom-nav__item-content">
+				<%= link_to received_mydeals_path do %><i class="far fa-handshake"></i><div id="nav-label">Mes échanges</div><% end %>
+			</div>
 		</div>
-	</div>
-	<div class="mobile-bottom-nav__item">
-		<div class="mobile-bottom-nav__item-content">
-			<%= link_to profile_path do %><i class="fas fa-user"></i><div id="nav-label">Profil</div><% end %>
+		<div class="mobile-bottom-nav__item">
+			<div class="mobile-bottom-nav__item-content">
+				<%= link_to profile_path do %><i class="fas fa-user"></i><div id="nav-label">Profil</div><% end %>
+			</div>
 		</div>
+	
 	</div>
 </nav>

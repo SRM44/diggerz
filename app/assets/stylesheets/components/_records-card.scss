@@ -1,19 +1,16 @@
 .records-grid {
   display: flex;
-  flex-direction: column;
 }
 
 .records-content-wrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2em;
   cursor: pointer;
 }
 
 
 .records-index-card {
   width: 100%;
-
   border-radius: 2px;
   background-size: cover;
   background-position: center;
@@ -26,10 +23,11 @@
 .records-index-card:before {
   content: "";
   float: left;
-	padding-top: 100%; 
+	padding-top: 100%   ; 
 }
 
 .records-cards-infos {
+  padding-top: 0.5em;
   h3 {
     font-size: 1em;
     text-overflow: ellipsis;
@@ -66,7 +64,6 @@
 @media (min-width: 992px) {
 
   .records-grid {
-    height: 100%;
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -74,7 +71,6 @@
   .records-content-wrapper {
     width: 25%;
     padding: 0.5em;
-    max-height: 100px;
   }
   
 }

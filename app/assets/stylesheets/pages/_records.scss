@@ -1,5 +1,5 @@
 .records-wrapper {
-  height: 100vh;
+  height: 100%;
 }
 
 .records-results {
@@ -33,8 +33,8 @@
 @media (min-width: 992px) {
 
   .records-wrapper {  
-      width: 50%;
-      margin-left: 15em;
+      width: 60%;
+      padding-left: 15em;
   }
 
   .records-results {
@@ -43,7 +43,7 @@
 
   .discover-vinyl-card {
     right: 0;
-    width: 35vw;
+    width: 40%;
   }
 
   .vinyl-card-details {

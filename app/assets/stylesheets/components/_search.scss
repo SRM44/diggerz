@@ -1,14 +1,16 @@
 .records-filters {
     height: 40vh;
     padding: 1em;
-    background-image: url('https://images.unsplash.com/photo-1540120638956-9c5cc423a170?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'), linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(149,16,16,0.006022477350315136) 40%, rgba(0,212,255,1) 100%);
+    background-image: url('https://images.unsplash.com/photo-1540120638956-9c5cc423a170?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'), linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7));
     background-size: cover;
     background-repeat: no-repeat;
 
     select {
-        border: none;
+        padding: 1em;
+        border: 0.5px;
+        border-radius: $btn-border-radius;
         text-decoration: none;
-        background-color: transparent;
+        background-color: rgba(0,0,0,0.05);
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -20,7 +22,7 @@
     }
 
     i {
-        color: white;
+        color: $grey-300;
     }
 
     .records-search-tags {
@@ -44,6 +46,7 @@
     input {
         width: 100%;
         padding: 15px;
+        color: $grey-500;
         }
 
     button {
@@ -65,3 +68,13 @@
     margin: 0 0.5em 0 0.5em;
     padding: 0.5em;
 }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+    .records-filters { 
+        h1 {
+            font-size: 3.5em;
+        }
+    }
+} 
