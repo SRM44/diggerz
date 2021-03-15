@@ -106,3 +106,17 @@
     }
 
   }
+
+  .myrecords-discog-sync-btn {
+    display: flex;
+    align-items: center;
+    width: 15em;
+    text-decoration: none;
+    color: black;
+    border: solid black 1px;
+    border-radius: 1em;
+
+    i  {
+        margin: 0 0.5em;
+    }
+}

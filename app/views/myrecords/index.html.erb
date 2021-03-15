@@ -2,8 +2,7 @@
   <%= javascript_pack_tag "swap" %>
 <% end %>
 
-<div class="app-container">
-
+<div class="records-wrapper">
   <!--CONNEXION DISCOGS ><!-->
   <% if @myrecords.empty? %>
     <div>
@@ -11,63 +10,54 @@
         <h3> Importer ma collection de vinyles</h3>
       </div>
       <div class="sync-button-div">
-
         <% if current_user.discogs_id.blank? %>
           <form action="<%= user_discogs_omniauth_authorize_path %>" method="POST">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
             <input type="submit" value="Connecter mon compte Discogs" class="button-master button-synchroniser">
           </form>
           <%= link_to "Ajouter un vinyl", new_release_path, class: 'button-master' %>
         <% else %>
-          <div class="button-master button-synchroniser">
+          <div class="button-synchroniser">
             <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
           </div>
         <% end %>
-
       </div>
     </div>
   <% else %>
-
   <!-- SEARCH BAR><!-->
-    <div class="myrecords-wrapper">
-      <div id="myrecords-header">
-        <h1> Mes vinyles </h1>
-        <div class="records-search">
-        <%= form_tag myrecords_path, method: :get, class: "records-search-bar"  do %>
-          <input id="query-input" name="search[query]" placeholder="Titre, Artiste, Label... " value="<%= params.dig(:search, :query) %>" />
-          <button><i class="fas fa-search fa-lg"></i></button>
-        <% end %>
+  <div>
+    <h1> Ma collection </h1>
+    <div class="records-search">
+      <%= form_tag myrecords_path, method: :get, class: "records-search-input form-field"  do %>
+        <input id="query-input" name="search[query]" placeholder="Titre, Artiste, Label... " value="<%= params.dig(:search, :query) %>" />
+        <button><i class="fas fa-search fa-lg"></i></button>
+      <% end %>
+    </div>
+    <div class="button-synchroniser">
+      <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
+    </div>
+  </div>
+  <div class="myrecords-grid">
+    <% @myrecords.sort_by {|myrecord| myrecord.created_at }.reverse.each do |myrecord| %>
+      <% if myrecord.swappable %>
+      <div class="records-content-wrapper">
+        <div class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= record_cover(myrecord) %>')" ></div>
+        <div class="records-cards-infos">
+          <h3><%= myrecord.release.title %></h4>
+          <p><%= myrecord.release.artist%></p>
         </div>
-        <div class="button-master button-synchroniser">
-          <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
+        <div id="myrecords-toggle" class="custom-control custom-switch custom-switch-collection onoffswitch" data-id="<%= myrecord.id %>">
+          <input type="checkbox" <%= 'checked' if myrecord.swappable %> name="record[swappable]" class="custom-control-input onoffswitch-checkbox" id="record-swap-<%= myrecord.id %>" data-id="<%= myrecord.id %>">
+          <label class="custom-control-label onoffswitch-label" for="record-swap-<%= myrecord.id %>">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+          </label>
         </div>
+        <%= link_to "", toggle_swappable_myrecord_path(myrecord), id: "submit-record-#{myrecord.id}", class: "hidden-button", method: :patch, remote: true %>
       </div>
-
-      <div class="myrecords-cards-container">
-        <div class="myrecords-context">Echanger ?</div>
-        <% @myrecords.sort_by {|myrecord| myrecord.created_at }.reverse.each do |myrecord| %>
-          <div class="myrecords-card">
-          <%= link_to myrecord_path(myrecord) do %>
-            <div id="my-records-infos">
-              <%= image_tag record_cover(myrecord) %>
-              <div>
-                <h4><%= myrecord.release.title %></h4>
-                <p><%= myrecord.release.artist%></p>
-              </div>
-            </div>
-          <% end %>
-            <div id="myrecords-toggle" class="custom-control custom-switch custom-switch-collection onoffswitch" data-id="<%= myrecord.id %>">
-              <input type="checkbox" <%= 'checked' if myrecord.swappable %> name="record[swappable]" class="custom-control-input onoffswitch-checkbox" id="record-swap-<%= myrecord.id %>" data-id="<%= myrecord.id %>">
-              <label class="custom-control-label onoffswitch-label" for="record-swap-<%= myrecord.id %>">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-              </label>
-            </div>
-            <%= link_to "", toggle_swappable_myrecord_path(myrecord), id: "submit-record-#{myrecord.id}", class: "hidden-button", method: :patch, remote: true %>
-          </div>
-        <% end %>
-      </div>
+      <% end %>
+    <% end %>
+  </div>
   <% end %>
 </div>
 

@@ -1,13 +1,9 @@
-.records-grid {
-  display: flex;
-}
-
 .records-content-wrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
   cursor: pointer;
 }
-
 
 .records-index-card {
   width: 100%;
@@ -62,12 +58,6 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-
-  .records-grid {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
   .records-content-wrapper {
     width: 25%;
     padding: 0.5em;
