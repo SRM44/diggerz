@@ -1,27 +1,27 @@
-<div class="deal-maker-container app-container">
-  <div class="deal-wrapper">
-    <div class="deal-maker-container">
+<div class="deal-desktop-container">
 
-      <%= render "mydeals/components/show/header/base" do %>
-        <%= render "mydeals/components/show/header/title/#{@deal.status}" %>
-      <% end %>
 
-      <% if @current_user_received_deal %>
-        <%= render "mydeals/components/show/with_user_context/#{@deal.status}/receiver/exchange_target_record",
-                   record: @proposed_record %>
-        <%= render 'mydeals/components/show/in_exchange_of_record',
-                   record: @asked_record %>
-        <%= render "mydeals/components/show/with_user_context/#{@deal.status}/receiver/actions",
-                   deal: @deal %>
-      <% else %>
-        <%= render "mydeals/components/show/with_user_context/#{@deal.status}/requester/exchange_target_record",
-                   record: @asked_record %>
-        <%= render 'mydeals/components/show/in_exchange_of_record',
-                   record: @proposed_record %>
-        <%= render "mydeals/components/show/with_user_context/#{@deal.status}/requester/actions",
-                   deal: @deal %>
-      <% end %>
+<div class="deal-maker-container">
 
-    </div>
-  </div>
+  <%= render "mydeals/components/show/header/base" do %>
+    <%= render "mydeals/components/show/header/title/#{@deal.status}" %>
+  <% end %>
+
+  <% if @current_user_received_deal %>
+    <%= render "mydeals/components/show/with_user_context/#{@deal.status}/receiver/exchange_target_record",
+                record: @proposed_record %>
+    <%= render 'mydeals/components/show/in_exchange_of_record',
+                record: @asked_record %>
+    <%= render "mydeals/components/show/with_user_context/#{@deal.status}/receiver/actions",
+                deal: @deal %>
+  <% else %>
+    <%= render "mydeals/components/show/with_user_context/#{@deal.status}/requester/exchange_target_record",
+                record: @asked_record %>
+    <%= render 'mydeals/components/show/in_exchange_of_record',
+                record: @proposed_record %>
+    <%= render "mydeals/components/show/with_user_context/#{@deal.status}/requester/actions",
+                deal: @deal %>
+  <% end %>
+
+</div>
 </div>

@@ -7,32 +7,34 @@
       <div class="vinyl-card-details-infos">
         <h3> <%= @record.release.title %> </h3>
         <p> <%= @record.release.artist %> </p>
-        <p> <%= @record.release.year %> - <%= @record.release.genre.name %> - <%= @record.release.label %></p>
         <p class="record-condition-cap"> <%= @record.condition %> </p>
       </div>
     </div>
 
-    <div class="deal-input">
-      <div id="deal-myrecord-swapped" class="deal-myrecord-swapped">
+    <div class="deal-record-input-wrapper">
+      
+      
+        <div id="vinyl-card-proposition-button" class="proposition-btn">
+          <i class="fas fa-plus"></i>
+          <div>Proposer un disque</div>
+        </div>
+      <div class="deal-input">
+        <div id="deal-myrecord-swapped">
 
+        </div>
+
+        <%= simple_form_for [@record, @deal] do |f| %>
+        <%= f.input :requester_record_id, as: :hidden %>
+          <div class="vinyl-card-input-button">
+            <%= f.submit 'Envoyer', :class => 'button-master' %>
+          </div>
+        <% end %>
       </div>
 
-      <%= simple_form_for [@record, @deal] do |f| %>
-      <%= f.input :requester_record_id, as: :hidden %>
-        <div class="vinyl-card-input-button">
-          <%= f.submit '>> Proposer', :class => 'button-master-nemesis' %>
-        </div>
-      <% end %>
+
+      <div class="discover-vinyl-card vinyl-card-collection records-undisplay">
+        <%= render 'myrecords/collection' %>
+      </div>
     </div>
-
-    <button id="vinyl-card-proposition-button" class="vinyl-card-add-button button-master-nemesis">
-      <i class="fas fa-plus"></i>
-      <div>Proposer un disque</div>
-    </button>
-
-    <div class="vinyl-card vinyl-card-collection records-undisplay">
-      <%= render 'myrecords/collection' %>
-    </div>
-
   </div>
 </div>

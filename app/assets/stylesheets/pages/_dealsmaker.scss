@@ -1,10 +1,35 @@
 .deal-maker-container {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 5em;
 }
 
+.deal-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em 1em 0 1em;
+  
+    div:first-child {
+      display: flex;
+    }
+
+    h2 {
+        font-size: $title;
+    }
+  }
+
+  .deal-requester-img {
+      padding: 1em;
+      font-size: $small-text;
+      display: inline-block;
+    > img {
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+  
 
 .deal_mycollection {
 
@@ -20,11 +45,11 @@
     }
 }
 
-._collection-dark {
-    background-color:$grey-700;
-    &:hover {
-        background-color: $grey-500;
-    }
+.deal-record-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50vh;
 }
 
 .deal-input{
@@ -40,14 +65,86 @@
     justify-content: center;
 }
 
+.show-deal-myrecord-card-container {
+
+    padding: 1em;
+}
+
+.show-deal-myrecord-card {
+    display: flex;
+
+    img {
+        width: 25%;
+        border-radius: 2px;
+    }
+
+    div {
+        padding: 1em;
+    }
+}
+
+.md-show-actions-btn {
+    margin:1em;
+}
+
+
+/* CHECK IF OK */
+
+.vd-contact-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 1em;
+    padding: 1em;
+    height: 200px;
+    box-shadow: $very-close;
+  
+    img:first-of-type {
+      border-radius: 1em;
+      height: 8em;
+    }
+  
+    div:last-of-type {
+  
+    }
+  
+    .vd-contact-ctas {
+      display: flex;
+    }
+  }
+  
+  .vd-confirmation-msg {
+    margin: 1.5em;
+  }
+  
+  .fa-check-circle {
+    color: green;
+    margin: 16px;
+    ;
+  }
+
+
+
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+    .deal-desktop-container { 
+        width: 100%;
+        border-radius: 4px;
+        padding-left: 15em;
+        background-color: white;
+    }
+
     .deal-maker-container {
-        max-width: 600px;
+        max-width: 40%;
         margin: auto;
     }
 
     .vinyl-card-collection {
         max-width: 600px;
+    }
+
+    .vinyl-card-details {
+        width: 100%;
+        background-size: contain;
     }
 }

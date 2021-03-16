@@ -61,35 +61,28 @@
         <div class="discover-vinyl-card records-undisplay" id="discover-record-modal-<%= record.id %>">
           <div class="records-modals-wrapper" >
             <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
-
               <div class="vinyl-card-details-index-button" id="record-close-modal-<%= record.id %>">
                 <i class="fas fa-times"></i>
               </div>
-
               <div class="vinyl-card-details-infos">
                 <h3> <%= record.release.title %> </h3>
                 <p> <%= record.release.artist %> </p>
                 <p> <%= record.release.year %> - <%= record.release.genre.name %> - <%= record.release.label %></p>
                 <p class="record-condition-cap"> <%= record.condition %> </p>
               </div>
-
             </div>
 
             <div class="vinyl-card-tracklist">
-
               <% if record.release.tracks.empty? %>
                 <p>Oups ! Pas encore de tracks renseignées ce disque.</p>
               <% else %>
-
               <ul>
                 <li><strong>TRACKLIST</strong></li>
                 <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
                   <li><%= track.position %> - <%= track.title %></li>
                 <% end %>
               </ul>
-
               <% end %>
-
             </div>
 
             <% if user_signed_in? %>
