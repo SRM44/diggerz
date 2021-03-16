@@ -1,8 +1,7 @@
-<div class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')" >
+
+  <div class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= record_cover(record) %>')" ></div>
   <div class="records-cards-infos">
     <%= yield %>
-    <p><%= record.release.genre.name %></p>
     <h3><%= record.release.title %></h3>
     <p><%= record.release.artist %></p>
   </div>
-</div>
