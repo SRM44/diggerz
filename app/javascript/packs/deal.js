@@ -26,9 +26,9 @@ function addMyRecord(record) {
   
   const resultContent = 
   `
-    <p><em>En échange de :</em></p>
-    <div class="myrecords-card">
-      <div id="my-records-infos">
+    <div class="show-deal-myrecord-card-container">
+      <p><em>En échange de :</em></p>
+      <div class="show-deal-myrecord-card">
         <img src="${record.dataset.recordImage}">
         <div>
           <h4>${record.dataset.recordTitle}</h4>
@@ -36,8 +36,9 @@ function addMyRecord(record) {
         </div>
       </div>
     </div>
-
+                   
   `
+          /* <p id="modify-record-btn"> Modifier</p> */
 
   if (selectedRecord.lastElementChild) {
     removeRecord();
@@ -54,13 +55,16 @@ function addMyRecord(record) {
 
 /* FUNCTIONS */
 
+
 /* SHOW INPUT */
 function recordInput() {
   document.querySelector('.deal-input').classList.add('deal-input-show')
 }
 function modifyBtn() {
-  btn.innerHTML =" Modifier le disque";
+  btn.style.display = 'none'; 
+  const modBtn = document.getElementById("modify-record-btn");
 }
+
 function removeRecord() {
   selectedRecord.innerHTML = "";
   toggleCollection();

@@ -63,7 +63,20 @@
         text-align: center;
         padding-top: 1em;
     }
+}
 
+#modify-record-btn {
+    text-decoration: none;
+    cursor: pointer;
+
+    i  {
+        display: none;
+    }
+
+    div {
+        text-align: center;
+        padding-top: 1em;
+    }
 }
 
 .button-secondary {

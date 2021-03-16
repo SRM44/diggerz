@@ -45,15 +45,10 @@
     }
 }
 
-._collection-dark {
-    background-color:$grey-700;
-    &:hover {
-        background-color: $grey-500;
-    }
-}
-
 .deal-record-input-wrapper {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 50vh;
 }
 
@@ -71,7 +66,7 @@
 }
 
 .show-deal-myrecord-card-container {
-    background-color: $grey-200;
+
     padding: 1em;
 }
 
