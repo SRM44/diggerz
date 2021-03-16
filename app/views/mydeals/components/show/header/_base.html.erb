@@ -2,6 +2,8 @@
   <%= link_to mydeals_return_url do %>
     <i class="fas fa-long-arrow-alt-left"></i>
   <% end %>
-  <%= yield %>
-  <i class="far fa-question-circle fa-lg dropdown"></i>
+  <div>
+    <%= yield %>
+    <%# <i class="far fa-question-circle fa-lg dropdown"></i> %>
+  </div>
 </div>

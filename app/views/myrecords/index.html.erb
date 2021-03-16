@@ -39,6 +39,7 @@
   </div>
   <div class="myrecords-grid">
     <% @myrecords.sort_by {|myrecord| myrecord.created_at }.reverse.each do |myrecord| %>
+    
       <% if myrecord.swappable %>
       <div class="records-content-wrapper">
         <div class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= record_cover(myrecord) %>')" ></div>
@@ -55,7 +56,9 @@
         </div>
         <%= link_to "", toggle_swappable_myrecord_path(myrecord), id: "submit-record-#{myrecord.id}", class: "hidden-button", method: :patch, remote: true %>
       </div>
+
       <% else %>
+
         <div class="swappable">
           <div class="records-content-wrapper">
             <div class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= record_cover(myrecord) %>')" ></div>
