@@ -1,7 +1,7 @@
 <div class="deal-header">
-  <%= link_to mydeals_return_url do %>
-    <i class="fas fa-long-arrow-alt-left"></i>
-  <% end %>
+  <div class="vinyl-card-details-index-button" id="black-back-arrow">
+    <%= link_to mydeals_return_url, class: "" do %><i class="fas fa-long-arrow-alt-left"></i><% end %>
+  </div>
   <div>
     <%= yield %>
     <%# <i class="far fa-question-circle fa-lg dropdown"></i> %>

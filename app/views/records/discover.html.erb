@@ -19,7 +19,7 @@
 
         <div class="discover-vinyl-card undisplay" id="discover-record-modal-<%= record.id %>">
 
-          <div class='vinyl-card'>
+          <div class='vinyl-card records-modals-wrapper'>
 
             <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
                 <div class="vinyl-card-details-index-button" id="record-close-modal-<%= record.id %>">
@@ -35,24 +35,22 @@
                 </div>
               </div>
             </div>
-
-            <div class="vinyl-card-more">
-              <div class="vinyl-card-tracklist">
-                <% if record.release.tracks.empty? %>
-                  <p>Oops ! Tracks indisponibles pour ce disque.</p>
-                <% else %>
-                <ul>
-                  <li><strong>TRACKLIST</strong></li>
-                  <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
-                    <li><%= track.position %> - <%= track.title %></li>
-                  <% end %>
-                </ul>
+            <div class="vinyl-card-tracklist">
+              <% if record.release.tracks.empty? %>
+                <p>Oops ! Tracks indisponibles pour ce disque.</p>
+              <% else %>
+              <ul>
+                <li><strong>TRACKLIST</strong></li>
+                <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
+                  <li><%= track.position %> - <%= track.title %></li>
                 <% end %>
-              </div>
-              <div class="button-master vinyl-card-proposition-button">
-                <%= link_to 'Lancer un deal pour ce vinyle', new_record_deal_path(record, return_url: request.original_url) %>
-              </div>
+              </ul>
+              <% end %>
             </div>
+            <div class="button-master" id="white-btn-master">
+              <%= link_to 'Echanger', new_record_deal_path(record, return_url: request.original_url) %>
+            </div>
+
 
           </div>
         </div>
