@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.7.0'
 
-gem 'devise', ">= 4.7.1"
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma', ">= 4.3.3"
@@ -41,7 +41,7 @@ end
 
 gem 'omniauth-oauth', ">= 1.2.0 "
 gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
-gem 'omniauth-discogs'
+gem 'omniauth-discogs', '~> 0.0.5'
 gem 'discogs-wrapper'
 gem 'activerecord-session_store'
 gem 'simple_form'
