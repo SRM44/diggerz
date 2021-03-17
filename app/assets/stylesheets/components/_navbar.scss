@@ -8,7 +8,7 @@
 	left:0;
 	right:0;
 	z-index:5000;
-	
+	height: 60px;
 	will-change:transform;
 	transform: translateZ(0);
 	box-shadow: 0 -2px 5px -2px #333;
@@ -39,9 +39,13 @@
 
 	#nav-label {
 		display: none;
-		color: $grey-600;
+		color: $rich-black;
 		font-size: $small-text;
 		font-weight: $emphase500;
+	}
+
+	#nav-logo {
+		display: none;
 	}
 }
 
@@ -89,22 +93,59 @@
 	z-index: 5000;
 	background-color: #f8f9fc;
 
-	&__item {
-		padding-left: 2em;
-		height: 50px;
-		justify-content: flex-start;
-		flex-grow: 0;
+	.nav-desktop-links-wrapper {
+		margin-top: 5em;
 	}
 
+	
+	&__item {
+		padding-left: 2em;
+		height: 60px;
+		justify-content: flex-start;
+		flex-grow: 0;
+		
+	}
+	
 	i {
 		font-size: 1.5em;
 		color: $rich-black;
 	}
-
+	
 	#nav-label {
 		display: inline;
+		text-decoration: none;
 		margin-left: 1em;
 		color: $rich-black
+	}
+
+	a {
+		text-decoration: none;
+	}
+	
+	.mobile-bottom-nav__item:hover {
+		-webkit-transition: background-color 0.5s ease;
+    	-moz-transition: background-color 0.5s ease;
+   		-o-transition: background-color 0.5s ease;
+    	transition: background-color 0.5s ease;
+		background-color: $rich-black;
+
+		i {
+			color: white;
+		}
+
+		#nav-label {
+			color: white;
+		}
+	}
+	
+	#nav-logo {
+		display: flex;
+		padding: 1em 1em 1em 0;
+		background-color: $rich-black;
+		height: 100px;
+		img {
+			width: 70%;
+		}
 	}
 
 	.col {
