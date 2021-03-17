@@ -1,5 +1,5 @@
 
-.mobile-bottom-nav{
+.mobile-bottom-nav {
 	display:flex;	
 	margin-top: 1em;
 	height: 3em;
@@ -13,6 +13,10 @@
 	transform: translateZ(0);
 	box-shadow: 0 -2px 5px -2px #333;
 	background-color: $rich-black;
+
+	.nav-desktop-links-wrapper {
+		display:flex;
+	}
 	
 	&__item{
 		flex-grow:1;
@@ -92,10 +96,6 @@
 	z-index: 5000;
 	background-color: $grey-200;
 
-	.nav-desktop-links-wrapper {
-		margin-top: 5em;
-	}
-
 	
 	&__item {
 		padding-left: 2em;
@@ -142,6 +142,7 @@
 		padding: 1em 1em 1em 0;
 		background-color: $rich-black;
 		height: 100px;
+		margin-bottom: 5em;
 		img {
 			width: 70%;
 		}

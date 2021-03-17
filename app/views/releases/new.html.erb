@@ -2,10 +2,10 @@
   <%= link_to 'Passer cette étape', root_path %>
 <% end %>
 
-<div class="app-container"> 
-  <div class="myrecords-wrapper">
+<div class="mydeals-container records-wrapper"> 
+  <h1 id="mydeals-header">Nouveau disque !</h1>
+  <div class="mydeals-content-wrapper">
     <div id="myrecords-header">
-      <h1>Nouveau disque !</h1>
     </div>
     <div class="add-record_form">
      <%= render "form", release: @release %>
