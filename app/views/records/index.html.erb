@@ -88,7 +88,7 @@
             <% if user_signed_in? %>
               <% if @user_records.empty? %>
                 <div class="button-master" id="white-btn-master">
-                  <%= link_to 'Ajouter mon premier disque', new_release_path(return_url: new_record_deal_url(record))%>
+                  <%= link_to 'Proposer un disque', new_release_path(return_url: new_record_deal_url(record))%>
                 </div>
               <% else %>
                 <div class="button-master" id="white-btn-master">
