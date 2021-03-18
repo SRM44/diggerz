@@ -9,7 +9,7 @@ en:
     failure:
       already_authenticated: "Tu es déja en ligne, patate."
       inactive: "Ah ? Ce compte n'est pas actif ..."
-      invalid: "Mot de passe ou %{authentication_keys} invalide. Sorry"
+      invalid: "Mot de passe ou %{authentication_keys} invalide. Essais encore. Tu peux le faire."
       locked: "Ce compte est québlo."
       last_attempt: "Dernier essai avant de bloquer ce compte. #Pression #Calmos #Respire"
       not_found_in_database: "Sorry bro : on ne te trouve pas dans la base de donnée ..."
