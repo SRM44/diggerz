@@ -5,24 +5,28 @@
 <div class="mydeals-container records-wrapper">
   <!--CONNEXION DISCOGS ><!-->
   <% if @myrecords.empty? %>
-    <div>
-      <h1 class="mydeals-header"> Importer ma collection de vinyles</h1>
+  <h1 class="mydeals-header"> Créer ma collection </h1>
+  <div class="mydeals-content-wrapper">
+
+   <div class="mydeals-placeholder-container">
+      <h2>Bienvenue !</h2>
+      <p>Pour commencer à échanger des disques, commences par remplir un peu ta collection ;)<br><br> Deux choix s'offrent à toi : importe ta collection enregistrée dans Discogs, ou bien créer directement ton disque sur Diggerz ! </p>
+        <%= link_to "Ajouter un disque", new_release_path, class: 'button-master' %>
+        <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
+    </div>
 
 
-      <div class="sync-button-div">
-        <% if current_user.discogs_id.blank? %>
-          <form action="<%= user_discogs_omniauth_authorize_path %>" method="POST">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<%#         <% if current_user.discogs_id.blank? >
+          <form action="<%= user_discogs_omniauth_authorize_path >" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token >">
             <input type="submit" value="Connecter mon compte Discogs" class="button-master button-synchroniser">
           </form>
-          <%= link_to "Ajouter un vinyl", new_release_path, class: 'button-master' %>
-        <% else %>
+          <%= link_to "Ajouter un vinyl", new_release_path, class: 'button-master' >
+        <% else >
           <div class="button-synchroniser">
-            <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
           </div>
-        <% end %>
-      </div>
-    </div>
+        <% end %> 
+
   <% else %>
   <!-- SEARCH BAR><!-->
   <h1 class="mydeals-header"> Ma collection </h1>
