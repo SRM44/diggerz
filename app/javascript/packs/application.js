@@ -1,5 +1,6 @@
 import "bootstrap";
 import "./deal";
+import "./preview_pictures";
 
 // listeners
 

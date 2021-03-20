@@ -1,12 +1,17 @@
 <% path = @release.persisted? ? myrecord_release_path : releases_path %>
 <%= simple_form_for([@record, @release], url: path) do |f| %>
-  <div>
-    <%= f.input :pictures,
-      label: false,
-      required: true,
-      as: :file,
-      input_html: { multiple: true } %>
-  </div>
+  
+  <div class="release-image-preview">
+    <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+  </div>  
+
+  <%= f.input :pictures,
+        label: false,
+        required: true,
+        as: :file,
+        input_html: { class: 'hidden', id: 'photo-input', multiple: true}, 
+        label_html: { class: 'upload-photo'}, 
+        label: '📷 Importer une photo' %>
 
   <div class="form-field">
     <%= f.input :title,
@@ -52,13 +57,13 @@
 
   <input type="text" name="return_url" value="<%= params[:return_url] %>" class="hidden">
 
-<%#   <h3>Tracklist</h3>
+  <!--<h3>Tracklist</h3>
   <div class="fields">
-    <%= link_to_add_row('Add Track', f, :tracks, class: 'btn btn-primary') >
-    <%= f.simple_fields_for :tracks do |builder| >
-      <%= render 'track', f: builder >
-    <% end >
-  </div> %>
+    <%= link_to_add_row('Add Track', f, :tracks, class: 'btn btn-primary') %>
+    <%= f.simple_fields_for :tracks do |builder| %>
+      <%= render 'track', f: builder %>
+    <% end %>
+  </div> -->
 
 
   <% if @release.persisted? %>

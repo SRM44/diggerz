@@ -28,8 +28,8 @@
         <% end %> 
 
   <% else %>
-  <!-- SEARCH BAR><!-->
-  <h1 class="mydeals-header"> Ma collection </h1>
+
+  <h1 id="mydeals-header"> Ma collection </h1>
   <div class="mydeals-content-wrapper">
     <div class="records-search">
       <%= form_tag myrecords_path, method: :get, class: "records-search-input form-field"  do %>
@@ -37,14 +37,14 @@
         <button><i class="fas fa-search fa-lg"></i></button>
       <% end %>
     </div>
-    <div>
+      <%= link_to new_release_path do %>
+        <div class="button-master">
+          <i class="far fa-plus-square fa-2x"></i>
+          Ajouter un disque
+        </div>
+      <% end %>
 
-    <%= link_to new_release_path do %>
-      <div class="button-master">
-        <i class="far fa-plus-square fa-2x"></i>
-        Ajouter un disque
-      </div>
-    <% end %>
+
 <%#     <div>
       <%= link_to "Synchroniser avec Discogs",import_from_discogs_myrecords_path, data: {disable_with: "Synchronisation en cours"}%>
 <%#     </div> %> 

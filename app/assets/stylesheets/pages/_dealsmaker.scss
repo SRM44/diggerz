@@ -1,8 +1,8 @@
 .deal-maker-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 5em;
+/*   justify-content: space-between; */
+
 }
 
 .deal-header {
@@ -135,6 +135,7 @@
     }
 
     .deal-maker-container {
+      min-height: 100%;
         max-width: 40%;
         margin: auto;
     }

@@ -1,10 +1,10 @@
-<div class="app-container">
-  <div class="myrecords-wrapper">
-    <div id="myrecords-header">
-      <h1>Modifier les informations de mon disque</h1>
+<div class="deal-maker-container"> 
+    <div class="vinyl-card-details-index-button"  id="black-back-arrow" >
+      <%= link_to myrecords_path do %><i class="fas fa-long-arrow-alt-left"></i><% end %>
     </div>
+    <h1 id="mydeals-header">Modifier mon disque</h1>
     <div class="add-record_form">
-     <%= render "form", release: @release, record: @record %>
+      <%= render "form", release: @release, record: @record %>
     </div>
   </div>
 </div>

@@ -49,6 +49,7 @@ html, body {
 
     .active {
       color: $rich-black;
+      pointer-events: none;
     }
 }
 

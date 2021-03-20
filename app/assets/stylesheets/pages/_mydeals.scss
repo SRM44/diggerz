@@ -1,27 +1,14 @@
+#mydeals-header {
+    font-size: $big-text;
+    padding: 0.5em 1em;
+}
+
 .mydeals-container {
     height: 100%;
-    margin: 1em;
+}
 
-    #mydeals-header {
-        font-size: $big-text;
-
-    }
-  }
-
-  .mydeals-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    padding: 1em;
-    border-radius: 4px;
-    border: 0.1px solid $grey-200;
-    background-color: white;
-    .mydeals-placeholder-container {
-        align-self: center;
-    }
-  }
-
-
+  
+  
 .card-list-container {
     display: flex;
     margin: 8px;
@@ -33,7 +20,31 @@
     }
 }
 
+.mydeals-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 1em;
+  border-radius: 4px;
+  border: 0.1px solid $grey-200;
+  background-color: white;
+    
+  .mydeals-placeholder-container {
+      align-self: center;
+  }
+}
   
 @media (min-width: 992px) {
-  
+    #mydeals-header {
+        font-size: $big-text;
+        padding: 1em;
+    }
+    
+    .mydeals-container { 
+        width: 100%;
+    }
+
+    .mydeals-content-wrapper { 
+        margin-left: 1em;
+    }
 }
