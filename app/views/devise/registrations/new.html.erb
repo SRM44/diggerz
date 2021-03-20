@@ -20,7 +20,7 @@
         <div id="connexion-form--registration-header">
           <h1>Inscription</h1>
           <h3>Hey ! Bienvenue ! </h3>
-          <% if devise_mapping.omniauthable? %>
+         <!-- <% if devise_mapping.omniauthable? %>
             <% resource_class.omniauth_providers.each do |provider| %>
               <form action="<%= omniauth_authorize_path(resource_name, provider) %>" method="POST">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -29,7 +29,7 @@
               </form>
             <% end %>
           <% end %>
-        </div>
+        </div> -->
 
           <hr class="divider">
           </hr>
@@ -40,27 +40,27 @@
               <%= f.input :first_name,
                           required: true,
                           autofocus: true,
-                          placeholder: 'Prénom',
+                          placeholder: 'Prénom*',
                           label:false,
                           input_html: { autocomplete: "email" } %>
               <%= f.input :email,
                         required: true,
                         autofocus: true,
-                        placeholder: 'Email',
+                        placeholder: 'Email*',
                         label:false,
                         input_html: { autocomplete: "email" }%>
             </div>
             <div class="form-field">
               <%= f.input :password,
                         required: true,
-                        placeholder: 'Mot de passe (+6 caractères)',
+                        placeholder: 'Mot de passe* (+6 caractères)',
                         label:false,
                         input_html: { autocomplete: "new-password" } %>
             </div>
             <div class="form-field">
               <%= f.input :password_confirmation,
                           required: true,
-                          placeholder: 'Confirmes ton mot de passe',
+                          placeholder: 'Confirmes ton mot de passe*',
                           label:false,
                           input_html: { autocomplete: "new-password" } %>
             </div>

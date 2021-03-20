@@ -5,32 +5,29 @@
 	<% end %>
   </div>	
 
-	<div class="mobile-bottom-nav__item">
+	<%= link_to records_path, class:"mobile-bottom-nav__item" do %>
 		<div class="mobile-bottom-nav__item-content">
-			<%= link_to records_path do %><i class="fas fa-search"></i></i><div id="nav-label">Digger</div><% end %>
+			<i class="fas fa-search"></i></i><div id="nav-label">Digger</div>
 		</div>
-	</div>
+	<% end %>
 
-
-	<div class="mobile-bottom-nav__item">
+	<%= link_to myrecords_path, class:"mobile-bottom-nav__item" do %>
 		<div class="mobile-bottom-nav__item-content">
-			<%= link_to myrecords_path do %><i class="fas fa-compact-disc"></i><div id="nav-label">Ma collection</div><% end %>
+			<i class="fas fa-compact-disc"></i><div id="nav-label">Ma collection</div>
 		</div>
-	</div>
+	<% end %>
 		
-
-	<div class="mobile-bottom-nav__item">
+	<%= link_to received_mydeals_path, class:"mobile-bottom-nav__item" do %>
 		<div class="mobile-bottom-nav__item-content">
-		<%= link_to received_mydeals_path do %><i class="far fa-handshake"></i><div id="nav-label">Mes échanges</div><% end %>
+			<i class="far fa-handshake"></i><div id="nav-label">Mes échanges</div>
 		</div>
-	</div>
+	<% end %>
 
-	<div class="mobile-bottom-nav__item">
+	<%= link_to profile_path, class:"mobile-bottom-nav__item" do %>
 		<div class="mobile-bottom-nav__item-content">
-			<%= link_to profile_path do %><i class="fas fa-user"></i><div id="nav-label">Profil</div><% end %>
+			<i class="fas fa-user"></i><div id="nav-label">Profil</div>
 		</div>
-	</div>
-
+	<% end %>
 
   <%# <div>
 	<div>

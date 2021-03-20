@@ -7,8 +7,9 @@
   <div class="records-filters">
     <%= form_tag records_path, method: :get, class: "records-search-tags" do %>
       <div class="records-location">
-        <i class="fas fa-map-marker-alt"></i>
-        <%= select_tag "search[location]", options_for_select(User::Location.available, @location), onchange: "this.form.submit()" %>
+          <i class="fas fa-map-marker-alt"></i>
+          <%= select_tag "search[location]", options_for_select(User::Location.available, @location), onchange: "this.form.submit()" %>
+
       </div>
       <div>
         <h1>Vinyles à <%= @location.capitalize %></h1>
@@ -49,61 +50,63 @@
     <h4><%= pluralize(@records_count, 'disque trouvé', plural: 'disques trouvés') %></h4>
   </div>
 
-  <div class="records-grid">
-    <% @records.each do |record| %>
-      <div class="records-content-wrapper">
-        <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= record_cover(record) %>')" ></div>
-        <div class="records-cards-infos">
-          <h3><%= record.release.title %></h3>
-          <p><%= record.release.artist %></p>
-        </div>
-        
-        <div class="discover-vinyl-card records-undisplay" id="discover-record-modal-<%= record.id %>">
-          <div class="records-modals-wrapper" >
-            <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
-              <div class="vinyl-card-details-index-button" id="record-close-modal-<%= record.id %>">
-                <i class="fas fa-times"></i>
+  <div class="records-grid-wrapper">
+    <div class="records-grid">
+      <% @records.each do |record| %>
+        <div class="records-content-wrapper">
+          <div data-new-deal-url="<%= new_record_deal_path(record) %>" data-record-id="<%= record.id %>" class="records-index-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= record_cover(record) %>')" ></div>
+          <div class="records-cards-infos">
+            <h3><%= record.release.title %></h3>
+            <p><%= record.release.artist %></p>
+          </div>
+          
+          <div class="discover-vinyl-card records-undisplay" id="discover-record-modal-<%= record.id %>">
+            <div class="records-modals-wrapper" >
+              <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
+                <div class="vinyl-card-details-index-button" id="record-close-modal-<%= record.id %>">
+                  <i class="fas fa-times"></i>
+                </div>
+                <div class="vinyl-card-details-infos">
+                  <h3> <%= record.release.title %> </h3>
+                  <p> <%= record.release.artist %> </p>
+                  <p> <%= record.release.year %> - <%= record.release.genre.name %> - <%= record.release.label %></p>
+                  <p class="record-condition-cap"> <%= record.condition %> </p>
+                </div>
               </div>
-              <div class="vinyl-card-details-infos">
-                <h3> <%= record.release.title %> </h3>
-                <p> <%= record.release.artist %> </p>
-                <p> <%= record.release.year %> - <%= record.release.genre.name %> - <%= record.release.label %></p>
-                <p class="record-condition-cap"> <%= record.condition %> </p>
-              </div>
-            </div>
 
-            <div class="vinyl-card-tracklist">
-              <% if record.release.tracks.empty? %>
-                <p>Oups ! Pas encore de tracks renseignées ce disque.</p>
-              <% else %>
-              <ul>
-                <li><strong>TRACKLIST</strong></li>
-                <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
-                  <li><%= track.position %> - <%= track.title %></li>
+              <div class="vinyl-card-tracklist">
+                <% if record.release.tracks.empty? %>
+                  <p>Oups ! Pas encore de tracks renseignées ce disque.</p>
+                <% else %>
+                <ul>
+                  <li><strong>TRACKLIST</strong></li>
+                  <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
+                    <li><%= track.position %> - <%= track.title %></li>
+                  <% end %>
+                </ul>
                 <% end %>
-              </ul>
-              <% end %>
-            </div>
+              </div>
 
-            <% if user_signed_in? %>
-              <% if @user_records.empty? %>
-                <div class="button-master" id="white-btn-master">
-                  <%= link_to 'Proposer un disque', new_release_path(return_url: new_record_deal_url(record))%>
-                </div>
+              <% if user_signed_in? %>
+                <% if @user_records.empty? %>
+                  <div class="button-master" id="white-btn-master">
+                    <%= link_to 'Proposer un disque', new_release_path(return_url: new_record_deal_url(record))%>
+                  </div>
+                <% else %>
+                  <div class="button-master" id="white-btn-master">
+                    <%= link_to 'Faire une proposition', new_record_deal_path(record, return_url: request.original_url) %>
+                  </div>
+                <% end %>
               <% else %>
                 <div class="button-master" id="white-btn-master">
-                  <%= link_to 'Faire une proposition', new_record_deal_path(record, return_url: request.original_url) %>
+                  <%= link_to 'Echanger', new_user_session_path %>
                 </div>
               <% end %>
-            <% else %>
-              <div class="button-master" id="white-btn-master">
-                <%= link_to 'Echanger', new_user_session_path %>
-              </div>
-            <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
 

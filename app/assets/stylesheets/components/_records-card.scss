@@ -1,3 +1,7 @@
+a:hover {
+  text-decoration: none;
+}
+
 .records-content-wrapper {
   display: flex;
   flex-direction: column;
@@ -39,7 +43,11 @@
   p:last-child {
     font-size: $micro-text;
     justify-self: flex-end;
+    a {
+      color: gray;
+    }
   }
+
 
 }
 
@@ -62,7 +70,7 @@
 @media (min-width: 992px) {
   .records-content-wrapper {
     width: 25%;
-    padding: 0.5em;
+    margin: 0 1em 1em 0;
   }
   
 }

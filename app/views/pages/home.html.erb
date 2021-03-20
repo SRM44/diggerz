@@ -6,14 +6,21 @@
     </div>
   </div>
   <div class="hp-header">
-    <h1>Troques des vinyles. Gratuitement.</h1>
-    <p>Echanges sans limites des disques avec les passioné.es de ta ville. <br> Tous les genres, tous les styles.</p>
+    <h1>Troque des vinyles. Gratuitement.</h1>
+    <p>Echange sans limites des disques avec les passioné.es de ta ville. <br> Tous les genres, tous les styles.</p>
   </div>
-  <div class="button-master">
     <% if user_signed_in? %>
-      <%= link_to "Mon compte", myrecords_path %>
+      <%= link_to myrecords_path do  %>
+        <div class="button-master">
+          Mon compte
+        </div>
+      <% end %>
     <% else %>
-      <%= link_to "Commencer", records_path %>
+      <%= link_to records_path do %>
+        <div class="button-master">
+          Commencer
+        </div>
+      <% end  %>
     <% end %>
   </div>
 </div>

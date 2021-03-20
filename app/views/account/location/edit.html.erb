@@ -8,8 +8,8 @@
       </div>
       <div class="connexion-form-container">
         <div id="connexion-form--registration-header">
-          <h1>Où-es tu, <%= current_user.first_name %> ?! </h1>
-          <h3>Localises ta collection et commences à échanger des disques près de chez toi ! </h3>
+          <h1>Où es-tu, <%= current_user.first_name %> ?! </h1>
+          <h3>Localise ta collection et commences à échanger des disques près de chez toi ! </h3>
         </div>
         <%= simple_form_for current_user,
           url:    account_location_path(just_registered: params[:just_registered]),

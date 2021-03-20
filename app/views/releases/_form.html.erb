@@ -3,18 +3,21 @@
   <div>
     <%= f.input :pictures,
       label: false,
+      required: true,
       as: :file,
       input_html: { multiple: true } %>
   </div>
 
   <div class="form-field">
     <%= f.input :title,
+    required: true,
     placeholder: 'Album',
     label: false %>
   </div>
 
   <div class="form-field">
     <%= f.input :artist,
+      required: true,
       placeholder: 'Artiste(s)',
       label: false %>
     <%# f.input :artist, collection: Release.pluck(:artist) %>
@@ -37,6 +40,7 @@
 
     <div class="form-field">
       <%= f.association :genre,
+      required: true,
         prompt: 'Genre',
         label: false %>
     </div>
