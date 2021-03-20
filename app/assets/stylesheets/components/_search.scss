@@ -84,6 +84,9 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
 
+    .records-search-input {
+        max-width: 50%;
+    }
     .records-filters { 
         h1 {
             font-size: 3.5em;

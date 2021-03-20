@@ -2,13 +2,15 @@
   <%= link_to 'Passer cette étape', root_path %>
 <% end %>
 
-<div class="mydeals-container records-wrapper"> 
-  <h1 id="mydeals-header">Nouveau disque !</h1>
-  <div class="mydeals-content-wrapper">
-    <div id="myrecords-header">
+
+
+<div class="deal-maker-container"> 
+    <div class="vinyl-card-details-index-button"  id="black-back-arrow" >
+      <%= link_to myrecords_path do %><i class="fas fa-long-arrow-alt-left"></i><% end %>
     </div>
+    <h1 id="mydeals-header">Nouveau disque !</h1>
     <div class="add-record_form">
-     <%= render "form", release: @release %>
+      <%= render "form", release: @release %>
     </div>
   </div>
 </div>

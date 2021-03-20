@@ -2,7 +2,7 @@
   <%= javascript_pack_tag "record_options" %>
 <% end %>
 
-<div class="deal-wrapper">
+
   <div class="deal-maker-container">
     <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(@record) %>')">
       <div class="vinyl-card-details-index-button">
@@ -19,15 +19,11 @@
         <p class="record-condition-cap"> <%= @record.condition %> </p>
       </div>
     </div>
-    <!-- <div class="record-pictures-selector">
-      <div class="record-picture">Photo 1</div>
-      <div class="record-picture">Photo 2</div>
-      <div class="record-picture">Photo 3</div>
-    </div> -->
-    <div class="myrecords-tracklist ">
+    <div class="vinyl-card-tracklist ">
       <% if @record.release.tracks.empty? %>
         <p>Renseigne les tracks de ce disque !</p>
         <div class="button-secondary">Ajouter une track</div>
+
       <% else %>
       <ul>
         <li><strong>TRACKLIST</strong></li>
@@ -46,6 +42,6 @@
       </div>
       <%= link_to "", toggle_swappable_myrecord_path(@record), id: "submit-record-#{@record.id}", class: "hidden-button", method: :patch, remote: true %>
   </div>
-</div>
+
 
 
