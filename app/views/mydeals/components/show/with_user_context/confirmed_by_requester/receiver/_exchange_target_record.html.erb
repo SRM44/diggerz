@@ -2,4 +2,6 @@
   <span><%= record.user.username %> vous a proposé cet échange</span>
 <% end %>
 
+<%= render 'mydeals/components/show/contact_box', user: record.user %>
+
 <%= render 'mydeals/components/show/record', record: record %>
