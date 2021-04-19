@@ -17,6 +17,8 @@ class User < ApplicationRecord
     inclusion: { in: [true], message: ->(_, _) { "Accepter les conditions d'utilisation est obligatoire" }},
     on:        :create
 
+  validates :username, presence: { message: "doit être rempli" }
+
   # before_create :set_default_avatar
 
   def self.find_for_discogs_oauth(auth)

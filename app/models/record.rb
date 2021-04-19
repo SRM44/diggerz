@@ -4,18 +4,20 @@ class Record < ApplicationRecord
 
   has_many :pictures, dependent: :destroy
 
+  before_destroy :destroy_deals
+
   scope :swappable,          ->()     { where(swappable: true) }
   scope :not_swappable,      ->()     { where(swappable: false) }
   scope :available_for_user, ->(user) { where.not(user: user)  }
 
   scope :available_for_deals, ->() do
-    pending_deals_records_ids = Deal.
-      pending.
+    accepted_deals_records_ids = Deal.
+      accepted.
       pluck(:receiver_record_id, :requester_record_id).
       flatten.
       uniq
 
-    swappable.where.not(id: pending_deals_records_ids)
+    swappable.where.not(id: accepted_deals_records_ids)
   end
 
   COLUMNS_TO_MATCH_WITH = ['releases.title', 'releases.artist', 'releases.label']
@@ -32,5 +34,11 @@ class Record < ApplicationRecord
 
   def deals
     Deal.where(receiver_record: self).or(Deal.where(requester_record: self))
+  end
+
+  private
+
+  def destroy_deals
+    deals.destroy_all
   end
 end

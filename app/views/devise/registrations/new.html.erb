@@ -3,7 +3,7 @@
   <div class="connexion-content">
 
     <div class="connexion-content-wrapper">
-    
+
       <div class="connexion-menu">
           <%= link_to image_tag("logo_diggerz_icon.png", height: 50), root_path %>
         <div class="connexion-menu-links">
@@ -29,7 +29,7 @@
               </form>
             <% end %>
           <% end %>-->
-        </div> 
+        </div>
 
           <!--<hr class="divider">
           </hr> -->
@@ -43,6 +43,15 @@
                           placeholder: 'Prénom*',
                           label:false,
                           input_html: { autocomplete: "email", id: "data-saver" } %>
+              <%= f.input :username,
+                          required: true,
+                          autofocus: true,
+                          placeholder: "Nom d'utilisateur*",
+                          label:false,
+                          input_html: { autocomplete: "email", id: "data-saver" } %>
+            </div>
+
+            <div class="form-field">
               <%= f.input :email,
                         required: true,
                         autofocus: true,
@@ -83,7 +92,7 @@
           <% end %>
         </div>
     </div>
-    
+
   </div>
 
   <div class="connexion-image">

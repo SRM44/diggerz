@@ -1,35 +1,30 @@
 <div class="mydeals-container records-wrapper">
-  <h1 id="mydeals-header">Echanges</h1>
-  <% if @received_deals.present? || @requested_deals.present? %>
-  <div>
-    <h3>Proposes des échanges</h3>
-    <p>Ajoutes des disques dans ta collection et commences à proposer des échanges pour écouter de nouvelles choses ! </p>
-  </div>
-    
-  <% elsif @received_deals.nil? && @requested_deals.nil? %>
-  <div class="mydeals-content-wrapper">
-    <%= render 'mydeals/nav', current_path: received_mydeals_path %>
-    
-    <div class="mydeals-placeholder-container">
-      <h2>Sorry ... </h2>
-      <p>Tu n'as pas encore reçu de propositions. <br><br> Ajoutes des disques dans ta collection pour augmenter tes chances ! </p>
-      <%= link_to "Ajouter un disque", new_release_path, class: 'button-master' %>
+  <h1 id="mydeals-header">Échanges</h1>
+  <% if @invite_user_to_add_records %>
+    <div class="mydeals-content-wrapper">
+      <%= render 'mydeals/nav', current_path: received_mydeals_path %>
+
+      <div class="mydeals-placeholder-container text-center d-flex flex-column align-items-center">
+        <h2>🙀</h2>
+        <p>Personne n'a l'air de vouloir de tes pépites...<br><br> Ajoutes des disques dans ta collection pour augmenter tes chances ! </p>
+        <%= link_to "Ajouter un disque", new_release_path, class: 'button-master' %>
+      </div>
     </div>
-  </div>
-  
   <% else %>
-    <%= render 'mydeals/nav', current_path: received_mydeals_path %>
-    <p>Les propositions que vous avez reçu.</p>
-    <div class="records-grid">
-      <% @deals.each do |deal| %>
+    <div class="mydeals-content-wrapper">
+      <%= render 'mydeals/nav', current_path: received_mydeals_path %>
+      <p>Les propositions que vous avez reçues.</p>
+      <div class="records-grid">
+        <% @received_deals.each do |deal| %>
 
-        <%= link_to mydeal_path(deal, mydeals_return_url: received_mydeals_url), class: 'records-content-wrapper' do %>
+          <%= link_to mydeal_path(deal, mydeals_return_url: received_mydeals_url), class: 'records-content-wrapper' do %>
 
-          <%= render 'mydeals/components/cards/base', deal: deal, record: deal.requester_record do %>
-            <%= render 'mydeals/components/cards/user_exchanged_with/receiver', deal: deal %>
+            <%= render 'mydeals/components/cards/base', deal: deal, record: deal.requester_record do %>
+              <%= render 'mydeals/components/cards/user_exchanged_with/receiver', deal: deal %>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
     <% end %>
 </div>

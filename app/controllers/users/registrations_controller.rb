@@ -15,7 +15,7 @@ module Users
     end
 
     def sign_up_params
-      params.require(:user).permit(:first_name, :email, :password, :accepts_marketing_communications, :accepts_tos)
+      params.require(:user).permit(:first_name, :email, :password, :accepts_marketing_communications, :accepts_tos, :username)
     end
   end
 end

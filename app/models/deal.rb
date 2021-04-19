@@ -19,9 +19,13 @@ class Deal < ApplicationRecord
   scope :in_progress,    ->() { where(status: [:accepted, :confirmed_by_requester, :confirmed_by_receiver]) }
 
 
-  scope :other_than,     ->(deal) { where.not(id: deal.id) }
+  scope :other_than, ->(deal) { where.not(id: deal.id) }
 
-  scope :to_be_cleaned_up_on_deal_completion, ->(completed_deal) do
+  scope :to_be_cleaned_up_on_deal_accepted, ->(accepted_deal) do
+    other_than(accepted_deal).pending
+  end
+
+  scope :to_be_cleaned_up_on_deal_completed, ->(completed_deal) do
     other_than(completed_deal).in_progress.or(Deal.pending)
   end
 
@@ -34,9 +38,17 @@ class Deal < ApplicationRecord
   belongs_to :receiver,         class_name: 'User',   autosave: true
   belongs_to :requester,        class_name: 'User',   autosave: true
 
-  def accept
+  def accept!
     self.status      = 'accepted'
     self.accepted_at = DateTime.current
+
+    cancel_other_pending_deals!
+    save!
+  end
+
+  def cancel_other_pending_deals!
+    receiver_record.deals.to_be_cleaned_up_on_deal_accepted(self).destroy_all
+    requester_record.deals.to_be_cleaned_up_on_deal_accepted(self).destroy_all
   end
 
   def decline
