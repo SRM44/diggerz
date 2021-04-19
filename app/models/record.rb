@@ -4,6 +4,8 @@ class Record < ApplicationRecord
 
   has_many :pictures, dependent: :destroy
 
+  before_destroy :destroy_deals
+
   scope :swappable,          ->()     { where(swappable: true) }
   scope :not_swappable,      ->()     { where(swappable: false) }
   scope :available_for_user, ->(user) { where.not(user: user)  }
@@ -32,5 +34,11 @@ class Record < ApplicationRecord
 
   def deals
     Deal.where(receiver_record: self).or(Deal.where(requester_record: self))
+  end
+
+  private
+
+  def destroy_deals
+    deals.destroy_all
   end
 end

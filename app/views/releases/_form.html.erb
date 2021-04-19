@@ -1,16 +1,16 @@
 <% path = @release.persisted? ? myrecord_release_path : releases_path %>
 <%= simple_form_for([@record, @release], url: path) do |f| %>
-  
+
   <div class="release-image-preview">
-    <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
-  </div>  
+    <%= image_tag record_cover(@record), width: 300, id: "photo-preview" %>
+  </div>
 
   <%= f.input :pictures,
         label: false,
         required: true,
         as: :file,
-        input_html: { class: 'hidden', id: 'photo-input', multiple: true}, 
-        label_html: { class: 'upload-photo'}, 
+        input_html: { class: 'hidden', id: 'photo-input', multiple: true},
+        label_html: { class: 'upload-photo'},
         label: '📷 Importer une photo' %>
 
   <div class="form-field">

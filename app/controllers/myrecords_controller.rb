@@ -43,11 +43,11 @@ class MyrecordsController < ApplicationController
   end
 
   def destroy
-    @record  = Record.find(params[:id])
+    @record = Record.find(params[:id])
 
     @record.destroy
     redirect_to myrecords_path, notice: "Disque supprimé !"
-  end 
+  end
 
   private
 

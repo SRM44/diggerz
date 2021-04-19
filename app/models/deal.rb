@@ -22,7 +22,7 @@ class Deal < ApplicationRecord
   scope :other_than, ->(deal) { where.not(id: deal.id) }
 
   scope :to_be_cleaned_up_on_deal_accepted, ->(accepted_deal) do
-    other_than(completed_deal).pending
+    other_than(accepted_deal).pending
   end
 
   scope :to_be_cleaned_up_on_deal_completed, ->(completed_deal) do
@@ -47,8 +47,8 @@ class Deal < ApplicationRecord
   end
 
   def cancel_other_pending_deals!
-    receiver_record.deals.to_be_cleaned_up_on_deal_accepted.destroy_all
-    requester_record.deals.to_be_cleaned_up_on_deal_accepted.destroy_all
+    receiver_record.deals.to_be_cleaned_up_on_deal_accepted(self).destroy_all
+    requester_record.deals.to_be_cleaned_up_on_deal_accepted(self).destroy_all
   end
 
   def decline
