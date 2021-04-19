@@ -1,9 +1,9 @@
 <nav class="mobile-bottom-nav">
-  <div class="mobile-bottom-nav__item "  id="nav-logo">
-	<%= link_to records_path do %>
-		<%= image_tag("logo_diggerz_full_white.png") %>
+	<%= link_to records_path, class:"mobile-bottom-nav__item", id:"nav-logo" do %>
+  		<div class="mobile-bottom-nav__item-content">
+			<%= image_tag("logo_diggerz_full_white.png") %>
+  		</div>
 	<% end %>
-  </div>	
 
 	<%= link_to records_path, class:"mobile-bottom-nav__item" do %>
 		<div class="mobile-bottom-nav__item-content">

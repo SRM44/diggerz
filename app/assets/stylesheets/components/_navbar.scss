@@ -1,14 +1,13 @@
 
 .mobile-bottom-nav {
 	display:flex;
-	margin-top: 1em;
-	height: 3em;
 	position:fixed;
 	bottom:0;
 	left:0;
 	right:0;
+	margin-top: 1em;
+	height: 4em;
 	z-index:5000;
-	height: 60px;
 	will-change:transform;
 	transform: translateZ(0);
 	box-shadow: 0 -2px 5px -2px #333;
@@ -35,9 +34,8 @@
 
 	#nav-label {
 		display: none;
-		color: $rich-black;
+		color: white;
 		font-size: $small-text;
-		font-weight: $emphase500;
 	}
 
 	#nav-logo {
@@ -78,20 +76,27 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .mobile-bottom-nav {
-	flex-direction: column;
-	align-items: flex-start;
+	height: 60px;
 	margin-top: 0;
-	height: 100%;
-	width: 15em;
-	position: fixed;
 	top: 0;
-	left: 0;
 	z-index: 5000;
-	background-color: transparent;
+	background-color: $rich-black;
+	
+	i {
+		display: none;
+	}
 
+	#nav-logo {
+		display: inline-flex;
+
+		img {
+			width: 100%;
+			height: auto;
+			max-width: 150px;
+		}
+	}
 	
 	&__item {
-		width: 100%;
 		padding-left: 2em;
 		height: 60px;
 		justify-content: flex-start;
@@ -99,47 +104,21 @@
 		text-decoration: none;
 	}
 	
-	i {
-		font-size: 1.5em;
-		color: $rich-black;
-	}
-	
 	#nav-label {
 		display: inline;
 		text-decoration: none;
 		margin-left: 1em;
-		color: $rich-black
+		color: white;
 	}
 	
-	.mobile-bottom-nav__item:hover {
-		-webkit-transition: background-color 0.5s ease;
-    	-moz-transition: background-color 0.5s ease;
-   		-o-transition: background-color 0.5s ease;
-    	transition: background-color 0.5s ease;
-		background-color: $rich-black;
+	#nav-label:hover {
+    	transition: 0.2s ease;
+		color: #979494;
+	}
 
-		i {
-			color: white;
-		}
 
-		#nav-label {
-			color: white;
+		.nav {
+			justify-content: flex-start;
 		}
 	}
-	
-	#nav-logo {
-		display: flex;
-		padding: 1em 1em 1em 0;
-		background-color: $rich-black;
-		height: 100px;
-		margin-bottom: 5em;
-		img {
-			width: 70%;
-		}
-	}
-  }
-
-  .nav {
-	justify-content: flex-start;
-}
 }
