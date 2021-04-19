@@ -9,13 +9,13 @@ class Record < ApplicationRecord
   scope :available_for_user, ->(user) { where.not(user: user)  }
 
   scope :available_for_deals, ->() do
-    pending_deals_records_ids = Deal.
-      pending.
+    accepted_deals_records_ids = Deal.
+      accepted.
       pluck(:receiver_record_id, :requester_record_id).
       flatten.
       uniq
 
-    swappable.where.not(id: pending_deals_records_ids)
+    swappable.where.not(id: accepted_deals_records_ids)
   end
 
   COLUMNS_TO_MATCH_WITH = ['releases.title', 'releases.artist', 'releases.label']
