@@ -1,16 +1,19 @@
 import "bootstrap";
 import "./deal";
 import "./preview_pictures";
+import "./navbar.js"
 
-// listeners
 
-/* document.querySelectorAll(".genre-card-label").forEach((label) => {
-  label.addEventListener("click", (event) => {
-    event.currentTarget.querySelector(".genre-img").classList.toggle("genre-img-active");
-  });
-}); */
+// TO PREVENT DATA LOSS
+/* window.onload = function () {
+  data = localStorage.getItem(data);
+  if (data !== null) document.getElementById("data-saver").value = data; 
+  console.log(data)
+} */
 
-// $(".alert" ).fadeOut(5000);
+
+// ALERT FADE OUT
+$(".alert" ).fadeOut(5000);
 
 // Dynamic nested track form when creating a record
 $('form').on('click', '.remove_record', function(event) {

@@ -5,7 +5,6 @@
 .results-counter {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 1em 1em 0 1em;
 
   h4 {
@@ -38,13 +37,13 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
 
-  .records-wrapper {  
-      padding-left: 15em;
-  }
-
   .records-grid {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .records-grid-wrapper {
+    margin: 1em;
   }
 
   .discover-vinyl-card {
