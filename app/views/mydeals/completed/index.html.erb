@@ -4,8 +4,11 @@
     <div class="mydeals-content-wrapper">
     <%= render 'mydeals/nav', current_path: completed_mydeals_path %>
       <% if @requested_deals.empty? && @received_deals.empty? %>
-        <p>Vous n’avez pas fait d'échange sur Diggerz.</p>
-        <p>Allez donc échanger des disques ;)</p>
+        <div class="mydeals-placeholder-container text-center d-flex flex-column align-items-center">
+          <h2>😿</h2>
+          <p>Tu n'as pas encore fait d'échanges ! <br><br>Ajoutes des disques dans ta collection pour augmenter tes chances </p>
+          <%= link_to "Ajouter un disque", new_release_path, class: 'button-master' %>
+        </div>
       <% else  %>
         <% unless @received_deals.empty? %>
           <h4>Les échanges qui vous ont été proposés</h4>

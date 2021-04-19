@@ -5,7 +5,11 @@
     <%= render 'mydeals/nav', current_path: in_progress_mydeals_path %>
 
       <% if @requested_deals.empty? && @received_deals.empty? %>
-        <p>Vous n’avez pas de deals en cours.</p>
+        <div class="mydeals-placeholder-container text-center d-flex flex-column align-items-center">
+                <h2>🕵️‍♂️</h2>
+                <p>Tu n’as pas de deals en cours.<br><br> N'hésite pas à aller voir les vinyls proposés par la communauté !</p>
+                <%= link_to "Je vais faire un petit tour", records_path, class: 'button-master' %>
+              </div>
       <% else  %>
         <p>Les échanges que vous devez effectuer.</p>
 

@@ -66,13 +66,13 @@ class Deal
       deal.
         requester_record.
         deals.
-        to_be_cleaned_up_on_deal_completion(deal).
+        to_be_cleaned_up_on_deal_completed(deal).
         destroy_all
 
       deal.
         receiver_record.
         deals.
-        to_be_cleaned_up_on_deal_completion(deal).
+        to_be_cleaned_up_on_deal_completed(deal).
         destroy_all
 
     end

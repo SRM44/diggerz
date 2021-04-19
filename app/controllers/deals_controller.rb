@@ -35,9 +35,7 @@ class DealsController < ApplicationController
       flash.notice = "Le deal a été entre temps annulé par #{@deal.requester.username}."
       redirect_to mydeal_path(@deal) and return
     else
-      @deal.accept
-
-      if @deal.save
+      if @deal.accept!
         Deals::Mailers::Requester::Accepted.with(deal: @deal).send_mail.deliver_now
         Deals::Mailers::Receiver::Accepted.with(deal: @deal).send_mail.deliver_now
 
