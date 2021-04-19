@@ -3,12 +3,14 @@ import "./deal";
 import "./preview_pictures";
 import "./navbar.js"
 
+
 // TO PREVENT DATA LOSS
 /* window.onload = function () {
   data = localStorage.getItem(data);
   if (data !== null) document.getElementById("data-saver").value = data; 
   console.log(data)
 } */
+
 
 // ALERT FADE OUT
 $(".alert" ).fadeOut(5000);

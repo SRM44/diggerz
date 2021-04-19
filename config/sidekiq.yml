@@ -9,6 +9,6 @@
   - active_storage_purge
 :schedule:
   schedule_in_progress_reminders:
-    cron: '01 0 * * *'   # Runs daily, at 00:01
+    cron: '0 0 1 * * *' # Every day at 1:00 UTC
     # cron: '* * * * *' # For tests, runs every minute
     class: Deals::InProgress::ScheduleRemindersJob

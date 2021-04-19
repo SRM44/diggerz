@@ -1,8 +1,10 @@
 <div class="profil-container">
   <img src="<%= current_user_avatar_path %>" alt="" class="profil-img">
   <div><%= @user.name %></div>
+  <div><%= @user.username %></div>
   <div><%= @user.location %></div>
   <div><%= @user.email %></div>
+  <div><%= @user.phone_number %></div>
 
   <%= link_to 'Mettre à jour ma localisation', edit_account_location_path, class: 'button-secondary' %>
   <%= link_to 'Mettre à jour mon profil', edit_profile_path, class: 'button-secondary' %>

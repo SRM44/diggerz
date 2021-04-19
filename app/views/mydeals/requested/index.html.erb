@@ -1,11 +1,15 @@
 <div class="mydeals-container records-wrapper">
   <h1 id="mydeals-header">Echanges</h1>
   <div class="mydeals-content-wrapper">
-  <%= render 'mydeals/nav', current_path: requested_mydeals_path %>
+    <%= render 'mydeals/nav', current_path: requested_mydeals_path %>
     <% if @deals.empty? %>
-      <p>Vous n’avez pas de propositions d'échange en attente ;).</p>
+      <div class="mydeals-placeholder-container text-center d-flex flex-column align-items-center">
+        <h2>🙀</h2>
+        <p>Tu n’as pas de propositions d'échange en attente.<br><br> N'hésite pas à aller voir les vinyls proposés par la communauté !</p>
+        <%= link_to "Je vais faire un petit tour", records_path, class: 'button-master' %>
+      </div>
     <% else  %>
-      <p>Les propositions que vous avez faites à d'autres Diggerz.</p>
+      <p>Les propositions que tu as faites à d'autres Diggerz.</p>
       <div class="records-grid">
         <% @deals.each do |deal| %>
           <%= link_to mydeal_path(deal, mydeals_return_url: requested_mydeals_url), class: 'records-content-wrapper' do %>
