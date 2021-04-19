@@ -11,6 +11,7 @@
       </div>
       <div id="record-options" style="display: none;">
         <%= link_to "Modifier", edit_myrecord_release_path(@record, @record.release) %>
+        <%= link_to "Supprimer", myrecord_path(@record, @record.release), method: :delete,  data: { confirm: "Cette action est irréversible, en êtes-vous sûrs ?" } %>
       </div>
       <div class="vinyl-card-details-infos">
         <h3> <%= @record.release.title %> </h3>

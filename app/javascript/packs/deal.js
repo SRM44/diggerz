@@ -38,7 +38,7 @@ function addMyRecord(record) {
     </div>
                    
   `
-          /* <p id="modify-record-btn"> Modifier</p> */
+  /* <p id="modify-record-btn"> Modifier</p> */
 
   if (selectedRecord.lastElementChild) {
     removeRecord();

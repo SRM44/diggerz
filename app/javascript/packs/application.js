@@ -4,11 +4,17 @@ import "./preview_pictures";
 
 // listeners
 
-document.querySelectorAll(".genre-card-label").forEach((label) => {
+window.onload = function () {
+  data = localStorage.getItem(data);
+  if (data !== null) document.getElementById("data-saver").value = data; 
+  console.log(data)
+}
+
+/* document.querySelectorAll(".genre-card-label").forEach((label) => {
   label.addEventListener("click", (event) => {
     event.currentTarget.querySelector(".genre-img").classList.toggle("genre-img-active");
   });
-});
+}); */
 
 // $(".alert" ).fadeOut(5000);
 

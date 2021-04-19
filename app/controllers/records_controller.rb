@@ -20,6 +20,8 @@ class RecordsController < ApplicationController
     query = params.dig(:search, :query)
     if query.present?
       @records = @records.for_query(query)
+    else 
+      @records = @records.all
     end
 
     @location = params.dig(:search, :location)&.upcase || current_user&.location || User::Location.default

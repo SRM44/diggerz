@@ -31,45 +31,43 @@
           <% end %>-->
         </div> 
 
-          <hr class="divider">
-          </hr>
+          <!--<hr class="divider">
+          </hr> -->
 
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
-            <div class="form-field-group form-field ">
+            <div class="form-field-group form-field">
               <%= f.input :first_name,
                           required: true,
                           autofocus: true,
                           placeholder: 'Prénom*',
                           label:false,
-                          input_html: { autocomplete: "email" } %>
+                          input_html: { autocomplete: "email", id: "data-saver" } %>
               <%= f.input :email,
                         required: true,
                         autofocus: true,
                         placeholder: 'Email*',
                         label:false,
-                        input_html: { autocomplete: "email" }%>
+                        input_html: { autocomplete: "email", id: "data-saver" }%>
             </div>
             <div class="form-field">
               <%= f.input :password,
                         required: true,
                         placeholder: 'Mot de passe* (+6 caractères)',
                         label:false,
-                        input_html: { autocomplete: "new-password" } %>
+                        input_html: { autocomplete: "new-password", id: "data-saver" } %>
             </div>
-            <div class="form-field">
+            <div class="form-field" >
               <%= f.input :password_confirmation,
                           required: true,
                           placeholder: 'Confirmes ton mot de passe*',
                           label:false,
-                          input_html: { autocomplete: "new-password" } %>
+                          input_html: { autocomplete: "new-password", id: "data-saver" } %>
             </div>
             <div class="registration-form-ctas">
               <div id="registration-agreement">
-                <%= f.input :accepts_tos, as: :boolean, label: false, error: "Acceptes les conditions générales d'utilisation pour continuer ;)" %>
-                <%= f.label :accepts_tos, style: "margin-bottom: 0;
-
-    margin-left: 0.4em;"  do %>
+                <%= f.input :accepts_tos, as: :boolean, label: false, error: "Accepte les conditions générales d'utilisation pour continuer ;)" %>
+                <%= f.label :accepts_tos, style: "margin-bottom: 0; margin-left: 0.4em;"  do %>
                   J’accepte <a href="#" id="disabled-link">les conditions générales d’utilisation</a>
                 <% end %>
               </div>

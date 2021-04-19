@@ -5,6 +5,7 @@ class Record < ApplicationRecord
   has_many :pictures, dependent: :destroy
 
   scope :swappable,          ->()     { where(swappable: true) }
+  scope :not_swappable,      ->()     { where(swappable: false) }
   scope :available_for_user, ->(user) { where.not(user: user)  }
 
   scope :available_for_deals, ->() do

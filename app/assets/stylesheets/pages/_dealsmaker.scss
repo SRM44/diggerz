@@ -32,10 +32,13 @@
   
 
 .deal_mycollection {
-
     width: 100vw;
     height: 100%;
     padding: 1em;
+
+    .myrecords-card {
+      width: 100%;
+    }
 
     h3 {
         margin-bottom: 2em;

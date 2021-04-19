@@ -1,13 +1,19 @@
 const button = document.getElementById('more-options')
-
-button.addEventListener("click", displayOptions)
+const container = document.getElementById("record-options");
 
 function displayOptions () {
-  const x = document.getElementById("record-options");
-
-  if (x.style.display === "none") {
-    x.style.display = "flex";
+  if (container.style.display === "none") {
+    container.style.display = "flex";
   } else {
-    x.style.display = "none";
+    container.style.display = "none";
   }
-}
+};
+
+
+button.addEventListener("click", displayOptions);
+
+document.addEventListener('mouseup', function(e) {
+  if (!container.contains(e.target)) {
+      container.style.display = 'none';
+  }
+});

@@ -3,12 +3,10 @@
   flex-direction: column;
   align-self: end;
   z-index: 1000;
-  width: 40vw;
-  position: absolute;
-  right: 1em;
-  top: 3em;
-  padding: 0.5rem;
-  font-size: 1rem;
+  position: relative;
+  bottom: 2em;
+  padding: 1em;
+  font-size: 1em;
   list-style: none;
   background-color: #fff;
   border: 1px solid rgba(14,0,0,0.15);

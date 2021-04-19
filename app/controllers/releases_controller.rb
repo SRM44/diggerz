@@ -35,7 +35,7 @@ class ReleasesController < ApplicationController
     end
 
   end
-
+  
   private
 
   def build_release

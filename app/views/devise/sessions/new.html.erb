@@ -29,8 +29,8 @@
             <% end %>
           <% end %> -->
         </div>
-        <hr class="divider">
-        </hr>
+        <!-- <hr class="divider">
+        </hr> -->
 
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -41,7 +41,7 @@
                         autofocus: true,
                         placeholder: 'Email',
                         label:false,
-                        input_html: { autocomplete: "email" } %>
+                        input_html: { autocomplete: "email", id: "data-saver" } %>
           </div>
           <div class="form-field">
             <%= f.input :password,

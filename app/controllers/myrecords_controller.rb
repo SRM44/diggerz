@@ -1,5 +1,5 @@
 class MyrecordsController < ApplicationController
-  skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :import_from_discogs, :toggle_swappable]
+  skip_before_action :redirect_user_without_confirmed_email!, only: [:new, :create, :index, :show, :destroy, :import_from_discogs, :toggle_swappable]
 
   def index
     @myrecords = current_user.records.joins(:release)
@@ -41,6 +41,13 @@ class MyrecordsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @record  = Record.find(params[:id])
+
+    @record.destroy
+    redirect_to myrecords_path, notice: "Disque supprimé !"
+  end 
 
   private
 
