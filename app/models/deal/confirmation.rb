@@ -29,6 +29,7 @@ class Deal
 
         swap_records_owners
         cleanup_both_records_non_completed_deals
+        switch_records_to_not_swappable
       else
         deal.status = "confirmed_by_#{user_context}".to_sym
       end
@@ -41,6 +42,11 @@ class Deal
     end
 
     private
+
+    def switch_records_to_not_swappable
+      deal.receiver_record[:swappable]  = false
+      deal.requester_record[:swappable] = false
+    end
 
     def set_status_changed_timestamp
       deal[status_changed_timestamp_column] = DateTime.current
