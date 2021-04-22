@@ -13,6 +13,25 @@
     }
 }
 
+#modify-record-btn {
+    text-decoration: none;
+    cursor: pointer;
+
+    i  {
+        display: none;
+    }
+
+    div {
+        text-align: center;
+        padding-top: 1em;
+    }
+}
+
+#edit-btn {
+    text-decoration: none;
+    color: $white;
+}
+
 .button-master {
     max-width: 300px;
     min-width: 300px;
@@ -69,20 +88,6 @@
     }
 }
 
-#modify-record-btn {
-    text-decoration: none;
-    cursor: pointer;
-
-    i  {
-        display: none;
-    }
-
-    div {
-        text-align: center;
-        padding-top: 1em;
-    }
-}
-
 .upload-photo {
     border: 1px solid #d3d3d3;
     padding: 16px 24px;
@@ -90,54 +95,25 @@
     font-weight: 500;
     background: white;
     border-radius: 2px;
-  }
+}
 
 .button-secondary {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 300px;
+    margin: 0.5em;
     border-radius: $btn-border-radius;
     height: $btn-height;
-    color: #2C5448;
+    color: $rich-black;
     font-weight: 600;
     line-height: 15px;
-    background: rgba(0, 0, 0, 0.06);
+    background: $rich-black200;
     font-family: $btn-font-family;
     font-size: $btn-font-size;
 }
 
 
-.button-synchroniser {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.sync-button-div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.rounded-lined-btn {
-    margin: 1em 0 1em 0;
-    padding: $piled-btn-padding;
-    height: $btn-height;
-    border-radius: $btn-border-radius;
-    font-family: $btn-font-family;
-    font-size: $btn-font-size;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    transition: all 0.3s ease-in-out;
-    border: 2px solid $tech-house-gray-7;
-    border-radius: $lined-btn-radius;
-    color: $tech-house-gray-7;
-    background-color: transparent;
-}
 
 .vinyl-card-details-index-button {
     display: flex;

@@ -1,13 +1,21 @@
-<div class="profil-container">
-  <img src="<%= current_user_avatar_path %>" alt="" class="profil-img">
-  <div><%= @user.name %></div>
-  <div><%= @user.username %></div>
-  <div><%= @user.location %></div>
-  <div><%= @user.email %></div>
-  <div><%= @user.phone_number %></div>
-
-  <%= link_to 'Mettre à jour ma localisation', edit_account_location_path, class: 'button-secondary' %>
-  <%= link_to 'Mettre à jour mon profil', edit_profile_path, class: 'button-secondary' %>
-  <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: 'button-secondary' %>
-<%#   <div class="button-secondary">Supprimer mon compte</div> %>
+<div class="mydeals-container">
+  <div id="desktop-center">
+    <h1 id="mydeals-header"> Mon profil </h1>
+    <div class="profil-content-wrapper">
+      <div class="profil-content-img">
+        <img src="<%= current_user_avatar_path %>" alt="" class="profil-img">
+        <%= link_to edit_profile_path do %><i class="far fa-edit" id="edit-btn"></i><% end %>
+      </div>
+        <!--<div class="profil-input"><%= @user.location %></div> -->
+      <div class="profil-content-inputs">
+        <div>Mets à jour tes infos pour faciliter la communication lors d'un échange.</div>
+        <div class="profil-input"><%= @user.username %></div>
+        <div class="profil-input"><%= @user.email %></div>
+        <div class="profil-input"><%= @user.phone_number %></div>
+        <%# <%= link_to 'Mettre à jour ma localisation', edit_account_location_path, class: 'button-secondary' %> 
+        <%#   <div class="button-secondary">Supprimer mon compte</div> %>
+      </div>
+      <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %> 
+    </div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  skip_before_action :redirect_user_without_confirmed_email!, only: [:show]
+  skip_before_action :redirect_user_without_confirmed_email!, only: [:show, :edit, :update]
 
   def show
     @user = current_user
@@ -18,6 +18,6 @@ class ProfilesController < ApplicationController
   private
 
   def current_user_params
-    params.require(:user).permit(:name, :username, :email, :phone_number)
+    params.require(:user).permit(:username, :email, :phone_number)
   end
 end

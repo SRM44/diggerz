@@ -29,8 +29,15 @@ recordsCards.forEach(recordCard => {
   })
 
   const close = recordModal.querySelector('#record-close-modal-' + recordCard.dataset.recordId)
+
   close.addEventListener('click', () => {
     undisplay(recordModal);
   })
 
+  // CLOSE MODAL IF CLICK OUTSIDE MODAL
+/*   document.addEventListener('mouseup', function(e) {
+    if (!recordModal.contains(e.target)) {
+      undisplay(recordModal);
+    } 
+   }); */
 })

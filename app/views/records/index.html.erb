@@ -75,9 +75,7 @@
               </div>
 
               <div class="vinyl-card-tracklist">
-                <% if record.release.tracks.empty? %>
-                  <p>Oups ! Pas encore de tracks renseignées ce disque.</p>
-                <% else %>
+                <% if record.release.tracks %>
                 <ul>
                   <li><strong>TRACKLIST</strong></li>
                   <% record.release.tracks.sort_by {|track| track.position }.each do |track| %>
