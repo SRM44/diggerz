@@ -130,13 +130,15 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-    .deal-desktop-container { 
+    /* .deal-desktop-container { 
         width: 100%;
         border-radius: 4px;
-        padding-left: 15em;
         background-color: white;
-    }
+    } */
 
+    .deal-wrapper {
+      margin-top: 60px;
+    }
     .deal-maker-container {
       min-height: 100%;
         max-width: 40%;
