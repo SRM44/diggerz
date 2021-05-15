@@ -47,32 +47,6 @@
 	justify-content: center;
 }
 
-.my-deals-submenu {
-    padding-bottom: 10px;
-    color: $gray;
-	background-color: white;
-	
-    border: none;
-
-    ul {
-        white-space: nowrap;
-    }
-    li {
-        display: flex;
-    }
-    #deals-tab {
-        background: none;
-        border: none;
-        font-weight: 600;
-        font-size: 1, 5em;
-        color: $gray;
-        padding-left: 0;
-        &.active {
-            color: blue;
-        }
-    }
-}
-
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .mobile-bottom-nav {

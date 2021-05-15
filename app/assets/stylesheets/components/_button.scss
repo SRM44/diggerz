@@ -13,6 +13,12 @@
     }
 }
 
+#black-back-arrow-deal {
+    i {
+        color: $rich-black;
+    }
+}
+
 #modify-record-btn {
     text-decoration: none;
     cursor: pointer;
@@ -30,6 +36,11 @@
 #edit-btn {
     text-decoration: none;
     color: $white;
+}
+
+#deal-btn {
+    max-width: 120px;
+    min-width: 120px;
 }
 
 .button-master {
@@ -111,6 +122,15 @@
     background: $rich-black200;
     font-family: $btn-font-family;
     font-size: $btn-font-size;
+}
+
+.button-third {
+    font-family: $btn-font-family;
+    font-size: $btn-font-size;
+    color: $rich-black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 

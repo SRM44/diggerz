@@ -1,8 +1,8 @@
 <div class="flex flex-column p100">
   <div class="md-show-actions-btn flex">
-    <%= link_to "Confirmer", confirm_deal_path(deal), method: :patch, class: "button-master" %>
+    <%= link_to "Annuler", cancel_deal_path(deal), method: :patch, class: "button-third"%>
+    <%= link_to "Confirmer", confirm_deal_path(deal), method: :patch, class: "button-master", id:"deal-btn" %>
 
-    <%= link_to "Annuler", cancel_deal_path(deal), method: :patch, class: "button-secondary" %>
   </div>
-  <p>Vous devez chacun.e confirmer l'échange pour que celui-ci soit effectif ;)</p>
+  <p>Vous devez chacun.e confirmer l'échange pour que celui-ci soit effectif 😎</p>
 </div>

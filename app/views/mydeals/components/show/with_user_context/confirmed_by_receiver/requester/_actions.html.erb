@@ -1,5 +1,5 @@
 <div class="md-show-actions-btn flex">
-  <%= deal.receiver.username %> a confirmé que l'échange a bien eu lieu le <%= deal.confirmed_by_receiver_at %>
+  <%= deal.receiver.username.capitalize %> a confirmé que l'échange a bien eu lieu le <%= deal.confirmed_by_receiver_at %>
   À vous de confirmer aussi !
 
   <%= link_to "Confirmer", confirm_deal_path(deal), method: :patch, class: "button-master" %>

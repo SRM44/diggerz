@@ -26,8 +26,8 @@
         <% end %>
 
         <% unless @requested_deals.empty? %>
-          <h4>Les échanges que vous avez proposés</h4>
 
+          <h4>Les échanges que vous avez proposés</h4>
           <div class="records-grid">
             <% @requested_deals.each do |deal| %>
               <%= link_to mydeal_path(deal, mydeals_return_url: in_progress_mydeals_url), class: 'records-content-wrapper' do %>

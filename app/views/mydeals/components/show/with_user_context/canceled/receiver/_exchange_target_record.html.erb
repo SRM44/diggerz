@@ -1,5 +1,5 @@
 <%= render 'mydeals/components/show/with_user_context/explanation_message', user: record.user do %>
-  <span>Annulé par <%= record.user.username %></span>
+  <span>Annulé par <%= record.user.username.capitalize %></span>
 <% end %>
 
 <%= render 'mydeals/components/show/record', record: record %>

@@ -75,20 +75,32 @@
 
 .show-deal-myrecord-card {
     display: flex;
+    margin: 1em 0em;
 
     img {
         width: 25%;
+        height: 25%;
+        margin-right: 1em;
         border-radius: 2px;
     }
 
-    div {
-        padding: 1em;
+    div > h5 {
+      width: 200px;
+      display: inline-block;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow: ellipsis;
     }
 }
 
 .md-show-actions-btn {
-    margin:1em;
+  padding: 1em 1em 3em 1em;
+  background-color: $grey-100;
+  align-items: center;
+  flex: 1 0 auto;
+  justify-content: space-evenly;
 }
+
 
 
 /* CHECK IF OK */
@@ -139,6 +151,7 @@
     .deal-wrapper {
       margin-top: 60px;
     }
+
     .deal-maker-container {
       min-height: 100%;
         max-width: 40%;
@@ -158,4 +171,18 @@
         width: 100%;
         background-size: contain;
     }
+
+    .md-show-actions-btn {
+      align-items: center;
+      flex: 1 0 auto;
+      justify-content: space-evenly;
+    }
+
+    .show-deal-myrecord-card {
+      div > h5 {
+        width: 300px;
+        overflow:visible;
+        white-space:wrap;
+      }
+  }
 }

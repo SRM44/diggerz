@@ -1,12 +1,8 @@
 /*
-Put records in a nodeList
-For each click on one record
-Check if one record elementSibling within the nodeList that does not contain undisplay class
-Toggle function undisplay on the previous record to close it
-Then toggle undisplay on current clicked element
+If click outsite a record modal, then close the modal
 */
-const recordsCards = document.querySelectorAll('.records-index-card');
 const recordsModals = document.querySelectorAll('.discover-vinyl-card');
+const recordsCards = document.querySelectorAll('.records-index-card');
 
 function undisplay(record) {
   record.classList.toggle('records-undisplay');
@@ -20,24 +16,31 @@ function checkActive(record) {
   })
 }
 
+// CLOSE MODAL IF CLICK OUTSIDE MODAL
+/* document.addEventListener('click', closeActiveModal); 
+
+function closeActiveModal(event) {
+  recordsModals.forEach(modal => {
+    if (!modal.contains(event.currentTarget)) {
+      undisplay(modal);
+      } else {
+
+      }
+  })
+} */
+
+
 recordsCards.forEach(recordCard => {
   const recordModal = document.getElementById('discover-record-modal-' + recordCard.dataset.recordId)
+  const close = recordModal.querySelector('#record-close-modal-' + recordCard.dataset.recordId)
 
-  recordCard.addEventListener('click', (event) => {
+  recordCard.addEventListener('click', () => {
     checkActive(recordModal)
     undisplay(recordModal);
   })
-
-  const close = recordModal.querySelector('#record-close-modal-' + recordCard.dataset.recordId)
 
   close.addEventListener('click', () => {
     undisplay(recordModal);
   })
 
-  // CLOSE MODAL IF CLICK OUTSIDE MODAL
-/*   document.addEventListener('mouseup', function(e) {
-    if (!recordModal.contains(e.target)) {
-      undisplay(recordModal);
-    } 
-   }); */
 })

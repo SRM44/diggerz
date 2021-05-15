@@ -28,9 +28,41 @@
   background-color: white;
     
   .mydeals-placeholder-container {
-      align-items: center;
-      margin-top: 2em;
+    margin-top: 2em;
   }
+
+  h4 {
+      margin: 1.5em 0em;
+  }
+}
+
+.nav .nav-tabs  {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    padding-bottom: 10px;
+	background-color: white;
+    overflow-x: scroll;
+
+    li {
+        display: flex;
+    }
+
+    .nav-link {
+        color: $gray;
+        font-size: 2vh;
+    }
+
+    #deals-tab {
+        background: none;
+        border: none;
+        font-weight: 600;
+        font-size: 1, 5em;
+        padding-left: 0;
+    }
 }
   
 @media (min-width: 992px) {
