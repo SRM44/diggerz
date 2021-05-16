@@ -1,5 +1,5 @@
 <%= render 'mydeals/components/show/with_user_context/explanation_message', user: record.user do %>
-  <span><%= record.user.username.capitalize %> vous a proposé cet échange</span>
+  <span><%= record.user.username %> vous a proposé cet échange</span>
 <% end %>
 
 <%= render 'mydeals/components/show/record', record: record %>

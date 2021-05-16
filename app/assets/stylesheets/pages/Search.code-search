@@ -1,0 +1,69 @@
+# Query: .capitalize
+# ContextLines: 1
+
+13 results - 13 files
+
+app/views/mydeals/components/show/with_user_context/accepted/_contact_cta.html.erb:
+  1  <div class="vd-confirmation-msg">
+  2:   <p>Contacte <strong><%= user.username %></strong> pour organiser un RDV afin d'échanger vos disques ! <br><br>N'oublies pas de clôturer l'échange quand c'est fait.</p>
+  3  </div>
+
+app/views/mydeals/components/show/with_user_context/canceled/receiver/_actions.html.erb:
+  1  <div class="md-show-actions-btn flex">
+  2:   L'échange a été annulé par <%= deal.requester.username %> le <%= deal.canceled_at %>
+  3  </div>
+
+app/views/mydeals/components/show/with_user_context/completed/receiver/_exchange_target_record.html.erb:
+  1  <%= render 'mydeals/components/show/with_user_context/explanation_message', user: record.user do %>
+  2:   <span><%= record.user.username %> vous a proposé cet échange</span>
+  3  <% end %>
+
+app/views/mydeals/components/show/with_user_context/completed/requester/_exchange_target_record.html.erb:
+  1  <%= render 'mydeals/components/show/with_user_context/explanation_message', user: record.user do %>
+  2:   <span>Proposé à <%= record.user.username %></span>
+  3  <% end %>
+
+app/views/mydeals/components/show/with_user_context/confirmed_by_receiver/receiver/_exchange_target_record.html.erb:
+  1  <%= render 'mydeals/components/show/with_user_context/explanation_message', user: record.user do %>
+  2:   <span><%= record.user.username %> vous a proposé cet échange</span>
+  3  <% end %>
+
+app/views/mydeals/components/show/with_user_context/confirmed_by_receiver/requester/_actions.html.erb:
+  1  <div class="md-show-actions-btn flex">
+  2:   <%= deal.receiver.username %> a confirmé que l'échange a bien eu lieu le <%= deal.confirmed_by_receiver_at %>
+  3    À vous de confirmer aussi !
+
+app/views/mydeals/components/show/with_user_context/confirmed_by_receiver/requester/_exchange_target_record.html.erb:
+  1  <%= render 'mydeals/components/show/with_user_context/explanation_message', user: record.user do %>
+  2:   <span>Vous avez proposé cet échange à <%= record.user.username %></span>
+  3  <% end %>
+
+app/views/mydeals/components/show/with_user_context/confirmed_by_requester/receiver/_exchange_target_record.html.erb:
+  1  <%= render 'mydeals/components/show/with_user_context/explanation_message', user: record.user do %>
+  2:   <span><%= record.user.username %> vous a proposé cet échange</span>
+  3  <% end %>
+
+app/views/mydeals/components/show/with_user_context/declined/receiver/_exchange_target_record.html.erb:
+  1  <div class="deal-requester-img">
+  2:   <span><%= record.user.username %> vous a proposé cet échange</span>
+  3    <img src="<%= user_avatar_path(record.user) %>">
+
+app/views/mydeals/components/show/with_user_context/declined/requester/_exchange_target_record.html.erb:
+  1  <div class="deal-requester-img">
+  2:   <span>Vous avez proposé cet échange à <%= record.user.username %></span>
+  3    <img src="<%= user_avatar_path(record.user) %>">
+
+app/views/mydeals/components/show/with_user_context/pending/receiver/_exchange_target_record.html.erb:
+  1  <%= render 'mydeals/components/show/with_user_context/explanation_message', user: record.user do %>
+  2:   <span><%= record.user.username %> vous a proposé cet échange</span>
+  3  <% end %>
+
+app/views/mydeals/components/show/with_user_context/pending/requester/_exchange_target_record.html.erb:
+  1  <%= render 'mydeals/components/show/with_user_context/explanation_message', user: record.user do %>
+  2:   <span>Vous avez proposé cet échange à <%= record.user.username %></span>
+  3  <% end %>
+
+app/views/records/index.html.erb:
+  14        <div>
+  15:         <h1>Vinyles à <%= @location.capitalize %></h1>
+  16        </div>

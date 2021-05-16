@@ -1,5 +1,5 @@
 <%= render 'mydeals/components/show/with_user_context/explanation_message', user: record.user do %>
-  <span>Proposé à <%= record.user.username.capitalize %></span>
+  <span>Proposé à <%= record.user.username %></span>
 <% end %>
 
 <%= render 'mydeals/components/show/record', record: record %>
