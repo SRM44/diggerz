@@ -13,14 +13,13 @@ class RecordsController < ApplicationController
   def index
     @records = Record.
       available_for_deals.
-      available_for_user(current_user).
       joins(release: :genre).
       includes(release: :genre)
 
     query = params.dig(:search, :query)
     if query.present?
       @records = @records.for_query(query)
-    else 
+    else
       @records = @records.all
     end
 
@@ -39,7 +38,14 @@ class RecordsController < ApplicationController
       @records = @records.where(releases: { genres: { name: genres } })
     end
 
+    if user_signed_in?
+      @records      = @records.available_for_user(current_user)
+      @user_records = current_user.records.presence
+    else
+      @user_records = Record.none
+    end
+
     @records_count = @records.length
-    @user_records  = current_user&.records.presence || Record.none
+    @records = @records.order(created_at: :desc)
   end
 end
