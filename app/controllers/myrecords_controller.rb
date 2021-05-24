@@ -8,6 +8,9 @@ class MyrecordsController < ApplicationController
     if query.present?
       @myrecords = @myrecords.for_query(query)
     end
+
+    @my_swappable_records     = @myrecords.swappable
+    @my_not_swappable_records = @myrecords.not_swappable
   end
 
   def show
