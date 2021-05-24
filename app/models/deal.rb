@@ -9,17 +9,21 @@ class Deal < ApplicationRecord
     :completed
   ]
 
+  STATUSES_WHEN_RECORD_UNAVAILABLE_FOR_DEAL = [
+    :accepted,
+    :confirmed_by_requester,
+    :confirmed_by_receiver
+  ]
+
   STATUSES.each do |status|
     scope status, ->() { where(status: status) }
   end
 
   scope :completed_or_canceled, ->() {where(status: [:completed, :canceled])}
+  scope :in_progress,           ->() { where(status: STATUSES_WHEN_RECORD_UNAVAILABLE_FOR_DEAL) }
 
   scope :by_most_recent, ->() { order(created_at: :desc) }
-  scope :in_progress,    ->() { where(status: [:accepted, :confirmed_by_requester, :confirmed_by_receiver]) }
-
-
-  scope :other_than, ->(deal) { where.not(id: deal.id) }
+  scope :other_than,     ->(deal) { where.not(id: deal.id) }
 
   scope :to_be_cleaned_up_on_deal_accepted, ->(accepted_deal) do
     other_than(accepted_deal).pending
