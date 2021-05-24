@@ -9,11 +9,10 @@ function displayOptions () {
   }
 };
 
-
 button.addEventListener("click", displayOptions);
 
 document.addEventListener('mouseup', function(e) {
   if (!container.contains(e.target)) {
-      container.style.display = 'none';
+    container.style.display = 'none';
   }
 });
