@@ -16,6 +16,7 @@ module Deals
       private
 
       def date_brought_forward_by_delay_duration
+        # FIXME : accepted_at is nil in production
         (deal.accepted_at + duration).beginning_of_day
       end
 

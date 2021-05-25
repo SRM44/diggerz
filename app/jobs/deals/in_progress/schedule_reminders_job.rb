@@ -7,7 +7,7 @@ module Deals
         deals_in_progress = Deal.in_progress
 
         deals_in_progress.each do |deal|
-          Deals::Reminders::Notify.new(deal).call
+          Deals::Reminders::NotifyJob.perform_later(deal.id)
         end
       end
     end
