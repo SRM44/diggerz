@@ -58,6 +58,14 @@ class User < ApplicationRecord
     self[:location] || User::Location.available.first
   end
 
+  def admin?
+    [
+      "nfilzi.webservices@gmail.com",
+      "nfilzi@diggerz-user.com",
+      "steven@diggerz.fr"
+    ].include? email
+  end
+
   # def set_default_avatar
   #   <% default_picture = (image_path 'default_profile.png') %>
   #   <%= f.input :avatar, input_html: {value: '#{default_picture}'}, label: false %>
