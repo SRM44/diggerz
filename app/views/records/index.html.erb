@@ -20,7 +20,7 @@
       </div>
 
       <%# <div>Genre</div>
-      <%= select_tag "filters[genres]", options_for_select(Genre.available, params.dig(:filters, :genres)), multiple: true %> 
+      <%= select_tag "filters[genres]", options_for_select(Genre.available, params.dig(:filters, :genres)), multiple: true %>
       <%# <div>Année</div>
       <%= select_tag "filters[years]", options_for_select(Release::Year.available, params.dig(:filters, :years)), multiple: true %>
 
@@ -38,7 +38,7 @@
       <% end %>
     <% end %>
   </div>
-  
+
   <div class="results-counter">
     <%if params.dig(:search, :query).present? %>
       <h3>Recherche pour "<%= params.dig(:search, :query) %>"</h3>
@@ -59,7 +59,7 @@
             <h3><%= record.release.title %></h3>
             <p><%= record.release.artist %></p>
           </div>
-          
+
           <div class="discover-vinyl-card records-undisplay" id="discover-record-modal-<%= record.id %>">
             <div class="records-modals-wrapper" >
               <div class="vinyl-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('<%= record_cover(record) %>')">
@@ -97,7 +97,7 @@
                 <% end %>
               <% else %>
                 <div class="button-master" id="white-btn-master">
-                  <%= link_to 'Demander', new_user_session_path %>
+                  <%= link_to 'Demander', new_user_session_path(record_to_return_to_id: record.id) %>
                 </div>
               <% end %>
             </div>
