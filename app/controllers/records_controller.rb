@@ -40,7 +40,7 @@ class RecordsController < ApplicationController
 
     if user_signed_in?
       @records      = @records.available_for_user(current_user)
-      @user_records = current_user.records.presence
+      @user_records = current_user.records.presence || Record.none
     else
       @user_records = Record.none
     end
