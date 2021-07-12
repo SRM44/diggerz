@@ -19,7 +19,7 @@
         <div id="connexion-form--registration-header">
           <h1>Connexion</h1>
           <h3>Salut toi, on se connaît non ? </h3>
-          <!-- <% if devise_mapping.omniauthable? %>
+          <% if devise_mapping.omniauthable? %>
             <% resource_class.omniauth_providers.each do |provider| %>
               <form  action="<%= omniauth_authorize_path(resource_name, provider) %>" method="POST">
                 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -27,10 +27,10 @@
                 <input class="rounded-lined-btn" type="submit" value="Connexion avec Discogs">
               </form>
             <% end %>
-          <% end %> -->
+          <% end %>
         </div>
-        <!-- <hr class="divider">
-        </hr> -->
+        <hr class="divider">
+        </hr>
 
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
